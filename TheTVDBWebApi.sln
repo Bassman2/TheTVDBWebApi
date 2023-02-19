@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{D1DC9D99-8468-4B6F-860E-FCF7B0363DE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTVDBWebApi70", "Src\TheTVDBWebApi70\TheTVDBWebApi70.csproj", "{CF226873-0A62-42F0-B432-C0F3CAFD8F6F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TheTVDBWebApiShare", "Src\TheTVDBWebApiShare\TheTVDBWebApiShare.shproj", "{936BB719-2110-4D3E-8653-D55D6A9130EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF226873-0A62-42F0-B432-C0F3CAFD8F6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF226873-0A62-42F0-B432-C0F3CAFD8F6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF226873-0A62-42F0-B432-C0F3CAFD8F6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF226873-0A62-42F0-B432-C0F3CAFD8F6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF226873-0A62-42F0-B432-C0F3CAFD8F6F} = {D1DC9D99-8468-4B6F-860E-FCF7B0363DE3}
+		{936BB719-2110-4D3E-8653-D55D6A9130EC} = {D1DC9D99-8468-4B6F-860E-FCF7B0363DE3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {593E72B1-6782-4577-A065-BF25C1BDE166}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Src\TheTVDBWebApiShare\TheTVDBWebApiShare.projitems*{936bb719-2110-4d3e-8653-d55d6a9130ec}*SharedItemsImports = 13
+		Src\TheTVDBWebApiShare\TheTVDBWebApiShare.projitems*{cf226873-0a62-42f0-b432-c0f3cafd8f6f}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal

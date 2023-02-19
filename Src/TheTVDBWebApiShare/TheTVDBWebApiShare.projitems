@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>936bb719-2110-4d3e-8653-d55d6a9130ec</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TheTVDBWebApiShare</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Links.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoginRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoginResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoginResponseData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoviesResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.cs" />
+  </ItemGroup>
+</Project>
