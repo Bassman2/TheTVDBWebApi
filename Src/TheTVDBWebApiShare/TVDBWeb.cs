@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net.Http.Json;
+using System.Net.NetworkInformation;
 
 namespace TheTVDBWebApiShare
 {
-    public class TVDBWeb
+    public class TVDBWeb : IDisposable
     {
         private readonly Uri host = new Uri("https://api4.thetvdb.com/v4");
         private readonly HttpClientHandler handler;
-        private readonly HttpClient client;
+        private HttpClient client;
         private string token;
 
-        public TVDBWeb(string login, string passwordhost)
+        public TVDBWeb()
         {
             // connect
             this.handler = new HttpClientHandler
@@ -27,24 +28,46 @@ namespace TheTVDBWebApiShare
             };
         }
 
+        public TVDBWeb(string apikey, string pin) : this() 
+        {
+            LoginAsync(apikey, pin).Wait();
+        }
+                
+        public void Dispose()
+        {
+            if (this.client != null)
+            {
+                this.client.Dispose();
+                this.client = null;
+            }
+        }
+        
+
         //https://thetvdb.github.io/v4-api/#/Artwork/getArtworkBase
 
-        public void Login(string apikey, string pin)
+        public async Task LoginAsync(string apikey, string pin)
         {
             LoginRequest req = new() { ApiKey = apikey, Pin = pin };
-            using (HttpResponseMessage res = client.PostAsJsonAsync("login", req).Result)
+            using (HttpResponseMessage res = await client.PostAsJsonAsync("login", req))
             {
                 res.EnsureSuccessStatusCode();
-                LoginResponse resp = res.Content.ReadFromJsonAsync<LoginResponse>().Result;
+                LoginResponse resp = await res.Content.ReadFromJsonAsync<LoginResponse>();
                 this.token = resp.Data.Token;
             }
         }
 
         #region Movies
 
-        public List<string> Movies(int pageNumber)
+        public async Task<List<string>> MoviesAsync()
         {
-            client.GetFromJsonAsync<string>($"movies?page={pageNumber}");
+            MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>("movies");
+            return null;
+        }
+
+        public async Task<List<string>> MoviesAsync(int pageNumber)
+        {
+            MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>($"movies?page={pageNumber}");
+            return null;
         }
 
             #endregion

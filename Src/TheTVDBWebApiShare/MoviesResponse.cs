@@ -5,7 +5,7 @@ namespace TheTVDBWebApiShare
     public class MoviesResponse
     {
         [JsonPropertyName("data")]
-        public List<LoginResponseData> Data { get; set; }
+        public List<MoviesResponseData> Data { get; set; }
 
         [JsonPropertyName("status")]
         public string Status { get; set; }
