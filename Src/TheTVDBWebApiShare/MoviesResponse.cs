@@ -1,16 +1,11 @@
-﻿using System.Text.Json.Serialization;
-
-namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApiShare
 {
-    public class MoviesResponse
-    {
-        [JsonPropertyName("data")]
-        public List<MoviesResponseData> Data { get; set; }
+    //public class MoviesResponse : Response
+    //{
+    //    [JsonPropertyName("data")]
+    //    public List<MoviesResponseData> Data { get; set; }
 
-        [JsonPropertyName("status")]
-        public string Status { get; set; }
-
-        [JsonPropertyName("links")]
-        public Links Links { get; set; }
-    }
+    //    [JsonPropertyName("links")]
+    //    public Links Links { get; set; }
+    //}
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Json.Serialization;
-
-namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApiShare
 {
     public class MoviesResponseData
     {

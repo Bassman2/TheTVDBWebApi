@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <RunSettings>
   <TestRunParameters>
-    <Parameter name="ApiKey" value="xxx" />
-    <Parameter name="Pin" value="yyy" />
+    <Parameter name="ApiKey" value="316A760DCC2CCB0E" />
   </TestRunParameters>
 </RunSettings>

@@ -10,13 +10,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Alias.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArtworkStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Links.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)LoginResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)LoginResponseData.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MoviesResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MoviesResponseData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Response.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Directory.Build.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Internal\" />
   </ItemGroup>
 </Project>

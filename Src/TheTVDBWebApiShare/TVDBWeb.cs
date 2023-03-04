@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Net.Http.Json;
-using System.Net.NetworkInformation;
+﻿
+
+using System.Threading;
 
 namespace TheTVDBWebApiShare
 {
     public class TVDBWeb : IDisposable
     {
-        private readonly Uri host = new Uri("https://api4.thetvdb.com/v4");
+        private readonly Uri host = new Uri("https://api4.thetvdb.com");
         private readonly HttpClientHandler handler;
         private HttpClient client;
-        private string token;
+        private JsonSerializerOptions options = new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, IncludeFields = false };
+        //private string token;
 
         public TVDBWeb()
         {
@@ -24,8 +23,13 @@ namespace TheTVDBWebApiShare
             this.client = new HttpClient(this.handler)
             {
                 BaseAddress = this.host,
-                Timeout = new TimeSpan(0, 2, 0)
+                //Timeout = new TimeSpan(0, 2, 0)
             };
+        }
+
+        public TVDBWeb(string apikey) : this()
+        {
+            LoginAsync(apikey).Wait();
         }
 
         public TVDBWeb(string apikey, string pin) : this() 
@@ -41,35 +45,81 @@ namespace TheTVDBWebApiShare
                 this.client = null;
             }
         }
-        
+
 
         //https://thetvdb.github.io/v4-api/#/Artwork/getArtworkBase
 
-        public async Task LoginAsync(string apikey, string pin)
+        public async Task<LoginResponse> LoginAsync(string apikey, string pin = null, CancellationToken cancellationToken = default)
         {
             LoginRequest req = new() { ApiKey = apikey, Pin = pin };
-            using (HttpResponseMessage res = await client.PostAsJsonAsync("login", req))
-            {
-                res.EnsureSuccessStatusCode();
-                LoginResponse resp = await res.Content.ReadFromJsonAsync<LoginResponse>();
-                this.token = resp.Data.Token;
-            }
+            LoginResponse res = await PostAsync<LoginResponse, LoginRequest>("v4/login", req, cancellationToken);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Token);
+            return res;
         }
+
+        #region Artwork
+
+        public async Task<List<ArtworkStatus>> GetArtworkStatusesAsync()
+        {
+            List<ArtworkStatus> resp = await GetAsync<List<ArtworkStatus>>($"v4/artwork/statuses");
+            return resp;
+        }
+
+        #endregion
+
 
         #region Movies
 
-        public async Task<List<string>> MoviesAsync()
+        //public async Task<MoviesResponse> MoviesAsync()
+        //{
+        //    MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>("movies");
+        //    return resp;
+        //}
+
+        //public async Task<MoviesResponse> MoviesAsync(int pageNumber)
+        //{
+        //    MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>($"movies?page={pageNumber}");
+        //    return resp;
+        //}
+
+        public async Task<UserInfo> GetUserInfoAsync()
         {
-            MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>("movies");
-            return null;
+            UserInfo resp = await GetAsync<UserInfo>($"v4/user");
+            return resp;
         }
 
-        public async Task<List<string>> MoviesAsync(int pageNumber)
+        #endregion
+
+        #region Private
+
+        private async Task<TRes> PostAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken = default) where  TRes : class
         {
-            MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>($"movies?page={pageNumber}");
-            return null;
+            using (HttpResponseMessage res = await this.client.PostAsJsonAsync(requestUri, value, this.options, cancellationToken))
+            {
+                Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>();
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new TVDBException(res.StatusCode, resp.Status);
+                }
+
+                return resp.Data;
+            }
         }
 
-            #endregion
+        private async Task<TRes> GetAsync<TRes>(string requestUri, CancellationToken cancellationToken = default) where TRes : class
+        {
+            using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
+            {
+                Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>();
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new TVDBException(res.StatusCode, resp.Status);
+                }
+
+                return resp.Data;
+            }
+        }
+
+        #endregion
     }
 }

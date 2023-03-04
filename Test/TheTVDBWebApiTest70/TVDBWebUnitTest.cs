@@ -1,31 +1,55 @@
-using TheTVDBWebApiShare;
-
 namespace TheTVDBWebApiTest
 {
     [TestClass]
-    public class TVDBWebUnitTest
+    public partial class TVDBWebUnitTest
     {
-        private TestContext TestContext { get; set; }
-        private string apiKey;
-        private string pin;
+        public TestContext TestContext { get; set; }
+        private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
+        private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
 
 
-        public TVDBWebUnitTest()
-        {
-            this.apiKey = TestContext.Properties["ApiKey"].ToString();
-            this.pin    = TestContext.Properties["Pin"].ToString();
-        }
+        //private string apiKey = "xxx";
+        //private string pin;
 
 
-        //[TestInitialize]
+        //public TVDBWebUnitTest()
+        //{
+        //    this.apiKey = TestContext.Properties["ApiKey"].ToString();
+        //    //this.pin = TestContext.Properties["Pin"].ToString();
+        //}
+
 
         [TestMethod]
-        public void TestMethod1()
+        public async Task TestLoginAsync()
         {
-            using (var client = new TVDBWeb(this.apiKey, this.pin))
-            {
+            LoginResponse res;
 
+            using (var client = new TVDBWeb())
+            {
+                res = await client.LoginAsync(apiKey, userKey);
             }
+
+            Assert.IsNotNull(res);
+            Assert.IsFalse(string.IsNullOrEmpty(res.Token));
         }
+
+        //[TestMethod]
+        //public async Task TestMethodGetMoviesAsync()
+        //{
+        //    MoviesResponse res;
+
+        //    using (var client = new TVDBWeb(apiKey, userKey))
+        //    {
+        //        res = await client.MoviesAsync();
+        //    }
+
+        //    Assert.IsNotNull(res);
+        //}
+
+        
+
+
+
+        
     }
 }
