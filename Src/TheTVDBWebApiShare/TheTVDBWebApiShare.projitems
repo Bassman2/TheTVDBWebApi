@@ -27,8 +27,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Response.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MovieExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParentCompany.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProductionCountry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Release.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RemoteID.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TagOption.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Trailer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Movies.cs" />
