@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ArtworkBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArtworkStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AwardBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CompanyRelationShip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Companies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Company.cs" />
@@ -29,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MovieExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParentCompany.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductionCountry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RecordInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Release.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RemoteID.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
