@@ -7,5 +7,8 @@
 
         [JsonPropertyName("status")]
         public string Status { get; set; }
+
+        [JsonPropertyName("links")]
+        public Links Links { get; set; }
     }
 }

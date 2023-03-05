@@ -22,15 +22,15 @@ namespace TheTVDBWebApiTest
         [TestMethod]
         public async Task TestLoginAsync()
         {
-            LoginResponse res;
+            //LoginResponse res;
 
             using (var client = new TVDBWeb())
             {
-                res = await client.LoginAsync(apiKey, userKey);
+                await client.LoginAsync(apiKey, userKey);
             }
 
-            Assert.IsNotNull(res);
-            Assert.IsFalse(string.IsNullOrEmpty(res.Token));
+            //Assert.IsNotNull(res);
+            //Assert.IsFalse(string.IsNullOrEmpty(res.Token));
         }
 
         //[TestMethod]

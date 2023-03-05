@@ -1,10 +1,6 @@
-﻿
-
-using System.Threading;
-
-namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApiShare
 {
-    public class TVDBWeb : IDisposable
+    public partial class TVDBWeb : IDisposable
     {
         private readonly Uri host = new Uri("https://api4.thetvdb.com");
         private readonly HttpClientHandler handler;
@@ -49,50 +45,39 @@ namespace TheTVDBWebApiShare
 
         //https://thetvdb.github.io/v4-api/#/Artwork/getArtworkBase
 
-        public async Task<LoginResponse> LoginAsync(string apikey, string pin = null, CancellationToken cancellationToken = default)
+        public async Task LoginAsync(string apikey, string pin = null, CancellationToken cancellationToken = default)
         {
             LoginRequest req = new() { ApiKey = apikey, Pin = pin };
-            LoginResponse res = await PostAsync<LoginResponse, LoginRequest>("v4/login", req, cancellationToken);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Token);
-            return res;
+            Response<LoginResponse> res = await PostAsync<LoginResponse, LoginRequest>("v4/login", req, cancellationToken);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Data.Token);
         }
 
         #region Artwork
 
-        public async Task<List<ArtworkStatus>> GetArtworkStatusesAsync()
+        public async Task<List<ArtworkStatus>> GetArtworkStatusesAsync(CancellationToken cancellationToken = default)
         {
-            List<ArtworkStatus> resp = await GetAsync<List<ArtworkStatus>>($"v4/artwork/statuses");
-            return resp;
+            Response<List<ArtworkStatus>> resp = await GetAsync<List<ArtworkStatus>>($"v4/artwork/statuses", cancellationToken);
+            return resp.Data;
         }
 
         #endregion
 
+        #region UserInfo
 
-        #region Movies
 
-        //public async Task<MoviesResponse> MoviesAsync()
-        //{
-        //    MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>("movies");
-        //    return resp;
-        //}
 
-        //public async Task<MoviesResponse> MoviesAsync(int pageNumber)
-        //{
-        //    MoviesResponse resp = await client.GetFromJsonAsync<MoviesResponse>($"movies?page={pageNumber}");
-        //    return resp;
-        //}
 
-        public async Task<UserInfo> GetUserInfoAsync()
+        public async Task<UserInfo> GetUserInfoAsync(CancellationToken cancellationToken = default)
         {
-            UserInfo resp = await GetAsync<UserInfo>($"v4/user");
-            return resp;
+            Response<UserInfo> resp = await GetAsync<UserInfo>($"v4/user", cancellationToken);
+            return resp.Data;
         }
 
         #endregion
 
         #region Private
 
-        private async Task<TRes> PostAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken = default) where  TRes : class
+        private async Task<Response<TRes>> PostAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken) where  TRes : class
         {
             using (HttpResponseMessage res = await this.client.PostAsJsonAsync(requestUri, value, this.options, cancellationToken))
             {
@@ -102,11 +87,11 @@ namespace TheTVDBWebApiShare
                     throw new TVDBException(res.StatusCode, resp.Status);
                 }
 
-                return resp.Data;
+                return resp;
             }
         }
 
-        private async Task<TRes> GetAsync<TRes>(string requestUri, CancellationToken cancellationToken = default) where TRes : class
+        private async Task<Response<TRes>> GetAsync<TRes>(string requestUri, CancellationToken cancellationToken) where TRes : class
         {
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
@@ -116,7 +101,7 @@ namespace TheTVDBWebApiShare
                     throw new TVDBException(res.StatusCode, resp.Status);
                 }
 
-                return resp.Data;
+                return resp;
             }
         }
 

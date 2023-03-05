@@ -1,6 +1,6 @@
 ﻿namespace TheTVDBWebApiShare
 {
-    public class LoginRequest
+    internal class LoginRequest
     {
         [JsonPropertyName("apikey")]
         public string ApiKey { get; set; }
