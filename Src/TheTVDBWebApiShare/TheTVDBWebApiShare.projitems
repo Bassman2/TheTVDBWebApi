@@ -10,11 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Alias.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArtworkBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ArtworkStatus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Class1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AwardBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CompanyRelationShip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Companies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Company.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ContentRating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GenreBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Links.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginResponse.cs" />

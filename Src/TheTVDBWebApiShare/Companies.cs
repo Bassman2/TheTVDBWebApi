@@ -3,7 +3,7 @@
     /// <summary>
     /// Companies by type record.
     /// </summary>
-    internal class Companies
+    public class Companies
     {
         /// <summary>
         /// Studio company.
