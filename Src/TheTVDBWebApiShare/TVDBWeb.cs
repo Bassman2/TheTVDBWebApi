@@ -1,13 +1,19 @@
 ﻿namespace TheTVDBWebApiShare
 {
+    /// <summary>
+    /// The TVDB Web API class
+    /// </summary>
+    /// <remarks>https://thetvdb.github.io/v4-api</remarks>
     public partial class TVDBWeb : IDisposable
     {
         private readonly Uri host = new Uri("https://api4.thetvdb.com");
         private readonly HttpClientHandler handler;
         private HttpClient client;
         private JsonSerializerOptions options = new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, IncludeFields = false };
-        //private string token;
 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public TVDBWeb()
         {
             // connect
@@ -23,16 +29,19 @@
             };
         }
 
-        public TVDBWeb(string apikey) : this()
-        {
-            LoginAsync(apikey).Wait();
-        }
-
-        public TVDBWeb(string apikey, string pin) : this() 
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="apikey">ApiKey for login</param>
+        /// <param name="pin">Pin for login.</param>
+        public TVDBWeb(string apikey, string pin = null) : this() 
         {
             LoginAsync(apikey, pin).Wait();
         }
-                
+             
+        /// <summary>
+        /// Dispose connection to web service.
+        /// </summary>
         public void Dispose()
         {
             if (this.client != null)
@@ -42,38 +51,19 @@
             }
         }
 
-
-        //https://thetvdb.github.io/v4-api/#/Artwork/getArtworkBase
-
+        /// <summary>
+        /// Login to the web service
+        /// </summary>
+        /// <param name="apikey">API key for login.</param>
+        /// <param name="pin">PIN for login or null</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         public async Task LoginAsync(string apikey, string pin = null, CancellationToken cancellationToken = default)
         {
             LoginRequest req = new() { ApiKey = apikey, Pin = pin };
             Response<LoginResponse> res = await PostAsync<LoginResponse, LoginRequest>("v4/login", req, cancellationToken);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Data.Token);
         }
-
-        #region Artwork
-
-        public async Task<List<ArtworkStatus>> GetArtworkStatusesAsync(CancellationToken cancellationToken = default)
-        {
-            Response<List<ArtworkStatus>> resp = await GetAsync<List<ArtworkStatus>>($"v4/artwork/statuses", cancellationToken);
-            return resp.Data;
-        }
-
-        #endregion
-
-        #region UserInfo
-
-
-
-
-        public async Task<UserInfo> GetUserInfoAsync(CancellationToken cancellationToken = default)
-        {
-            Response<UserInfo> resp = await GetAsync<UserInfo>($"v4/user", cancellationToken);
-            return resp.Data;
-        }
-
-        #endregion
 
         #region Private
 

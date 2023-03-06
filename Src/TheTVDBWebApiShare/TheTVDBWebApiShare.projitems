@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Companies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Company.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContentRating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Country.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GenreBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
@@ -28,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MovieBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Response.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MovieExtendedRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MoviesFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParentCompany.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductionCountry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RecordInfo.cs" />
@@ -41,8 +43,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)TranslationExtended.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TranslationSimple.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.ArtworkStatuses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Countries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Movies.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.MovieStatuses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.UserInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
