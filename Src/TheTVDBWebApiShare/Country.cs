@@ -6,7 +6,7 @@
     public class Country
     {
         /// <summary>
-        /// Id of the country  record:
+        /// Id of the country record.
         /// </summary>
         [JsonPropertyName("id")]
         public string Id { get; set; }

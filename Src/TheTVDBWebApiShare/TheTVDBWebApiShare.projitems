@@ -31,6 +31,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MovieExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MoviesFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParentCompany.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PeopleType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductionCountry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RecordInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Release.cs" />
@@ -48,6 +49,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Movies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.MovieStatuses.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.PeopleTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.SeriesStatuses.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.UserInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />
   </ItemGroup>

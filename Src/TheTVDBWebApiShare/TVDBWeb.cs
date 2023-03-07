@@ -4,6 +4,7 @@
     /// The TVDB Web API class
     /// </summary>
     /// <remarks>https://thetvdb.github.io/v4-api</remarks>
+    /// <remarks>https://thetvdb.com/dashboard/account/apikey</remarks>
     public partial class TVDBWeb : IDisposable
     {
         private readonly Uri host = new Uri("https://api4.thetvdb.com");
