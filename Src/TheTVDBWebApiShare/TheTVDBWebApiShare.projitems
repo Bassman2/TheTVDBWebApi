@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Company.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContentRating.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Country.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EpisodeBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FinaleType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GenreBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
@@ -36,6 +38,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)RecordInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Release.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RemoteID.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeasonBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeasonType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeriesBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StudioBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TagOption.cs" />
@@ -50,6 +55,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Movies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.MovieStatuses.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.PeopleTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Series.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.SeriesStatuses.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.UserInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />

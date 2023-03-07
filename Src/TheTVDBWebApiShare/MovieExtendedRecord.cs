@@ -51,7 +51,7 @@
         /// Id of the movie.
         /// </summary>
         [JsonPropertyName("id")]
-        public long? Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Uri of a movie image.
@@ -117,7 +117,7 @@
         public List<string> SpokenLanguages { get; set; }
 
         /// <summary>
-        /// Status of the movie
+        /// Status of the movie.
         /// </summary>
         [JsonPropertyName("status")]
         public Status Status { get; set; }
