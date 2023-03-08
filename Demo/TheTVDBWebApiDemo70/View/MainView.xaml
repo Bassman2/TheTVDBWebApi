@@ -1,0 +1,36 @@
+﻿<local:AppView x:Class="TheTVDBWebApiDemo.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
+        mc:Ignorable="d"
+        Title="The TVDB Web Api Demo" Height="450" Width="800">
+    <DockPanel>
+        <TabControl>
+            <TabItem Header="Movies">
+            </TabItem>
+            <TabItem Header="Series">
+            </TabItem>
+            <TabItem Header="Countries">
+                <local:CountriesView/>
+            </TabItem>
+            <TabItem Header="Artwork Statuses">
+                <local:ArtworkStatusesView/>
+            </TabItem>
+            <TabItem Header="Movie Statuses">
+                <local:MovieStatusesView/>
+            </TabItem>
+            <TabItem Header="Series Statuses">
+                <local:SeriesStatusesView/>
+            </TabItem>
+            <TabItem Header="People Types">
+                <local:PeopleTypesView/>
+            </TabItem>
+
+            <TabItem Header="User Info">
+                <local:UserInfoView/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</local:AppView>
