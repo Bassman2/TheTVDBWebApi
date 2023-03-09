@@ -61,6 +61,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SeasonBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SourceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StudioBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TagOption.cs" />
