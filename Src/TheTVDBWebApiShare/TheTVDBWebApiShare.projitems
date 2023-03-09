@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AwardExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AwardNomineeBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Entity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EpisodeExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CompanyRelationShip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Companies.cs" />
@@ -42,6 +43,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ListBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ListExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MovieBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Response.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MovieExtendedRecord.cs" />

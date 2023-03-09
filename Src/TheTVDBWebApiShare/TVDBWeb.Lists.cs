@@ -2,5 +2,86 @@
 {
     public partial class TVDBWeb
     {
+        /// <summary>
+        /// Returns number of episodes base records.
+        /// </summary>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Number of episodes base records.</returns>
+        public async Task<long> GetListsNumAsync(CancellationToken cancellationToken = default)
+        {
+            Response<List<ListBaseRecord>> resp = await GetAsync<List<ListBaseRecord>>("v4/lists?page=0", cancellationToken);
+            return resp.Links.TotalItems;
+        }
+
+        /// <summary>
+        /// Returns list of episodes base records.
+        /// </summary>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List of episodes base records.</returns>
+        public async IAsyncEnumerable<ListBaseRecord> GetListsAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        {
+            string requestUri = "v4/lists?page=0";
+            while (!string.IsNullOrEmpty(requestUri))
+            {
+                Response<List<ListBaseRecord>> resp = await GetAsync<List<ListBaseRecord>>(requestUri, cancellationToken);
+                foreach (var item in resp.Data)
+                {
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        yield break;
+                    }
+                    yield return item;
+                }
+                requestUri = resp.Links.Next;
+            }
+        }
+
+        /// <summary>
+        /// Returns an list base record.
+        /// </summary>
+        /// <param name="id">Id of the list to get.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List base record.</returns>
+        public async Task<ListBaseRecord> GetListAsync(long id, CancellationToken cancellationToken = default)
+        {
+            Response<ListBaseRecord> resp = await GetAsync<ListBaseRecord>($"v4/lists/{id}", cancellationToken);
+            return resp.Data;
+        }
+
+        /// <summary>
+        /// Returns an list base record search by slug.
+        /// </summary>
+        /// <param name="slug">Slug of the list to get.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List base record.</returns>
+        public async Task<ListBaseRecord> GetListBySlugAsync(string slug, CancellationToken cancellationToken = default)
+        {
+            Response<ListBaseRecord> resp = await GetAsync<ListBaseRecord>($"v4/lists/slug/{slug}", cancellationToken);
+            return resp.Data;
+        }
+
+        /// <summary>
+        /// Returns an list extended record.
+        /// </summary>
+        /// <param name="id">Id of the list to get.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List extended record.</returns>
+        public async Task<ListExtendedRecord> GetListExtendedAsync(long id, CancellationToken cancellationToken = default)
+        {
+            Response<ListExtendedRecord> resp = await GetAsync<ListExtendedRecord>($"v4/lists/{id}/extended", cancellationToken);
+            return resp.Data;
+        }
+
+        /// <summary>
+        /// Returns list translation record.
+        /// </summary>
+        /// <param name="id">Id of the list to get.</param>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>List translation record.</returns>
+        public async Task<Translation> GetListTranslationAsync(long id, string language, CancellationToken cancellationToken = default)
+        {
+            Response<Translation> resp = await GetAsync<Translation>($"v4/lists/{id}/translations/{language}", cancellationToken);
+            return resp.Data;
+        }
     }
 }
