@@ -17,7 +17,7 @@
                     this.PeopleTypes = await client.GetPeopleTypesAsync();
                     this.SeriesStatuses = await client.GetSeriesStatusesAsync();
 
-                    this.UserInfo = await client.GetUserInfoAsync();
+                    this.UserInfo = await client.GetCurrentUserInfoAsync();
                 }
             });
         }

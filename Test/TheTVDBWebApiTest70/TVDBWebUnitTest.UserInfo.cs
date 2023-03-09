@@ -9,7 +9,7 @@
 
             using (var client = new TVDBWeb(apiKey, userKey))
             {
-                userInfo = await client.GetUserInfoAsync();
+                userInfo = await client.GetCurrentUserInfoAsync();
             }
 
             Assert.IsNotNull(userInfo);

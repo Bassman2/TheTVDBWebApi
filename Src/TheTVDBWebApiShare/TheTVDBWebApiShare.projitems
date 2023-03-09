@@ -93,6 +93,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Source.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Updates.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.UserInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UpdateAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UpdateType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
