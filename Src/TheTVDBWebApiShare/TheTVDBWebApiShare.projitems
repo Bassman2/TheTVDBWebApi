@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AwardCategoryExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AwardExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AwardNomineeBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Biography.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EpisodeExtendedRecord.cs" />
@@ -49,8 +50,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)MovieExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MoviesFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParentCompany.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PeopleBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PeopleExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PeopleType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductionCountry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Race.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RecordInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Release.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RemoteID.cs" />
