@@ -9,7 +9,7 @@
         /// <returns>List of the active entity types.</returns>
         public async Task<List<EntityType>> GetEntityTypesAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<EntityType>> resp = await GetAsync<List<EntityType>>("v4//entities", cancellationToken);
+            Response<List<EntityType>> resp = await GetAsync<List<EntityType>>("v4/entities", cancellationToken);
             return resp.Data;
         }
     }

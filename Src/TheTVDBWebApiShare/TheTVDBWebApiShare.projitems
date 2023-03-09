@@ -36,6 +36,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)GenreBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InspirationType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Language.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Links.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginResponse.cs" />
