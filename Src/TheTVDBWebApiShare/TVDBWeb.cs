@@ -75,7 +75,7 @@
                 Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>();
                 if (!res.IsSuccessStatusCode)
                 {
-                    throw new TVDBException(res.StatusCode, resp.Status);
+                    throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
                 }
 
                 return resp;
@@ -89,7 +89,7 @@
                 Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>();
                 if (!res.IsSuccessStatusCode)
                 {
-                    throw new TVDBException(res.StatusCode, resp.Status);
+                    throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
                 }
 
                 return resp;

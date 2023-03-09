@@ -23,6 +23,10 @@
         [JsonPropertyName("thumbnail")]
         public string thumbnail { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>The artwork type corresponds to the ids from the /artwork/types endpoint.</remarks>
         [JsonPropertyName("type")]
         public long Type { get; set; }
 
