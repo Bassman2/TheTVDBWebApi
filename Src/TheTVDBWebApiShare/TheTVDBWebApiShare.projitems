@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AwardExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AwardNomineeBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EpisodeExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CompanyRelationShip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Companies.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Company.cs" />

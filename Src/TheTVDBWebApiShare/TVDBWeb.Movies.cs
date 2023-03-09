@@ -24,13 +24,13 @@
             while (!string.IsNullOrEmpty(requestUri)) 
             {
                 Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>(requestUri, cancellationToken);
-                foreach (MovieBaseRecord movie in resp.Data)
+                foreach (MovieBaseRecord item in resp.Data)
                 {
                     if (cancellationToken.IsCancellationRequested)
                     {
                         yield break;
                     }
-                    yield return movie;
+                    yield return item;
                 }
                 requestUri = resp.Links.Next;
             }  
