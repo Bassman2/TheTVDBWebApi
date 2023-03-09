@@ -29,7 +29,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Country.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EpisodeBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FavoriteRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Favorites.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FinaleType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Gender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GenreBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
