@@ -1,4 +1,6 @@
-﻿namespace TheTVDBWebApiShare
+﻿using System.Collections.Generic;
+
+namespace TheTVDBWebApiShare
 {
     public partial class TVDBWeb
     {
@@ -20,8 +22,11 @@
         /// <returns>List of movie base records.</returns>
         public async IAsyncEnumerable<MovieBaseRecord> GetMoviesAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
+            //return await GetLongListAsync<MovieBaseRecord>("v4/movies", cancellationToken);
+
+
             string requestUri = "v4/movies?page=0";
-            while (!string.IsNullOrEmpty(requestUri)) 
+            while (!string.IsNullOrEmpty(requestUri))
             {
                 Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>(requestUri, cancellationToken);
                 foreach (MovieBaseRecord item in resp.Data)
@@ -33,8 +38,22 @@
                     yield return item;
                 }
                 requestUri = resp.Links.Next;
-            }  
+            }
         }
+
+        public IAsyncEnumerable<MovieBaseRecord> GetMoviesXAsync(CancellationToken cancellationToken = default)
+        {
+            return GetLongListAsync<MovieBaseRecord>("v4/movies", cancellationToken);
+            //IAsyncEnumerable<MovieBaseRecord> x = GetLongListAsync<MovieBaseRecord>("v4/movies", cancellationToken);
+
+            
+            ////return await x.GetAsyncEnumerator(cancellationToken);
+            //await foreach (var i in x)
+            //{
+            //    yield return i;
+            //}
+        }
+
 
         /// <summary>
         /// Returns movie base record.

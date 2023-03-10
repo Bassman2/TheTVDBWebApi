@@ -96,6 +96,39 @@
             }
         }
 
+        public async Task<long> GetNumAsync(string requestUri, CancellationToken cancellationToken = default)
+        {
+            requestUri = $"{requestUri}?page=0";
+            using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
+            {
+                Response resp = await res.Content.ReadFromJsonAsync<Response>();
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                }
+
+                return resp.Links.TotalItems;
+            }
+        }
+
+        public async IAsyncEnumerable<T> GetLongListAsync<T>(string requestUri, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+        {
+            requestUri = $"{requestUri}?page=0";
+            while (!string.IsNullOrEmpty(requestUri))
+            {
+                Response<List<T>> resp = await GetAsync<List<T>>(requestUri, cancellationToken);
+                foreach (T serie in resp.Data)
+                {
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        yield break;
+                    }
+                    yield return serie;
+                }
+                requestUri = resp.Links.Next;
+            }
+        }
+
         #endregion
     }
 }

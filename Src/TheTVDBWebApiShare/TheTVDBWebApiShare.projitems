@@ -58,6 +58,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)RecordInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Release.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RemoteID.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SearchByRemoteIdResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SearchFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SearchResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesBaseRecord.cs" />
