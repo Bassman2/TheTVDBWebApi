@@ -1,10 +1,19 @@
 ﻿namespace TheTVDBWebApiShare
 {
     /// <summary>
-    /// Season base record.
+    /// Extended season record.
     /// </summary>
-    public class SeasonBaseRecord
+    public class SeasonExtendedRecord
     {
+        [JsonPropertyName("artwork")]
+        public List<ArtworkBaseRecord> Artwork { get; set; }
+
+        [JsonPropertyName("companies")]
+        public List<Companies> Companies { get; set; }
+
+        [JsonPropertyName("episodes")]
+        public List<EpisodeBaseRecord> Episodes { get; set; }
+
         /// <summary>
         /// Id of the season.
         /// </summary>
@@ -40,15 +49,21 @@
 
         [JsonPropertyName("overviewTranslations")]
         public List<string> OverviewTranslations { get; set; }
-
-        [JsonPropertyName("companies")]
-        public Companies Companies { get; set; }
-
+        
         [JsonPropertyName("seriesId")]
         public long SeriesId { get; set; }
 
+        [JsonPropertyName("trailers")]
+        public List<Trailer> Trailers { get; set; }
+
         [JsonPropertyName("type")]
         public SeasonType Type { get; set; }
+
+        [JsonPropertyName("tagOptions")]
+        public List<TagOption> TagOptions { get; set; }
+
+        [JsonPropertyName("translations")]
+        public List<Translation> Translations { get; set; }
 
         /// <summary>
         /// Year of the season.

@@ -68,7 +68,7 @@ namespace TheTVDBWebApiShare
         }
 
         /// <summary>
-        /// Returns movie base record.
+        /// Returns movie extended record.
         /// </summary>
         /// <param name="id">Id of the movie to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -122,9 +122,9 @@ namespace TheTVDBWebApiShare
         /// <param name="language">Lanuage of the translations.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Translation record.</returns>
-        public async Task<Translation> GetMovieTranslationAsync(string movieId, string language, CancellationToken cancellationToken = default)
+        public async Task<Translation> GetMovieTranslationAsync(string id, string language, CancellationToken cancellationToken = default)
         {
-            Response<Translation> resp = await GetAsync<Translation>($"v4/movies/{movieId}/translations/{language}", cancellationToken);
+            Response<Translation> resp = await GetAsync<Translation>($"v4/movies/{id}/translations/{language}", cancellationToken);
             return resp.Data;
         }
 

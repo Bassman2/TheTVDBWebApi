@@ -3,14 +3,13 @@
     public partial class TVDBWeb
     {
         /// <summary>
-        /// Returns number of series base records.
+        /// Returns number of series.
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns>Number of series base records.</returns>
+        /// <returns>Number of series.</returns>
         public async Task<long> GetSeriesNumAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>("v4/series?page=0", cancellationToken);
-            return resp.Links.TotalItems;
+            return await GetNumAsync("v4/series", cancellationToken);
         }
 
         /// <summary>

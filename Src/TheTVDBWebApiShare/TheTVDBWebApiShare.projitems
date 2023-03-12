@@ -62,6 +62,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SearchFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SearchResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeasonExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SourceType.cs" />

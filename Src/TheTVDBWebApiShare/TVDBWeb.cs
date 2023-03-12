@@ -1,4 +1,6 @@
-﻿namespace TheTVDBWebApiShare
+﻿using System.Net.Http.Json;
+
+namespace TheTVDBWebApiShare
 {
     /// <summary>
     /// The TVDB Web API class
@@ -72,7 +74,7 @@
         {
             using (HttpResponseMessage res = await this.client.PostAsJsonAsync(requestUri, value, this.options, cancellationToken))
             {
-                Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>();
+                Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
                 if (!res.IsSuccessStatusCode)
                 {
                     throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
@@ -86,7 +88,7 @@
         {
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
-                Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>();
+                Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
                 if (!res.IsSuccessStatusCode)
                 {
                     throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
@@ -96,12 +98,26 @@
             }
         }
 
+        private async Task<TRes> GetDataAsync<TRes>(string requestUri, CancellationToken cancellationToken) where TRes : class
+        {
+            using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
+            {
+                Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                }
+
+                return resp.Data;
+            }
+        }
+
         public async Task<long> GetNumAsync(string requestUri, CancellationToken cancellationToken = default)
         {
             requestUri = $"{requestUri}?page=0";
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
-                Response resp = await res.Content.ReadFromJsonAsync<Response>();
+                Response resp = await res.Content.ReadFromJsonAsync<Response>(options, cancellationToken);
                 if (!res.IsSuccessStatusCode)
                 {
                     throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
