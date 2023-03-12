@@ -101,6 +101,7 @@
         [RelayCommand]
         public virtual async Task OnStartup()
         {
+            await Task.Run(() => { });
             //if (Application.Current == null)
             //{
             //    // for testing
