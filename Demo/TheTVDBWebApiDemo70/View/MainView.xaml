@@ -9,6 +9,7 @@
     <DockPanel>
         <TabControl>
             <TabItem Header="Movies">
+                <local:MoviesView/>
             </TabItem>
             <TabItem Header="Series">
             </TabItem>

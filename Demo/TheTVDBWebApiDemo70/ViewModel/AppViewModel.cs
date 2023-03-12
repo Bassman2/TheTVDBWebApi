@@ -99,17 +99,17 @@
         #region command methods
 
         [RelayCommand]
-        public virtual void OnStartup()
+        public virtual async Task OnStartup()
         {
-            if (Application.Current == null)
-            {
-                // for testing
-                OnActivate();
-            }
-            else
-            {
-                Application.Current.Dispatcher.BeginInvoke(new Action(() => OnActivate()), DispatcherPriority.ContextIdle, null);
-            }
+            //if (Application.Current == null)
+            //{
+            //    // for testing
+            //    OnActivate();
+            //}
+            //else
+            //{
+            //    Application.Current.Dispatcher.BeginInvoke(new Action(() => OnActivate()), DispatcherPriority.ContextIdle, null);
+            //}
         }
 
         //[RelayCommand]

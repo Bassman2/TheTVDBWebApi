@@ -86,7 +86,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Countries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Entity.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Favorites.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Genders.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Genres.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Inspiration.cs" />
@@ -100,7 +99,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Seasons.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Source.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Updates.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.UserInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UpdateAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UpdateType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />

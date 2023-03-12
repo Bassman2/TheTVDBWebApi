@@ -18,7 +18,7 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of people base records with the basic attributes.</returns>
-        public async IAsyncEnumerable<PeopleBaseRecord> GetPeoplesAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public async IAsyncEnumerable<PeopleBaseRecord> GetPeopleAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
         {
             string requestUri = "v4/people?page=0";
             while (!string.IsNullOrEmpty(requestUri))
