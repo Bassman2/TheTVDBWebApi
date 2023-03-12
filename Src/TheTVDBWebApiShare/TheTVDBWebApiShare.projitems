@@ -64,7 +64,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)SeasonBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeriesAirsDays.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeriesExtendedRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeriesFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SortType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SourceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StudioBaseRecord.cs" />
