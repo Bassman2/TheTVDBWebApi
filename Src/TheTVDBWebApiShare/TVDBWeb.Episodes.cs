@@ -17,22 +17,9 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of episodes base records.</returns>
-        public async IAsyncEnumerable<EpisodeBaseRecord> GetEpisodesAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<EpisodeBaseRecord> GetEpisodesAsync(CancellationToken cancellationToken = default)
         {
-            string requestUri = "v4/episodes?page=0";
-            while (!string.IsNullOrEmpty(requestUri))
-            {
-                Response<List<EpisodeBaseRecord>> resp = await GetAsync<List<EpisodeBaseRecord>>(requestUri, cancellationToken);
-                foreach (EpisodeBaseRecord item in resp.Data)
-                {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        yield break;
-                    }
-                    yield return item;
-                }
-                requestUri = resp.Links.Next;
-            }
+            return GetLongListAsync<EpisodeBaseRecord>("v4/episodes", cancellationToken);
         }
 
         /// <summary>

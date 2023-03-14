@@ -19,22 +19,9 @@ namespace TheTVDBWebApiShare
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of series base records.</returns>
-        public async IAsyncEnumerable<SeriesBaseRecord> GetSeriesAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<SeriesBaseRecord> GetSeriesAsync(CancellationToken cancellationToken = default)
         {
-            string requestUri = "v4/series?page=0";
-            while (!string.IsNullOrEmpty(requestUri))
-            {
-                Response<List<SeriesBaseRecord>> resp = await GetAsync<List<SeriesBaseRecord>>(requestUri, cancellationToken);
-                foreach (SeriesBaseRecord serie in resp.Data)
-                {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        yield break;
-                    }
-                    yield return serie;
-                }
-                requestUri = resp.Links.Next;
-            }
+            return GetLongListAsync<SeriesBaseRecord>($"v4/series", cancellationToken);
         }
 
         /// <summary>

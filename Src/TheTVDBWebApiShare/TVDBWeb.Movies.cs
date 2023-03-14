@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApiShare
 {
     public partial class TVDBWeb
     {
@@ -19,41 +17,11 @@ namespace TheTVDBWebApiShare
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of movie base records.</returns>
-        public async IAsyncEnumerable<MovieBaseRecord> GetMoviesAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
-        {
-            //return await GetLongListAsync<MovieBaseRecord>("v4/movies", cancellationToken);
-
-
-            string requestUri = "v4/movies?page=0";
-            while (!string.IsNullOrEmpty(requestUri))
-            {
-                Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>(requestUri, cancellationToken);
-                foreach (MovieBaseRecord item in resp.Data)
-                {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        yield break;
-                    }
-                    yield return item;
-                }
-                requestUri = resp.Links.Next;
-            }
-        }
-
-        public IAsyncEnumerable<MovieBaseRecord> GetMoviesXAsync(CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<MovieBaseRecord> GetMoviesAsync(CancellationToken cancellationToken = default)
         {
             return GetLongListAsync<MovieBaseRecord>("v4/movies", cancellationToken);
-            //IAsyncEnumerable<MovieBaseRecord> x = GetLongListAsync<MovieBaseRecord>("v4/movies", cancellationToken);
-
-            
-            ////return await x.GetAsyncEnumerator(cancellationToken);
-            //await foreach (var i in x)
-            //{
-            //    yield return i;
-            //}
         }
-
-
+        
         /// <summary>
         /// Returns movie base record.
         /// </summary>
@@ -82,22 +50,9 @@ namespace TheTVDBWebApiShare
         /// <param name="filter">Search filter.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of movie base records.</returns>
-        public async IAsyncEnumerable<MovieBaseRecord> GetMoviesFilterAsync(MoviesFilter filter, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<MovieBaseRecord> GetMoviesFilterAsync(MoviesFilter filter, CancellationToken cancellationToken = default)
         {
-            string requestUri = $"v4/movies/filter?{filter.Parameter}";
-            while (!string.IsNullOrEmpty(requestUri))
-            {
-                Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>(requestUri, cancellationToken);
-                foreach (MovieBaseRecord movie in resp.Data)
-                {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        yield break;
-                    }
-                    yield return movie;
-                }
-                requestUri = resp.Links.Next;
-            }
+            return GetLongListAsync<MovieBaseRecord>($"v4/movies/filter?{filter.Parameter}", cancellationToken);
         }
 
         /// <summary>

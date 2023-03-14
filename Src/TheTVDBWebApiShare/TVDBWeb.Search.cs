@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApiShare
 {
     public partial class TVDBWeb
     {
@@ -10,22 +8,9 @@ namespace TheTVDBWebApiShare
         /// <param name="filter">Search filter.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Search result.</returns>
-        public async IAsyncEnumerable<SearchResult> GetSearchAsync(SearchFilter filter, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<SearchResult> GetSearchAsync(SearchFilter filter, CancellationToken cancellationToken = default)
         {
-            string requestUri = $"v4/search?{filter.Parameter}";
-            while (!string.IsNullOrEmpty(requestUri))
-            {
-                Response<List<SearchResult>> resp = await GetAsync<List<SearchResult>>(requestUri, cancellationToken);
-                foreach (var res in resp.Data)
-                {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        yield break;
-                    }
-                    yield return res;
-                }
-                requestUri = resp.Links.Next;
-            }
+            return GetLongListAsync<SearchResult>($"v4/search?{filter.Parameter}", cancellationToken);
         }
 
         /// <summary>

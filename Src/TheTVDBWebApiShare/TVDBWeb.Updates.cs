@@ -23,22 +23,9 @@
         /// <param name="action">Update actions.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of movie base records.</returns>
-        public async IAsyncEnumerable<MovieBaseRecord> GetUpdatesAsync(int since, UpdateType type, UpdateAction action, [EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<MovieBaseRecord> GetUpdatesAsync(int since, UpdateType type, UpdateAction action, CancellationToken cancellationToken = default)
         {
-            string requestUri = "v4/updates?since={since}&type={type}&action={action}&page=0";
-            while (!string.IsNullOrEmpty(requestUri))
-            {
-                Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>(requestUri, cancellationToken);
-                foreach (MovieBaseRecord item in resp.Data)
-                {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        yield break;
-                    }
-                    yield return item;
-                }
-                requestUri = resp.Links.Next;
-            }
+            return GetLongListAsync<MovieBaseRecord>($"v4/updates?since={since}&type={type}&action={action}", cancellationToken);
         }
     }
 }

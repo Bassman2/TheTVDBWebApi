@@ -17,22 +17,9 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of seasons base records.</returns>
-        public async IAsyncEnumerable<SeasonBaseRecord> GetSeasonsAsync([EnumeratorCancellation] CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<SeasonBaseRecord> GetSeasonsAsync(CancellationToken cancellationToken = default)
         {
-            string requestUri = "v4/seasons?page=0";
-            while (!string.IsNullOrEmpty(requestUri))
-            {
-                Response<List<SeasonBaseRecord>> resp = await GetAsync<List<SeasonBaseRecord>>(requestUri, cancellationToken);
-                foreach (var item in resp.Data)
-                {
-                    if (cancellationToken.IsCancellationRequested)
-                    {
-                        yield break;
-                    }
-                    yield return item;
-                }
-                requestUri = resp.Links.Next;
-            }
+            return GetLongListAsync<SeasonBaseRecord>($"v4/seasons", cancellationToken);
         }
 
         /// <summary>
