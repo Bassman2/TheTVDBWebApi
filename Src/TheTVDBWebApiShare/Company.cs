@@ -45,7 +45,7 @@
         public List<string> OverviewTranslations { get; set; }
 
         [JsonPropertyName("primaryCompanyType")]
-        public long? PrimaryCompanyType { get; set; }
+        public long PrimaryCompanyType { get; set; }
 
         [JsonPropertyName("slug")]
         public string Slug { get; set; }

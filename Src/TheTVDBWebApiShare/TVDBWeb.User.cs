@@ -9,8 +9,7 @@
         /// <returns>User info.</returns>
         public async Task<UserInfo> GetUserInfoAsync(CancellationToken cancellationToken = default)
         {
-            Response<UserInfo> resp = await GetAsync<UserInfo>("v4/user", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<UserInfo>("v4/user", cancellationToken);
         }
 
         /// <summary>
@@ -21,8 +20,7 @@
         /// <returns>User info.</returns>
         public async Task<UserInfo> GetUserInfoAsync(int id, CancellationToken cancellationToken = default)
         {
-            Response<UserInfo> resp = await GetAsync<UserInfo>($"v4/user/{id}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<UserInfo>($"v4/user/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -30,10 +28,9 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of user favorites.</returns>
-        public async Task<List<Favorites>> GetUserFavoritesAsync(CancellationToken cancellationToken = default)
+        public async Task<Favorites> GetUserFavoritesAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<Favorites>> resp = await GetAsync<List<Favorites>>("v4/user/favorites", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<Favorites>("v4/user/favorites", cancellationToken);
         }
 
 

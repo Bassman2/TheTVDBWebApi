@@ -9,8 +9,7 @@
         /// <returns>List of country records.</returns>
         public async Task<List<Country>> GetCountriesAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<Country>> resp = await GetAsync<List<Country>>("v4/countries", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<Country>>("v4/countries", cancellationToken);
         }
     }
 }

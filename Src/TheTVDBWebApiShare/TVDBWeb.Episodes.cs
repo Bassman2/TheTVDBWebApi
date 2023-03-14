@@ -9,8 +9,7 @@
         /// <returns>Number of episodes base records.</returns>
         public async Task<long> GetEpisodesNumAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<EpisodeBaseRecord>> resp = await GetAsync<List<EpisodeBaseRecord>>("v4/episodes?page=0", cancellationToken);
-            return resp.Links.TotalItems;
+            return await GetNumAsync("v4/episodes", cancellationToken);
         }
 
         /// <summary>
@@ -44,8 +43,7 @@
         /// <returns>Episode base record.</returns>
         public async Task<EpisodeBaseRecord> GetEpisodeAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<EpisodeBaseRecord> resp = await GetAsync<EpisodeBaseRecord>($"v4/episodes/{id}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<EpisodeBaseRecord>($"v4/episodes/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -56,8 +54,7 @@
         /// <returns>Movie extended record.</returns>
         public async Task<EpisodeExtendedRecord> GetEpisodeExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<EpisodeExtendedRecord> resp = await GetAsync<EpisodeExtendedRecord>($"v4/episodes/{id}/extended", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<EpisodeExtendedRecord>($"v4/episodes/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -68,8 +65,7 @@
         /// <returns>Episode translation record.</returns>
         public async Task<Translation> GetEpisodeTranslationAsync(long id, string language, CancellationToken cancellationToken = default)
         {
-            Response<Translation> resp = await GetAsync<Translation>($"v4/episodes/{id}/translations/{language}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<Translation>($"v4/episodes/{id}/translations/{language}", cancellationToken);
         }
     }
 }

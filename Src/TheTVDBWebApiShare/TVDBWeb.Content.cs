@@ -9,8 +9,7 @@
         /// <returns>List of content rating records.</returns>
         public async Task<List<ContentRating>> GetContentRatingsAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<ContentRating>> resp = await GetAsync<List<ContentRating>>("v4/content/ratings", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<ContentRating>>("v4/content/ratings", cancellationToken);
         }
     }
 }

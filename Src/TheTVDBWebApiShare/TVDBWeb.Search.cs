@@ -36,8 +36,7 @@ namespace TheTVDBWebApiShare
         /// <returns>Search by remote reuslt is a base record for a movie, series, people, season or company search result.</returns>
         public async Task<List<SearchByRemoteIdResult>> GetSearchAsync(string remoteId, CancellationToken cancellationToken = default)
         {
-            Response<List<SearchByRemoteIdResult>> resp = await GetAsync<List<SearchByRemoteIdResult>>($"v4/search/remoteid/{remoteId}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<SearchByRemoteIdResult>>($"v4/search/remoteid/{remoteId}", cancellationToken);
         }
     }
 }

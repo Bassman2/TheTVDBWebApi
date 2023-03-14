@@ -9,8 +9,7 @@
         /// <returns>Number of people.</returns>
         public async Task<long> GetPeoplesNumAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<PeopleBaseRecord>> resp = await GetAsync<List<PeopleBaseRecord>>("v4/people?page=0", cancellationToken);
-            return resp.Links.TotalItems;
+            return await GetNumAsync("v4/people", cancellationToken);
         }
 
         /// <summary>
@@ -44,8 +43,7 @@
         /// <returns>People base record.</returns>
         public async Task<PeopleBaseRecord> GetPeopleAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<PeopleBaseRecord> resp = await GetAsync<PeopleBaseRecord>($"v4/people/{id}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<PeopleBaseRecord>($"v4/people/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -56,8 +54,7 @@
         /// <returns>People extended record.</returns>
         public async Task<PeopleExtendedRecord> GetPeopleExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<PeopleExtendedRecord> resp = await GetAsync<PeopleExtendedRecord>($"v4/people/{id}/extended", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<PeopleExtendedRecord>($"v4/people/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -69,8 +66,7 @@
         /// <returns>Translation record.</returns>
         public async Task<Translation> GetPeopleTranslationAsync(string Id, string language, CancellationToken cancellationToken = default)
         {
-            Response<Translation> resp = await GetAsync<Translation>($"v4/people/{Id}/translations/{language}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<Translation>($"v4/people/{Id}/translations/{language}", cancellationToken);
         }
 
         /// <summary>
@@ -80,8 +76,7 @@
         /// <returns>List of people type records</returns>
         public async Task<List<PeopleType>> GetPeopleTypesAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<PeopleType>> resp = await GetAsync<List<PeopleType>>($"v4/people/types", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<PeopleType>>($"v4/people/types", cancellationToken);
         }
     }
 }

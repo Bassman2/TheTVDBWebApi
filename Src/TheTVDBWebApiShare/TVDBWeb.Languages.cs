@@ -9,8 +9,7 @@
         /// <returns>List of language records.</returns>
         public async Task<List<Language>> GetLanguagesAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<Language>> resp = await GetAsync<List<Language>>("v4/languages", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<Language>>("v4/languages", cancellationToken);
         }
     }
 }

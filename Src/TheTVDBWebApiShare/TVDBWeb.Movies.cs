@@ -11,8 +11,7 @@ namespace TheTVDBWebApiShare
         /// <returns>Number of movie base records.</returns>
         public async Task<long> GetMoviesNumAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>("v4/movies?page=0", cancellationToken);
-            return resp.Links.TotalItems;
+            return await GetNumAsync("v4/movies", cancellationToken);
         }
 
         /// <summary>
@@ -63,8 +62,7 @@ namespace TheTVDBWebApiShare
         /// <returns>Movie base record.</returns>
         public async Task<MovieBaseRecord> GetMovieAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<MovieBaseRecord> resp = await GetAsync<MovieBaseRecord>($"v4/movies/{id}", cancellationToken);
-            return resp.Data;            
+            return await GetDataAsync<MovieBaseRecord>($"v4/movies/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -75,8 +73,7 @@ namespace TheTVDBWebApiShare
         /// <returns>Movie extended record.</returns>
         public async Task<MovieExtendedRecord> GetMovieExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<MovieExtendedRecord> resp = await GetAsync<MovieExtendedRecord>($"v4/movies/{id}/extended", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<MovieExtendedRecord>($"v4/movies/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -111,8 +108,7 @@ namespace TheTVDBWebApiShare
         /// <returns>Movie base record.</returns>
         public async Task<MovieBaseRecord> GetMovieSlugAsync(string slug, CancellationToken cancellationToken = default)
         {
-            Response<MovieBaseRecord> resp = await GetAsync<MovieBaseRecord>($"v4/movies/slug/{slug}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<MovieBaseRecord>($"v4/movies/slug/{slug}", cancellationToken);
         }
 
         /// <summary>
@@ -124,8 +120,7 @@ namespace TheTVDBWebApiShare
         /// <returns>Translation record.</returns>
         public async Task<Translation> GetMovieTranslationAsync(string id, string language, CancellationToken cancellationToken = default)
         {
-            Response<Translation> resp = await GetAsync<Translation>($"v4/movies/{id}/translations/{language}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<Translation>($"v4/movies/{id}/translations/{language}", cancellationToken);
         }
 
         /// <summary>
@@ -135,8 +130,7 @@ namespace TheTVDBWebApiShare
         /// <returns>List of status records.</returns>
         public async Task<List<Status>> GetMovieStatusesAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<Status>> resp = await GetAsync<List<Status>>($"v4/movies/statuses", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<Status>>($"v4/movies/statuses", cancellationToken);
         }
     }
 }

@@ -17,8 +17,12 @@
         [JsonPropertyName("airsBeforeSeason")]
         public int AirsBeforeSeason { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("finaleType")]
-        public FinaleType FinaleType { get; set; }
+        public FinaleType? FinaleType { get; set; }
 
         /// <summary>
         /// Id of the episode.
@@ -32,8 +36,12 @@
         [JsonPropertyName("image")]
         public string Image { get; set; }
 
+        /// <summary>
+        /// Type of the image.
+        /// </summary>
+        /// <remarks>Can be null if no image.</remarks>
         [JsonPropertyName("imageType")]
-        public int ImageType { get; set; }
+        public int? ImageType { get; set; }
 
         [JsonPropertyName("isMovie")]
         public long IsMovie { get; set; }
@@ -53,8 +61,12 @@
         [JsonPropertyName("nameTranslations")]
         public List<string> NameTranslations { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("number")]
-        public int Number { get; set; }
+        public int? Number { get; set; }
 
         [JsonPropertyName("overview")]
         public string Overview { get; set; }
@@ -65,11 +77,16 @@
         /// <summary>
         /// Runtime of the episode.
         /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("runtime")]
-        public int Runtime { get; set; }
+        public int? Runtime { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("seasonNumber")]
-        public int SeasonNumber { get; set; }
+        public int? SeasonNumber { get; set; }
 
         [JsonPropertyName("seasons")]
         public List<SeasonBaseRecord> Seasons { get; set; }

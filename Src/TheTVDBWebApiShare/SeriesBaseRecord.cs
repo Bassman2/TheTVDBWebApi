@@ -17,8 +17,9 @@
         /// <summary>
         /// Average runtime of the serie.
         /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("averageRuntime")]
-        public int AverageRuntime { get; set; }
+        public int? AverageRuntime { get; set; }
 
         [JsonPropertyName("country")]
         public string Country { get; set; }

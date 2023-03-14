@@ -62,6 +62,7 @@
         /// <summary>
         /// Runtime of the movie.
         /// </summary>
+        /// <remarks>Can be null if runtime is unknown.</remarks>
         [JsonPropertyName("runtime")]
         public int? Runtime { get; set; }
 

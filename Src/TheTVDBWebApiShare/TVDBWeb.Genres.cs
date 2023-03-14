@@ -9,8 +9,7 @@
         /// <returns>List of genre records.</returns>
         public async Task<List<GenreBaseRecord>> GetGenresAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<GenreBaseRecord>> resp = await GetAsync<List<GenreBaseRecord>>("v4/genres", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<GenreBaseRecord>>("v4/genres", cancellationToken);
         }
 
         /// <summary>
@@ -21,8 +20,7 @@
         /// <returns>Genre record.</returns>
         public async Task<GenreBaseRecord> GetGenreAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<GenreBaseRecord> resp = await GetAsync<GenreBaseRecord>($"v4/genres/{id}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<GenreBaseRecord>($"v4/genres/{id}", cancellationToken);
         }
     }
 }

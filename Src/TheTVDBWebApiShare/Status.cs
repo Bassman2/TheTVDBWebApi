@@ -8,6 +8,7 @@
         /// <summary>
         /// Id of the status record:
         /// </summary>
+        /// <remarks>Can be null if no status exists.</remarks>
         [JsonPropertyName("id")]
         public long? Id { get; set; }
 

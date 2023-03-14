@@ -12,8 +12,7 @@
         /// <returns>Number of updates.</returns>
         public async Task<long> GetUpdatesNumAsync(int since, UpdateType type, UpdateAction action, CancellationToken cancellationToken = default)
         {
-            Response<List<MovieBaseRecord>> resp = await GetAsync<List<MovieBaseRecord>>("v4//updates?since={since}&type={type}&action={action}page=0", cancellationToken);
-            return resp.Links.TotalItems;
+            return await GetNumAsync("v4//updates?since={since}&type={type}&action={action}", cancellationToken);
         }
 
         /// <summary>

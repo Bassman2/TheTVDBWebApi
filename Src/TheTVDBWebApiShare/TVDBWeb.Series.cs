@@ -148,8 +148,7 @@ namespace TheTVDBWebApiShare
         /// <returns>List of status records</returns>
         public async Task<List<Status>> GetSeriesStatusesAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<Status>> resp = await GetAsync<List<Status>>($"v4/series/statuses", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<Status>>($"v4/series/statuses", cancellationToken);
         }
     }
 }

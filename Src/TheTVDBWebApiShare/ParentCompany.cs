@@ -8,8 +8,9 @@
         /// <summary>
         /// Id of the parent company.
         /// </summary>
+        /// <remarks>Can be null if no parent company exists.</remarks>
         [JsonPropertyName("id")]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Name of the parent company.

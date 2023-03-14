@@ -10,8 +10,7 @@
         /// <returns>Character base record.</returns>
         public async Task<Character> GetCharacterAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<Character> resp = await GetAsync<Character>($"v4/characters/{id}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<Character>($"v4/characters/{id}", cancellationToken);
         }
     }
 }

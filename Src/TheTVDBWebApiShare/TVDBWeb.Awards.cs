@@ -9,8 +9,7 @@
         /// <returns>List of award base records.</returns>
         public async Task<List<AwardBaseRecord>> GetAwardsAsync(CancellationToken cancellationToken = default)
         {
-            Response<List<AwardBaseRecord>> resp = await GetAsync<List<AwardBaseRecord>>("v4/awards", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<List<AwardBaseRecord>>("v4/awards", cancellationToken);
         }
 
         /// <summary>
@@ -21,8 +20,7 @@
         /// <returns>Single award base record.</returns>
         public async Task<AwardBaseRecord> GetAwardAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<AwardBaseRecord> resp = await GetAsync<AwardBaseRecord>($"v4/awards/{id}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<AwardBaseRecord>($"v4/awards/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -33,8 +31,7 @@
         /// <returns>Single award extended record.</returns>
         public async Task<AwardExtendedRecord> GetAwardExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<AwardExtendedRecord> resp = await GetAsync<AwardExtendedRecord>($"v4/awards/{id}/extended", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<AwardExtendedRecord>($"v4/awards/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -45,8 +42,7 @@
         /// <returns>Single award category base record.</returns>
         public async Task<AwardCategoryBaseRecord> GetAwardCategoryAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<AwardCategoryBaseRecord> resp = await GetAsync<AwardCategoryBaseRecord>($"v4/awards/categories/{id}", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<AwardCategoryBaseRecord>($"v4/awards/categories/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -57,8 +53,7 @@
         /// <returns>Single award category extended record.</returns>
         public async Task<AwardCategoryExtendedRecord> GetAwardCategoryExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            Response<AwardCategoryExtendedRecord> resp = await GetAsync<AwardCategoryExtendedRecord>($"v4/awards/categories/{id}/extended", cancellationToken);
-            return resp.Data;
+            return await GetDataAsync<AwardCategoryExtendedRecord>($"v4/awards/categories/{id}/extended", cancellationToken);
         }
     }
 }
