@@ -70,70 +70,113 @@ namespace TheTVDBWebApiShare
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Data.Token);
         }
 
+        //public BitmapImage LoadImage(string path)
+        //{
+        //    return new
+        //}
+
         #region Private
+
+        private async Task<Response<T>> ResponseToJsonAsync<T>(HttpResponseMessage res, CancellationToken cancellationToken, string memberName) where T : class
+        {
+            Response<T> resp = null;
+            if (res.Content.Headers.ContentType.MediaType == "application/json")
+            {
+                try
+                {
+                    resp = await res.Content.ReadFromJsonAsync<Response<T>>(options, cancellationToken);
+                    if (!res.IsSuccessStatusCode)
+                    {
+                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    DebugJsonException(ex, res, res.RequestMessage.RequestUri.ToString(), memberName);
+                }
+            }
+            else
+            {
+                res.EnsureSuccessStatusCode();
+                throw new Exception("Not a json response");
+            }
+            return resp;
+
+        }
+
 
         private async Task<Response<TRes>> PostAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where  TRes : class
         {
             using (HttpResponseMessage res = await this.client.PostAsJsonAsync(requestUri, value, this.options, cancellationToken))
             {
-                try
-                {
-                    Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
-                    if (!res.IsSuccessStatusCode)
-                    {
-                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                    }
+                return await ResponseToJsonAsync<TRes>(res, cancellationToken, memberName);
+                //try
+                //{
+                //    Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
+                //    if (!res.IsSuccessStatusCode)
+                //    {
+                //        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                //    }
 
-                    return resp;
-                }
-                catch (JsonException ex)
-                {
-                    DebugJsonException(ex, res, requestUri, memberName);
-                    return null;
-                }
+                //    return resp;
+                //}
+                //catch (JsonException ex)
+                //{
+                //    DebugJsonException(ex, res, requestUri, memberName);
+                //    return null;
+                //}
             }
         }
 
         private async Task<Response<TRes>> GetInternAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
         {
+            //Response<TRes> resp = null;
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
-                try
-                {
-                    Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
-                    if (!res.IsSuccessStatusCode)
-                    {
-                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                    }
-
-                    return resp;
-                }
-                catch (JsonException ex)
-                {
-                    DebugJsonException(ex, res, requestUri, memberName);
-                    return null;
-                }
+                return await ResponseToJsonAsync<TRes>(res, cancellationToken, memberName);
+                //if (res.Content.Headers.ContentType.MediaType == "application/json")
+                //{
+                //    try
+                //    {
+                //        resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
+                //        if (!res.IsSuccessStatusCode)
+                //        {
+                //            throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                //        }
+                //    }
+                //    catch (JsonException ex)
+                //    {
+                //        DebugJsonException(ex, res, requestUri, memberName);
+                //    }
+                //}
+                //else
+                //{
+                //    res.EnsureSuccessStatusCode();
+                //    throw new Exception("Not a json response");
+                //}
             }
+            //return resp;
         }
 
         private async Task<TRes> GetDataAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
         {
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
-                try
-                {
-                    Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
-                    if (!res.IsSuccessStatusCode)
-                    {
-                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                    }
-                    return resp.Data;
-                }
-                catch (JsonException ex)
-                {
-                    DebugJsonException(ex, res, requestUri, memberName);
-                    return null;
-                }
+                return (await ResponseToJsonAsync<TRes>(res, cancellationToken, memberName)).Data;
+                //try
+                //{
+                //    Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
+                //    if (!res.IsSuccessStatusCode)
+                //    {
+                //        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                //    }
+                //    return resp.Data;
+                //}
+                //catch (JsonException ex)
+                //{
+                //    DebugJsonException(ex, res, requestUri, memberName);
+                //    return null;
+                //}
             }
         }
 
@@ -142,21 +185,23 @@ namespace TheTVDBWebApiShare
             requestUri = $"{requestUri}?page=0";
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
-                try
-                {
-                    Response resp = await res.Content.ReadFromJsonAsync<Response>(options, cancellationToken);
-                    if (!res.IsSuccessStatusCode)
-                    {
-                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                    }
+                return (await ResponseToJsonAsync<Response>(res, cancellationToken, memberName)).Links.TotalItems;
 
-                    return resp.Links.TotalItems;
-                }
-                catch (JsonException ex)
-                {
-                    DebugJsonException(ex, res, requestUri, memberName);
-                    return 0;
-                }
+                //try
+                //{
+                //    Response resp = await res.Content.ReadFromJsonAsync<Response>(options, cancellationToken);
+                //    if (!res.IsSuccessStatusCode)
+                //    {
+                //        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                //    }
+
+                //    return resp.Links.TotalItems;
+                //}
+                //catch (JsonException ex)
+                //{
+                //    DebugJsonException(ex, res, requestUri, memberName);
+                //    return 0;
+                //}
             }
         }
 
