@@ -14,8 +14,12 @@
         [JsonPropertyName("episode")]
         public RecordInfo Episode { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("episodeId")]
-        public int EpisodeId { get; set; }
+        public int? EpisodeId { get; set; }
 
         [JsonPropertyName("id")]
         public long Id { get; set; }
@@ -50,8 +54,12 @@
         [JsonPropertyName("peopleType")]
         public string PeopleType { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("seriesId")]
-        public int SeriesId { get; set; }
+        public int? SeriesId { get; set; }
 
         [JsonPropertyName("series")]
         public RecordInfo Series { get; set; }

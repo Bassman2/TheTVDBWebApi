@@ -6,34 +6,25 @@
     public class MovieBaseRecord
     {
         /// <summary>
-        /// An alias model, which can be associated with a series, season, movie, person, or list.
-        /// </summary>
-        [JsonPropertyName("aliases")]
-        public List<Alias> Aliases { get; set; }
-
-        /// <summary>
         /// Id of the movie.
         /// </summary>
         [JsonPropertyName("id")]
         public long Id { get; set; }
 
         /// <summary>
-        /// Uri of a movie image.
-        /// </summary>
-        [JsonPropertyName("image")]
-        public string Image { get; set; }
-
-        /// <summary>
-        /// Last updated date.
-        /// </summary>
-        [JsonPropertyName("lastUpdated")]
-        public string LastUpdated { get; set; }
-
-        /// <summary>
         /// Name of the movie.
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; }
+
+        [JsonPropertyName("slug")]
+        public string Slug { get; set; }
+
+        /// <summary>
+        /// Uri of a movie image.
+        /// </summary>
+        [JsonPropertyName("image")]
+        public string Image { get; set; }
 
         /// <summary>
         /// Translated names of the movie.
@@ -45,13 +36,23 @@
         public List<string> OverviewTranslations { get; set; }
 
         /// <summary>
+        /// An alias model, which can be associated with a series, season, movie, person, or list.
+        /// </summary>
+        [JsonPropertyName("aliases")]
+        public List<Alias> Aliases { get; set; }
+
+        /// <summary>
         /// Score of the movie.
         /// </summary>
         [JsonPropertyName("score")]
         public double Score { get; set; }
 
-        [JsonPropertyName("slug")]
-        public string Slug { get; set; }
+        /// <summary>
+        /// Runtime of the movie.
+        /// </summary>
+        /// <remarks>Can be null if runtime is unknown.</remarks>
+        [JsonPropertyName("runtime")]
+        public int? Runtime { get; set; }
 
         /// <summary>
         /// Status of the movie
@@ -60,11 +61,10 @@
         public Status Status { get; set; }
 
         /// <summary>
-        /// Runtime of the movie.
+        /// Last updated date.
         /// </summary>
-        /// <remarks>Can be null if runtime is unknown.</remarks>
-        [JsonPropertyName("runtime")]
-        public int? Runtime { get; set; }
+        [JsonPropertyName("lastUpdated")]
+        public string LastUpdated { get; set; }
 
         /// <summary>
         /// Year of the movie.

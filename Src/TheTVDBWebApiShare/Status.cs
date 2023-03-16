@@ -13,12 +13,6 @@
         public long? Id { get; set; }
 
         /// <summary>
-        /// Keep updated flag of the status record.
-        /// </summary>
-        [JsonPropertyName("keepUpdated")]
-        public bool KeepUpdated { get; set; }
-
-        /// <summary>
         /// Name of the status record.
         /// </summary>
         [JsonPropertyName("name")]
@@ -29,5 +23,16 @@
         /// </summary>
         [JsonPropertyName("recordType")]
         public string RecordType { get; set; }
+
+        /// <summary>
+        /// Keep updated flag of the status record.
+        /// </summary>
+        [JsonPropertyName("keepUpdated")]
+        public bool KeepUpdated { get; set; }
+
+        public override string ToString()
+        {
+            return this.Id == null ? "empty" : $"#{Id} \"{Name}\" RecordType={RecordType} KeepUpdated={KeepUpdated}";
+        }
     }
 }

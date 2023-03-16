@@ -11,7 +11,11 @@
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("parentStudio")]
-        public int ParentStudio { get; set; }
+        public int? ParentStudio { get; set; }
     }
 }

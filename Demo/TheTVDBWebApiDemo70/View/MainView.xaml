@@ -5,7 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
         mc:Ignorable="d"
-        Title="The TVDB Web Api Demo" Height="450" Width="800">
+        Title="The TVDB Web Api Demo" Height="800" Width="1200">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="IsReadOnly" Value="True" />
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        </Style>
+    </Window.Resources>
     <DockPanel>
         <TabControl>
             <TabItem Header="Artwork Statuses">

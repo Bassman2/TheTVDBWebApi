@@ -43,7 +43,7 @@ namespace TheTVDBWebApiShare
         {
             LoginAsync(apikey, pin).Wait();
         }
-             
+
         /// <summary>
         /// Dispose connection to web service.
         /// </summary>
