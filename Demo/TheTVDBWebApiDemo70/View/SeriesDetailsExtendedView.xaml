@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="TheTVDBWebApiDemo.View.SeriesDetailsExtendedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Label Grid.Column="2" Grid.Row="14" Content="Trailers"/>
+        <DataGrid Grid.Column="3" Grid.Row="14" ItemsSource="{Binding MovieExtendedRecord.Trailers}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Url" Binding="{Binding Url}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Runtime" Binding="{Binding Runtime}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Column="2" Grid.Row="15" Content="Genres"/>
+        <DataGrid Grid.Column="3" Grid.Row="15" ItemsSource="{Binding MovieExtendedRecord.Genres}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Column="2" Grid.Row="16" Content="Releases"/>
+        <DataGrid Grid.Column="3" Grid.Row="16" ItemsSource="{Binding MovieExtendedRecord.Releases}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Country" Binding="{Binding Country}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Detail" Binding="{Binding Detail}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Column="2" Grid.Row="17" Content="Artworks"/>
+        <DataGrid Grid.Column="3" Grid.Row="17" ItemsSource="{Binding MovieExtendedRecord.Artworks}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Image" Binding="{Binding Image}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Thumbnail" Binding="{Binding Thumbnail}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Score" Binding="{Binding Score}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Width" Binding="{Binding Width}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Height" Binding="{Binding Height}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Column="2" Grid.Row="18" Content="Remote Ids"/>
+        <DataGrid Grid.Column="3" Grid.Row="18" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Grid.Column="2" Grid.Row="19" Content="Characters"/>
+        <DataGrid Grid.Column="3" Grid.Row="19" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Grid.Column="2" Grid.Row="20" Content="Budget"/>
+        <TextBox Grid.Column="3" Grid.Row="20" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
+        <Label Grid.Column="2" Grid.Row="21" Content="Box Office"/>
+        <TextBox Grid.Column="3" Grid.Row="21" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
+        <Label Grid.Column="2" Grid.Row="22" Content="Box Office US"/>
+        <TextBox Grid.Column="3" Grid.Row="22" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
+        <Label Grid.Column="2" Grid.Row="23" Content="Original Country"/>
+        <TextBox Grid.Column="3" Grid.Row="23" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
+        <Label Grid.Column="2" Grid.Row="24" Content="Original Language"/>
+        <TextBox Grid.Column="3" Grid.Row="24" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
+
+
+        <Label Grid.Column="2" Grid.Row="25" Content="Audio Languages"/>
+        <TextBox Grid.Column="3" Grid.Row="25" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
+        <Label Grid.Column="2" Grid.Row="26" Content="Subtitle Languages"/>
+        <TextBox Grid.Column="3" Grid.Row="26" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
+
+        <Label Grid.Column="2" Grid.Row="27" Content="Studios"/>
+        <DataGrid Grid.Column="3" Grid.Row="27" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Grid.Column="2" Grid.Row="28" Content="Awards"/>
+        <DataGrid Grid.Column="3" Grid.Row="28" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Grid.Column="2" Grid.Row="29" Content="Tag Options"/>
+        <DataGrid Grid.Column="3" Grid.Row="29" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Grid.Column="2" Grid.Row="30" Content="Lists"/>
+        <DataGrid Grid.Column="3" Grid.Row="30" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -5,19 +5,23 @@
         private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
         private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
 
-        public SeriesViewModel(SeriesBaseRecord seriesBaseRecord)
+        public SeriesViewModel(SeriesBaseRecord record)
         {
-            this.SeriesBaseRecord = seriesBaseRecord;
+            this.SeriesListRecord = record;
 
             Task.Run(async () =>
             {
                 using (var client = new TVDBWeb())
                 {
                     await client.LoginAsync(apiKey, userKey);
-                    this.SeriesExtendedRecord = await client.GetSeriesExtendedAsync(seriesBaseRecord.Id);
+                    this.SeriesBaseRecord = await client.GetSeriesAsync(record.Id);
+                    this.SeriesExtendedRecord = await client.GetSeriesExtendedAsync(record.Id);
                 }
             });
         }
+
+        [ObservableProperty]
+        private SeriesBaseRecord seriesListRecord;
 
         [ObservableProperty]
         private SeriesBaseRecord seriesBaseRecord;

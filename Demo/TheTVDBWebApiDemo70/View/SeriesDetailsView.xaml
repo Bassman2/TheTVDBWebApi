@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              xmlns:conv="clr-namespace:TheTVDBWebApiDemo.Converter"
              mc:Ignorable="d" 
-             d:DesignHeight="4500" d:DesignWidth="1200">
+             d:DesignHeight="4500" d:DesignWidth="600">
     <UserControl.Resources>
         <conv:ViewModelConverter x:Key="ViewModelConverter"/>
         <conv:ImageLoadConverter x:Key="ImageLoadConverter"/>
@@ -28,278 +28,23 @@
         <ScrollViewer Grid.Column="2" DataContext="{Binding ElementName=Series, Path=SelectedValue, Converter={StaticResource ViewModelConverter}}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
             <Grid >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="300"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="List" HorizontalAlignment="Center"/>
                 <Label Grid.Column="1" Grid.Row="0" Content="Base" HorizontalAlignment="Center"/>
-                <Label Grid.Column="0" Grid.Row="1" Content="Id"/>
-                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SeriesBaseRecord.Id, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="2" Content="Name"/>
-                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding SeriesBaseRecord.Name, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="3" Content="Slug"/>
-                <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding SeriesBaseRecord.Slug, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="4" Content="Image"/>
-                <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding SeriesBaseRecord.Image, Mode=OneWay}"/>
-                <Image Grid.Column="1" Grid.Row="5" Source="{Binding SeriesBaseRecord.Image, Converter={StaticResource ImageLoadConverter}}" Stretch="Uniform"/>
-                <Label Grid.Column="0" Grid.Row="6" Content="Name Translations"/>
-                <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding SeriesBaseRecord.NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-                <Label Grid.Column="0" Grid.Row="7" Content="Overview Translations"/>
-                <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding SeriesBaseRecord.OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-                <Label Grid.Column="0" Grid.Row="8" Content="Aliases"/>
-                <DataGrid Grid.Column="1" Grid.Row="8" ItemsSource="{Binding SeriesBaseRecord.Aliases}" AutoGenerateColumns="False" >
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Grid.Column="0" Grid.Row="9" Content="First Aired"/>
-                <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding SeriesBaseRecord.FirstAired, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="10" Content="Last Aired"/>
-                <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding SeriesBaseRecord.LastAired, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="11" Content="Next Aired"/>
-                <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding SeriesBaseRecord.NextAired, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="12" Content="Score"/>
-                <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding SeriesBaseRecord.Score, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="13" Content="Status"/>
-                <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding SeriesBaseRecord.Status, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="14" Content="Original Country"/>
-                <TextBox Grid.Column="1" Grid.Row="14" Text="{Binding SeriesBaseRecord.OriginalCountry, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="15" Content="OriginalLanguage"/>
-                <TextBox Grid.Column="1" Grid.Row="15" Text="{Binding SeriesBaseRecord.OriginalLanguage, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="16" Content="Default Season Type"/>
-                <TextBox Grid.Column="1" Grid.Row="16" Text="{Binding SeriesBaseRecord.DefaultSeasonType, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="17" Content="Is Order Randomized"/>
-                <TextBox Grid.Column="1" Grid.Row="17" Text="{Binding SeriesBaseRecord.IsOrderRandomized, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="18" Content="Last Updated"/>
-                <TextBox Grid.Column="1" Grid.Row="18" Text="{Binding SeriesBaseRecord.LastUpdated, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="19" Content="Average Runtime"/>
-                <TextBox Grid.Column="1" Grid.Row="19" Text="{Binding SeriesBaseRecord.AverageRuntime, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="20" Content="Episodes"/>
-                <TextBox Grid.Column="1" Grid.Row="20" Text="{Binding SeriesBaseRecord.Episodes, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="21" Content="Overview"/>
-                <TextBox Grid.Column="1" Grid.Row="21" Text="{Binding SeriesBaseRecord.Overview, Mode=OneWay}"/>
-                <Label Grid.Column="0" Grid.Row="22" Content="Year"/>
-                <TextBox Grid.Column="1" Grid.Row="22" Text="{Binding SeriesBaseRecord.Year, Mode=OneWay}"/>
+                <Label Grid.Column="2" Grid.Row="0" Content="Extended" HorizontalAlignment="Center"/>
 
-                <!-- -->
-                
-                
-
-
-                <Label Grid.Column="3" Grid.Row="0" Content="Extended" HorizontalAlignment="Center"/>
-                <Label Grid.Column="2" Grid.Row="1" Content="Id"/>
-                <TextBox Grid.Column="3" Grid.Row="1" Text="{Binding SeriesExtendedRecord.Id, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="2" Content="Name"/>
-                <TextBox Grid.Column="3" Grid.Row="2" Text="{Binding SeriesExtendedRecord.Name, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="3" Content="Slug"/>
-                <TextBox Grid.Column="3" Grid.Row="3" Text="{Binding SeriesExtendedRecord.Slug, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="4" Content="Image"/>
-                <TextBox Grid.Column="3" Grid.Row="4" Text="{Binding SeriesExtendedRecord.Image, Mode=OneWay}"/>
-                <Image Grid.Column="3" Grid.Row="5" Source="{Binding SeriesExtendedRecord.Image, Converter={StaticResource ImageLoadConverter}}" Stretch="Uniform"/>
-                <Label Grid.Column="2" Grid.Row="6" Content="Name Translations"/>
-                <TextBox Grid.Column="3" Grid.Row="6" Text="{Binding SeriesExtendedRecord.NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-                <Label Grid.Column="2" Grid.Row="7" Content="Overview Translations"/>
-                <TextBox Grid.Column="3" Grid.Row="7" Text="{Binding SeriesExtendedRecord.OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-                <Label Grid.Column="2" Grid.Row="8" Content="Aliases"/>
-                <DataGrid Grid.Column="3" Grid.Row="8" ItemsSource="{Binding SeriesExtendedRecord.Aliases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Grid.Column="2" Grid.Row="9" Content="First Aired"/>
-                <TextBox Grid.Column="3" Grid.Row="9" Text="{Binding SeriesExtendedRecord.FirstAired, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="10" Content="Last Aired"/>
-                <TextBox Grid.Column="3" Grid.Row="10" Text="{Binding SeriesExtendedRecord.LastAired, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="11" Content="Next Aired"/>
-                <TextBox Grid.Column="3" Grid.Row="11" Text="{Binding SeriesExtendedRecord.NextAired, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="12" Content="Score"/>
-                <TextBox Grid.Column="3" Grid.Row="12" Text="{Binding SeriesExtendedRecord.Score, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="13" Content="Status"/>
-                <TextBox Grid.Column="3" Grid.Row="13" Text="{Binding SeriesExtendedRecord.Status, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="14" Content="Original Country"/>
-                <TextBox Grid.Column="3" Grid.Row="14" Text="{Binding SeriesExtendedRecord.OriginalCountry, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="15" Content="OriginalLanguage"/>
-                <TextBox Grid.Column="3" Grid.Row="15" Text="{Binding SeriesExtendedRecord.OriginalLanguage, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="16" Content="Default Season Type"/>
-                <TextBox Grid.Column="3" Grid.Row="16" Text="{Binding SeriesExtendedRecord.DefaultSeasonType, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="17" Content="Is Order Randomized"/>
-                <TextBox Grid.Column="3" Grid.Row="17" Text="{Binding SeriesExtendedRecord.IsOrderRandomized, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="18" Content="Last Updated"/>
-                <TextBox Grid.Column="3" Grid.Row="18" Text="{Binding SeriesExtendedRecord.LastUpdated, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="19" Content="Average Runtime"/>
-                <TextBox Grid.Column="3" Grid.Row="19" Text="{Binding SeriesExtendedRecord.AverageRuntime, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="20" Content="Episodes"/>
-                <TextBox Grid.Column="3" Grid.Row="20" Text="{Binding SeriesExtendedRecord.Episodes, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="21" Content="Overview"/>
-                <TextBox Grid.Column="3" Grid.Row="21" Text="{Binding SeriesExtendedRecord.Overview, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="22" Content="Year"/>
-                <TextBox Grid.Column="3" Grid.Row="22" Text="{Binding SeriesExtendedRecord.Year, Mode=OneWay}"/>
-                
-                <!--
-                <Label Grid.Column="2" Grid.Row="9" Content="Score"/>
-                <TextBox Grid.Column="3" Grid.Row="9" Text="{Binding MovieExtendedRecord.Score, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="10" Content="Runtime"/>
-                <TextBox Grid.Column="3" Grid.Row="10" Text="{Binding MovieExtendedRecord.Runtime, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="11" Content="Status"/>
-                <TextBox Grid.Column="3" Grid.Row="11" Text="{Binding MovieExtendedRecord.Status, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="12" Content="Last Updated"/>
-                <TextBox Grid.Column="3" Grid.Row="12" Text="{Binding MovieExtendedRecord.LastUpdated, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="13" Content="Year"/>
-                <TextBox Grid.Column="3" Grid.Row="13" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
--->
-                <!-- Extended-->
-
-                <!--
-                <Label Grid.Column="2" Grid.Row="14" Content="Trailers"/>
-                <DataGrid Grid.Column="3" Grid.Row="14" ItemsSource="{Binding MovieExtendedRecord.Trailers}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Url" Binding="{Binding Url}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Runtime" Binding="{Binding Runtime}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Grid.Column="2" Grid.Row="15" Content="Genres"/>
-                <DataGrid Grid.Column="3" Grid.Row="15" ItemsSource="{Binding MovieExtendedRecord.Genres}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Grid.Column="2" Grid.Row="16" Content="Releases"/>
-                <DataGrid Grid.Column="3" Grid.Row="16" ItemsSource="{Binding MovieExtendedRecord.Releases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Country" Binding="{Binding Country}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Date" Binding="{Binding Date}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Detail" Binding="{Binding Detail}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Grid.Column="2" Grid.Row="17" Content="Artworks"/>
-                <DataGrid Grid.Column="3" Grid.Row="17" ItemsSource="{Binding MovieExtendedRecord.Artworks}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Image" Binding="{Binding Image}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Thumbnail" Binding="{Binding Thumbnail}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Score" Binding="{Binding Score}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Width" Binding="{Binding Width}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Height" Binding="{Binding Height}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Grid.Column="2" Grid.Row="18" Content="Remote Ids"/>
-                <DataGrid Grid.Column="3" Grid.Row="18" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                <Label Grid.Column="2" Grid.Row="19" Content="Characters"/>
-                <DataGrid Grid.Column="3" Grid.Row="19" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <Label Grid.Column="2" Grid.Row="20" Content="Budget"/>
-                <TextBox Grid.Column="3" Grid.Row="20" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="21" Content="Box Office"/>
-                <TextBox Grid.Column="3" Grid.Row="21" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="22" Content="Box Office US"/>
-                <TextBox Grid.Column="3" Grid.Row="22" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="23" Content="Original Country"/>
-                <TextBox Grid.Column="3" Grid.Row="23" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="24" Content="Original Language"/>
-                <TextBox Grid.Column="3" Grid.Row="24" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
-
-
-                <Label Grid.Column="2" Grid.Row="25" Content="Audio Languages"/>
-                <TextBox Grid.Column="3" Grid.Row="25" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
-                <Label Grid.Column="2" Grid.Row="26" Content="Subtitle Languages"/>
-                <TextBox Grid.Column="3" Grid.Row="26" Text="{Binding MovieExtendedRecord.Year, Mode=OneWay}"/>
-
-                <Label Grid.Column="2" Grid.Row="27" Content="Studios"/>
-                <DataGrid Grid.Column="3" Grid.Row="27" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <Label Grid.Column="2" Grid.Row="28" Content="Awards"/>
-                <DataGrid Grid.Column="3" Grid.Row="28" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <Label Grid.Column="2" Grid.Row="29" Content="Tag Options"/>
-                <DataGrid Grid.Column="3" Grid.Row="29" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <Label Grid.Column="2" Grid.Row="30" Content="Lists"/>
-                <DataGrid Grid.Column="3" Grid.Row="30" ItemsSource="{Binding MovieExtendedRecord.Aliases}" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                    </DataGrid.Columns>
-                </DataGrid>
-                
-                -->
-                <!-- TODO Translations-->
+                <local:SeriesDetailsBaseView Grid.Column="0" Grid.Row="1" DataContext="{Binding SeriesListRecord}"/>
+                <local:SeriesDetailsBaseView Grid.Column="1" Grid.Row="1" DataContext="{Binding SeriesBaseRecord}"/>
+                <local:SeriesDetailsBaseView Grid.Column="2" Grid.Row="1" DataContext="{Binding SeriesExtendedRecord}"/>
             </Grid>
         </ScrollViewer>
     </Grid>
