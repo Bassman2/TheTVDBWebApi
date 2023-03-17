@@ -20,95 +20,100 @@
         </Style>
     </Window.Resources>
     <DockPanel>
-        <TabControl>
-            <TabItem Header="Artwork Statuses">
-                <local:ArtworkStatusesView/>
-            </TabItem>
-            <TabItem Header="Artwork Types">
-                <local:ArtworkTypesView/>
-            </TabItem>
-            <TabItem Header="Awards">
-                <local:AwardsView/>
-            </TabItem>
-            <TabItem Header="Companies">
-                <local:CompaniesView/>
-            </TabItem>
-            <TabItem Header="Company Types">
-                <local:CompanyTypesView/>
-            </TabItem>
-            <TabItem Header="Content Ratings">
-                <local:ContentRatingsView/>
-            </TabItem>
-            <TabItem Header="Countries">
-                <local:CountriesView/>
-            </TabItem>
-            <TabItem Header="Entities">
-                <local:EntitiesView/>
-            </TabItem>
-            <TabItem Header="Genders">
-                <local:GendersView/>
-            </TabItem>
-            <TabItem Header="Genres">
-                <local:GenresView/>
-            </TabItem>
-            <TabItem Header="InspirationTypes">
-                <local:InspirationTypesView/>
-            </TabItem>
-            <TabItem Header="Languages">
-                <local:LanguagesView/>
-            </TabItem>
-            <TabItem Header="Movie Statuses">
-                <local:MovieStatusesView/>
-            </TabItem>
-            <TabItem Header="People Types">
-                <local:PeopleTypesView/>
-            </TabItem>
-            <TabItem Header="Season Types">
-                <local:SeasonTypesView/>
-            </TabItem>
-            <TabItem Header="Series Statuses">
-                <local:SeriesStatusesView/>
-            </TabItem>
-            <TabItem Header="Source Types">
-                <local:SourceTypesView/>
-            </TabItem>
-            <TabItem Header="User Info">
-                <local:UserInfoView/>
-            </TabItem>
-            <TabItem Header="User Favorites">
-                <local:UserFavoritesView/>
-            </TabItem>
-            
-            <!-- -->
-
-            <TabItem Header="Episodes">
-                <local:EpisodesView/>
+        <TabControl TabStripPlacement="Left" >
+            <TabItem Header="Details">
+                <TabControl>
+                    <TabItem Header="Movies Details">
+                        <local:MoviesDetailsView/>
+                    </TabItem>
+                    <TabItem Header="Series Details">
+                        <local:SeriesDetailsView/>
+                    </TabItem>
+                </TabControl>                
             </TabItem>
             <TabItem Header="Lists">
-                <local:ListsView/>
+                <TabControl>
+                    <TabItem Header="Episodes">
+                        <local:EpisodesView/>
+                    </TabItem>
+                    <TabItem Header="Lists">
+                        <local:ListsView/>
+                    </TabItem>
+                    <TabItem Header="Movies">
+                        <local:MoviesView/>
+                    </TabItem>
+                    <TabItem Header="People">
+                        <local:PeopleView/>
+                    </TabItem>
+                    <TabItem Header="Seasons">
+                        <local:SeasonsView/>
+                    </TabItem>
+                    <TabItem Header="Series">
+                        <local:SeriesView/>
+                    </TabItem>
+                </TabControl>
             </TabItem>
-            <TabItem Header="Movies">
-                <local:MoviesView/>
+            <TabItem Header="Items">
+                <TabControl>
+                    <TabItem Header="Artwork Statuses">
+                        <local:ArtworkStatusesView/>
+                    </TabItem>
+                    <TabItem Header="Artwork Types">
+                        <local:ArtworkTypesView/>
+                    </TabItem>
+                    <TabItem Header="Awards">
+                        <local:AwardsView/>
+                    </TabItem>
+                    <TabItem Header="Companies">
+                        <local:CompaniesView/>
+                    </TabItem>
+                    <TabItem Header="Company Types">
+                        <local:CompanyTypesView/>
+                    </TabItem>
+                    <TabItem Header="Content Ratings">
+                        <local:ContentRatingsView/>
+                    </TabItem>
+                    <TabItem Header="Countries">
+                        <local:CountriesView/>
+                    </TabItem>
+                    <TabItem Header="Entities">
+                        <local:EntitiesView/>
+                    </TabItem>
+                    <TabItem Header="Genders">
+                        <local:GendersView/>
+                    </TabItem>
+                    <TabItem Header="Genres">
+                        <local:GenresView/>
+                    </TabItem>
+                    <TabItem Header="InspirationTypes">
+                        <local:InspirationTypesView/>
+                    </TabItem>
+                    <TabItem Header="Languages">
+                        <local:LanguagesView/>
+                    </TabItem>
+                    <TabItem Header="Movie Statuses">
+                        <local:MovieStatusesView/>
+                    </TabItem>
+                    <TabItem Header="People Types">
+                        <local:PeopleTypesView/>
+                    </TabItem>
+                    <TabItem Header="Season Types">
+                        <local:SeasonTypesView/>
+                    </TabItem>
+                    <TabItem Header="Series Statuses">
+                        <local:SeriesStatusesView/>
+                    </TabItem>
+                    <TabItem Header="Source Types">
+                        <local:SourceTypesView/>
+                    </TabItem>
+                    <TabItem Header="User Info">
+                        <local:UserInfoView/>
+                    </TabItem>
+                    <TabItem Header="User Favorites">
+                        <local:UserFavoritesView/>
+                    </TabItem>
+                </TabControl>
             </TabItem>
-            <TabItem Header="People">
-                <local:PeopleView/>
-            </TabItem>
-            <TabItem Header="Seasons">
-                <local:SeasonsView/>
-            </TabItem>
-            <TabItem Header="Series">
-                <local:SeriesView/>
-            </TabItem>
-            
-            <!-- -->
-
-            <TabItem Header="Movies Details">
-                <local:MoviesDetailsView/>
-            </TabItem>
-            <TabItem Header="Series Details">
-                <local:SeriesDetailsView/>
-            </TabItem>
-
         </TabControl>
     </DockPanel>
 </local:AppView>

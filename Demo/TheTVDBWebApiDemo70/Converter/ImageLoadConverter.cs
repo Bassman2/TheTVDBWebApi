@@ -10,6 +10,10 @@ namespace TheTVDBWebApiDemo.Converter
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             string url = (string)value;
+            if (String.IsNullOrEmpty(url)) 
+            {
+                return null;
+            }
             Uri uri = url.StartsWith("http") ? new Uri(url) : new Uri(imageBaseUri, url);
             BitmapImage bitmap = new BitmapImage(uri);
             return (ImageSource)bitmap;

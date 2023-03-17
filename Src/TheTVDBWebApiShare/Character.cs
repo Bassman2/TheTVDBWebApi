@@ -21,8 +21,12 @@
         [JsonPropertyName("episodeId")]
         public int? EpisodeId { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null</remarks>
         [JsonPropertyName("id")]
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [JsonPropertyName("image")]
         public string Image { get; set; }
@@ -30,8 +34,12 @@
         [JsonPropertyName("isFeatured")]
         public bool IsFeatured { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("movieId")]
-        public int MovieId { get; set; }
+        public int? MovieId { get; set; }
 
         [JsonPropertyName("movie")]
         public RecordInfo Movie { get; set; }

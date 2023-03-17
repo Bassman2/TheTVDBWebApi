@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              xmlns:conv="clr-namespace:TheTVDBWebApiDemo.Converter"
              mc:Ignorable="d" 
-             d:DesignHeight="10000" d:DesignWidth="1200">
+             d:DesignHeight="4500" d:DesignWidth="1200">
     <UserControl.Resources>
         <conv:ViewModelConverter x:Key="ViewModelConverter"/>
         <conv:ImageLoadConverter x:Key="ImageLoadConverter"/>

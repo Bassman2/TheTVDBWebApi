@@ -10,7 +10,7 @@
         public string Abbreviation { get; set; }
 
         [JsonPropertyName("airsDays")]
-        public List<SeriesAirsDays> AirsDays { get; set; }
+        public SeriesAirsDays AirsDays { get; set; }
 
         [JsonPropertyName("airsTime")]
         public string AirsTime { get; set; }
