@@ -1,28 +1,28 @@
 ﻿namespace TheTVDBWebApiDemo.ViewModel
 {
-    public partial class MovieViewModel : ObservableObject
+    public partial class SeriesViewModel : ObservableObject
     {
         private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
         private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
-         
-        public MovieViewModel(MovieBaseRecord movieBaseRecord)
+
+        public SeriesViewModel(SeriesBaseRecord seriesBaseRecord)
         {
-            this.MovieBaseRecord = movieBaseRecord;
+            this.SeriesBaseRecord = seriesBaseRecord;
 
             Task.Run(async () =>
             {
                 using (var client = new TVDBWeb())
                 {
                     await client.LoginAsync(apiKey, userKey);
-                    this.MovieExtendedRecord = await client.GetMovieExtendedAsync(movieBaseRecord.Id);
+                    this.SeriesExtendedRecord = await client.GetSeriesExtendedAsync(seriesBaseRecord.Id);
                 }
             });
         }
 
         [ObservableProperty]
-        private MovieBaseRecord movieBaseRecord;
+        private SeriesBaseRecord seriesBaseRecord;
 
         [ObservableProperty]
-        private MovieExtendedRecord movieExtendedRecord;
+        private SeriesExtendedRecord seriesExtendedRecord;
     }
 }

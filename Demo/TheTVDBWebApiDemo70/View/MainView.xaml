@@ -105,7 +105,10 @@
             <TabItem Header="Movies Details">
                 <local:MoviesDetailsView/>
             </TabItem>
-            
+            <TabItem Header="Series Details">
+                <local:SeriesDetailsView/>
+            </TabItem>
+
         </TabControl>
     </DockPanel>
 </local:AppView>

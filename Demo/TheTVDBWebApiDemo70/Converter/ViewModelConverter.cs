@@ -8,6 +8,10 @@
             {
                 return new MovieViewModel(movie);
             }
+            if (value is SeriesBaseRecord series)
+            {
+                return new SeriesViewModel(series);
+            }
             return null;
         }
 
