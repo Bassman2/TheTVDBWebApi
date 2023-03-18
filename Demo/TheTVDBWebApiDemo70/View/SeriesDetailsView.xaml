@@ -4,14 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
-             xmlns:conv="clr-namespace:TheTVDBWebApiDemo.Converter"
              mc:Ignorable="d" 
              d:DesignHeight="4500" d:DesignWidth="600">
-    <UserControl.Resources>
-        <conv:ViewModelConverter x:Key="ViewModelConverter"/>
-        <conv:ImageLoadConverter x:Key="ImageLoadConverter"/>
-        <conv:StringListConverter x:Key="StringListConverter"/>
-    </UserControl.Resources>
     <Grid Margin="3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
@@ -25,7 +19,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <GridSplitter Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext" />
-        <ScrollViewer Grid.Column="2" DataContext="{Binding ElementName=Series, Path=SelectedValue, Converter={StaticResource ViewModelConverter}}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+        <ScrollViewer Grid.Column="2" DataContext="{Binding ElementName=Series, Path=SelectedValue, Converter={StaticResource ViewModelConverter}}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <Grid >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -45,6 +39,9 @@
                 <local:SeriesDetailsBaseView Grid.Column="0" Grid.Row="1" DataContext="{Binding SeriesListRecord}"/>
                 <local:SeriesDetailsBaseView Grid.Column="1" Grid.Row="1" DataContext="{Binding SeriesBaseRecord}"/>
                 <local:SeriesDetailsBaseView Grid.Column="2" Grid.Row="1" DataContext="{Binding SeriesExtendedRecord}"/>
+
+                <local:SeriesDetailsExtendedView Grid.Column="2" Grid.Row="2" DataContext="{Binding SeriesExtendedRecord}"/>
+
             </Grid>
         </ScrollViewer>
     </Grid>

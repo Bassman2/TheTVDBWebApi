@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="TheTVDBWebApiDemo.View.SeriesDetailsBaseView"
+﻿<UserControl x:Class="TheTVDBWebApiDemo.View.MoviesDetailsBaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              mc:Ignorable="d" 
-             d:DesignHeight="1000" d:DesignWidth="400">
+             d:DesignHeight="800" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
@@ -25,16 +25,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-
         </Grid.RowDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Content="Id"/>
         <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Id, Mode=OneWay}"/>
@@ -56,34 +46,15 @@
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Grid.Column="0" Grid.Row="8" Content="First Aired"/>
-        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding FirstAired, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="9" Content="Last Aired"/>
-        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding LastAired, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="10" Content="Next Aired"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding NextAired, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="11" Content="Score"/>
-        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Score, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="12" Content="Status"/>
-        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Status, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="13" Content="Original Country"/>
-        <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding OriginalCountry, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="14" Content="OriginalLanguage"/>
-        <TextBox Grid.Column="1" Grid.Row="14" Text="{Binding OriginalLanguage, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="15" Content="Default Season Type"/>
-        <TextBox Grid.Column="1" Grid.Row="15" Text="{Binding DefaultSeasonType, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="16" Content="Is Order Randomized"/>
-        <TextBox Grid.Column="1" Grid.Row="16" Text="{Binding IsOrderRandomized, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="17" Content="Last Updated"/>
-        <TextBox Grid.Column="1" Grid.Row="17" Text="{Binding LastUpdated, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="18" Content="Average Runtime"/>
-        <TextBox Grid.Column="1" Grid.Row="18" Text="{Binding AverageRuntime, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="19" Content="Episodes"/>
-        <TextBox Grid.Column="1" Grid.Row="19" Text="{Binding Episodes, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="20" Content="Overview"/>
-        <TextBox Grid.Column="1" Grid.Row="20" Text="{Binding Overview, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="21" Content="Year"/>
-        <TextBox Grid.Column="1" Grid.Row="21" Text="{Binding Year, Mode=OneWay}"/>
-
+        <Label Grid.Column="0" Grid.Row="8" Content="Score"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding Score, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="9" Content="Runtime"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Runtime, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="10" Content="Status"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Status, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="11" Content="Last Updated"/>
+        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding LastUpdated, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="12" Content="Year"/>
+        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Year, Mode=OneWay}"/>
     </Grid>
 </UserControl>
