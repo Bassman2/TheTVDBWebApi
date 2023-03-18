@@ -39,6 +39,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InspirationType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Converter\JsonNullableDateOnlyConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Converter\JsonNullableDateTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Language.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Links.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginRequest.cs" />
@@ -103,8 +105,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)UpdateAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UpdateType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Internal\" />
   </ItemGroup>
 </Project>

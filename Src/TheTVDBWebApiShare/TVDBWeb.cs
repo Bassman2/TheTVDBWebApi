@@ -1,6 +1,5 @@
-﻿using System.Diagnostics;
-using System.Net.Http.Json;
-using System.Threading;
+﻿using TheTVDBWebApiShare.Internal;
+using TheTVDBWebApiShare.Internal.Converter;
 
 namespace TheTVDBWebApiShare
 {
@@ -14,7 +13,17 @@ namespace TheTVDBWebApiShare
         private readonly Uri host = new Uri("https://api4.thetvdb.com");
         private readonly HttpClientHandler handler;
         private HttpClient client;
-        private JsonSerializerOptions options = new JsonSerializerOptions() { DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, IncludeFields = false, Converters = { new JsonStringEnumConverter() } };
+        private JsonSerializerOptions options = new JsonSerializerOptions() 
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, 
+            IncludeFields = false, 
+            Converters = 
+            { 
+                new JsonStringEnumConverter(), 
+                new JsonNullableDateOnlyConverter(), 
+                new JsonNullableDateTimeConverter()
+            } 
+        };
 
         /// <summary>
         /// Constructor.

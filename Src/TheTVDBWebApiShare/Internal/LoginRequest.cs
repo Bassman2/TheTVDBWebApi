@@ -1,4 +1,4 @@
-﻿namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApiShare.Internal
 {
     internal class LoginRequest
     {

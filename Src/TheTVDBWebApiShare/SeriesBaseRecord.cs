@@ -44,14 +44,26 @@
         [JsonPropertyName("aliases")]
         public List<Alias> Aliases { get; set; }
 
+        /// <summary>
+        /// Date of first aired or null if unknown.
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("firstAired")]
-        public string FirstAired { get; set; }
+        public DateOnly? FirstAired { get; set; }
 
+        /// <summary>
+        /// Date of last aired or null if unknown.
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("lastAired")]
-        public string LastAired { get; set; }
+        public DateOnly? LastAired { get; set; }
 
+        /// <summary>
+        /// Date of next aired or null if unknown.
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
         [JsonPropertyName("nextAired")]
-        public string NextAired { get; set; }
+        public DateOnly? NextAired { get; set; }
 
         /// <summary>
         /// Score of the series.
@@ -83,8 +95,11 @@
         [JsonPropertyName("isOrderRandomized")]
         public bool IsOrderRandomized { get; set; }
 
+        /// <summary>
+        /// Date of last updated.
+        /// </summary>
         [JsonPropertyName("lastUpdated")]
-        public string LastUpdated { get; set; }
+        public DateTime? LastUpdated { get; set; }
 
         /// <summary>
         /// Average runtime of the series.
