@@ -9,80 +9,55 @@
     public class SeriesBaseRecord
     {
         /// <summary>
-        /// An alias model, which can be associated with a series, season, movie, person, or list.
-        /// </summary>
-        [JsonPropertyName("aliases")]
-        public List<Alias> Aliases { get; set; }
-
-        /// <summary>
-        /// Average runtime of the serie.
-        /// </summary>
-        /// <remarks>Can be null.</remarks>
-        [JsonPropertyName("averageRuntime")]
-        public int? AverageRuntime { get; set; }
-
-        [JsonPropertyName("country")]
-        public string Country { get; set; }
-
-        [JsonPropertyName("defaultSeasonType")]
-        public long DefaultSeasonType { get; set; }
-
-        [JsonPropertyName("episodes")]
-        public List<EpisodeBaseRecord> Episodes { get; set; }
-
-        [JsonPropertyName("firstAired")]
-        public string FirstAired { get; set; }
-
-        /// <summary>
-        /// Id of the serie.
+        /// Id of the series.
         /// </summary>
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
         /// <summary>
-        /// Uri of a serie image.
-        /// </summary>
-        [JsonPropertyName("image")]
-        public string Image { get; set; }
-
-        [JsonPropertyName("isOrderRandomized")]
-        public bool IsOrderRandomized { get; set; }
-
-        [JsonPropertyName("lastAired")]
-        public string LastAired { get; set; }
-
-        [JsonPropertyName("lastUpdated")]
-        public string LastUpdated { get; set; }
-
-        /// <summary>
-        /// Name of the serie.
+        /// Name of the series.
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Slug of the series.
+        /// </summary>
+        [JsonPropertyName("slug")]
+        public string Slug { get; set; }
+
+        /// <summary>
+        /// Uri of a series image.
+        /// </summary>
+        [JsonPropertyName("image")]
+        public string Image { get; set; }
+
         [JsonPropertyName("nameTranslations")]
         public List<string> NameTranslations { get; set; }
-
-        [JsonPropertyName("nextAired")]
-        public string NextAired { get; set; }
-
-        [JsonPropertyName("originalCountry")]
-        public string OriginalCountry { get; set; }
-
-        [JsonPropertyName("originalLanguage")]
-        public string OriginalLanguage { get; set; }
 
         [JsonPropertyName("overviewTranslations")]
         public List<string> OverviewTranslations { get; set; }
 
         /// <summary>
-        /// Score of the serie.
+        /// An alias model, which can be associated with a series, season, movie, person, or list.
+        /// </summary>
+        [JsonPropertyName("aliases")]
+        public List<Alias> Aliases { get; set; }
+
+        [JsonPropertyName("firstAired")]
+        public string FirstAired { get; set; }
+
+        [JsonPropertyName("lastAired")]
+        public string LastAired { get; set; }
+
+        [JsonPropertyName("nextAired")]
+        public string NextAired { get; set; }
+
+        /// <summary>
+        /// Score of the series.
         /// </summary>
         [JsonPropertyName("score")]
         public double Score { get; set; }
-
-        [JsonPropertyName("slug")]
-        public string Slug { get; set; }
 
         /// <summary>
         /// Status of the serie.
@@ -91,9 +66,47 @@
         public Status Status { get; set; }
 
         /// <summary>
+        /// Original country of the series.
+        /// </summary>
+        [JsonPropertyName("originalCountry")]
+        public string OriginalCountry { get; set; }
+
+        /// <summary>
+        /// Original language of the series.
+        /// </summary>
+        [JsonPropertyName("originalLanguage")]
+        public string OriginalLanguage { get; set; }
+
+        [JsonPropertyName("defaultSeasonType")]
+        public long DefaultSeasonType { get; set; }
+
+        [JsonPropertyName("isOrderRandomized")]
+        public bool IsOrderRandomized { get; set; }
+
+        [JsonPropertyName("lastUpdated")]
+        public string LastUpdated { get; set; }
+
+        /// <summary>
+        /// Average runtime of the series.
+        /// </summary>
+        /// <remarks>Can be null.</remarks>
+        [JsonPropertyName("averageRuntime")]
+        public int? AverageRuntime { get; set; }
+
+        [JsonPropertyName("episodes")]
+        public List<EpisodeBaseRecord> Episodes { get; set; }
+
+        [JsonPropertyName("overview")]
+        public string Overview { get; set; }
+
+        /// <summary>
         /// Year of the serie.
         /// </summary>
         [JsonPropertyName("year")]
         public string Year { get; set; }
+
+        // in class description but not in API
+        //[JsonPropertyName("country")]
+        //public string Country { get; set; }
     }
 }

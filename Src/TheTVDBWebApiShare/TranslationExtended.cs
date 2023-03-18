@@ -1,6 +1,4 @@
-﻿using System.Transactions;
-
-namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApiShare
 {
     /// <summary>
     /// Translation extended record.

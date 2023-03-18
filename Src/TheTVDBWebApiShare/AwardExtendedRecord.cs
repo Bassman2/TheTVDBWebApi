@@ -3,23 +3,17 @@
     /// <summary>
     /// Extended award record.
     /// </summary>
-    public class AwardExtendedRecord
+    public class AwardExtendedRecord : AwardBaseRecord
     {
+        /// <summary>
+        /// Categories of the award.
+        /// </summary>
         [JsonPropertyName("categories")]
-        public List<AwardCategoryBaseRecord> categories { get; set; }
-
+        public List<AwardCategoryBaseRecord> Categories { get; set; }
+                
         /// <summary>
-        /// Id of the award.
+        /// Score of the award.
         /// </summary>
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        /// <summary>
-        /// Name of the award.
-        /// </summary>
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
         [JsonPropertyName("score")]
         public long Score { get; set; }
     }
