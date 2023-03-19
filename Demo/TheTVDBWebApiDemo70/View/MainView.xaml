@@ -33,6 +33,15 @@
                     <TabItem Header="Series Details">
                         <local:SeriesDetailsView/>
                     </TabItem>
+                    <TabItem Header="Seasons Details">
+                        <local:SeasonsDetailsView/>
+                    </TabItem>
+                    <TabItem Header="Episodes Details">
+                        <local:EpisodesDetailsView/>
+                    </TabItem>
+                    <TabItem Header="Lists Details">
+                        <local:ListsDetailsView/>
+                    </TabItem>
                     <TabItem Header="People Details">
                         <local:PeopleDetailsView/>
                     </TabItem>
@@ -40,23 +49,23 @@
             </TabItem>
             <TabItem Header="Lists">
                 <TabControl>
+                    <TabItem Header="Movies">
+                        <local:MoviesView/>
+                    </TabItem>
+                    <TabItem Header="Series">
+                        <local:SeriesView/>
+                    </TabItem>
+                    <TabItem Header="Seasons">
+                        <local:SeasonsView/>
+                    </TabItem>
                     <TabItem Header="Episodes">
                         <local:EpisodesView/>
                     </TabItem>
                     <TabItem Header="Lists">
                         <local:ListsView/>
-                    </TabItem>
-                    <TabItem Header="Movies">
-                        <local:MoviesView/>
-                    </TabItem>
+                    </TabItem>                    
                     <TabItem Header="People">
                         <local:PeopleView/>
-                    </TabItem>
-                    <TabItem Header="Seasons">
-                        <local:SeasonsView/>
-                    </TabItem>
-                    <TabItem Header="Series">
-                        <local:SeriesView/>
                     </TabItem>
                 </TabControl>
             </TabItem>

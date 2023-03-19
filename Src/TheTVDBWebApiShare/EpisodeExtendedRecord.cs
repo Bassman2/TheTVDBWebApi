@@ -30,7 +30,7 @@
         public List<ContentRating> ContentRatings { get; set; }
 
         [JsonPropertyName("finaleType")]
-        public FinaleType FinaleType { get; set; }
+        public FinaleType? FinaleType { get; set; }
 
         /// <summary>
         /// Id of the episode.

@@ -12,6 +12,18 @@
             {
                 return new SeriesViewModel(series);
             }
+            if (value is SeasonBaseRecord season)
+            {
+                return new SeasonViewModel(season);
+            }
+            if (value is EpisodeBaseRecord episode)
+            {
+                return new EpisodeViewModel(episode);
+            }
+            if (value is ListBaseRecord list)
+            {
+                return new ListViewModel(list);
+            }
             if (value is PeopleBaseRecord people)
             {
                 return new PeopleViewModel(people);
