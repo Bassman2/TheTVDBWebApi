@@ -5,23 +5,26 @@
     /// </summary>
     public class PeopleBaseRecord
     {
-        [JsonPropertyName("aliases")]
-        public List<Alias> Aliases { get; set; }
-
+        /// <summary>
+        /// Id of the people.
+        /// </summary>
         [JsonPropertyName("id")]
         public long Id { get; set; }
 
-        [JsonPropertyName("image")]
-        public string Image { get; set; }
-
-        [JsonPropertyName("lastUpdated")]
-        public string LastUpdated { get; set; }
-
         /// <summary>
-        /// Name of the artwork status.
+        /// Name of the people.
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Image url of the people
+        /// </summary>
+        [JsonPropertyName("image")]
+        public string Image { get; set; }
+
+        [JsonPropertyName("score")]
+        public long Score { get; set; }
 
         [JsonPropertyName("nameTranslations")]
         public List<string> NameTranslations { get; set; }
@@ -29,7 +32,10 @@
         [JsonPropertyName("overviewTranslations")]
         public List<string> OverviewTranslations { get; set; }
 
-        [JsonPropertyName("score")]
-        public long Score { get; set; }
+        [JsonPropertyName("aliases")]
+        public List<Alias> Aliases { get; set; }        
+
+        [JsonPropertyName("lastUpdated")]
+        public DateTime? LastUpdated { get; set; }
     }
 }

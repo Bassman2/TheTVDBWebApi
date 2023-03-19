@@ -112,7 +112,7 @@
         <Label Grid.Column="0" Grid.Row="14" Content="Awards"/>
         <DataGrid Grid.Column="1" Grid.Row="14" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>

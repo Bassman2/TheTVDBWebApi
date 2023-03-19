@@ -29,6 +29,9 @@
                     <TabItem Header="Series Details">
                         <local:SeriesDetailsView/>
                     </TabItem>
+                    <TabItem Header="People Details">
+                        <local:PeopleDetailsView/>
+                    </TabItem>
                 </TabControl>                
             </TabItem>
             <TabItem Header="Lists">

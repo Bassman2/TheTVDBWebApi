@@ -8,7 +8,7 @@
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             IEnumerable<string> list = (IEnumerable<string>)value;
-            return list.Aggregate("", (a, b) => $"{a}, {b}").Trim(',', ' ');
+            return list?.Aggregate("", (a, b) => $"{a}, {b}").Trim(',', ' ');
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)

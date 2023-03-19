@@ -12,6 +12,10 @@
             {
                 return new SeriesViewModel(series);
             }
+            if (value is PeopleBaseRecord people)
+            {
+                return new PeopleViewModel(people);
+            }
             return null;
         }
 

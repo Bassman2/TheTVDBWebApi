@@ -48,7 +48,7 @@
         public List<TagOption> TagOptions { get; set; }
 
         [JsonPropertyName("thumbnail")]
-        public string thumbnail { get; set; }
+        public string Thumbnail { get; set; }
 
         [JsonPropertyName("thumbnailHeight")]
         public long ThumbnailHeight { get; set; }
