@@ -34,7 +34,7 @@
         <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Slug, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="3" Content="Image"/>
         <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Image, Mode=OneWay}"/>
-        <Image Grid.Column="1" Grid.Row="4" Source="{Binding Image, Converter={StaticResource ImageLoadConverter}}" Stretch="Uniform"/>
+        <Image Grid.Column="1" Grid.Row="4" Source="{Binding Image, Converter={StaticResource ImageLoadConverter}}"/>
         <Label Grid.Column="0" Grid.Row="5" Content="Name Translations"/>
         <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
         <Label Grid.Column="0" Grid.Row="6" Content="Overview Translations"/>

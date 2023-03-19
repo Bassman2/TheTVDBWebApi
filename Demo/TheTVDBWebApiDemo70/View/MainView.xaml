@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
         mc:Ignorable="d"
         Title="The TVDB Web Api Demo" Height="800" Width="1200">
-    <Window.Resources>
+    <!--<Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3" />
             <Setter Property="IsReadOnly" Value="True" />
@@ -18,7 +18,11 @@
             <Setter Property="IsReadOnly" Value="True" />
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
         </Style>
-    </Window.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Stretch" Value="Uniform" />
+        </Style>
+    </Window.Resources>-->
     <DockPanel>
         <TabControl TabStripPlacement="Left" >
             <TabItem Header="Details">

@@ -71,8 +71,7 @@
                 <DataGridTextColumn Header="HelpText" Binding="{Binding HelpText}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label Grid.Column="0" Grid.Row="9" Content="Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Translations, Mode=OneWay}"/>
+        <local:TranslationExtendedView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" DataContext="{Binding Translations}" />
         <Label Grid.Column="0" Grid.Row="10" Content="Slug"/>
         <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Slug, Mode=OneWay}"/>
     </Grid>

@@ -119,52 +119,15 @@ namespace TheTVDBWebApiShare
             using (HttpResponseMessage res = await this.client.PostAsJsonAsync(requestUri, value, this.options, cancellationToken))
             {
                 return await ResponseToJsonAsync<TRes>(res, cancellationToken, memberName);
-                //try
-                //{
-                //    Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
-                //    if (!res.IsSuccessStatusCode)
-                //    {
-                //        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                //    }
-
-                //    return resp;
-                //}
-                //catch (JsonException ex)
-                //{
-                //    DebugJsonException(ex, res, requestUri, memberName);
-                //    return null;
-                //}
             }
         }
 
         private async Task<Response<TRes>> GetInternAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
         {
-            //Response<TRes> resp = null;
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
                 return await ResponseToJsonAsync<TRes>(res, cancellationToken, memberName);
-                //if (res.Content.Headers.ContentType.MediaType == "application/json")
-                //{
-                //    try
-                //    {
-                //        resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
-                //        if (!res.IsSuccessStatusCode)
-                //        {
-                //            throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                //        }
-                //    }
-                //    catch (JsonException ex)
-                //    {
-                //        DebugJsonException(ex, res, requestUri, memberName);
-                //    }
-                //}
-                //else
-                //{
-                //    res.EnsureSuccessStatusCode();
-                //    throw new Exception("Not a json response");
-                //}
             }
-            //return resp;
         }
 
         private async Task<TRes> GetDataAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
@@ -172,20 +135,6 @@ namespace TheTVDBWebApiShare
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
                 return (await ResponseToJsonAsync<TRes>(res, cancellationToken, memberName)).Data;
-                //try
-                //{
-                //    Response<TRes> resp = await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
-                //    if (!res.IsSuccessStatusCode)
-                //    {
-                //        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                //    }
-                //    return resp.Data;
-                //}
-                //catch (JsonException ex)
-                //{
-                //    DebugJsonException(ex, res, requestUri, memberName);
-                //    return null;
-                //}
             }
         }
 
@@ -195,22 +144,6 @@ namespace TheTVDBWebApiShare
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
                 return (await ResponseToJsonAsync<Response>(res, cancellationToken, memberName)).Links.TotalItems;
-
-                //try
-                //{
-                //    Response resp = await res.Content.ReadFromJsonAsync<Response>(options, cancellationToken);
-                //    if (!res.IsSuccessStatusCode)
-                //    {
-                //        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                //    }
-
-                //    return resp.Links.TotalItems;
-                //}
-                //catch (JsonException ex)
-                //{
-                //    DebugJsonException(ex, res, requestUri, memberName);
-                //    return 0;
-                //}
             }
         }
 
@@ -219,6 +152,7 @@ namespace TheTVDBWebApiShare
             requestUri = $"{requestUri}?page=0";
             while (!string.IsNullOrEmpty(requestUri))
             {
+                Debug.WriteLine($"GetLongListAsync {typeof(T).Name} {requestUri}");
                 Response<List<T>> resp = await GetInternAsync<List<T>>(requestUri, cancellationToken, memberName);
                 foreach (T serie in resp.Data)
                 {

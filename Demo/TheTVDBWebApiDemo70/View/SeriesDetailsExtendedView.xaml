@@ -55,14 +55,14 @@
                 <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <Label Grid.Column="0" Grid.Row="16" Content="Releases"/>
+        <!--<Label Grid.Column="0" Grid.Row="16" Content="Releases"/>
         <DataGrid Grid.Column="1" Grid.Row="16" ItemsSource="{Binding Releases}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Country" Binding="{Binding Country}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Date" Binding="{Binding Date}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Detail" Binding="{Binding Detail}" IsReadOnly="True" />
             </DataGrid.Columns>
-        </DataGrid>
+        </DataGrid>-->
         <Label Grid.Column="0" Grid.Row="17" Content="Artworks"/>
         <DataGrid Grid.Column="1" Grid.Row="17" ItemsSource="{Binding Artworks}" AutoGenerateColumns="False">
             <DataGrid.Columns>

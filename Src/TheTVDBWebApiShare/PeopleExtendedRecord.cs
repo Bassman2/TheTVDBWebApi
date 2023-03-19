@@ -37,7 +37,7 @@
         public List<TagOption> TagOptions { get; set; }
 
         [JsonPropertyName("translations")]
-        public TranslationExtended translations { get; set; }
+        public TranslationExtended Translations { get; set; }
 
         [JsonPropertyName("slug")]
         public string Slug { get; set; }

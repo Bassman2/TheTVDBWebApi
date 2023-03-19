@@ -28,9 +28,9 @@
         /// <param name="id">Id of the season to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Season base record.</returns>
-        public async Task<MovieBaseRecord> GetSeasonAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<SeasonBaseRecord> GetSeasonAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<MovieBaseRecord>($"v4/seasons/{id}", cancellationToken);
+            return await GetDataAsync<SeasonBaseRecord>($"v4/seasons/{id}", cancellationToken);
         }
 
         /// <summary>

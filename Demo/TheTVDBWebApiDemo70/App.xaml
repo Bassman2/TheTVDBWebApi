@@ -8,5 +8,20 @@
         <conv:ViewModelConverter x:Key="ViewModelConverter"/>
         <conv:ImageLoadConverter x:Key="ImageLoadConverter"/>
         <conv:StringListConverter x:Key="StringListConverter"/>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="IsReadOnly" Value="True" />
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="HeadersVisibility" Value="Column" />
+            <Setter Property="GridLinesVisibility" Value="None" />
+            <Setter Property="IsReadOnly" Value="True" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Margin" Value="3" />
+            <Setter Property="Stretch" Value="Uniform" />
+        </Style>
     </Application.Resources>
 </Application>
