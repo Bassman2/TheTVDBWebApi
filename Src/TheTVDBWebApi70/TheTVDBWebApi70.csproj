@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <AssemblyName>TheTVDBWebApi</AssemblyName>
+    <RootNamespace>TheTVDBWebApi</RootNamespace>
   </PropertyGroup>
 
   <Import Project="..\TheTVDBWebApiShare\TheTVDBWebApiShare.projitems" Label="Shared" />

@@ -1,7 +1,7 @@
-﻿using TheTVDBWebApiShare.Internal;
-using TheTVDBWebApiShare.Internal.Converter;
+﻿using TheTVDBWebApi.Internal;
+using TheTVDBWebApi.Internal.Converter;
 
-namespace TheTVDBWebApiShare
+namespace TheTVDBWebApi
 {
     /// <summary>
     /// The TVDB Web API class

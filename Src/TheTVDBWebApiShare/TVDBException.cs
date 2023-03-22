@@ -1,4 +1,4 @@
-﻿namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApi
 {
     public class TVDBException : Exception
     {

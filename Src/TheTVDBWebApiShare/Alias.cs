@@ -1,4 +1,4 @@
-﻿namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApi
 {
     /// <summary>
     /// An alias model, which can be associated with a series, season, movie, person, or list.

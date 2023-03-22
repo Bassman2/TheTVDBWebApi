@@ -1,4 +1,4 @@
-﻿namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApi
 {
     /// <summary>
     /// The extended record for a series. 

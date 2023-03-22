@@ -6,7 +6,7 @@
     <SharedGUID>936bb719-2110-4d3e-8653-d55d6a9130ec</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>TheTVDBWebApiShare</Import_RootNamespace>
+    <Import_RootNamespace>TheTVDBWebApi</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Alias.cs" />

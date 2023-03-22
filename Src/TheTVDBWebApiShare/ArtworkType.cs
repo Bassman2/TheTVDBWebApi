@@ -1,4 +1,4 @@
-﻿namespace TheTVDBWebApiShare
+﻿namespace TheTVDBWebApi
 {
     /// <summary>
     /// Artwork type record.

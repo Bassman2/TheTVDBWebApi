@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TheTVDBWebApiShare
+namespace TheTVDBWebApi
 {
     /// <summary>
     /// Movie inspiration record.

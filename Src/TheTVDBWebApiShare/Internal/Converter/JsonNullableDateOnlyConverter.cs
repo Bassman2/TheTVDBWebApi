@@ -1,4 +1,4 @@
-﻿namespace TheTVDBWebApiShare.Internal.Converter
+﻿namespace TheTVDBWebApi.Internal.Converter
 {
     internal class JsonNullableDateOnlyConverter : JsonConverter<DateOnly?>
     {

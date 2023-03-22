@@ -1,4 +1,4 @@
-﻿namespace TheTVDBWebApiShare.Internal
+﻿namespace TheTVDBWebApi.Internal
 {
     internal class Response
     {

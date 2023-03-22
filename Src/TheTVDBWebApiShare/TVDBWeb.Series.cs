@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace TheTVDBWebApiShare
+namespace TheTVDBWebApi
 {
     public partial class TVDBWeb
     {

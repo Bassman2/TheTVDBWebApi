@@ -16,4 +16,4 @@ global using System.Windows.Shell;
 global using System.Windows.Threading;
 global using TheTVDBWebApiDemo.View;
 global using TheTVDBWebApiDemo.ViewModel;
-global using TheTVDBWebApiShare;
+global using TheTVDBWebApi;
