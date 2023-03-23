@@ -7,8 +7,49 @@
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
              d:DataContext="{d:DesignInstance Type=ws:SeasonBaseRecord}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1000" d:DesignWidth="400">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Content="Id"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Id, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Series Id"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SeriesId, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="Type"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Type, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="3" Content="Number"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Number, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="4" Content="Name Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <Label Grid.Column="0" Grid.Row="5" Content="Overview Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <Label Grid.Column="0" Grid.Row="6" Content="Image"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Image, Mode=OneWay}"/>
+        <Image Grid.Column="1" Grid.Row="7" Source="{Binding Image, Converter={StaticResource ImageLoadConverter}}"/>
+        <Label Grid.Column="0" Grid.Row="8" Content="Image Type"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding ImageType, Mode=OneWay}"/>
+        <local:DetailCompaniesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" DataContext="{Binding Companies}"/>
+        <Label Grid.Column="0" Grid.Row="10" Content="Last Updated"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding LastUpdated, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="11" Content="Year"/>
+        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Year, Mode=OneWay}"/>
+
     </Grid>
 </UserControl>

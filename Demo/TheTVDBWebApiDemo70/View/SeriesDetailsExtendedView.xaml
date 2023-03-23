@@ -38,25 +38,9 @@
             <RowDefinition Height="Auto"/>
 
         </Grid.RowDefinitions>
-        
-        <Label Grid.Column="0" Grid.Row="14" Content="Trailers"/>
-        <DataGrid Grid.Column="1" Grid.Row="14" ItemsSource="{Binding Trailers}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Url" Binding="{Binding Url}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Runtime" Binding="{Binding Runtime}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="15" Content="Genres"/>
-        <DataGrid Grid.Column="1" Grid.Row="15" ItemsSource="{Binding Genres}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+
+        <local:DetailTrailersView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" DataContext="{Binding Trailers}"/>
+        <local:DetailGenresView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" DataContext="{Binding Genres}"/>
         <!--<Label Grid.Column="0" Grid.Row="16" Content="Releases"/>
         <DataGrid Grid.Column="1" Grid.Row="16" ItemsSource="{Binding Releases}" AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -65,19 +49,8 @@
                 <DataGridTextColumn Header="Detail" Binding="{Binding Detail}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>-->
-        <Label Grid.Column="0" Grid.Row="17" Content="Artworks"/>
-        <DataGrid Grid.Column="1" Grid.Row="17" ItemsSource="{Binding Artworks}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Image" Binding="{Binding Image}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Thumbnail" Binding="{Binding Thumbnail}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Score" Binding="{Binding Score}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Width" Binding="{Binding Width}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Height" Binding="{Binding Height}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailArtworksView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" DataContext="{Binding Artwork}"/>
+
         <Label Grid.Column="0" Grid.Row="18" Content="Remote Ids"/>
         <DataGrid Grid.Column="1" Grid.Row="18" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -126,13 +99,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label Grid.Column="0" Grid.Row="29" Content="Tag Options"/>
-        <DataGrid Grid.Column="1" Grid.Row="29" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailTagOptionsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" DataContext="{Binding TagOptions}"/>
+       
 
         <Label Grid.Column="0" Grid.Row="30" Content="Lists"/>
         <DataGrid Grid.Column="1" Grid.Row="30" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">

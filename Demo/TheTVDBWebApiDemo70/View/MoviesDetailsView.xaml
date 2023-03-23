@@ -21,7 +21,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <GridSplitter Grid.Column="1" Width="5" ResizeBehavior="PreviousAndNext" />
-        <ScrollViewer Grid.Column="2" DataContext="{Binding ElementName=Movies, Path=SelectedValue, Converter={StaticResource ViewModelConverter}}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <ScrollViewer Grid.Column="2" DataContext="{Binding ElementName=Movies, Path=SelectedValue, Converter={StaticResource ViewModelConverter}}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" d:DataContext="{d:DesignInstance Type=vm:MovieViewModel}">
         <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" MinWidth="140"/>
