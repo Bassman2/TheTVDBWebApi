@@ -18,10 +18,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="300"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -34,29 +34,21 @@
         <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Name, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Slug"/>
         <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Slug, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Image"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Image, Mode=OneWay}"/>
-        <Image Grid.Column="1" Grid.Row="4" Source="{Binding Image, Converter={StaticResource ImageLoadConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="5" Content="Name Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="6" Content="Overview Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="7" Content="Aliases"/>
-        <DataGrid Grid.Column="1" Grid.Row="7" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="8" Content="Score"/>
-        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding Score, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="9" Content="Runtime"/>
-        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Runtime, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="10" Content="Status"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Status, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="11" Content="Last Updated"/>
-        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding LastUpdated, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="12" Content="Year"/>
-        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Year, Mode=OneWay}"/>
+        <local:DetailImageView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" DataContext="{Binding Image}"/>
+        <Label Grid.Column="0" Grid.Row="4" Content="Name Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <Label Grid.Column="0" Grid.Row="5" Content="Overview Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <local:DetailAliasesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" DataContext="{Binding Aliases}"/>
+        <Label Grid.Column="0" Grid.Row="7" Content="Score"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding Score, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="8" Content="Runtime"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding Runtime, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="9" Content="Status"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Status, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="10" Content="Last Updated"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding LastUpdated, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="11" Content="Year"/>
+        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Year, Mode=OneWay}"/>
     </Grid>
 </UserControl>

@@ -21,7 +21,6 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="300"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -40,16 +39,13 @@
         <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
         <Label Grid.Column="0" Grid.Row="5" Content="Overview Translations"/>
         <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="6" Content="Image"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Image, Mode=OneWay}"/>
-        <Image Grid.Column="1" Grid.Row="7" Source="{Binding Image, Converter={StaticResource ImageLoadConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="8" Content="Image Type"/>
-        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding ImageType, Mode=OneWay}"/>
-        <local:DetailCompaniesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" DataContext="{Binding Companies}"/>
-        <Label Grid.Column="0" Grid.Row="10" Content="Last Updated"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding LastUpdated, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="11" Content="Year"/>
-        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Year, Mode=OneWay}"/>
-
+        <local:DetailImageView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" DataContext="{Binding Image}"/>
+        <Label Grid.Column="0" Grid.Row="7" Content="Image Type"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding ImageType, Mode=OneWay}"/>
+        <local:DetailCompaniesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" DataContext="{Binding Companies}"/>
+        <Label Grid.Column="0" Grid.Row="9" Content="Last Updated"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding LastUpdated, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="10" Content="Year"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Year, Mode=OneWay}"/>
     </Grid>
 </UserControl>

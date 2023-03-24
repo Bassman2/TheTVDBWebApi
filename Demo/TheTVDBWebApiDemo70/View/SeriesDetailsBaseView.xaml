@@ -18,10 +18,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="300"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -44,48 +43,39 @@
         <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Name, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Slug"/>
         <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Slug, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Image"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Image, Mode=OneWay}"/>
-        <Image Grid.Column="1" Grid.Row="4" Source="{Binding Image, Converter={StaticResource ImageLoadConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="5" Content="Name Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="6" Content="Overview Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="7" Content="Aliases"/>
-        <DataGrid Grid.Column="1" Grid.Row="7" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="8" Content="First Aired"/>
-        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding FirstAired, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="9" Content="Last Aired"/>
-        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding LastAired, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="10" Content="Next Aired"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding NextAired, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="11" Content="Score"/>
-        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Score, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="12" Content="Status"/>
-        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Status, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="13" Content="Original Country"/>
-        <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding OriginalCountry, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="14" Content="OriginalLanguage"/>
-        <TextBox Grid.Column="1" Grid.Row="14" Text="{Binding OriginalLanguage, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="15" Content="Default Season Type"/>
-        <TextBox Grid.Column="1" Grid.Row="15" Text="{Binding DefaultSeasonType, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="16" Content="Is Order Randomized"/>
-        <TextBox Grid.Column="1" Grid.Row="16" Text="{Binding IsOrderRandomized, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="17" Content="Last Updated"/>
-        <TextBox Grid.Column="1" Grid.Row="17" Text="{Binding LastUpdated, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="18" Content="Average Runtime"/>
-        <TextBox Grid.Column="1" Grid.Row="18" Text="{Binding AverageRuntime, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="19" Content="Episodes"/>
-        <TextBox Grid.Column="1" Grid.Row="19" Text="{Binding Episodes, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="20" Content="Overview"/>
-        <TextBox Grid.Column="1" Grid.Row="20" Text="{Binding Overview, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="21" Content="Year"/>
-        <TextBox Grid.Column="1" Grid.Row="21" Text="{Binding Year, Mode=OneWay}"/>
-
+        <local:DetailImageView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" DataContext="{Binding Image}"/>
+        <Label Grid.Column="0" Grid.Row="4" Content="Name Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <Label Grid.Column="0" Grid.Row="5" Content="Overview Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <local:DetailAliasesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" DataContext="{Binding Aliases}"/>
+        <Label Grid.Column="0" Grid.Row="7" Content="First Aired"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding FirstAired, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="8" Content="Last Aired"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding LastAired, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="9" Content="Next Aired"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding NextAired, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="10" Content="Score"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Score, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="11" Content="Status"/>
+        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Status, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="12" Content="Original Country"/>
+        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding OriginalCountry, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="13" Content="OriginalLanguage"/>
+        <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding OriginalLanguage, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="14" Content="Default Season Type"/>
+        <TextBox Grid.Column="1" Grid.Row="14" Text="{Binding DefaultSeasonType, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="15" Content="Is Order Randomized"/>
+        <TextBox Grid.Column="1" Grid.Row="15" Text="{Binding IsOrderRandomized, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="16" Content="Last Updated"/>
+        <TextBox Grid.Column="1" Grid.Row="16" Text="{Binding LastUpdated, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="17" Content="Average Runtime"/>
+        <TextBox Grid.Column="1" Grid.Row="17" Text="{Binding AverageRuntime, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="18" Content="Episodes"/>
+        <TextBox Grid.Column="1" Grid.Row="18" Text="{Binding Episodes, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="19" Content="Overview"/>
+        <TextBox Grid.Column="1" Grid.Row="19" Text="{Binding Overview, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="20" Content="Year"/>
+        <TextBox Grid.Column="1" Grid.Row="20" Text="{Binding Year, Mode=OneWay}"/>
     </Grid>
 </UserControl>

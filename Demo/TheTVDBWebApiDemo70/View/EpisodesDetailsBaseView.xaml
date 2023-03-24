@@ -7,8 +7,63 @@
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
              d:DataContext="{d:DesignInstance Type=ws:EpisodeBaseRecord}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="1000" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="Id"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Id, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Series Id"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SeriesId, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="Name"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Name, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="3" Content="Aired"/>
+        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Aired, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="4" Content="Runtime"/>
+        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Runtime, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="5" Content="Name Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <Label Grid.Column="0" Grid.Row="6" Content="Overview"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Overview, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="7" Content="Overview Translations"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <local:DetailImageView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" DataContext="{Binding Image}"/>
+        <Label Grid.Column="0" Grid.Row="9" Content="Image Type"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding ImageType, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="10" Content="Is Movie"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding IsMovie, Mode=OneWay}"/>
+        <local:DetailSeasonsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="11" DataContext="{Binding Seasons}"/>
+        <Label Grid.Column="0" Grid.Row="12" Content="Number"/>
+        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Number, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="13" Content="Season Number"/>
+        <TextBox Grid.Column="1" Grid.Row="13" Text="{Binding SeasonNumber, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="14" Content="Last Updated"/>
+        <TextBox Grid.Column="1" Grid.Row="14" Text="{Binding LastUpdated, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="15" Content="Finale Type"/>
+        <TextBox Grid.Column="1" Grid.Row="15" Text="{Binding FinaleType, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="16" Content="Year"/>
+        <TextBox Grid.Column="1" Grid.Row="16" Text="{Binding Year, Mode=OneWay}"/>
     </Grid>
 </UserControl>
