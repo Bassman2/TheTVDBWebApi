@@ -63,7 +63,7 @@
         public TranslationExtended Translations { get; set; }
 
         [JsonPropertyName("contentRatings")]
-        public List<ContentRating> contentRatings { get; set; }
+        public List<ContentRating> ContentRatings { get; set; }
 
         [JsonPropertyName("companies")]
         public Companies Companies { get; set; }

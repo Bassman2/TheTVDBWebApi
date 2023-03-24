@@ -7,19 +7,13 @@
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
              d:DataContext="{d:DesignInstance Type=ws:MovieExtendedRecord}"
              mc:Ignorable="d" 
-             d:DesignHeight="1200" d:DesignWidth="800">
+             d:DesignHeight="2000" d:DesignWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -27,93 +21,64 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <local:DetailTrailersView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" DataContext="{Binding Trailers}"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Genres"/>
-        <DataGrid Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Genres}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="2" Content="Releases"/>
-        <DataGrid Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Releases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Country" Binding="{Binding Country}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Date" Binding="{Binding Date}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Detail" Binding="{Binding Detail}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <local:DetailArtworksView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" DataContext="{Binding Artwork}"/>
-        <Label Grid.Column="0" Grid.Row="4" Content="Remote Ids"/>
-        <DataGrid Grid.Column="1" Grid.Row="4" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="5" Content="Characters"/>
-        <DataGrid Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailTrailersView Grid.Column="0" Grid.Row="0" DataContext="{Binding Trailers}"/>
+        <local:DetailGenresView Grid.Column="0" Grid.Row="1" DataContext="{Binding Genres}"/>
+        <local:DetailReleasesView Grid.Column="0" Grid.Row="2" DataContext="{Binding Releases}"/>
+        <local:DetailArtworksView Grid.Column="0" Grid.Row="3" DataContext="{Binding Artworks}"/>
+        <local:DetailRemoteIdsView Grid.Column="0" Grid.Row="4" DataContext="{Binding RemoteIds}"/>
+        <local:DetailCharactersView Grid.Column="0" Grid.Row="5" DataContext="{Binding Characters}"/>
 
         <Label Grid.Column="0" Grid.Row="6" Content="Budget"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Year, Mode=OneWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Budget, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="7" Content="Box Office"/>
-        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding Year, Mode=OneWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding BoxOffice, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="8" Content="Box Office US"/>
-        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding Year, Mode=OneWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding BoxOfficeUS, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="9" Content="Original Country"/>
-        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Year, Mode=OneWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding OriginalCountry, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="10" Content="Original Language"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Year, Mode=OneWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding OriginalLanguage, Mode=OneWay}"/>
 
 
         <Label Grid.Column="0" Grid.Row="11" Content="Audio Languages"/>
-        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Year, Mode=OneWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding AudioLanguages, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
         <Label Grid.Column="0" Grid.Row="12" Content="Subtitle Languages"/>
-        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Year, Mode=OneWay}"/>
+        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding SubtitleLanguages, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
 
-        <Label Grid.Column="0" Grid.Row="13" Content="Studios"/>
-        <DataGrid Grid.Column="1" Grid.Row="13" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailStudiosView Grid.Column="0" Grid.Row="13" DataContext="{Binding Studios}"/>
+        <local:DetailAwardsView Grid.Column="0" Grid.Row="14" DataContext="{Binding Awards}"/>
+        <local:DetailTagOptionsView Grid.Column="0" Grid.Row="15" DataContext="{Binding TagOptions}"/>
+        <local:DetailListsView Grid.Column="0" Grid.Row="16" DataContext="{Binding Lists}"/>
 
-        <Label Grid.Column="0" Grid.Row="14" Content="Awards"/>
-        <DataGrid Grid.Column="1" Grid.Row="14" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailTranslationsView Grid.Column="0" Grid.Row="17" DataContext="{Binding Translations}"/>
+        <local:DetailContentRatingsView Grid.Column="0" Grid.Row="18" DataContext="{Binding ContentRatings}"/>
+        <local:DetailCompaniesView Grid.Column="0" Grid.Row="19" DataContext="{Binding Companies}"/>
 
-        <Label Grid.Column="0" Grid.Row="15" Content="Tag Options"/>
-        <DataGrid Grid.Column="1" Grid.Row="15" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailProductionCountriesView Grid.Column="0" Grid.Row="20" DataContext="{Binding ProductionCountries}"/>
 
-        <Label Grid.Column="0" Grid.Row="16" Content="Lists"/>
-        <DataGrid Grid.Column="1" Grid.Row="16" ItemsSource="{Binding Aliases}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailInspirationsView Grid.Column="0" Grid.Row="21" DataContext="{Binding Inspirations}"/>
 
-        <!-- TODO Translations-->
+        <Label Grid.Column="0" Grid.Row="22" Content="Spoken Languages"/>
+        <TextBox Grid.Column="1" Grid.Row="22" Text="{Binding SpokenLanguages, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <Label Grid.Column="0" Grid.Row="23" Content="First Release"/>
+        <TextBox Grid.Column="1" Grid.Row="23" Text="{Binding FirstRelease, Mode=OneWay}"/>
     </Grid>
 </UserControl>

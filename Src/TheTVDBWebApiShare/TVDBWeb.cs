@@ -104,6 +104,14 @@ namespace TheTVDBWebApi
                     DebugJsonException(ex, res, res.RequestMessage.RequestUri.ToString(), memberName);
                 }
             }
+            else if (res.Content.Headers.ContentType.MediaType == "text/html")
+            {
+                string html = await res.Content.ReadAsStringAsync(cancellationToken);
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new Exception(html);
+                }
+            }
             else
             {
                 res.EnsureSuccessStatusCode();
