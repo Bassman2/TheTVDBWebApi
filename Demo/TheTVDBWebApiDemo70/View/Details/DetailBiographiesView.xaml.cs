@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace TheTVDBWebApiDemo.View
 {
     /// <summary>
-    /// Interaction logic for TranslationExtendedView.xaml
+    /// Interaction logic for DetailBiographiesView.xaml
     /// </summary>
-    public partial class TranslationExtendedView : UserControl
+    public partial class DetailBiographiesView : UserControl
     {
-        public TranslationExtendedView()
+        public DetailBiographiesView()
         {
             InitializeComponent();
         }

@@ -17,12 +17,12 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -32,48 +32,14 @@
         <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Death, Mode=OneWay}"/>
         <Label Grid.Column="0" Grid.Row="2" Content="Birth Place"/>
         <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding BirthPlace, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Remote IDs"/>
-        <DataGrid Grid.Column="1" Grid.Row="3" ItemsSource="{Binding RemoteIds}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Type" Binding="{Binding Type}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Source Name" Binding="{Binding SourceName}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
+        <local:DetailRemoteIdsView Grid.Column="0" Grid.Row="3" DataContext="{Binding RemoteIds}"/>
         <Label Grid.Column="0" Grid.Row="4" Content="Gender"/>
         <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Gender, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="5" Content="Characters"/>
-        <DataGrid Grid.Column="1" Grid.Row="5" ItemsSource="{Binding Characters}" AutoGenerateColumns="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="6" Content="Biographies"/>
-        <DataGrid Grid.Column="1" Grid.Row="6" ItemsSource="{Binding Biographies}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Biography Name" Binding="{Binding BiographyName}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="7" Content="Awards"/>
-        <DataGrid Grid.Column="1" Grid.Row="7" ItemsSource="{Binding Awards}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Label Grid.Column="0" Grid.Row="8" Content="Tag Options"/>
-        <DataGrid Grid.Column="1" Grid.Row="8" ItemsSource="{Binding TagOptions}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Tag" Binding="{Binding Tag}" IsReadOnly="True" />
-                <DataGridTextColumn Header="TagName" Binding="{Binding TagName}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
-                <DataGridTextColumn Header="HelpText" Binding="{Binding HelpText}" IsReadOnly="True" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <local:TranslationExtendedView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" DataContext="{Binding Translations}" />
+        <local:DetailCharactersView Grid.Column="0" Grid.Row="5" DataContext="{Binding Characters}"/>
+        <local:DetailBiographiesView Grid.Column="0" Grid.Row="6" DataContext="{Binding Biographies}"/>
+        <local:DetailAwardsView Grid.Column="0" Grid.Row="7" DataContext="{Binding Awards}"/>
+        <local:DetailTagOptionsView Grid.Column="0" Grid.Row="8" DataContext="{Binding TagOptions}"/>
+        <local:DetailTranslationsView Grid.Column="0" Grid.Row="9" DataContext="{Binding Translations}" />
         <Label Grid.Column="0" Grid.Row="10" Content="Slug"/>
         <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Slug, Mode=OneWay}"/>
     </Grid>
