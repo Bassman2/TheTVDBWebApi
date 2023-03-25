@@ -19,9 +19,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <local:DetailEpisodesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" DataContext="{Binding Episodes}"/>
-        <local:DetailTrailersView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" DataContext="{Binding Trailers}"/>
-        <local:DetailArtworksView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" DataContext="{Binding Artwork}"/>
-        <local:DetailTagOptionsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" DataContext="{Binding TagOptions}"/> 
+        <local:DetailEpisodesView Grid.Column="0" Grid.Row="0" DataContext="{Binding Episodes}"/>
+        <local:DetailTrailersView Grid.Column="0" Grid.Row="1" DataContext="{Binding Trailers}"/>
+        <local:DetailArtworksView Grid.Column="0" Grid.Row="2" DataContext="{Binding Artwork}"/>
+        <local:DetailTagOptionsView Grid.Column="0" Grid.Row="3" DataContext="{Binding TagOptions}"/> 
     </Grid>
 </UserControl>
