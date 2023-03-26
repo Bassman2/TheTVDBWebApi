@@ -15,7 +15,7 @@
                 {
                     await client.LoginAsync(apiKey, userKey);
                     this.SeriesBaseRecord = await client.GetSeriesAsync(record.Id);
-                    this.SeriesExtendedRecord = await client.GetSeriesExtendedAsync(record.Id);
+                    this.SeriesExtendedRecord = await client.GetSeriesExtendedAsync(record.Id, MetaSeries.Episodes, false);
                 }
             });
         }

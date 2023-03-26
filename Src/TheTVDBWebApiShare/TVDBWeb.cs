@@ -1,4 +1,5 @@
-﻿using TheTVDBWebApi.Internal;
+﻿using System.Globalization;
+using TheTVDBWebApi.Internal;
 using TheTVDBWebApi.Internal.Converter;
 
 namespace TheTVDBWebApi
@@ -190,6 +191,35 @@ namespace TheTVDBWebApi
             Debug.WriteLine($"Position: {x}>>>{p}");
             Debugger.Break();
         }
+
+        private static string BuildParam(Meta? meta, bool? shortVersion = null)
+        {
+            string parameter = string.Empty;
+            if (meta.HasValue)
+            {
+                parameter += (parameter.Contains('?') ? "&meta=" : "?meta=") + meta.Value.ToString().ToLower();
+            }
+            if (shortVersion.HasValue)
+            {
+                parameter += (parameter.Contains('?') ? "&short=" : "?short=") + (shortVersion.Value ? "true" : "false");
+            }
+            return parameter;
+        }
+
+        private static string BuildParam(MetaSeries? meta, bool? shortVersion = null)
+        {
+            string parameter = string.Empty;
+            if (meta.HasValue)
+            {
+                parameter += (parameter.Contains('?') ? "&meta=" : "?meta=") + meta.Value.ToString().ToLower();
+            }
+            if (shortVersion.HasValue)
+            {
+                parameter += (parameter.Contains('?') ? "&short=" : "?short=") + (shortVersion.Value ? "true" : "false");
+            }
+            return parameter;
+        }
+
 
         #endregion
     }

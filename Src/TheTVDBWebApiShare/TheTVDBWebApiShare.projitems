@@ -47,6 +47,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ListBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ListExtendedRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Meta.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MetaSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MovieBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Response.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MovieExtendedRecord.cs" />

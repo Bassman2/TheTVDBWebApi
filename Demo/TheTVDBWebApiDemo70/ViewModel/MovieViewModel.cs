@@ -15,7 +15,7 @@
                 {
                     await client.LoginAsync(apiKey, userKey);
                     this.MovieBaseRecord = await client.GetMovieAsync(record.Id);
-                    this.MovieExtendedRecord = await client.GetMovieExtendedAsync(record.Id);
+                    this.MovieExtendedRecord = await client.GetMovieExtendedAsync(record.Id, Meta.Translations, false);
                 }
             });
         }

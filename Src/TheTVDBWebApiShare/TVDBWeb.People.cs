@@ -39,9 +39,9 @@
         /// <param name="id">Id of the movie to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>People extended record.</returns>
-        public async Task<PeopleExtendedRecord> GetPeopleExtendedAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<PeopleExtendedRecord> GetPeopleExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<PeopleExtendedRecord>($"v4/people/{id}/extended", cancellationToken);
+            return await GetDataAsync<PeopleExtendedRecord>($"v4/people/{id}/extended{BuildParam(meta)}", cancellationToken);
         }
 
         /// <summary>

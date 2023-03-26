@@ -3,18 +3,40 @@ using TheTVDBWebApi;
 
 namespace TheTVDBWebApiDemo.ViewModel
 {
-    public partial class MainViewModel : AppViewModel
+    public sealed partial class MainViewModel : AppViewModel, IDisposable
     {
+        private TVDBWeb client = new TVDBWeb();
         private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
         private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
+
+        public MainViewModel()
+        {
+            this.client = new TVDBWeb();
+            Task.Run(async () =>
+            {
+                await client.LoginAsync(apiKey, userKey);
+            });
+            //Task.WhenAll(
+            //    client.LoginAsync(apiKey, userKey)
+            //).Start();
+        }
+
+        public void Dispose()
+        {
+            if (this.client != null) 
+            {
+                this.client.Dispose();
+                this.client = null;
+            }
+        }
 
         public override async Task OnStartup()
         {
             Debug.WriteLine("++MainViewModel.OnStartup");
 
-            using (var client = new TVDBWeb())
-            {
-                await client.LoginAsync(apiKey, userKey);
+            //using (var client = new TVDBWeb())
+            //{
+            //    await client.LoginAsync(apiKey, userKey);
 
                 //this.ArtworkStatuses = await client.GetArtworkStatusesAsync();
                 //this.ArtworkTypes = await client.GetArtworkTypesAsync();
@@ -101,10 +123,12 @@ namespace TheTVDBWebApiDemo.ViewModel
                 //{
                 //    this.Series.Add(item);
                 //}
-            }
+            //}
 
             Debug.WriteLine("--MainViewModel.OnStartup");
         }
+
+        
 
         [ObservableProperty]
         private List<ArtworkStatus> artworkStatuses;

@@ -66,9 +66,9 @@ namespace TheTVDBWebApi
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Series extended record.</returns>
-        public async Task<SeriesExtendedRecord> GetSeriesExtendedAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<SeriesExtendedRecord> GetSeriesExtendedAsync(long id, MetaSeries? meta = null, bool? shortVersion = null, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeriesExtendedRecord>($"v4/series/{id}/extended", cancellationToken);
+            return await GetDataAsync<SeriesExtendedRecord>($"v4/series/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
         }
 
         /// <summary>

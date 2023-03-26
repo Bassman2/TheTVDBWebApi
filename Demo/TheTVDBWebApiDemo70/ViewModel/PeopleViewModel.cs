@@ -15,7 +15,7 @@
                 {
                     await client.LoginAsync(apiKey, userKey);
                     this.PeopleBaseRecord = await client.GetPeopleAsync(record.Id);
-                    this.PeopleExtendedRecord = await client.GetPeopleExtendedAsync(record.Id);
+                    this.PeopleExtendedRecord = await client.GetPeopleExtendedAsync(record.Id, Meta.Translations);
                 }
             });
         }

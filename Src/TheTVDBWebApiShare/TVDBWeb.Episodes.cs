@@ -39,9 +39,9 @@
         /// <param name="id">Id of the episode to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Movie extended record.</returns>
-        public async Task<EpisodeExtendedRecord> GetEpisodeExtendedAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<EpisodeExtendedRecord> GetEpisodeExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<EpisodeExtendedRecord>($"v4/episodes/{id}/extended", cancellationToken);
+            return await GetDataAsync<EpisodeExtendedRecord>($"v4/episodes/{id}/extended{BuildParam(meta)}", cancellationToken);
         }
 
         /// <summary>
