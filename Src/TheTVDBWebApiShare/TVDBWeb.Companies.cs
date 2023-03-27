@@ -3,13 +3,23 @@
     public partial class TVDBWeb
     {
         /// <summary>
-        /// Returns a paginated list of company records.
+        /// Returns number of companies.
+        /// </summary>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <returns>Number of companies.</returns>
+        public async Task<long> GetCompaniesNumAsync(CancellationToken cancellationToken = default)
+        {
+            return await GetNumAsync("v4/companies", cancellationToken);
+        }
+
+        /// <summary>
+        /// Returns a list of company records.
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of company records.</returns>
-        public async Task<List<Company>> GetCompaniesAsync(CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<Company> GetCompaniesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<Company>>("v4/companies", cancellationToken);
+            return GetLongListAsync<Company>("v4/companies", cancellationToken);
         }
 
         /// <summary>

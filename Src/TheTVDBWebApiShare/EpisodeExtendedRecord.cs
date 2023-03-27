@@ -36,7 +36,7 @@
         public List<Company> Companies { get; set; }
 
         [JsonPropertyName("translations")]
-        public List<TranslationExtended> Translations { get; set; }
+        public TranslationExtended Translations { get; set; }
 
         [JsonPropertyName("awards")]
         public List<AwardBaseRecord> Awards { get; set; }

@@ -5,8 +5,29 @@
     /// </summary>
     public class Company
     {
-        [JsonPropertyName("activeDate")]
-        public string ActiveDate { get; set; }
+        /// <summary>
+        /// Id of the company.
+        /// </summary>
+        [JsonPropertyName("id")]
+        public long Id { get; set; }
+
+        /// <summary>
+        /// Name of the company.
+        /// </summary>
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("slug")]
+        public string Slug { get; set; }
+
+        /// <summary>
+        /// Translated names of the company.
+        /// </summary>
+        [JsonPropertyName("nameTranslations")]
+        public List<string> NameTranslations { get; set; }
+
+        [JsonPropertyName("overviewTranslations")]
+        public List<string> OverviewTranslations { get; set; }
 
         /// <summary>
         /// An alias model, which can be associated with a series, season, movie, person, or list.
@@ -21,34 +42,20 @@
         public string Country { get; set; }
 
         /// <summary>
-        /// Id of the company.
+        /// 
         /// </summary>
-        [JsonPropertyName("id")]
-        public long Id { get; set; }
+        /// <remarks>Can be null.</remarks>
+        [JsonPropertyName("primaryCompanyType")]
+        public long? PrimaryCompanyType { get; set; }
+
+        [JsonPropertyName("activeDate")]
+        public string ActiveDate { get; set; }
 
         [JsonPropertyName("inactiveDate")]
         public string InactiveDate { get; set; }
 
-        /// <summary>
-        /// Name of the company.
-        /// </summary>
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Translated names of the company.
-        /// </summary>
-        [JsonPropertyName("nameTranslations")]
-        public List<string> NameTranslations { get; set; }
-
-        [JsonPropertyName("overviewTranslations")]
-        public List<string> OverviewTranslations { get; set; }
-
-        [JsonPropertyName("primaryCompanyType")]
-        public long PrimaryCompanyType { get; set; }
-
-        [JsonPropertyName("slug")]
-        public string Slug { get; set; }
+        [JsonPropertyName("companyType")]
+        public CompanyType CompanyType { get; set; }
 
         [JsonPropertyName("parentCompany")]
         public ParentCompany ParentCompany { get; set; }

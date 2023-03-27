@@ -62,7 +62,6 @@ namespace TheTVDBWebApiDemo.ViewModel
                     client.GetArtworkStatusesAsync().ContinueWith(items => this.ArtworkStatuses = items.Result),
                     client.GetArtworkTypesAsync().ContinueWith(items => this.ArtworkTypes = items.Result),
                     client.GetAwardsAsync().ContinueWith(items => this.Awards = items.Result),
-                    client.GetCompaniesAsync().ContinueWith(items => this.Companies = items.Result),
                     client.GetCompanyTypesAsync().ContinueWith(items => this.CompanyTypes = items.Result),
                     client.GetContentRatingsAsync().ContinueWith(items => this.ContentRatings = items.Result),
                     client.GetCountriesAsync().ContinueWith(items => this.Countries = items.Result),
@@ -78,6 +77,8 @@ namespace TheTVDBWebApiDemo.ViewModel
                     client.GetSourceTypesAsync().ContinueWith(items => this.SourceTypes = items.Result),
                     client.GetUserInfoAsync().ContinueWith(item => this.UserInfo = item.Result),
                     client.GetUserFavoritesAsync().ContinueWith(items => this.UserFavorites = items.Result),
+
+                    client.GetCompaniesAsync().ForEachAsync(item => this.Companies.Add(item)),
                     client.GetEpisodesAsync().ForEachAsync(item => this.Episodes.Add(item)),
                     client.GetListsAsync().ForEachAsync(item => this.Lists.Add(item)),
                     client.GetMoviesAsync().ForEachAsync(item => this.Movies.Add(item)),
@@ -140,9 +141,6 @@ namespace TheTVDBWebApiDemo.ViewModel
         private List<AwardBaseRecord> awards;
 
         [ObservableProperty]
-        private List<Company> companies;
-
-        [ObservableProperty]
         private List<CompanyType> companyTypes;
 
         [ObservableProperty]
@@ -186,6 +184,9 @@ namespace TheTVDBWebApiDemo.ViewModel
 
         [ObservableProperty]
         private Favorites userFavorites;
+
+        [ObservableProperty]
+        private ObservableCollection<Company> companies = new ObservableCollection<Company>();
 
         [ObservableProperty]
         private ObservableCollection<EpisodeBaseRecord> episodes = new ObservableCollection<EpisodeBaseRecord>();
