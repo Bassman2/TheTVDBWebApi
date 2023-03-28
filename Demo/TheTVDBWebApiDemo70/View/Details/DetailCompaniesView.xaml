@@ -15,23 +15,71 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="0" Grid.Row="0" Content="Studio"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Studio, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Network"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Network, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Production"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Production, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Distributor"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Distributor, Mode=OneWay}"/>
+        <Label Grid.Column="0" Grid.Row="0" Content="Studios"/>
+        <DataGrid Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Studio}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name Translations" Binding="{Binding NameTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Overview Translations" Binding="{Binding OverviewTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Parent Company Name" Binding="{Binding ParentCompany.Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Label Grid.Column="0" Grid.Row="1" Content="Networks"/>
+        <DataGrid Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Network}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name Translations" Binding="{Binding NameTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Overview Translations" Binding="{Binding OverviewTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Parent Company Name" Binding="{Binding ParentCompany.Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Label Grid.Column="0" Grid.Row="2" Content="Productions"/>
+        <DataGrid Grid.Column="1" Grid.Row="2" ItemsSource="{Binding Production}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name Translations" Binding="{Binding NameTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Overview Translations" Binding="{Binding OverviewTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Parent Company Name" Binding="{Binding ParentCompany.Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Label Grid.Column="0" Grid.Row="3" Content="Distributors"/>
+        <DataGrid Grid.Column="1" Grid.Row="3" ItemsSource="{Binding Distributor}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name Translations" Binding="{Binding NameTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Overview Translations" Binding="{Binding OverviewTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Parent Company Name" Binding="{Binding ParentCompany.Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
+        
         <Label Grid.Column="0" Grid.Row="4" Content="Special Effects"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding SpecialEffects, Mode=OneWay}"/>
-
+        <DataGrid Grid.Column="1" Grid.Row="4" ItemsSource="{Binding SpecialEffects}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Slug" Binding="{Binding Slug}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name Translations" Binding="{Binding NameTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Overview Translations" Binding="{Binding OverviewTranslations}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Parent Company Name" Binding="{Binding ParentCompany.Name}" IsReadOnly="True" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

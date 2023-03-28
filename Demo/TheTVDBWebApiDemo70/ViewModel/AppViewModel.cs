@@ -4,7 +4,7 @@
     {
         //private TaskbarItemProgressState progressState = TaskbarItemProgressState.None;
         //private double progressValue = 0.0;
-        private string progressTime = string.Empty;
+        //private string progressTime = string.Empty;
 
         public AppViewModel()
         {
@@ -85,8 +85,8 @@
             }
         }
 
-        [ObservableProperty]
-        private TaskbarItemProgressState progressState = TaskbarItemProgressState.None;
+        //[ObservableProperty]
+        //private TaskbarItemProgressState progressState = TaskbarItemProgressState.None;
 
         /// <summary>
         /// Status text in status line.
@@ -118,24 +118,22 @@
         { }
 
         protected virtual bool OnCanRefresh() => true;
-        
+
         [RelayCommand(CanExecute = nameof(OnCanRefresh))]
         protected virtual void OnRefresh()
         { }
 
-        protected virtual bool OnCanImport() => this.ProgressState == TaskbarItemProgressState.None;
+        //protected virtual bool OnCanImport() => this.ProgressState == TaskbarItemProgressState.None;
 
-        
-        [RelayCommand(CanExecute = nameof(OnCanImport))]
+
+        [RelayCommand()] //CanExecute = nameof(OnCanImport))]
         protected virtual void OnImport()
         { }
 
-        protected virtual bool OnCanExport()
-        {
-            return this.ProgressState == TaskbarItemProgressState.None;
-        }
+        //protected virtual bool OnCanExport() => this.ProgressState == TaskbarItemProgressState.None;
 
-        [RelayCommand(CanExecute = nameof(OnCanExport))]
+
+        [RelayCommand()] // CanExecute = nameof(OnCanExport))]
         protected virtual void OnExport()
         { }
 

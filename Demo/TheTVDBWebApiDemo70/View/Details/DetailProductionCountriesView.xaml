@@ -22,7 +22,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Country" Binding="{Binding Country}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Name" Binding="{Binding name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>    
     </Grid>

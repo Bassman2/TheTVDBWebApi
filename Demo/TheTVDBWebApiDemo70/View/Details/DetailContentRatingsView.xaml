@@ -26,7 +26,7 @@
                 <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Content Type" Binding="{Binding ContentType}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Order" Binding="{Binding Order}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Full Name" Binding="{Binding Fullname}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

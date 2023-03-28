@@ -15,8 +15,8 @@ namespace TheTVDBWebApiDemo.View
 
             TaskbarItemInfo taskbarItemInfo = new TaskbarItemInfo();
             BindingOperations.SetBinding(taskbarItemInfo, TaskbarItemInfo.DescriptionProperty, new Binding("Title"));
-            BindingOperations.SetBinding(taskbarItemInfo, TaskbarItemInfo.ProgressStateProperty, new Binding("ProgressState"));
-            BindingOperations.SetBinding(taskbarItemInfo, TaskbarItemInfo.ProgressValueProperty, new Binding("ProgressValue"));
+            //BindingOperations.SetBinding(taskbarItemInfo, TaskbarItemInfo.ProgressStateProperty, new Binding("ProgressState"));
+            //BindingOperations.SetBinding(taskbarItemInfo, TaskbarItemInfo.ProgressValueProperty, new Binding("ProgressValue"));
             TaskbarItemInfo = taskbarItemInfo;
 
             this.SetKeyBinding(Key.F5, "RefreshCommand");
