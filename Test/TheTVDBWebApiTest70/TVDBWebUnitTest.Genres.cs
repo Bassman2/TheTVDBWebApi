@@ -155,5 +155,22 @@
             Assert.AreEqual("Awards Show", res[34].Name, "Name34");
             Assert.AreEqual("awards-show", res[34].Slug, "Slug34");
         }
+
+        [TestMethod]
+        public async Task TestMethodGetGenreAsync()
+        {
+            GenreBaseRecord res;
+
+            using (var client = new TVDBWeb(apiKey, userKey))
+            {
+                res = await client.GetGenreAsync(2);
+            }
+
+            Assert.IsNotNull(res, "res");
+            Assert.AreEqual(2, res.Id, "Id");
+            Assert.AreEqual("Science Fiction", res.Name, "Name");
+            Assert.AreEqual("science-fiction", res.Slug, "Slug");
+
+        }
     }
 }

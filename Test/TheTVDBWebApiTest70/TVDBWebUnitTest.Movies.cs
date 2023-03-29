@@ -4,7 +4,7 @@
     {
 
         [TestMethod]
-        public async Task TestMethodGetMoviesAsync()
+        public void TestMethodGetMoviesAsync()
         {
             //IAsyncEnumerable<MovieBaseRecord> res;
 
