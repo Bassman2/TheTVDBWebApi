@@ -11,7 +11,7 @@
             using (var client = new TVDBWeb(apiKey, userKey))
             {
                 //res = ;
-                await foreach (MovieBaseRecord movie in client.GetMoviesAsync())
+                //await foreach (MovieBaseRecord movie in client.GetMoviesAsync())
                 {
 
                 }
