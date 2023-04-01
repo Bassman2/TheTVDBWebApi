@@ -78,5 +78,48 @@
             Assert.AreEqual("2023-02-02 16:01:58", res.LastUpdated, "LastUpdated");
             Assert.AreEqual("2019", res.Year, "Year");
         }
+
+        [TestMethod]
+        public async Task TestMethodGetMovieTranslationsAsync()
+        {
+            long id = 1;
+            string lang = "eng";
+            Translation res;
+
+            using (var client = new TVDBWeb(apiKey, userKey))
+            {
+                res = await client.GetMovieTranslationAsync(id, lang);
+            }
+
+            Assert.IsNotNull(res, "res");
+            Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
+            Assert.AreEqual("In the 23rd century, a catastrophic interplanetary war known as \"The Fall\" has left Earth devastated and while scouting the junkyard metropolis of Iron City, scientist Dr. Dyson Ido, discovers a disembodied female cyborg with a fully intact human brain. Soon known as Alita, she's trained to become a fearsome bounty hunter who tracks down criminals with her martial arts expertise in order to protect the innocent.", res.Overview, "Overview");
+            Assert.AreEqual("eng", res.Language, "Language");
+            Assert.AreEqual(true, res.IsPrimary, "IsPrimary");
+        }
+
+
+        [TestMethod]
+        public async Task TestMethodGetMovieSlugAsync()
+        {
+            string slug = "alita-battle-angel";
+            MovieBaseRecord res;
+
+            using (var client = new TVDBWeb(apiKey, userKey))
+            {
+                res = await client.GetMovieSlugAsync(slug);
+            }
+
+            Assert.IsNotNull(res, "res");
+
+            Assert.AreEqual(1, res.Id, "Id");
+            Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
+            Assert.AreEqual("alita-battle-angel", res.Slug, "Slug");
+            Assert.AreEqual("https://artworks.thetvdb.com/banners/movies/1/posters/2170750.jpg", res.Image, "Image");
+            Assert.AreEqual(363088, res.Score, "Score");
+            Assert.AreEqual(122, res.Runtime, "Runtime");
+            Assert.AreEqual("2023-02-02 16:01:58", res.LastUpdated, "LastUpdated");
+            Assert.AreEqual("2019", res.Year, "Year");
+        }
     }
 }
