@@ -5,6 +5,16 @@
     /// </summary>
     public class Translation
     {
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("overview")]
+        public string Overview { get; set; }
+
+        [JsonPropertyName("language")]
+        public string Language { get; set; }
+
+
         [JsonPropertyName("aliases")]
         public List<string> Aliases { get; set; }
 
@@ -14,15 +24,9 @@
         [JsonPropertyName("isPrimary")]
         public bool IsPrimary { get; set; }
 
-        [JsonPropertyName("language")]
-        public string Language { get; set; }
+        
 
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
-
-        [JsonPropertyName("overview")]
-        public string Overview { get; set; }
-
+       
         /// <summary>
         /// 
         /// </summary>
