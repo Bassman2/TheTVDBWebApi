@@ -25,8 +25,8 @@
             Assert.AreEqual(2, list[0].Id, "Id0");
             Assert.AreEqual(70327, list[0].SeriesId, "SeriesId0");
             Assert.AreEqual(null, list[0].Name, "Name0");
-            Assert.AreEqual("1997-03-10", list[0].Aired, "Aired0");
-            Assert.AreEqual("2023-01-07 22:22:27", list[0].LastUpdated, "LastUpdated0");
+            Assert.AreEqual(new DateOnly(1997, 03, 10), list[0].Aired, "Aired0");
+            Assert.AreEqual(new DateTime(2023, 01, 07, 22, 22,27), list[0].LastUpdated, "LastUpdated0");
         }
 
         [TestMethod]
@@ -44,12 +44,12 @@
             Assert.AreEqual(id, res.Id, "Id");
             Assert.AreEqual(70327, res.SeriesId, "SeriesId");
             Assert.AreEqual("Welcome to the Hellmouth (1)", res.Name, "Name");
-            Assert.AreEqual("1997-03-10", res.Aired, "Aires");
+            Assert.AreEqual(new DateOnly(1997, 03, 10), res.Aired, "Aires");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/episodes/70327/2.jpg", res.Image, "Image");
             Assert.AreEqual(12, res.ImageType, "ImageType");
             Assert.AreEqual(43, res.Runtime, "Runtime");
             Assert.AreEqual(1, res.Number, "Number");
-            Assert.AreEqual("2023-01-07 22:22:27", res.LastUpdated, "LastUpdated");
+            Assert.AreEqual(new DateTime(2023, 01, 07, 22, 22, 27), res.LastUpdated, "LastUpdated");
         }
 
         [TestMethod]
@@ -67,12 +67,12 @@
             Assert.AreEqual(id, res.Id, "Id");
             Assert.AreEqual(70327, res.SeriesId, "SeriesId");
             Assert.AreEqual("Welcome to the Hellmouth (1)", res.Name, "Name");
-            Assert.AreEqual("1997-03-10", res.Aired, "Aires");
+            Assert.AreEqual(new DateOnly(1997, 03, 10), res.Aired, "Aires");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/episodes/70327/2.jpg", res.Image, "Image");
             Assert.AreEqual(12, res.ImageType, "ImageType");
             Assert.AreEqual(43, res.Runtime, "Runtime");
             Assert.AreEqual(1, res.Number, "Number");
-            Assert.AreEqual("2023-01-07 22:22:27", res.LastUpdated, "LastUpdated");
+            Assert.AreEqual(new DateTime(2023, 01, 07, 22, 22, 27), res.LastUpdated, "LastUpdated");
         }
 
         [TestMethod]

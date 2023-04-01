@@ -4,7 +4,7 @@
     {
         public override DateTime? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            if (DateTime.TryParseExact(reader.GetString()!, "yyyy-MM-dd", null, DateTimeStyles.None, out DateTime result))
+            if (DateTime.TryParseExact(reader.GetString()!, "yyyy-MM-dd HH:mm:ss", null, DateTimeStyles.None, out DateTime result))
             {
                 return result;
             }

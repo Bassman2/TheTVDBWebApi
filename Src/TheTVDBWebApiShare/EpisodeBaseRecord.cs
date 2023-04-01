@@ -21,7 +21,7 @@
         public string Name { get; set; }
 
         [JsonPropertyName("aired")]
-        public string Aired { get; set; }
+        public DateOnly? Aired { get; set; }
 
         /// <summary>
         /// Runtime of the episode.
@@ -73,7 +73,7 @@
         public int? SeasonNumber { get; set; }
 
         [JsonPropertyName("lastUpdated")]
-        public string LastUpdated { get; set; }
+        public DateTime? LastUpdated { get; set; }
 
         /// <summary>
         /// 

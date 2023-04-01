@@ -26,7 +26,7 @@
             Assert.AreEqual(70327, list[0].SeriesId, "SeriesId0");
             Assert.AreEqual(null, list[0].Name, "Name0");
             Assert.AreEqual("/banners/v4/season/10/posters/61102b79ccabb.jpg", list[0].Image, "Image0");
-            Assert.AreEqual("2023-02-28 22:30:23", list[0].LastUpdated, "LastUpdated0");
+            Assert.AreEqual(new DateTime(2023, 02, 28, 22, 30, 23), list[0].LastUpdated, "LastUpdated0");
         }
 
         [TestMethod]
@@ -47,7 +47,7 @@
             Assert.AreEqual(1, res.Number, "Number");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/season/10/posters/61102b79ccabb.jpg", res.Image, "Image0");
             Assert.AreEqual(7, res.ImageType, "ImageType");
-            Assert.AreEqual("2023-02-28 22:30:23", res.LastUpdated, "LastUpdated0");
+            Assert.AreEqual(new DateTime(2023, 02, 28, 22, 30, 23), res.LastUpdated, "LastUpdated0");
         }
 
         [TestMethod]
@@ -68,7 +68,7 @@
             Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/season/10/posters/61102b79ccabb.jpg", res.Image, "Image");
             Assert.AreEqual(7, res.ImageType, "ImageType");
             Assert.AreEqual(1, res.Number, "Number");
-            Assert.AreEqual("2023-02-28 22:30:23", res.LastUpdated, "LastUpdated");
+            Assert.AreEqual(new DateTime(2023, 02, 28, 22, 30, 23), res.LastUpdated, "LastUpdated");
         }
 
         [TestMethod]

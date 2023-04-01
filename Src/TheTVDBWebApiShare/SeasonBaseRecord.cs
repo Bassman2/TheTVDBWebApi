@@ -48,7 +48,7 @@
         /// Last updated date.
         /// </summary>
         [JsonPropertyName("lastUpdated")]
-        public string LastUpdated { get; set; }
+        public DateTime? LastUpdated { get; set; }
         
         /// <summary>
         /// Year of the season.
