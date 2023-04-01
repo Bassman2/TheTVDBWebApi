@@ -122,6 +122,41 @@ namespace TheTVDBWebApi
 
         }
 
+        private async Task<long> ResponseToCountAsync(HttpResponseMessage res, CancellationToken cancellationToken, string memberName) 
+        {
+            Response resp = null;
+            if (res.Content.Headers.ContentType.MediaType == "application/json")
+            {
+                try
+                {
+                    resp = await res.Content.ReadFromJsonAsync<Response>(options, cancellationToken);
+                    if (!res.IsSuccessStatusCode)
+                    {
+                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
+                    }
+                }
+                catch (JsonException ex)
+                {
+                    DebugJsonException(ex, res, res.RequestMessage.RequestUri.ToString(), memberName);
+                }
+            }
+            else if (res.Content.Headers.ContentType.MediaType == "text/html")
+            {
+                string html = await res.Content.ReadAsStringAsync(cancellationToken);
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new Exception(html);
+                }
+            }
+            else
+            {
+                res.EnsureSuccessStatusCode();
+                throw new Exception("Not a json response");
+            }
+            return resp.Links.TotalItems;
+
+        }
+
 
         private async Task<Response<TRes>> PostAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where  TRes : class
         {
@@ -152,7 +187,7 @@ namespace TheTVDBWebApi
             requestUri = $"{requestUri}?page=0";
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
-                return (await ResponseToJsonAsync<Response>(res, cancellationToken, memberName)).Links.TotalItems;
+                return await ResponseToCountAsync(res, cancellationToken, memberName);
             }
         }
 
