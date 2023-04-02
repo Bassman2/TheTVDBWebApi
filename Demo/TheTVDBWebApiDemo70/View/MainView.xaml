@@ -30,6 +30,9 @@
                     <TabItem Header="People Details">
                         <local:PeopleDetailsView/>
                     </TabItem>
+                    <TabItem Header="Companies Details">
+                        <local:CompanyDetailsView/>
+                    </TabItem>
                 </TabControl>                
             </TabItem>
             <TabItem Header="Lists">
@@ -52,6 +55,9 @@
                     <TabItem Header="People">
                         <local:PeopleView/>
                     </TabItem>
+                    <TabItem Header="Companies">
+                        <local:CompaniesView/>
+                    </TabItem>
                 </TabControl>
             </TabItem>
             <TabItem Header="Items">
@@ -64,9 +70,6 @@
                     </TabItem>
                     <TabItem Header="Awards">
                         <local:AwardsView/>
-                    </TabItem>
-                    <TabItem Header="Companies">
-                        <local:CompaniesView/>
                     </TabItem>
                     <TabItem Header="Company Types">
                         <local:CompanyTypesView/>
@@ -107,6 +110,10 @@
                     <TabItem Header="Source Types">
                         <local:SourceTypesView/>
                     </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="User">
+                <TabControl>
                     <TabItem Header="User Info">
                         <local:UserInfoView/>
                     </TabItem>

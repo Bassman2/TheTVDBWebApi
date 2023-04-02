@@ -28,6 +28,10 @@
             {
                 return new PeopleViewModel(people);
             }
+            if (value is Company company)
+            {
+                return new CompanyViewModel(company);
+            }
             return null;
         }
 
