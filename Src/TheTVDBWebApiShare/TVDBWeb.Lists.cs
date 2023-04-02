@@ -36,7 +36,7 @@
         /// <summary>
         /// Returns an list base record search by slug.
         /// </summary>
-        /// <param name="slug">Slug of the list to get.</param>
+        /// <param name="slug">Slug of the list to get. For lists Slug is identically to the Url property.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List base record.</returns>
         public async Task<ListBaseRecord> GetListBySlugAsync(string slug, CancellationToken cancellationToken = default)

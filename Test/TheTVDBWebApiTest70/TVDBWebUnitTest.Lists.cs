@@ -85,12 +85,12 @@
             }
 
             Assert.IsNotNull(res, "res");
-            Assert.AreEqual(1, res.Id, "Id");
-            Assert.AreEqual("Scooby-Doo", res.Name, "Name");
-            Assert.AreEqual("The following is a list of the various media from the Scooby-Doo franchise which includes series, films and specials.", res.Overview, "Overview");
-            Assert.AreEqual("1001", res.Url, "Url");
-            Assert.AreEqual(false, res.IsOfficial, "IsOfficial");
-            Assert.AreEqual(1932447, res.Score, "Score");
+            Assert.AreEqual(6166, res.Id, "Id");
+            Assert.AreEqual("Scooby-Doo Franchise", res.Name, "Name");
+            Assert.AreEqual(null, res.Overview, "Overview");
+            Assert.AreEqual("scooby-doo", res.Url, "Url");
+            Assert.AreEqual(true, res.IsOfficial, "IsOfficial");
+            Assert.AreEqual(0, res.Score, "Score");
             Assert.AreEqual("", res.Image, "Image0");
         }
 
