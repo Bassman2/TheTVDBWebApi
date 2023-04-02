@@ -68,7 +68,7 @@
         <local:DetailTagOptionsView Grid.Column="0" Grid.Row="15" DataContext="{Binding TagOptions}"/>
         <local:DetailListsView Grid.Column="0" Grid.Row="16" DataContext="{Binding Lists}"/>
 
-        <local:DetailTranslationsView Grid.Column="0" Grid.Row="17" DataContext="{Binding Translations}"/>
+        <local:DetailTranslationsXView Grid.Column="0" Grid.Row="17" DataContext="{Binding Translations}"/>
         <local:DetailContentRatingsView Grid.Column="0" Grid.Row="18" DataContext="{Binding ContentRatings}"/>
         <local:DetailCompaniesView Grid.Column="0" Grid.Row="19" DataContext="{Binding Companies}"/>
 

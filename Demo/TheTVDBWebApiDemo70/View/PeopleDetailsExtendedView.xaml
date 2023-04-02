@@ -39,7 +39,7 @@
         <local:DetailBiographiesView Grid.Column="0" Grid.Row="6" DataContext="{Binding Biographies}"/>
         <local:DetailAwardsView Grid.Column="0" Grid.Row="7" DataContext="{Binding Awards}"/>
         <local:DetailTagOptionsView Grid.Column="0" Grid.Row="8" DataContext="{Binding TagOptions}"/>
-        <local:DetailTranslationsView Grid.Column="0" Grid.Row="9" DataContext="{Binding Translations}" />
+        <local:DetailTranslationsXView Grid.Column="0" Grid.Row="9" DataContext="{Binding Translations}" />
         <Label Grid.Column="0" Grid.Row="10" Content="Slug"/>
         <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Slug, Mode=OneWay}"/>
     </Grid>

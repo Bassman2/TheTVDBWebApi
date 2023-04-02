@@ -16,6 +16,7 @@
                     await client.LoginAsync(apiKey, userKey);
                     this.SeasonBaseRecord = await client.GetSeasonAsync(record.Id);
                     this.SeasonExtendedRecord = await client.GetSeasonExtendedAsync(record.Id);
+                    this.Translations = this.SeasonBaseRecord.NameTranslations.Concat(this.SeasonBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
                 }
             });
         }
@@ -28,5 +29,9 @@
 
         [ObservableProperty]
         private SeasonExtendedRecord seasonExtendedRecord;
+
+        [ObservableProperty]
+        private Dictionary<string, Translation> translations;
+
     }
 }

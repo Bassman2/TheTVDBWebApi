@@ -38,7 +38,7 @@
         <local:DetailNetworksView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" DataContext="{Binding Networks}"/>
         <local:DetailStudiosView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" DataContext="{Binding Studios}"/>
         <local:DetailCompaniesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" DataContext="{Binding Companies}"/>
-        <local:DetailTranslationsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" DataContext="{Binding Translations}"/>
+        <local:DetailTranslationsXView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" DataContext="{Binding Translations}"/>
         <local:DetailAwardsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="11" DataContext="{Binding Awards}"/>
 
 

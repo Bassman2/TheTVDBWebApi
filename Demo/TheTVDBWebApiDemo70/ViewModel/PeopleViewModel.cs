@@ -16,6 +16,7 @@
                     await client.LoginAsync(apiKey, userKey);
                     this.PeopleBaseRecord = await client.GetPeopleAsync(record.Id);
                     this.PeopleExtendedRecord = await client.GetPeopleExtendedAsync(record.Id, Meta.Translations);
+                    this.Translations = this.PeopleBaseRecord.NameTranslations.Concat(this.PeopleBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
                 }
             });
         }
@@ -28,5 +29,9 @@
 
         [ObservableProperty]
         private PeopleExtendedRecord peopleExtendedRecord;
+
+        [ObservableProperty]
+        private Dictionary<string, Translation> translations;
+
     }
 }

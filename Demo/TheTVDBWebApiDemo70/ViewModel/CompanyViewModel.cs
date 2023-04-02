@@ -15,6 +15,8 @@
                 {
                     await client.LoginAsync(apiKey, userKey);
                     this.CompanyBaseRecord = await client.GetCompanyAsync(record.Id);
+                    this.Translations = this.CompanyBaseRecord.NameTranslations.Concat(this.CompanyBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
+
                 }
             });
         }
@@ -25,6 +27,7 @@
         [ObservableProperty]
         private Company companyBaseRecord;
 
-        
+        [ObservableProperty]
+        private Dictionary<string, Translation> translations;
     }
 }
