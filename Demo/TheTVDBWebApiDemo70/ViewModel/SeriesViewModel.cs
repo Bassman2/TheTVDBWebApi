@@ -16,7 +16,7 @@
                     await client.LoginAsync(apiKey, userKey);
                     this.SeriesBaseRecord = await client.GetSeriesAsync(record.Id);
                     this.SeriesExtendedRecord = await client.GetSeriesExtendedAsync(record.Id, MetaSeries.Episodes, false);
-                    this.Translations = this.SeriesBaseRecord.NameTranslations.Concat(this.SeriesBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
+                    //this.Translations = this.SeriesBaseRecord.NameTranslations.Concat(this.SeriesBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
                 }
             });
         }

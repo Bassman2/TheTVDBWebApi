@@ -16,7 +16,7 @@
                     await client.LoginAsync(apiKey, userKey);
                     this.ListBaseRecord = await client.GetListAsync(record.Id);
                     this.ListExtendedRecord = await client.GetListExtendedAsync(record.Id);
-                    this.Translations = this.ListBaseRecord.NameTranslations.Concat(this.ListBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
+                    //this.Translations = this.ListBaseRecord.NameTranslations.Concat(this.ListBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
                 }
             });
         }

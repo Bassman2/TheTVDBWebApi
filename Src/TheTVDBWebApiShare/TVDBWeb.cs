@@ -95,14 +95,14 @@ namespace TheTVDBWebApi
                 try
                 {
                     resp = await res.Content.ReadFromJsonAsync<Response<T>>(options, cancellationToken);
-                    if (!res.IsSuccessStatusCode)
-                    {
-                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                    }
                 }
                 catch (JsonException ex)
                 {
                     DebugJsonException(ex, res, res.RequestMessage.RequestUri.ToString(), memberName);
+                }
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
                 }
             }
             else if (res.Content.Headers.ContentType.MediaType == "text/html")

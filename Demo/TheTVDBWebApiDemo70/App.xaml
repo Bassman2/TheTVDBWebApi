@@ -8,6 +8,7 @@
         <conv:ViewModelConverter x:Key="ViewModelConverter"/>
         <conv:ImageLoadConverter x:Key="ImageLoadConverter"/>
         <conv:StringListConverter x:Key="StringListConverter"/>
+        <conv:DebugConverter x:Key="DebugConverter"/>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3" />
             <Setter Property="IsReadOnly" Value="True" />
