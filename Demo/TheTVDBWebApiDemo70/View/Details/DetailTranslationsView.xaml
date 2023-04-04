@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=DataContext, Converter={StaticResource DebugConverter}}"
-             Grid.ColumnSpan="2">
+             Grid.ColumnSpan="2"
+             x:Name="Xxxx">
+    <!--DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=DataContext, Converter={StaticResource DebugConverter}}"-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120"/>
@@ -19,7 +20,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0" Content="###Name Translations"/>
-        <DataGrid Grid.Column="1" Grid.Row="0" ItemsSource="{Binding NameTranslations}" AutoGenerateColumns="False">
+        <DataGrid Grid.Column="1" Grid.Row="0" ItemsSource="{Binding ElementName=Xxxx, Path=NameItems}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" IsReadOnly="True" />
@@ -27,7 +28,7 @@
         </DataGrid>
 
         <Label Grid.Column="0" Grid.Row="1" Content="###Overview Translations"/>
-        <DataGrid Grid.Column="1" Grid.Row="1" ItemsSource="{Binding OverviewTranslations}" AutoGenerateColumns="False">
+        <DataGrid Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ElementName=Xxxx, Path=OverviewItems}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Language" Binding="{Binding Language}" IsReadOnly="True" />
                 <DataGridTextColumn Header="Overview" Binding="{Binding Overview}" IsReadOnly="True" />

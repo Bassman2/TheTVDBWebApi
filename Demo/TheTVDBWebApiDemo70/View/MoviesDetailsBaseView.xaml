@@ -37,7 +37,10 @@
         
         <local:DetailImageView Grid.Column="0" Grid.Row="3" DataContext="{Binding Image}"/>
 
-        <local:DetailTranslationsView Grid.Column="0" Grid.Row="4"  />
+        <local:DetailTranslationsView Grid.Column="0" Grid.Row="4"
+            NameTranslations="{Binding NameTranslations}"
+            OverviewTranslations="{Binding OverviewTranslations}"
+            Translations="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=DataContext.Translations}"/>
 
         <!--<local:DetailTranslationsView Grid.Column="0" Grid.Row="4" DataContext="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ScrollViewer}}, Path=DataContext, Converter={StaticResource DebugConverter}}" />-->
 
