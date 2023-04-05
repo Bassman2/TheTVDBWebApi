@@ -5,23 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
+             xmlns:ctr="clr-namespace:TheTVDBWebApiDemo.Controls"
              d:DataContext="{d:DesignInstance Type=ws:SeasonExtendedRecord}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <local:DetailEpisodesView Grid.Column="0" Grid.Row="0" DataContext="{Binding Episodes}"/>
-        <local:DetailTrailersView Grid.Column="0" Grid.Row="1" DataContext="{Binding Trailers}"/>
-        <local:DetailArtworksView Grid.Column="0" Grid.Row="2" DataContext="{Binding Artwork}"/>
-        <local:DetailTagOptionsView Grid.Column="0" Grid.Row="3" DataContext="{Binding TagOptions}"/> 
+        <ctr:ListControl Grid.Row="0" Title="Episodes" Items="{Binding Episodes}"/>
+        <ctr:ListControl Grid.Row="1" Title="Trailers" Items="{Binding Trailers}"/>
+        <ctr:ListControl Grid.Row="2" Title="Artwork" Items="{Binding Artwork}"/>
+        <ctr:ListControl Grid.Row="3" Title="TagOptions" Items="{Binding TagOptions}"/> 
     </Grid>
 </UserControl>

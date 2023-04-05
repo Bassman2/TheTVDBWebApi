@@ -5,14 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
+             xmlns:ctr="clr-namespace:TheTVDBWebApiDemo.Controls"
              d:DataContext="{d:DesignInstance Type=ws:MovieExtendedRecord}"
              mc:Ignorable="d" 
              d:DesignHeight="2000" d:DesignWidth="600">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -39,46 +36,35 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <local:DetailTrailersView Grid.Column="0" Grid.Row="0" DataContext="{Binding Trailers}"/>
-        <local:DetailGenresView Grid.Column="0" Grid.Row="1" DataContext="{Binding Genres}"/>
-        <local:DetailReleasesView Grid.Column="0" Grid.Row="2" DataContext="{Binding Releases}"/>
-        <local:DetailArtworksView Grid.Column="0" Grid.Row="3" DataContext="{Binding Artworks}"/>
-        <local:DetailRemoteIdsView Grid.Column="0" Grid.Row="4" DataContext="{Binding RemoteIds}"/>
-        <local:DetailCharactersView Grid.Column="0" Grid.Row="5" DataContext="{Binding Characters}"/>
+        <ctr:ListControl Grid.Row="0" Title="Trailers" Items="{Binding Trailers}"/>
+        <ctr:ListControl Grid.Row="1" Title="Genres" Items="{Binding Genres}"/>
+        <ctr:ListControl Grid.Row="2" Title="Releases" Items="{Binding Releases}"/>
+        <ctr:ListControl Grid.Row="3" Title="Artworks" Items="{Binding Artworks}"/>
+        <ctr:ListControl Grid.Row="4" Title="RemoteIds" Items="{Binding RemoteIds}"/>
+        <ctr:ListControl Grid.Row="5" Title="Characters" Items="{Binding Characters}"/>
 
-        <Label Grid.Column="0" Grid.Row="6" Content="Budget"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Budget, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="7" Content="Box Office"/>
-        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding BoxOffice, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="8" Content="Box Office US"/>
-        <TextBox Grid.Column="1" Grid.Row="8" Text="{Binding BoxOfficeUS, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="9" Content="Original Country"/>
-        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding OriginalCountry, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="10" Content="Original Language"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding OriginalLanguage, Mode=OneWay}"/>
+        <ctr:TextControl Grid.Row="6" Title="Budget" Text="{Binding Budget}"/>
+        <ctr:TextControl Grid.Row="7" Title="Box Office" Text="{Binding BoxOffice}"/>
+        <ctr:TextControl Grid.Row="8" Title="Box Office US" Text="{Binding BoxOfficeUS}"/>
+        <ctr:TextControl Grid.Row="9" Title="Original Country" Text="{Binding OriginalCountry}"/>
+        <ctr:TextControl Grid.Row="10" Title="Original Language" Text="{Binding OriginalLanguage}"/>
 
+        <ctr:TextControl Grid.Row="11" Title="Audio Languages" Text="{Binding AudioLanguages, Converter={StaticResource StringListConverter}}"/>
+        <ctr:TextControl Grid.Row="12" Title="Subtitle Languages" Text="{Binding SubtitleLanguages, Converter={StaticResource StringListConverter}}"/>
 
-        <Label Grid.Column="0" Grid.Row="11" Content="Audio Languages"/>
-        <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding AudioLanguages, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="12" Content="Subtitle Languages"/>
-        <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding SubtitleLanguages, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
+        <ctr:ListControl Grid.Row="13" Title="Studios" Items="{Binding Studios}"/>
+        <ctr:ListControl Grid.Row="14" Title="Awards" Items="{Binding Awards}"/>
+        <ctr:ListControl Grid.Row="15" Title="Tag Options" Items="{Binding TagOptions}"/>
+        <ctr:ListControl Grid.Row="16" Title="Lists" Items="{Binding Lists}"/>
 
-        <local:DetailStudiosView Grid.Column="0" Grid.Row="13" DataContext="{Binding Studios}"/>
-        <local:DetailAwardsView Grid.Column="0" Grid.Row="14" DataContext="{Binding Awards}"/>
-        <local:DetailTagOptionsView Grid.Column="0" Grid.Row="15" DataContext="{Binding TagOptions}"/>
-        <local:DetailListsView Grid.Column="0" Grid.Row="16" DataContext="{Binding Lists}"/>
+        <ctr:ListControl Grid.Row="17" Title="Translations" Items="{Binding Translations}"/>
+        <ctr:ListControl Grid.Row="18" Title="ContentRatings" Items="{Binding ContentRatings}"/>
+        <ctr:ListControl Grid.Row="19" Title="Companies" Items="{Binding Companies}"/>
 
-        <local:DetailTranslationsXView Grid.Column="0" Grid.Row="17" DataContext="{Binding Translations}"/>
-        <local:DetailContentRatingsView Grid.Column="0" Grid.Row="18" DataContext="{Binding ContentRatings}"/>
-        <local:DetailCompaniesView Grid.Column="0" Grid.Row="19" DataContext="{Binding Companies}"/>
+        <ctr:ListControl Grid.Row="20" Title="Production Countries" Items="{Binding ProductionCountries}"/>
+        <ctr:ListControl Grid.Row="21" Title="Inspirations" Items="{Binding Inspirations}"/>
 
-        <local:DetailProductionCountriesView Grid.Column="0" Grid.Row="20" DataContext="{Binding ProductionCountries}"/>
-
-        <local:DetailInspirationsView Grid.Column="0" Grid.Row="21" DataContext="{Binding Inspirations}"/>
-
-        <Label Grid.Column="0" Grid.Row="22" Content="Spoken Languages"/>
-        <TextBox Grid.Column="1" Grid.Row="22" Text="{Binding SpokenLanguages, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="23" Content="First Release"/>
-        <TextBox Grid.Column="1" Grid.Row="23" Text="{Binding FirstRelease, Mode=OneWay}"/>
+        <ctr:TextControl Grid.Row="22" Title="Spoken Languages" Text="{Binding SpokenLanguages, Converter={StaticResource StringListConverter}}"/>
+        <ctr:TextControl Grid.Row="23" Title="First Release" Text="{Binding FirstRelease}"/>
     </Grid>
 </UserControl>

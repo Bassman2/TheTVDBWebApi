@@ -5,14 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"             
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
+             xmlns:ctr="clr-namespace:TheTVDBWebApiDemo.Controls"
              d:DataContext="{d:DesignInstance Type=ws:EpisodeExtendedRecord}"
              mc:Ignorable="d" 
              d:DesignHeight="1400" d:DesignWidth="600">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -27,20 +24,17 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Content="Production Code"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding ProductionCode, Mode=OneWay}"/>
-        <local:DetailNominationsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" DataContext="{Binding Nominations}"/>
-        <local:DetailCharactersView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" DataContext="{Binding Characters}"/>
-        <local:DetailContentRatingsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" DataContext="{Binding ContentRatings}"/>
-        <local:DetailRemoteIdsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" DataContext="{Binding RemoteIds}"/>
-        <local:DetailTagOptionsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" DataContext="{Binding TagOptions}"/>
-        <local:DetailTrailersView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" DataContext="{Binding Trailers}"/>
-        <local:DetailNetworksView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" DataContext="{Binding Networks}"/>
-        <local:DetailStudiosView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" DataContext="{Binding Studios}"/>
-        <local:DetailCompaniesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" DataContext="{Binding Companies}"/>
-        <local:DetailTranslationsXView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" DataContext="{Binding Translations}"/>
-        <local:DetailAwardsView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="11" DataContext="{Binding Awards}"/>
-
-
+        <ctr:TextControl Grid.Row="0" Title="Production Code" Text="{Binding ProductionCode}"/>
+        <ctr:ListControl Grid.Row="1" Title="Nominations" Items="{Binding Nominations}"/>
+        <ctr:ListControl Grid.Row="2" Title="Characters" Items="{Binding Characters}"/>
+        <ctr:ListControl Grid.Row="3" Title="ContentRatings" Items="{Binding ContentRatings}"/>
+        <ctr:ListControl Grid.Row="4" Title="RemoteIds" Items="{Binding RemoteIds}"/>
+        <ctr:ListControl Grid.Row="5" Title="TagOptions" Items="{Binding TagOptions}"/>
+        <ctr:ListControl Grid.Row="6" Title="Trailers" Items="{Binding Trailers}"/>
+        <ctr:ListControl Grid.Row="7" Title="Networks" Items="{Binding Networks}"/>
+        <ctr:ListControl Grid.Row="8" Title="Studios" Items="{Binding Studios}"/>
+        <ctr:ListControl Grid.Row="9" Title="Companies" Items="{Binding Companies}"/>
+        <ctr:ListControl Grid.Row="10" Title="Translations" Items="{Binding Translations}"/>
+        <ctr:ListControl Grid.Row="11" Title="Awards" Items="{Binding Awards}"/>
     </Grid>
 </UserControl>

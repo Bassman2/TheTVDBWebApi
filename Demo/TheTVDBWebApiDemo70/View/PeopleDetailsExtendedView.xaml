@@ -5,14 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
+             xmlns:ctr="clr-namespace:TheTVDBWebApiDemo.Controls"
              d:DataContext="{d:DesignInstance Type=ws:PeopleExtendedRecord}"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -26,21 +23,16 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Content="Birth"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Birth, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Death"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Death, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Birth Place"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding BirthPlace, Mode=OneWay}"/>
-        <local:DetailRemoteIdsView Grid.Column="0" Grid.Row="3" DataContext="{Binding RemoteIds}"/>
-        <Label Grid.Column="0" Grid.Row="4" Content="Gender"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Gender, Mode=OneWay}"/>
-        <local:DetailCharactersView Grid.Column="0" Grid.Row="5" DataContext="{Binding Characters}"/>
-        <local:DetailBiographiesView Grid.Column="0" Grid.Row="6" DataContext="{Binding Biographies}"/>
-        <local:DetailAwardsView Grid.Column="0" Grid.Row="7" DataContext="{Binding Awards}"/>
-        <local:DetailTagOptionsView Grid.Column="0" Grid.Row="8" DataContext="{Binding TagOptions}"/>
-        <local:DetailTranslationsXView Grid.Column="0" Grid.Row="9" DataContext="{Binding Translations}" />
-        <Label Grid.Column="0" Grid.Row="10" Content="Slug"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Slug, Mode=OneWay}"/>
+        <ctr:TextControl Grid.Row="0" Title="Birth" Text="{Binding Birth}"/>
+        <ctr:TextControl Grid.Row="1" Title="Death" Text="{Binding Death}"/>
+        <ctr:TextControl Grid.Row="2" Title="Birth Place" Text="{Binding BirthPlace}"/>
+        <ctr:ListControl Grid.Row="3" Title="Remote IDs" Items="{Binding RemoteIds}"/>
+        <ctr:TextControl Grid.Row="4" Title="Gender" Text="{Binding Gender}"/>
+        <ctr:ListControl Grid.Row="5" Title="Characters" Items="{Binding Characters}"/>
+        <ctr:ListControl Grid.Row="6" Title="Biographies" Items="{Binding Biographies}"/>
+        <ctr:ListControl Grid.Row="7" Title="Awards" Items="{Binding Awards}"/>
+        <ctr:ListControl Grid.Row="8" Title="Tag Options" Items="{Binding TagOptions}"/>
+        <ctr:ListControl Grid.Row="9" Title="Translations" Items="{Binding Translations}" />
+        <ctr:TextControl Grid.Row="10" Title="Slug" Text="{Binding Slug}"/>        
     </Grid>
 </UserControl>
