@@ -5,14 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
+             xmlns:ctr="clr-namespace:TheTVDBWebApiDemo.Controls"
              d:DataContext="{d:DesignInstance Type=ws:SeasonBaseRecord}"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="400">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -26,26 +23,16 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
-        <Label Grid.Column="0" Grid.Row="0" Content="Id"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Id, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Series Id"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding SeriesId, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Type"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Type, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Number"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Number, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="4" Content="Name Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="5" Content="Overview Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <local:DetailImageView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" DataContext="{Binding Image}"/>
-        <Label Grid.Column="0" Grid.Row="7" Content="Image Type"/>
-        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding ImageType, Mode=OneWay}"/>
-        <local:DetailCompaniesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" DataContext="{Binding Companies}"/>
-        <Label Grid.Column="0" Grid.Row="9" Content="Last Updated"/>
-        <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding LastUpdated, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="10" Content="Year"/>
-        <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Year, Mode=OneWay}"/>
+        <ctr:TextControl Grid.Row="0" Title="Id" Text="{Binding Id}"/>
+        <ctr:TextControl Grid.Row="1" Title="Series Id" Text="{Binding SeriesId}"/>
+        <ctr:TextControl Grid.Row="2" Title="Type" Text="{Binding Type}"/>
+        <ctr:TextControl Grid.Row="3" Title="Number" Text="{Binding Number}"/>
+        <ctr:TranslationsControl Grid.Row="4" Title="Name Translations" Languages="{Binding NameTranslations}"/>
+        <ctr:TranslationsControl Grid.Row="5" Title="Overview Translations" Languages="{Binding OverviewTranslations}"/>
+        <ctr:ImageControl Grid.Row="6" Title="Image" Image="{Binding Image}"/>
+        <ctr:TextControl Grid.Row="7" Title="Image Type" Text="{Binding ImageType}"/>
+        <ctr:CompaniesControl Grid.Row="8" DataContext="{Binding ImageType}"/>
+        <ctr:TextControl Grid.Row="9" Title="Last Updated" Text="{Binding LastUpdated}"/>
+        <ctr:TextControl Grid.Row="10" Title="Year" Text="{Binding Year}"/>
     </Grid>
 </UserControl>

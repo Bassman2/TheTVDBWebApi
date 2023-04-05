@@ -5,14 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"             
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
+             xmlns:ctr="clr-namespace:TheTVDBWebApiDemo.Controls"
              d:DataContext="{d:DesignInstance Type=ws:PeopleBaseRecord}"
              mc:Ignorable="d" 
-             d:DesignHeight="800" d:DesignWidth="800">
+             d:DesignHeight="1200" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -24,19 +21,13 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Content="Id"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Id, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Name"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Name, Mode=OneWay}"/>
-        <local:DetailImageView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" DataContext="{Binding Image}"/>
-        <Label Grid.Column="0" Grid.Row="3" Content="Score"/>
-        <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Score, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="4" Content="Name Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding NameTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <Label Grid.Column="0" Grid.Row="5" Content="Overview Translations"/>
-        <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding OverviewTranslations, Mode=OneWay, Converter={StaticResource StringListConverter}}"/>
-        <local:DetailAliasesView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" DataContext="{Binding Aliases}"/>
-        <Label Grid.Column="0" Grid.Row="7" Content="Last Updated"/>
-        <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding LastUpdated, Mode=OneWay}"/>
+        <ctr:TextControl Grid.Row="0" Title="Id" Text="{Binding Id}"/>
+        <ctr:TextControl Grid.Row="1" Title="Name" Text="{Binding Name}"/>
+        <ctr:ImageControl Grid.Row="2" Title="Image" Image="{Binding Image}"/>
+        <ctr:TextControl Grid.Row="3" Title="Score" Text="{Binding Score}"/>
+        <ctr:TranslationsControl Grid.Row="4" Title="Name Translations" Languages="{Binding NameTranslations}"/>
+        <ctr:TranslationsControl Grid.Row="5" Title="Overview Translations" Languages="{Binding OverviewTranslations}"/>
+        <ctr:ListControl Grid.Row="6" Title="Aliases" Items="{Binding Aliases}"/>
+        <ctr:TextControl Grid.Row="7" Title="Last Updated" Text="{Binding LastUpdated}"/>
     </Grid>
 </UserControl>

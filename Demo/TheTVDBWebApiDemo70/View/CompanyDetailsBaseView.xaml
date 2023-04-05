@@ -6,13 +6,10 @@
              xmlns:local="clr-namespace:TheTVDBWebApiDemo.View"
              xmlns:ws="clr-namespace:TheTVDBWebApi;assembly=TheTVDBWebApi"
              d:DataContext="{d:DesignInstance Type=ws:Company}"
+             xmlns:ctr="clr-namespace:TheTVDBWebApiDemo.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -27,21 +24,19 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Content="Id"/>
-        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Id, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Name"/>
-        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Name, Mode=OneWay}"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Slug"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Slug, Mode=OneWay}"/>
-
-
-        <Label Grid.Column="0" Grid.Row="6" Content="Country"/>
-        <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Country, Mode=OneWay}"/>
+        <ctr:TextControl Grid.Row="0" Title="Id" Text="{Binding Id}"/>
+        <ctr:TextControl Grid.Row="1" Title="Name" Text="{Binding Name}"/>
+        <ctr:TextControl Grid.Row="2" Title="Slug" Text="{Binding Slug}"/>
+        <ctr:TranslationsControl Grid.Row="3" Title="Name Translations" Languages="{Binding NameTranslations}"/>
+        <ctr:TranslationsControl Grid.Row="4" Title="Overview Translations" Languages="{Binding OverviewTranslations}"/>
+        <ctr:ListControl Grid.Row="5" Title="Aliases" Items="{Binding Aliases}"/>
+        <ctr:TextControl Grid.Row="6" Title="Country" Text="{Binding Country}"/>
+        <ctr:TextControl Grid.Row="7" Title="Primary Company Type" Text="{Binding PrimaryCompanyType}"/>
+        <ctr:TextControl Grid.Row="8" Title="Active Date" Text="{Binding ActiveDate}"/>
+        <ctr:TextControl Grid.Row="9" Title="Inactive Date" Text="{Binding InactiveDate}"/>
+        <ctr:TextControl Grid.Row="10" Title="Company Type" Text="{Binding CompanyType}"/>
+        <ctr:TextControl Grid.Row="11" Title="Parent Company" Text="{Binding ParentCompany}"/>
+        <ctr:ListControl Grid.Row="12" Title="Tag Options" Items="{Binding TagOptions}"/>
     </Grid>
 </UserControl>
