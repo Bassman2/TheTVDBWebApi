@@ -10,6 +10,13 @@ namespace TheTVDBWebApiDemo.View
         public DetailTranslationsView()
         {
             InitializeComponent();
+
+            SetBinding(NameTranslationsProperty, new Binding("NameTranslations"));
+            SetBinding(OverviewTranslationsProperty, new Binding("OverviewTranslations"));
+            SetBinding(TranslationsProperty, new Binding("DataContext.Translations")
+            {
+                RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor, typeof(ScrollViewer), 1)
+            });
         }
 
         public static readonly DependencyProperty NameTranslationsProperty =

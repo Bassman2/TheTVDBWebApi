@@ -22,7 +22,7 @@ namespace TheTVDBWebApiDemo.ViewModel
                     List<string> nameLang = this.MovieBaseRecord.NameTranslations;
                     List<string> overLang = this.MovieBaseRecord.OverviewTranslations;
                     List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
-                    this.Translations = lang.ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
+                    this.Translations = lang.Select(l => client.GetMovieTranslationAsync(record.Id, l).Result).ToList();
 
                     //this.NameTranslations = nameLang.Select(l => Translations[l]).ToList();
                     //this.OverviewTranslations = overLang.Select(l => Translations[l]).ToList();
@@ -40,7 +40,7 @@ namespace TheTVDBWebApiDemo.ViewModel
         private MovieExtendedRecord movieExtendedRecord;
 
         [ObservableProperty]
-        private Dictionary<string, Translation> translations;
+        private List<Translation> translations;
 
         //[ObservableProperty]
         //private List<Translation> nameTranslations;
