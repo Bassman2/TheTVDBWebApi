@@ -10,10 +10,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="1600" d:DesignWidth="800">
     <Grid>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
