@@ -11,7 +11,7 @@ namespace TheTVDBWebApiTest
             IAsyncEnumerable<SeriesBaseRecord> res;
             List<SeriesBaseRecord> list;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 num = await client.GetSeriesNumAsync();
                 res = client.GetSeriesAsync();
@@ -37,7 +37,7 @@ namespace TheTVDBWebApiTest
             long id = 70327;
             SeriesBaseRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetSeriesAsync(id);
             }
@@ -56,7 +56,7 @@ namespace TheTVDBWebApiTest
             long id = 70327;
             SeriesExtendedRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetSeriesExtendedAsync(id);
             }
@@ -76,7 +76,7 @@ namespace TheTVDBWebApiTest
             long id = 70327;
             SeriesBaseRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetSeriesSlugAsync(slug);
             }
@@ -96,7 +96,7 @@ namespace TheTVDBWebApiTest
             string lang = "deu";
             Translation res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetSeriesTranslationAsync(id, lang);
             }
@@ -113,7 +113,7 @@ namespace TheTVDBWebApiTest
         {
             List<Status> res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetSeriesStatusesAsync();
             }

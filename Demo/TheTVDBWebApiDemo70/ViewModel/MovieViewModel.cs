@@ -4,18 +4,14 @@ namespace TheTVDBWebApiDemo.ViewModel
 {
     public partial class MovieViewModel : ObservableObject
     {
-        private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
-        private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
-
         public MovieViewModel(MovieBaseRecord record)
         {
             this.MovieListRecord = record;
 
             Task.Run(async () =>
             {
-                using (var client = new TVDBWeb())
+                using (var client = new TVDBWeb(MainViewModel.TokenContainer))
                 {
-                    await client.LoginAsync(apiKey, userKey);
                     this.MovieBaseRecord = await client.GetMovieAsync(record.Id);
                     this.MovieExtendedRecord = await client.GetMovieExtendedAsync(record.Id, Meta.Translations, false);
 
@@ -23,9 +19,6 @@ namespace TheTVDBWebApiDemo.ViewModel
                     List<string> overLang = this.MovieBaseRecord.OverviewTranslations;
                     List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
                     this.Translations = lang.Select(l => client.GetMovieTranslationAsync(record.Id, l).Result).ToList();
-
-                    //this.NameTranslations = nameLang.Select(l => Translations[l]).ToList();
-                    //this.OverviewTranslations = overLang.Select(l => Translations[l]).ToList();
                 }
             });
         }
@@ -41,11 +34,5 @@ namespace TheTVDBWebApiDemo.ViewModel
 
         [ObservableProperty]
         private List<Translation> translations;
-
-        //[ObservableProperty]
-        //private List<Translation> nameTranslations;
-
-        //[ObservableProperty]
-        //private List<Translation> overviewTranslations;
     }
 }

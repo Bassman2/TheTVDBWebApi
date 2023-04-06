@@ -13,7 +13,7 @@ namespace TheTVDBWebApiTest
         {
             List<Language> res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetLanguagesAsync();
             }

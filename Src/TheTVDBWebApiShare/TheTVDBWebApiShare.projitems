@@ -104,6 +104,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Source.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.Updates.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWeb.User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebTokenContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UpdateAction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UpdateType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserInfo.cs" />

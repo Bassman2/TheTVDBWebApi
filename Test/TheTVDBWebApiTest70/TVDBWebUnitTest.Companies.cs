@@ -9,7 +9,7 @@
             IAsyncEnumerable<Company> res;
             List<Company> list;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 num = await client.GetCompaniesNumAsync();
                 res = client.GetCompaniesAsync();
@@ -17,7 +17,7 @@
 
             }
 
-            Assert.AreEqual(47297, num, "num");
+            Assert.AreEqual(47300, num, "num");
                         
             Assert.IsNotNull(list, "list");
             Assert.AreEqual(5, list.Count, "Count");
@@ -36,7 +36,7 @@
             long id = 1;
             Company res;
             
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetCompanyAsync(id);
             }
@@ -55,7 +55,7 @@
         {
             List<CompanyType> res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetCompanyTypesAsync();
             }

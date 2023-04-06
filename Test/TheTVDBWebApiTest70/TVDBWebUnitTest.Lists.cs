@@ -9,7 +9,7 @@
             IAsyncEnumerable<ListBaseRecord> res;
             List<ListBaseRecord> list;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 num = await client.GetListsNumAsync();
                 res = client.GetListsAsync();
@@ -37,7 +37,7 @@
             long id = 1;
             ListBaseRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetListAsync(id);
             }
@@ -58,7 +58,7 @@
             long id = 1;
             ListExtendedRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetListExtendedAsync(id);
             }
@@ -79,7 +79,7 @@
             string slug = "scooby-doo";
             ListBaseRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetListBySlugAsync(slug);
             }
@@ -101,7 +101,7 @@
             string lang = "eng";
             List<Translation> res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetListTranslationAsync(id, lang);
             }

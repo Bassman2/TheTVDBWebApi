@@ -11,7 +11,7 @@
             ArtworkBaseRecord artworkMovie;
             ArtworkBaseRecord artworkSeries;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 artworkMovie = await client.GetArtworkAsync(artworkMovieId);
                 artworkSeries = await client.GetArtworkAsync(artworkSeriesId);
@@ -48,7 +48,7 @@
 
 
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 artworkMovie = await client.GetArtworkExtendedAsync(artworkMovieId);
                 artworkSeries = await client.GetArtworkExtendedAsync(artworkSeriesId);
@@ -97,7 +97,7 @@
         {
             List<ArtworkStatus> res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetArtworkStatusesAsync();
             }
@@ -121,7 +121,7 @@
         {
             List<ArtworkType> res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetArtworkTypesAsync();
             }

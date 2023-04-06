@@ -3,53 +3,25 @@ namespace TheTVDBWebApiTest
     [TestClass]
     public partial class TVDBWebUnitTest
     {
-        public TestContext TestContext { get; set; }
-        private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
-        private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
+        private static TVDBWebTokenContainer tokenContainer = new TVDBWebTokenContainer();
 
+        [ClassInitialize]
+        public static void ClassInitialize(TestContext context)
+        {
+            using (var client = new TVDBWeb(Environment.GetEnvironmentVariable("API_KEY"), Environment.GetEnvironmentVariable("USER_KEY"), tokenContainer));
+        }
 
-        //private string apiKey = "xxx";
-        //private string pin;
-
-
-        //public TVDBWebUnitTest()
-        //{
-        //    this.apiKey = TestContext.Properties["ApiKey"].ToString();
-        //    //this.pin = TestContext.Properties["Pin"].ToString();
-        //}
-
+        [ClassCleanup]
+        public static void Cleanup()
+        { }
 
         [TestMethod]
         public async Task TestLoginAsync()
         {
-            //LoginResponse res;
-
             using (var client = new TVDBWeb())
             {
-                await client.LoginAsync(apiKey, userKey);
+                await client.LoginAsync(Environment.GetEnvironmentVariable("API_KEY"), Environment.GetEnvironmentVariable("USER_KEY"));
             }
-
-            //Assert.IsNotNull(res);
-            //Assert.IsFalse(string.IsNullOrEmpty(res.Token));
         }
-
-        //[TestMethod]
-        //public async Task TestMethodGetMoviesAsync()
-        //{
-        //    MoviesResponse res;
-
-        //    using (var client = new TVDBWeb(apiKey, userKey))
-        //    {
-        //        res = await client.MoviesAsync();
-        //    }
-
-        //    Assert.IsNotNull(res);
-        //}
-
-        
-
-
-
-        
     }
 }

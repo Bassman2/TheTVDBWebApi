@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using TheTVDBWebApi.Internal;
+﻿using TheTVDBWebApi.Internal;
 using TheTVDBWebApi.Internal.Converter;
 
 namespace TheTVDBWebApi
@@ -9,12 +8,13 @@ namespace TheTVDBWebApi
     /// </summary>
     /// <remarks>https://thetvdb.github.io/v4-api</remarks>
     /// <remarks>https://thetvdb.com/dashboard/account/apikey</remarks>
-    public partial class TVDBWeb : IDisposable
+    public sealed partial class TVDBWeb : IDisposable
     {
         private readonly Uri host = new Uri("https://api4.thetvdb.com");
         private readonly HttpClientHandler handler;
         private HttpClient client;
-        private JsonSerializerOptions options = new JsonSerializerOptions() 
+        private TVDBWebTokenContainer tokenContainer;
+        private readonly JsonSerializerOptions options = new JsonSerializerOptions() 
         {
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, 
             IncludeFields = false, 
@@ -29,7 +29,7 @@ namespace TheTVDBWebApi
         /// <summary>
         /// Constructor.
         /// </summary>
-        public TVDBWeb()
+        public TVDBWeb(TVDBWebTokenContainer tokenContainer = null)
         {
             // connect
             this.handler = new HttpClientHandler
@@ -42,6 +42,12 @@ namespace TheTVDBWebApi
                 BaseAddress = this.host,
                 //Timeout = new TimeSpan(0, 2, 0)
             };
+
+            this.tokenContainer = tokenContainer ?? new TVDBWebTokenContainer();
+            if (this.tokenContainer.Token != null)
+            {
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.tokenContainer.Token);
+            }
         }
 
         /// <summary>
@@ -49,7 +55,7 @@ namespace TheTVDBWebApi
         /// </summary>
         /// <param name="apikey">ApiKey for login</param>
         /// <param name="pin">Pin for login.</param>
-        public TVDBWeb(string apikey, string pin = null) : this() 
+        public TVDBWeb(string apikey, string pin = null, TVDBWebTokenContainer tokenContainer = null) : this(tokenContainer) 
         {
             LoginAsync(apikey, pin).Wait();
         }
@@ -77,13 +83,9 @@ namespace TheTVDBWebApi
         {
             LoginRequest req = new() { ApiKey = apikey, Pin = pin };
             Response<LoginResponse> res = await PostAsync<LoginResponse, LoginRequest>("v4/login", req, cancellationToken);
+            this.tokenContainer.Token = res.Data.Token;
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Data.Token);
         }
-
-        //public BitmapImage LoadImage(string path)
-        //{
-        //    return new
-        //}
 
         #region Private
 

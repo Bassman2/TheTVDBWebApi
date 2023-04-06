@@ -2,21 +2,21 @@
 {
     public partial class PeopleViewModel : ObservableObject
     {
-        private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
-        private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
-
         public PeopleViewModel(PeopleBaseRecord record)
         {
             this.PeopleListRecord = record;
 
             Task.Run(async () =>
             {
-                using (var client = new TVDBWeb())
+                using (var client = new TVDBWeb(MainViewModel.TokenContainer))
                 {
-                    await client.LoginAsync(apiKey, userKey);
                     this.PeopleBaseRecord = await client.GetPeopleAsync(record.Id);
                     this.PeopleExtendedRecord = await client.GetPeopleExtendedAsync(record.Id, Meta.Translations);
-                    //this.Translations = this.PeopleBaseRecord.NameTranslations.Concat(this.PeopleBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
+
+                    List<string> nameLang = this.PeopleBaseRecord.NameTranslations;
+                    List<string> overLang = this.PeopleBaseRecord.OverviewTranslations;
+                    List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
+                    this.Translations = lang.Select(l => client.GetPeopleTranslationAsync(record.Id, l).Result).ToList();
                 }
             });
         }
@@ -31,7 +31,6 @@
         private PeopleExtendedRecord peopleExtendedRecord;
 
         [ObservableProperty]
-        private Dictionary<string, Translation> translations;
-
+        private List<Translation> translations;
     }
 }

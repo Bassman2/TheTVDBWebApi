@@ -2,22 +2,21 @@
 {
     public partial class EpisodeViewModel : ObservableObject
     {
-        private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
-        private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
-
         public EpisodeViewModel(EpisodeBaseRecord record)
         {
             this.EpisodeListRecord = record;
 
             Task.Run(async () =>
             {
-                using (var client = new TVDBWeb())
+                using (var client = new TVDBWeb(MainViewModel.TokenContainer))
                 {
-                    await client.LoginAsync(apiKey, userKey);
                     this.EpisodeBaseRecord = await client.GetEpisodeAsync(record.Id);
                     this.EpisodeExtendedRecord = await client.GetEpisodeExtendedAsync(record.Id, Meta.Translations);
-                    //this.Translations = this.EpisodeBaseRecord.NameTranslations.Concat(this.EpisodeBaseRecord.OverviewTranslations).Distinct().ToDictionary(l => l, l => client.GetMovieTranslationAsync(record.Id, l).Result);
 
+                    List<string> nameLang = this.EpisodeBaseRecord.NameTranslations;
+                    List<string> overLang = this.EpisodeBaseRecord.OverviewTranslations;
+                    List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
+                    this.Translations = lang.Select(l => client.GetEpisodeTranslationAsync(record.Id, l).Result).ToList();
                 }
             });
         }
@@ -32,7 +31,6 @@
         private EpisodeExtendedRecord episodeExtendedRecord;
 
         [ObservableProperty]
-        private Dictionary<string, Translation> translations;
-
+        private List<Translation> translations;
     }
 }

@@ -9,7 +9,7 @@ namespace TheTVDBWebApiTest
         {
             List<AwardBaseRecord> res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetAwardsAsync();
             }
@@ -80,7 +80,7 @@ namespace TheTVDBWebApiTest
         {
             AwardBaseRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetAwardAsync(1);
             }
@@ -95,7 +95,7 @@ namespace TheTVDBWebApiTest
         {
             AwardExtendedRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetAwardExtendedAsync(1);
             }
@@ -124,7 +124,7 @@ namespace TheTVDBWebApiTest
         {
             AwardCategoryBaseRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetAwardCategoryAsync(1);
             }
@@ -144,7 +144,7 @@ namespace TheTVDBWebApiTest
         {
             AwardCategoryExtendedRecord res;
 
-            using (var client = new TVDBWeb(apiKey, userKey))
+            using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetAwardCategoryExtendedAsync(1);
             }
