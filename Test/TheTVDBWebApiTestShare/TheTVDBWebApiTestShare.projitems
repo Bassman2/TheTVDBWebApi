@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f4a46c3f-4a8f-4a7a-b7fe-59012ced4a70</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TheTVDBWebApiTest</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Artwork.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Awards.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Characters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Companies.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Content.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Countries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Entities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Episodes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Genders.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Genres.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Inspiration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Languages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Lists.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Movies.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.People.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Search.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Seasons.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Series.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Source.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Updates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.User.cs" />
+  </ItemGroup>
+</Project>

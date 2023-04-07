@@ -24,7 +24,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{2AF30638-7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTVDBWebApiDemo70", "Demo\TheTVDBWebApiDemo70\TheTVDBWebApiDemo70.csproj", "{70B04DB9-1598-4E72-A6A7-F61A6DF71EEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTVDBWebApiTestShare", "Test\TheTVDBWebApiTestShare\TheTVDBWebApiTestShare.csproj", "{019DF036-79AB-4B92-A228-6F2F6244DD13}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTVDBWebApi60", "Src\TheTVDBWebApi60\TheTVDBWebApi60.csproj", "{AE8585FE-0391-40E7-962F-B6D09F73591A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TheTVDBWebApiTestShare", "Test\TheTVDBWebApiTestShare\TheTVDBWebApiTestShare.shproj", "{F4A46C3F-4A8F-4A7A-B7FE-59012CED4A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTVDBWebApiTest60", "Test\TheTVDBWebApiTest60\TheTVDBWebApiTest60.csproj", "{1E3D9357-23A6-467F-B59B-7DC0CFE26EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +51,14 @@ Global
 		{70B04DB9-1598-4E72-A6A7-F61A6DF71EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70B04DB9-1598-4E72-A6A7-F61A6DF71EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70B04DB9-1598-4E72-A6A7-F61A6DF71EEB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{019DF036-79AB-4B92-A228-6F2F6244DD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{019DF036-79AB-4B92-A228-6F2F6244DD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{019DF036-79AB-4B92-A228-6F2F6244DD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{019DF036-79AB-4B92-A228-6F2F6244DD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE8585FE-0391-40E7-962F-B6D09F73591A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE8585FE-0391-40E7-962F-B6D09F73591A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE8585FE-0391-40E7-962F-B6D09F73591A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE8585FE-0391-40E7-962F-B6D09F73591A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E3D9357-23A6-467F-B59B-7DC0CFE26EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E3D9357-23A6-467F-B59B-7DC0CFE26EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E3D9357-23A6-467F-B59B-7DC0CFE26EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E3D9357-23A6-467F-B59B-7DC0CFE26EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,13 +69,18 @@ Global
 		{7D7EEDEF-CFF9-4897-90F1-56045ED34A21} = {4507C15C-959B-42F7-8220-533AE9DE66F2}
 		{34FCEBDC-E926-4CA2-B1F2-489816987629} = {7F25F319-B889-4A49-BA5C-06E1E744A2AE}
 		{70B04DB9-1598-4E72-A6A7-F61A6DF71EEB} = {2AF30638-7326-46EA-A651-7AA46FE2D850}
-		{019DF036-79AB-4B92-A228-6F2F6244DD13} = {4507C15C-959B-42F7-8220-533AE9DE66F2}
+		{AE8585FE-0391-40E7-962F-B6D09F73591A} = {D1DC9D99-8468-4B6F-860E-FCF7B0363DE3}
+		{F4A46C3F-4A8F-4A7A-B7FE-59012CED4A70} = {4507C15C-959B-42F7-8220-533AE9DE66F2}
+		{1E3D9357-23A6-467F-B59B-7DC0CFE26EE7} = {4507C15C-959B-42F7-8220-533AE9DE66F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {593E72B1-6782-4577-A065-BF25C1BDE166}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Test\TheTVDBWebApiTestShare\TheTVDBWebApiTestShare.projitems*{1e3d9357-23a6-467f-b59b-7dc0cfe26ee7}*SharedItemsImports = 5
 		Src\TheTVDBWebApiShare\TheTVDBWebApiShare.projitems*{936bb719-2110-4d3e-8653-d55d6a9130ec}*SharedItemsImports = 13
+		Src\TheTVDBWebApiShare\TheTVDBWebApiShare.projitems*{ae8585fe-0391-40e7-962f-b6d09f73591a}*SharedItemsImports = 5
 		Src\TheTVDBWebApiShare\TheTVDBWebApiShare.projitems*{cf226873-0a62-42f0-b432-c0f3cafd8f6f}*SharedItemsImports = 5
+		Test\TheTVDBWebApiTestShare\TheTVDBWebApiTestShare.projitems*{f4a46c3f-4a8f-4a7a-b7fe-59012ced4a70}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
