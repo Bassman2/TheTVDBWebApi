@@ -195,7 +195,6 @@ namespace TheTVDBWebApi
 
         private async IAsyncEnumerable<T> GetLongListAsync<T>(string requestUri, [EnumeratorCancellation] CancellationToken cancellationToken, [CallerMemberName] string memberName = "")
         {
-            requestUri = $"{requestUri}?page=0";
             while (!string.IsNullOrEmpty(requestUri))
             {
                 Debug.WriteLine($"GetLongListAsync {typeof(T).Name} {requestUri}");

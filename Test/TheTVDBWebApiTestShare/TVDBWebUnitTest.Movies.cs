@@ -167,13 +167,12 @@
             IAsyncEnumerable<MovieBaseRecord> res;
             List<MovieBaseRecord> list;
 
-            MoviesFilter filter = new MoviesFilter() { Country = "deu" };
+            MoviesFilter filter = new MoviesFilter() { Country = "usa", Language = "eng" };
 
             using (var client = new TVDBWeb(tokenContainer))
             {
                 res = client.GetMoviesFilterAsync(filter);
                 list = await res.Take(5).ToListAsync();
-
             }
 
             Assert.IsNotNull(list, "list");
@@ -183,7 +182,7 @@
             Assert.AreEqual("Alita: Battle Angel", list[0].Name, "Name0");
             Assert.AreEqual("alita-battle-angel", list[0].Slug, "Slug0");
             Assert.AreEqual("/banners/movies/1/posters/2170750.jpg", list[0].Image, "Image0");
-            Assert.AreEqual(363605, list[0].Score, "Score0");
+            Assert.AreEqual(363726, list[0].Score, "Score0");
             Assert.AreEqual(122, list[0].Runtime, "Runtime0");
             Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), list[0].LastUpdated, "LastUpdated0");
             Assert.AreEqual("2019", list[0].Year, "Year0");

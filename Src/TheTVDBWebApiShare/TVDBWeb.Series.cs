@@ -43,7 +43,7 @@
         /// <returns>Series extended record.</returns>
         public async Task<ArtworkBaseRecord> GetSeriesArtworkAsync(long id, string language, int type, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<ArtworkBaseRecord>($"v4/series/{id}/artworks&lang={language}&type={type}", cancellationToken);
+            return await GetDataAsync<ArtworkBaseRecord>($"v4/series/{id}/artworks?lang={language}&type={type}", cancellationToken);
         }
 
         /// <summary>
