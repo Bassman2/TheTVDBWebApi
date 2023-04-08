@@ -90,6 +90,100 @@ namespace TheTVDBWebApiTest
         }
 
         [TestMethod]
+        public async Task TestMethodGetSeriesArtworkAsync()
+        {
+            long id = 70327;
+            string language = "eng";
+            int type = 1;
+            ArtworkBaseRecord res;
+
+            using (var client = new TVDBWeb(tokenContainer))
+            {
+                res = await client.GetSeriesArtworkAsync(id, language, type);
+            }
+
+            Assert.IsNotNull(res, "res");
+            Assert.AreEqual(id, res.Id, "Id");
+            Assert.AreEqual("https://artworks.thetvdb.com/banners/posters/70327-1.jpg", res.Image, "Image");
+        }
+
+        [TestMethod]
+        public async Task TestMethodGetSeriesNextAiredAsync()
+        {
+            long id = 70327;
+            SeriesBaseRecord res;
+
+            using (var client = new TVDBWeb(tokenContainer))
+            {
+                res = await client.GetSeriesNextAiredAsync(id);
+            }
+
+            Assert.IsNotNull(res, "res");
+            Assert.AreEqual(id, res.Id, "Id");
+            Assert.AreEqual("https://artworks.thetvdb.com/banners/posters/70327-1.jpg", res.Image, "Image");
+        }
+
+        [TestMethod]
+        public async Task GetSeriesEpisodesAsync()
+        {
+            long id = 70327;
+            string seasonType = "";
+            int season = 0;
+            int episodeNumber = 0;
+            string airDate = "2020";
+
+            IAsyncEnumerable<EpisodeBaseRecord> res;
+            List<EpisodeBaseRecord> list;
+
+            using (var client = new TVDBWeb(tokenContainer))
+            {
+                res = client.GetSeriesEpisodesAsync(id, seasonType, season, episodeNumber, airDate);
+                list = await res.Take(5).ToListAsync();
+            }
+
+            Assert.IsNotNull(list, "list");
+            Assert.AreEqual(5, list.Count, "Count");
+        }
+
+        [TestMethod]
+        public async Task GetSeriesEpisodesLangAsync()
+        {
+            long id = 70327;
+            string seasonType = "";
+            
+            string language = "deu";
+
+            IAsyncEnumerable<EpisodeBaseRecord> res;
+            List<EpisodeBaseRecord> list;
+
+            using (var client = new TVDBWeb(tokenContainer))
+            {
+                res = client.GetSeriesEpisodesAsync(id, seasonType, language);
+                list = await res.Take(5).ToListAsync();
+            }
+
+            Assert.IsNotNull(list, "list");
+            Assert.AreEqual(5, list.Count, "Count");
+        }
+
+        [TestMethod]
+        public async Task GetSeriesFilterAsync()
+        {
+            SeriesFilter filter = new() { Country = "eng" };
+
+            List<SeriesBaseRecord> res;            
+
+            using (var client = new TVDBWeb(tokenContainer))
+            {
+                res = await client.GetSeriesFilterAsync(filter);
+                
+            }
+
+            Assert.IsNotNull(res, "res");
+            Assert.AreEqual(5, res.Count, "Count");
+        }
+
+        [TestMethod]
         public async Task TestMethodGetSeriesTranslationsAsync()
         {
             long id = 70327;

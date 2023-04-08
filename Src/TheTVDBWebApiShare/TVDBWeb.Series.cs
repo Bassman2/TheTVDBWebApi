@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi
 {
     public partial class TVDBWeb
     {
@@ -77,9 +75,9 @@ namespace TheTVDBWebApi
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode base record.</returns>
-        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, SeasonType seasonType, int season, int episodeNumber, string airDate, CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, string seasonType, int season, int episodeNumber, string airDate, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType.Name}?season={season}&episodeNumber={episodeNumber}&airDate={airDate}", cancellationToken);
+            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType}?season={season}&episodeNumber={episodeNumber}&airDate={airDate}", cancellationToken);
         }
 
         /// <summary>
@@ -88,9 +86,9 @@ namespace TheTVDBWebApi
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode base record.</returns>
-        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, SeasonType seasonType, string language, CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, string seasonType, string language, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType.Name}/{language}", cancellationToken);
+            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType}/{language}", cancellationToken);
         }
 
         /// <summary>

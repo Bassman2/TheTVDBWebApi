@@ -34,18 +34,18 @@
         }
 
         [TestMethod]
-        public async Task TestMethodGetMovieAsync()
+        public async Task TestMethodGetMovieBaseAsync()
         {
             long id = 1;
             MovieBaseRecord res;
-            
+
             using (var client = new TVDBWeb(tokenContainer))
             {
                 res = await client.GetMovieAsync(id);
-            }           
+            }
 
             Assert.IsNotNull(res, "res");
-            
+
             Assert.AreEqual(1, res.Id, "Id");
             Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
             Assert.AreEqual("alita-battle-angel", res.Slug, "Slug");
@@ -159,6 +159,35 @@
             Assert.AreEqual(false, res[4].KeepUpdated, "KeepUpdated4");
             Assert.AreEqual("Released", res[4].Name, "Name4");
             Assert.AreEqual("movie", res[4].RecordType, "RecordType4");
+        }
+
+        [TestMethod]
+        public async Task TestMethodGetMovieFilterAsync()
+        {
+            IAsyncEnumerable<MovieBaseRecord> res;
+            List<MovieBaseRecord> list;
+
+            MoviesFilter filter = new MoviesFilter() { Country = "deu" };
+
+            using (var client = new TVDBWeb(tokenContainer))
+            {
+                res = client.GetMoviesFilterAsync(filter);
+                list = await res.Take(5).ToListAsync();
+
+            }
+
+            Assert.IsNotNull(list, "list");
+            Assert.AreEqual(5, list.Count, "Count");
+
+            Assert.AreEqual(1, list[0].Id, "Id0");
+            Assert.AreEqual("Alita: Battle Angel", list[0].Name, "Name0");
+            Assert.AreEqual("alita-battle-angel", list[0].Slug, "Slug0");
+            Assert.AreEqual("/banners/movies/1/posters/2170750.jpg", list[0].Image, "Image0");
+            Assert.AreEqual(363605, list[0].Score, "Score0");
+            Assert.AreEqual(122, list[0].Runtime, "Runtime0");
+            Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), list[0].LastUpdated, "LastUpdated0");
+            Assert.AreEqual("2019", list[0].Year, "Year0");
+
         }
     }
 }
