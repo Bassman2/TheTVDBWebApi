@@ -36,7 +36,7 @@
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(5, res.Count, "Count");
+            Assert.AreEqual(4, res.Count, "Count");
         }
     }
 }

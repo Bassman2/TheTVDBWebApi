@@ -124,7 +124,7 @@ namespace TheTVDBWebApiTest
         }
 
         [TestMethod]
-        public async Task GetSeriesEpisodesAsync()
+        public async Task TestMethodGetSeriesEpisodesAsync()
         {
             long id = 70327;
             string seasonType = "";
@@ -146,7 +146,7 @@ namespace TheTVDBWebApiTest
         }
 
         [TestMethod]
-        public async Task GetSeriesEpisodesLangAsync()
+        public async Task TestMethodGetSeriesEpisodesLangAsync()
         {
             long id = 70327;
             string seasonType = "";
@@ -167,7 +167,7 @@ namespace TheTVDBWebApiTest
         }
 
         [TestMethod]
-        public async Task GetSeriesFilterAsync()
+        public async Task TestMethodGetSeriesFilterAsync()
         {
             SeriesFilter filter = new() { Country = "eng" };
 

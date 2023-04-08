@@ -27,7 +27,7 @@
             Assert.AreEqual("Alita: Battle Angel", list[0].Name, "Name0");
             Assert.AreEqual("alita-battle-angel", list[0].Slug, "Slug0");
             Assert.AreEqual("/banners/movies/1/posters/2170750.jpg", list[0].Image, "Image0");
-            Assert.AreEqual(363605, list[0].Score, "Score0");
+            Assert.AreEqual(363726, list[0].Score, "Score0");
             Assert.AreEqual(122, list[0].Runtime, "Runtime0");
             Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), list[0].LastUpdated, "LastUpdated0");
             Assert.AreEqual("2019", list[0].Year, "Year0");
@@ -50,7 +50,7 @@
             Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
             Assert.AreEqual("alita-battle-angel", res.Slug, "Slug");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/movies/1/posters/2170750.jpg", res.Image, "Image");
-            Assert.AreEqual(363088, res.Score, "Score");
+            Assert.AreEqual(363726, res.Score, "Score");
             Assert.AreEqual(122, res.Runtime, "Runtime");
             Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), res.LastUpdated, "LastUpdated");
             Assert.AreEqual("2019", res.Year, "Year");
@@ -73,7 +73,7 @@
             Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
             Assert.AreEqual("alita-battle-angel", res.Slug, "Slug");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/movies/1/posters/2170750.jpg", res.Image, "Image");
-            Assert.AreEqual(363088, res.Score, "Score");
+            Assert.AreEqual(363726, res.Score, "Score");
             Assert.AreEqual(122, res.Runtime, "Runtime");
             Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), res.LastUpdated, "LastUpdated");
             Assert.AreEqual("2019", res.Year, "Year");
@@ -116,7 +116,7 @@
             Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
             Assert.AreEqual("alita-battle-angel", res.Slug, "Slug");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/movies/1/posters/2170750.jpg", res.Image, "Image");
-            Assert.AreEqual(363605, res.Score, "Score");
+            Assert.AreEqual(363726, res.Score, "Score");
             Assert.AreEqual(122, res.Runtime, "Runtime");
             Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), res.LastUpdated, "LastUpdated");
             Assert.AreEqual("2019", res.Year, "Year");

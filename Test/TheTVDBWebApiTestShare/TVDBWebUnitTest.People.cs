@@ -21,12 +21,13 @@
             Assert.IsNotNull(list, "list");
             Assert.AreEqual(5, list.Count, "Count");
 
-            Assert.AreEqual(1, list[0].Id, "Id0");
-            Assert.AreEqual("Alita: Battle Angel", list[0].Name, "Name0");
-            Assert.AreEqual("/banners/movies/1/posters/2170750.jpg", list[0].Image, "Image0");
-            Assert.AreEqual(363605, list[0].Score, "Score0");
-            Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), list[0].LastUpdated, "LastUpdated0");
-            
+            Assert.AreEqual(247831, list[0].Id, "Id0");
+            Assert.AreEqual("Michelle Fairley", list[0].Name, "Name0");
+            Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/actor/247831/photo/62742718e0819.jpg", list[0].Image, "Image0");
+            Assert.AreEqual(0, list[0].Score, "Score0");
+            Assert.AreEqual(new DateTime(2023, 01, 25, 17, 03, 54), list[0].LastUpdated, "LastUpdated0");
+
+
         }
 
         [TestMethod]
