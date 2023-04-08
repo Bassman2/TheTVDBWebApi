@@ -7,7 +7,6 @@
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <RootNamespace>TheTVDBWebApiTest</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,5 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Src\TheTVDBWebApi70\TheTVDBWebApi70.csproj" />
   </ItemGroup>
+
+  <Import Project="..\TheTVDBWebApiTestShare\TheTVDBWebApiTestShare.projitems" Label="Shared" />
 
 </Project>

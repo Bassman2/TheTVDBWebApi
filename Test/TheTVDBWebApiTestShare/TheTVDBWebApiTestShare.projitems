@@ -9,7 +9,7 @@
     <Import_RootNamespace>TheTVDBWebApiTest</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Artwork.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Awards.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TVDBWebUnitTest.Characters.cs" />
