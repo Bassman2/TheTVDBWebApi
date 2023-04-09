@@ -71,6 +71,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SeasonTypeEnum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesAirsDays.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesBaseRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeriesEpisodes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SortType.cs" />

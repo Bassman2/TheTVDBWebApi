@@ -130,40 +130,34 @@ namespace TheTVDBWebApiTest
             SeasonTypeEnum seasonType = SeasonTypeEnum.Default;
             int season = 0;
             int episodeNumber = 0;
-            string airDate = "2020";
+            string airDate = null;
 
-            IAsyncEnumerable<EpisodeBaseRecord> res;
-            List<EpisodeBaseRecord> list;
+            SeriesEpisodes res;            
 
             using (var client = new TVDBWeb(tokenContainer))
             {
-                res = client.GetSeriesEpisodesAsync(id, seasonType, season, episodeNumber, airDate);
-                list = await res.Take(5).ToListAsync();
+                res = await client.GetSeriesEpisodesAsync(id, seasonType, season, episodeNumber, airDate);
             }
 
-            Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.IsNotNull(res, "res");
+
         }
 
         [TestMethod]
         public async Task TestMethodGetSeriesEpisodesLangAsync()
         {
             long id = 70327;
-            string seasonType = "";
-            
-            string language = "deu";
+            SeasonTypeEnum seasonType = SeasonTypeEnum.Default;
+            string language = "eng";
 
-            IAsyncEnumerable<EpisodeBaseRecord> res;
-            List<EpisodeBaseRecord> list;
-
+            SeriesBaseRecord res;
+ 
             using (var client = new TVDBWeb(tokenContainer))
             {
-                res = client.GetSeriesEpisodesAsync(id, seasonType, language);
-                list = await res.Take(5).ToListAsync();
+                res = await client.GetSeriesEpisodesAsync(id, seasonType, language);
             }
 
-            Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.IsNotNull(res, "res");
         }
 
         [TestMethod]

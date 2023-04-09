@@ -75,9 +75,23 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode base record.</returns>
-        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, int season, int episodeNumber, string airDate, CancellationToken cancellationToken = default)
+        public async Task<SeriesEpisodes> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, int? season, int? episodeNumber, string airDate, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}?season={season}&episodeNumber={episodeNumber}&airDate={airDate}", cancellationToken);
+            StringBuilder param = new StringBuilder();
+            if (season.HasValue)
+            {
+                param.Append($"&season={season.Value}");
+            }
+            if (episodeNumber.HasValue)
+            {
+                param.Append($"&episodeNumber={episodeNumber.Value}");
+            }
+            if (!string.IsNullOrEmpty(airDate))
+            {
+                param.Append($"&airDate={airDate}");
+            }
+            string par = param.ToString().TrimStart('&');
+            return await GetDataAsync<SeriesEpisodes>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}?{par}", cancellationToken);
         }
 
         /// <summary>
@@ -86,9 +100,9 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode base record.</returns>
-        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, string seasonType, string language, CancellationToken cancellationToken = default)
+        public async Task<SeriesBaseRecord> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, string language, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType}/{language}", cancellationToken);
+            return await GetDataAsync<SeriesBaseRecord>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}/{language}", cancellationToken);
         }
 
         /// <summary>
