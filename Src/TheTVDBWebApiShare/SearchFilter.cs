@@ -60,8 +60,18 @@
         /// <summary>
         /// Search for a specific remote id. Allows searching for an IMDB or EIDR id, for example.
         /// </summary>
-        public string RemoteId { get; set; } = null;                        
-        
+        public string RemoteId { get; set; } = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? Offset { get; set; } = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int? Limit { get; set; } = null;
+
         internal string Parameter
         {
             get
@@ -89,7 +99,7 @@
                 }
                 if (this.Country != null)
                 {
-                    sb.Append($"&country ={this.Country}");
+                    sb.Append($"&country={this.Country}");
                 }
                 if (this.Director != null)
                 {
@@ -97,7 +107,7 @@
                 }
                 if (this.Language != null)
                 {
-                    sb.Append($"&lang ={this.Language}");
+                    sb.Append($"&lang={this.Language}");
                 }
                 if (this.PrimaryType != null)
                 {
@@ -110,6 +120,14 @@
                 if (this.RemoteId != null)
                 {
                     sb.Append($"&remote_id={this.RemoteId}");
+                }
+                if (this.Offset != null)
+                {
+                    sb.Append($"&offset={this.Offset}");
+                }
+                if (this.Limit != null)
+                {
+                    sb.Append($"&limit={this.Limit}");
                 }
                 return sb.ToString().TrimStart('&');
             }

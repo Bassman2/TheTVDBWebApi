@@ -62,6 +62,10 @@
                 {
                     throw new ArgumentNullException(nameof(Language));
                 }
+                if (string.IsNullOrEmpty(this.Country))
+                {
+                    throw new ArgumentNullException(nameof(Country));
+                }
                 StringBuilder sb = new StringBuilder();
                 if (this.Company != null)
                 {
@@ -73,7 +77,7 @@
                 }
                 if (this.Country != null)
                 {
-                    sb.Append($"&country ={this.Country}");
+                    sb.Append($"&country={this.Country}");
                 }
                 if (this.Genre != null)
                 {
@@ -81,7 +85,7 @@
                 }
                 if (this.Language != null)
                 {
-                    sb.Append($"&lang ={this.Language}");
+                    sb.Append($"&lang={this.Language}");
                 }
                 if (this.Sort != null)
                 {

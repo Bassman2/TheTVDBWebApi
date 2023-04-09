@@ -5,7 +5,7 @@
         [TestMethod]
         public async Task TestMethodGetSearchAsync()
         {
-            SearchFilter filter = new() { Country = "eng" };
+            SearchFilter filter = new() { Query = "Alita", Limit = 2 };
             IAsyncEnumerable<SearchResult> res;
             List<SearchResult> list;
 
@@ -37,6 +37,11 @@
 
             Assert.IsNotNull(res);
             Assert.AreEqual(4, res.Count, "Count");
+
+            Assert.IsNotNull(res[0], "res0");
+            Assert.IsNotNull(res[0].Company, "company0");
+            Assert.AreEqual("The CW", res[0].Company.Name, "company0Name");
+
         }
     }
 }

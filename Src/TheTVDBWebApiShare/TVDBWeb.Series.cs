@@ -75,9 +75,9 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode base record.</returns>
-        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, string seasonType, int season, int episodeNumber, string airDate, CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<EpisodeBaseRecord> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, int season, int episodeNumber, string airDate, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType}?season={season}&episodeNumber={episodeNumber}&airDate={airDate}", cancellationToken);
+            return GetLongListAsync<EpisodeBaseRecord>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}?season={season}&episodeNumber={episodeNumber}&airDate={airDate}", cancellationToken);
         }
 
         /// <summary>
@@ -98,9 +98,9 @@
         /// <param name="filter">Filter to search for.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of series base record.</returns>
-        public async Task<List<SeriesBaseRecord>> GetSeriesFilterAsync(SeriesFilter filter, CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<SeriesBaseRecord> GetSeriesFilterAsync(SeriesFilter filter, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<SeriesBaseRecord>>($"v4/series/filter&{filter}", cancellationToken);
+            return GetLongListAsync<SeriesBaseRecord>($"v4/series/filter?{filter.Parameter}", cancellationToken);
         }
 
         /// <summary>

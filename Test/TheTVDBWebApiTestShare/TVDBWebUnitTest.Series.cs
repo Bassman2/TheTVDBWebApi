@@ -127,7 +127,7 @@ namespace TheTVDBWebApiTest
         public async Task TestMethodGetSeriesEpisodesAsync()
         {
             long id = 70327;
-            string seasonType = "";
+            SeasonTypeEnum seasonType = SeasonTypeEnum.Default;
             int season = 0;
             int episodeNumber = 0;
             string airDate = "2020";
@@ -169,18 +169,19 @@ namespace TheTVDBWebApiTest
         [TestMethod]
         public async Task TestMethodGetSeriesFilterAsync()
         {
-            SeriesFilter filter = new() { Country = "eng" };
+            SeriesFilter filter = new() { Country = "usa", Language="eng" };
 
-            List<SeriesBaseRecord> res;            
+            IAsyncEnumerable<SeriesBaseRecord> res;
+            List<SeriesBaseRecord> list;
 
             using (var client = new TVDBWeb(tokenContainer))
             {
-                res = await client.GetSeriesFilterAsync(filter);
-                
+                res = client.GetSeriesFilterAsync(filter);
+                list = await res.Take(5).ToListAsync();
             }
 
-            Assert.IsNotNull(res, "res");
-            Assert.AreEqual(5, res.Count, "Count");
+            Assert.IsNotNull(list, "list");
+            Assert.AreEqual(5, list.Count, "Count");
         }
 
         [TestMethod]

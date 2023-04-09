@@ -33,7 +33,7 @@
         [TestMethod]
         public async Task TestMethodGetPeopleBaseAsync()
         {
-            long id = 1;
+            long id = 247831;
             PeopleBaseRecord res;
 
             using (var client = new TVDBWeb(tokenContainer))
@@ -43,17 +43,17 @@
 
             Assert.IsNotNull(res, "res");
 
-            Assert.AreEqual(1, res.Id, "Id");
-            Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
-            Assert.AreEqual("https://artworks.thetvdb.com/banners/movies/1/posters/2170750.jpg", res.Image, "Image");
-            Assert.AreEqual(363088, res.Score, "Score");
-            Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), res.LastUpdated, "LastUpdated");
+            Assert.AreEqual(id, res.Id, "Id");
+            Assert.AreEqual("Michelle Fairley", res.Name, "Name");
+            Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/actor/247831/photo/62742718e0819.jpg", res.Image, "Image");
+            Assert.AreEqual(0, res.Score, "Score");
+            Assert.AreEqual(new DateTime(2023, 01, 25, 17, 03, 54), res.LastUpdated, "LastUpdated");
         }
 
         [TestMethod]
         public async Task TestMethodGetPeopleExtendedAsync()
         {
-            long id = 1;
+            long id = 247831;
             PeopleExtendedRecord res;
 
             using (var client = new TVDBWeb(tokenContainer))
@@ -63,18 +63,18 @@
 
             Assert.IsNotNull(res, "res");
 
-            Assert.AreEqual(1, res.Id, "Id");
-            Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
-            Assert.AreEqual("alita-battle-angel", res.Slug, "Slug");
-            Assert.AreEqual("https://artworks.thetvdb.com/banners/movies/1/posters/2170750.jpg", res.Image, "Image");
-            Assert.AreEqual(363088, res.Score, "Score");
-            Assert.AreEqual(new DateTime(2023, 02, 02, 16, 01, 58), res.LastUpdated, "LastUpdated");
+            Assert.AreEqual(id, res.Id, "Id");
+            Assert.AreEqual("Michelle Fairley", res.Name, "Name");
+            Assert.AreEqual("247831-michelle-fairley", res.Slug, "Slug");
+            Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/actor/247831/photo/62742718e0819.jpg", res.Image, "Image");
+            Assert.AreEqual(0, res.Score, "Score");
+            Assert.AreEqual(new DateTime(2023, 01, 25, 17, 03, 54), res.LastUpdated, "LastUpdated");
         }
 
         [TestMethod]
         public async Task TestMethodGetPeopleTranslationsAsync()
         {
-            long id = 1;
+            long id = 247831;
             string lang = "eng";
             Translation res;
 
@@ -84,10 +84,10 @@
             }
 
             Assert.IsNotNull(res, "res");
-            Assert.AreEqual("Alita: Battle Angel", res.Name, "Name");
-            Assert.AreEqual("In the 23rd century, a catastrophic interplanetary war known as \"The Fall\" has left Earth devastated and while scouting the junkyard metropolis of Iron City, scientist Dr. Dyson Ido, discovers a disembodied female cyborg with a fully intact human brain. Soon known as Alita, she's trained to become a fearsome bounty hunter who tracks down criminals with her martial arts expertise in order to protect the innocent.", res.Overview, "Overview");
+            Assert.AreEqual("Michelle Fairley", res.Name, "Name");
+            Assert.AreEqual(null, res.Overview, "Overview");
             Assert.AreEqual("eng", res.Language, "Language");
-            Assert.AreEqual(true, res.IsPrimary, "IsPrimary");
+            Assert.AreEqual(false, res.IsPrimary, "IsPrimary");
         }
 
         [TestMethod]

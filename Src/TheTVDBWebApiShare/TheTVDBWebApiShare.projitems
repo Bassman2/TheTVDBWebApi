@@ -68,6 +68,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SeasonBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeasonType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SeasonTypeEnum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesAirsDays.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesExtendedRecord.cs" />

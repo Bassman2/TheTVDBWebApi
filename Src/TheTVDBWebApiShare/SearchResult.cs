@@ -54,7 +54,7 @@
         public string Overview { get; set; }
 
         [JsonPropertyName("overviews")]
-        public List<TranslationSimple> Overviews { get; set; }
+        public TranslationSimple Overviews { get; set; }
 
         [JsonPropertyName("overview_translated")]
         public List<string> OverviewTranslated { get; set; }
@@ -87,7 +87,7 @@
         public string Thumbnail { get; set; }
 
         [JsonPropertyName("translations")]
-        public List<TranslationSimple> Translations { get; set; }
+        public TranslationSimple Translations { get; set; }
 
         [JsonPropertyName("translationsWithLang")]
         public List<string> TranslationsWithLang { get; set; }
