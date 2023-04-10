@@ -10,9 +10,20 @@
         /// <param name="action">Update actions.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Number of updates.</returns>
-        public async Task<long> GetUpdatesNumAsync(int since, UpdateType type, UpdateAction action, CancellationToken cancellationToken = default)
+        public async Task<long> GetUpdatesNumAsync(DateTime since, UpdateType? type, UpdateAction? action, CancellationToken cancellationToken = default)
         {
-            return await GetNumAsync("v4//updates?since={since}&type={type}&action={action}", cancellationToken);
+            StringBuilder param = new();
+            param.Append($"&since={ConvertToUnixTime(since)}");           
+            if (type.HasValue)
+            {
+                param.Append($"&type={type.ToString().ToLower()}");
+            }
+            if (action.HasValue)
+            {
+                param.Append($"&action={action.ToString().ToLower()}");
+            }
+            string par = param.ToString().TrimStart('&');
+            return await GetNumAsync($"v4/updates?{par}", cancellationToken);
         }
 
         /// <summary>
@@ -23,9 +34,20 @@
         /// <param name="action">Update actions.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of movie base records.</returns>
-        public IAsyncEnumerable<MovieBaseRecord> GetUpdatesAsync(int since, UpdateType type, UpdateAction action, CancellationToken cancellationToken = default)
+        public IAsyncEnumerable<MovieBaseRecord> GetUpdatesAsync(DateTime since, UpdateType? type, UpdateAction? action, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<MovieBaseRecord>($"v4/updates?since={since}&type={type}&action={action}", cancellationToken);
+            StringBuilder param = new();
+            param.Append($"&since={ConvertToUnixTime(since)}");
+            if (type.HasValue)
+            {
+                param.Append($"&type={type.ToString().ToLower()}");
+            }
+            if (action.HasValue)
+            {
+                param.Append($"&action={action.ToString().ToLower()}");
+            }
+            string par = param.ToString().TrimStart('&');
+            return GetLongListAsync<MovieBaseRecord>($"v4/updates?{par}", cancellationToken);
         }
     }
 }

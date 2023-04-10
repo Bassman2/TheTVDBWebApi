@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Biography.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityUpdate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EpisodeExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CompanyRelationShip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Companies.cs" />

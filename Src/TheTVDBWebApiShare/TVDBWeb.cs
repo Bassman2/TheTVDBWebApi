@@ -10,6 +10,8 @@ namespace TheTVDBWebApi
     /// <remarks>https://thetvdb.com/dashboard/account/apikey</remarks>
     public sealed partial class TVDBWeb : IDisposable
     {
+        private static readonly DateTime UnixTimeStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
         private readonly Uri host = new Uri("https://api4.thetvdb.com");
         private readonly HttpClientHandler handler;
         private HttpClient client;
@@ -132,14 +134,14 @@ namespace TheTVDBWebApi
                 try
                 {
                     resp = await res.Content.ReadFromJsonAsync<Response>(options, cancellationToken);
-                    if (!res.IsSuccessStatusCode)
-                    {
-                        throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
-                    }
                 }
                 catch (JsonException ex)
                 {
                     DebugJsonException(ex, res, res.RequestMessage.RequestUri.ToString(), memberName);
+                }
+                if (!res.IsSuccessStatusCode)
+                {
+                    throw new TVDBException(res.StatusCode, resp.Status, resp.Message);
                 }
             }
             else if (res.Content.Headers.ContentType.MediaType == "text/html")
@@ -186,7 +188,6 @@ namespace TheTVDBWebApi
 
         private async Task<long> GetNumAsync(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "")
         {
-            requestUri = $"{requestUri}?page=0";
             using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
             {
                 return await ResponseToCountAsync(res, cancellationToken, memberName);
@@ -257,6 +258,10 @@ namespace TheTVDBWebApi
         }
 
 
+        private static int ConvertToUnixTime(DateTime dateTime)
+        {
+            return (int)(dateTime - UnixTimeStart).TotalSeconds;
+        }
         #endregion
     }
 }
