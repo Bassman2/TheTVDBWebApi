@@ -21,8 +21,11 @@ namespace TheTVDBWebApi
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, 
             IncludeFields = false, 
             Converters = 
-            { 
-                new JsonStringEnumConverter(), 
+            {
+                new JsonEnumConverter<Languages>(),
+                new JsonEnumConverter<Countries>(),
+                new JsonEnumConverter<FinaleType>(),
+                //new JsonStringEnumConverter(JsonNamingPolicy.CamelCase), 
                 new JsonNullableDateOnlyConverter(), 
                 new JsonNullableDateTimeConverter()
             } 
@@ -262,6 +265,7 @@ namespace TheTVDBWebApi
         {
             return (int)(dateTime - UnixTimeStart).TotalSeconds;
         }
+        
         #endregion
     }
 }

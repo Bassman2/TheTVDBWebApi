@@ -15,7 +15,7 @@
         public string Url { get; set; }
 
         [JsonPropertyName("language")]
-        public string Language { get; set; }
+        public Languages Language { get; set; }
 
         [JsonPropertyName("runtime")]
         public int Runtime { get; set; }

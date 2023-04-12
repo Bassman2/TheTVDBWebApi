@@ -75,7 +75,7 @@
         public async Task TestMethodGetSeasonTranslationsAsync()
         {
             long id = 10;
-            string lang = "eng";
+            Languages lang = Languages.English;
             Translation res;
 
             using (var client = new TVDBWeb(tokenContainer))
@@ -86,7 +86,7 @@
             Assert.IsNotNull(res, "res");
             Assert.AreEqual(null, res.Name, "Name");
             Assert.AreEqual("After moving to Sunnydale, California, Buffy Anne Summers just wants to be a normal teenager. Back in Los Angeles, her first Watcher had died; she inadvertently burned down the gymnasium at her old high school; and her parents got a divorce. The move to Sunnydale is supposed to give both her and her mother, Joyce, a clean slate. But then she meets the school librarian, Rupert Giles, and quickly learns", res.Overview, "Overview");
-            Assert.AreEqual("eng", res.Language, "Language");
+            Assert.AreEqual(Languages.English, res.Language, "Language");
             Assert.AreEqual(true, res.IsPrimary, "IsPrimary");
         }
 

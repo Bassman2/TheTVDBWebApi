@@ -34,7 +34,7 @@
         /// Restrict results to a specific country of origin. Should contain a 3 character country code. Currently only used for series and movies. 
         /// </summary>
         /// <example>usa</example>
-        public string Country { get; set; } = null;
+        public Countries? Country { get; set; } = null;
 
         /// <summary>
         /// Restrict results to a specific director. Generally only used for movies. Should include the full name of the director, such as "Steven Spielberg".
@@ -45,7 +45,7 @@
         /// Restrict results to a specific primary language. Should include the 3 character language code. Currently only used for series and movies.
         /// </summary>
         /// <example>eng</example>
-        public string Language { get; set; } = null;
+        public Languages? Language { get; set; } = null;
 
         /// <summary>
         /// Restrict results to a specific type of company. Should include the full name of the type of company, such as "Production Company". Only used for companies.

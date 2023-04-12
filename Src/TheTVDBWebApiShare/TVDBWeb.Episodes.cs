@@ -50,9 +50,9 @@
         /// <param name="id">Id of the episode to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode translation record.</returns>
-        public async Task<Translation> GetEpisodeTranslationAsync(long id, string language, CancellationToken cancellationToken = default)
+        public async Task<Translation> GetEpisodeTranslationAsync(long id, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Translation>($"v4/episodes/{id}/translations/{language}", cancellationToken);
+            return await GetDataAsync<Translation>($"v4/episodes/{id}/translations/{language.Value()}", cancellationToken);
         }
     }
 }

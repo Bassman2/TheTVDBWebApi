@@ -22,7 +22,7 @@
             Assert.AreEqual(artworkMovieId, artworkMovie.Id, "Movie Id");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/movie/1/clearart/6124b4f3718f0.png", artworkMovie.Image, "Movie Image");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/movie/1/clearart/6124b4f3718f0_t.png", artworkMovie.Thumbnail, "Movie Thumbnail");
-            Assert.AreEqual("eng", artworkMovie.Language, "Movie Language");
+            Assert.AreEqual(Languages.English, artworkMovie.Language, "Movie Language");
             Assert.AreEqual(24, artworkMovie.Type, "Movie Type");
             Assert.AreEqual(100001, artworkMovie.Score, "Movie Score");
             Assert.AreEqual(1000, artworkMovie.Width, "Movie Width");
@@ -33,7 +33,7 @@
             Assert.AreEqual(artworkSeriesId, artworkSeries.Id, "Series Id");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/fanart/original/70327-3.jpg", artworkSeries.Image, "Series Image");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/fanart/original/70327-3_t.jpg", artworkSeries.Thumbnail, "Series Thumbnail");
-            Assert.AreEqual("eng", artworkSeries.Language, "Series Language");
+            Assert.AreEqual(Languages.English, artworkSeries.Language, "Series Language");
             Assert.AreEqual(3, artworkSeries.Type, "Series Type");
             Assert.AreEqual(100021, artworkSeries.Score, "Series Score");
             Assert.AreEqual(1280, artworkSeries.Width, "Series Width");
@@ -60,7 +60,7 @@
             Assert.AreEqual(artworkMovieId, artworkMovie.Id, "Movie Id");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/movie/1/clearart/6124b4f3718f0.png", artworkMovie.Image, "Movie Image");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/v4/movie/1/clearart/6124b4f3718f0_t.png", artworkMovie.Thumbnail, "Movie Thumbnail");
-            Assert.AreEqual("eng", artworkMovie.Language, "Movie Language");
+            Assert.AreEqual(Languages.English, artworkMovie.Language, "Movie Language");
             Assert.AreEqual(24, artworkMovie.Type, "Movie Type");
             Assert.AreEqual(100001, artworkMovie.Score, "Movie Score");
             Assert.AreEqual(1000, artworkMovie.Width, "Movie Width");
@@ -78,7 +78,7 @@
             Assert.AreEqual(artworkSeriesId, artworkSeries.Id, "Series Id");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/fanart/original/70327-3.jpg", artworkSeries.Image, "Series Image");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/fanart/original/70327-3_t.jpg", artworkSeries.Thumbnail, "Series Thumbnail");
-            Assert.AreEqual("eng", artworkSeries.Language, "Series Language");
+            Assert.AreEqual(Languages.English, artworkSeries.Language, "Series Language");
             Assert.AreEqual(3, artworkSeries.Type, "Series Type");
             Assert.AreEqual(100021, artworkSeries.Score, "Series Score");
             Assert.AreEqual(1280, artworkSeries.Width, "Series Width");

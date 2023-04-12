@@ -12,7 +12,7 @@
         public string Name { get; set; }
 
         [JsonPropertyName("country")]
-        public string Country { get; set; }
+        public Countries Country { get; set; }
 
         [JsonPropertyName("description")]
         public string Description { get; set; }

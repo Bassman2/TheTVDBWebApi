@@ -12,7 +12,7 @@
         /// Id of the series.
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Name of the series.
@@ -33,10 +33,10 @@
         public string Image { get; set; }
 
         [JsonPropertyName("nameTranslations")]
-        public List<string> NameTranslations { get; set; }
+        public List<Languages> NameTranslations { get; set; }
 
         [JsonPropertyName("overviewTranslations")]
-        public List<string> OverviewTranslations { get; set; }
+        public List<Languages> OverviewTranslations { get; set; }
 
         /// <summary>
         /// An alias model, which can be associated with a series, season, movie, person, or list.

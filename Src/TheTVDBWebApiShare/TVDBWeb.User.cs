@@ -40,9 +40,9 @@
         /// <param name="favorites">Favorites record.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public async Task SetUserFavoritesAsync(FavoriteRecord favorite, CancellationToken cancellationToken = default)
+        public async Task SetUserFavoritesAsync(Favorites favorites, CancellationToken cancellationToken = default)
         {
-            await PostAsync<Favorites, FavoriteRecord>("v4/user/favorites", favorite, cancellationToken);
+            await PostAsync<Favorites, Favorites>("v4/user/favorites", favorites, cancellationToken);
         }
     }
 }

@@ -19,17 +19,14 @@
         /// </summary>
         /// <remarks>Artwork for a movie only.</remarks>
         [JsonPropertyName("movieId")]
-        public int MovieId { get; set; }
+        public long MovieId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>Artwork for a series only.</remarks>
         [JsonPropertyName("seriesId")]
-        public int SeriesId { get; set; }
-
-
-
+        public long SeriesId { get; set; }
 
         [JsonPropertyName("status")]
         public ArtworkStatus Status { get; set; }
@@ -37,29 +34,21 @@
         [JsonPropertyName("tagOptions")]
         public List<TagOption> TagOptions { get; set; }
 
-
-
-
-
         [JsonPropertyName("episodeId")]
-        public int EpisodeId { get; set; }
-                
-
+        public long EpisodeId { get; set; }
        
 
         [JsonPropertyName("networkId")]
-        public int NetworkId { get; set; }
+        public long NetworkId { get; set; }
 
         [JsonPropertyName("peopleId")]
-        public int PeopleId { get; set; }
+        public long PeopleId { get; set; }
                 
         [JsonPropertyName("seasonId")]
-        public int SeasonId { get; set; }
-
-        
+        public long SeasonId { get; set; }        
 
         [JsonPropertyName("seriesPeopleId")]
-        public int SeriesPeopleId { get; set; }
+        public long SeriesPeopleId { get; set; }
 
        
 

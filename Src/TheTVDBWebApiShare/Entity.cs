@@ -10,7 +10,7 @@
         /// </summary>
         /// <remarks>Can be null.</remarks>
         [JsonPropertyName("movieId")]
-        public int? MovieId { get; set; }
+        public long? MovieId { get; set; }
 
         [JsonPropertyName("order")]
         public long Order { get; set; }
@@ -20,6 +20,6 @@
         /// </summary>
         /// <remarks>Can be null.</remarks>
         [JsonPropertyName("seriesId")]
-        public int? SeriesId { get; set; }
+        public long? SeriesId { get; set; }
     }
 }

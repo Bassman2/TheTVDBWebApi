@@ -13,9 +13,9 @@
                     this.SeasonBaseRecord = await client.GetSeasonAsync(record.Id);
                     this.SeasonExtendedRecord = await client.GetSeasonExtendedAsync(record.Id);
 
-                    List<string> nameLang = this.SeasonBaseRecord.NameTranslations;
-                    List<string> overLang = this.SeasonBaseRecord.OverviewTranslations;
-                    List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
+                    List<Languages> nameLang = this.SeasonBaseRecord.NameTranslations;
+                    List<Languages> overLang = this.SeasonBaseRecord.OverviewTranslations;
+                    List<Languages> lang = nameLang.Concat(overLang).Distinct().ToList();
                     this.Translations = lang.Select(l => client.GetSeasonTranslationAsync(record.Id, l).Result).ToList();
                 }
             });

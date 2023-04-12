@@ -19,7 +19,7 @@
         /// Country of origin. 
         /// </summary>
         /// <example>usa</example>
-        public string Country { get; set; } = null;
+        public Countries Country { get; set; }
 
         /// <summary>
         /// Id of the genre.
@@ -30,7 +30,7 @@
         /// Original language.
         /// </summary>
         /// <example>eng</example>
-        public string Language { get; set; } = null;
+        public Languages Language { get; set; }
 
         /// <summary>
         /// Sort by result.
@@ -52,14 +52,14 @@
         {
             get
             {
-                if (string.IsNullOrEmpty(this.Language))
-                {
-                    throw new ArgumentNullException(nameof(Language));
-                }
-                if (string.IsNullOrEmpty(this.Country))
-                {
-                    throw new ArgumentNullException(nameof(Country));
-                }
+                //if (string.IsNullOrEmpty(this.Language))
+                //{
+                //    throw new ArgumentNullException(nameof(Language));
+                //}
+                //if (string.IsNullOrEmpty(this.Country))
+                //{
+                //    throw new ArgumentNullException(nameof(Country));
+                //}
                 StringBuilder sb = new StringBuilder();
                 if (this.Company != null)
                 {
@@ -69,17 +69,17 @@
                 {
                     sb.Append($"&contentRating={this.ContentRating}");
                 }
-                if (this.Country != null)
+                //if (this.Country != null)
                 {
-                    sb.Append($"&country={this.Country}");
+                    sb.Append($"&country={this.Country.Value()}");
                 }
                 if (this.Genre != null)
                 {
                     sb.Append($"&genre={this.Genre}");
                 }
-                if (this.Language != null)
+                //if (this.Language != null)
                 {
-                    sb.Append($"&lang={this.Language}");
+                    sb.Append($"&lang={this.Language.Value()}");
                 }
                 if (this.Sort != null)
                 {

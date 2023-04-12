@@ -75,7 +75,7 @@
         public async Task TestMethodGetPeopleTranslationsAsync()
         {
             long id = 247831;
-            string lang = "eng";
+            Languages lang = Languages.English;
             Translation res;
 
             using (var client = new TVDBWeb(tokenContainer))
@@ -86,7 +86,7 @@
             Assert.IsNotNull(res, "res");
             Assert.AreEqual("Michelle Fairley", res.Name, "Name");
             Assert.AreEqual(null, res.Overview, "Overview");
-            Assert.AreEqual("eng", res.Language, "Language");
+            Assert.AreEqual(Languages.English, res.Language, "Language");
             Assert.AreEqual(false, res.IsPrimary, "IsPrimary");
         }
 

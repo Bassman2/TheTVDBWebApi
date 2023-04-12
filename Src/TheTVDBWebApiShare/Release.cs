@@ -6,7 +6,7 @@
     public class Release
     {
         [JsonPropertyName("country")]
-        public string Country { get; set; }
+        public Countries Country { get; set; }
 
         [JsonPropertyName("date")]
         public string Date { get; set; }

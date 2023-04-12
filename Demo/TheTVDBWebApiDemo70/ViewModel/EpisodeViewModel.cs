@@ -13,9 +13,9 @@
                     this.EpisodeBaseRecord = await client.GetEpisodeAsync(record.Id);
                     this.EpisodeExtendedRecord = await client.GetEpisodeExtendedAsync(record.Id, Meta.Translations);
 
-                    List<string> nameLang = this.EpisodeBaseRecord.NameTranslations;
-                    List<string> overLang = this.EpisodeBaseRecord.OverviewTranslations;
-                    List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
+                    List<Languages> nameLang = this.EpisodeBaseRecord.NameTranslations;
+                    List<Languages> overLang = this.EpisodeBaseRecord.OverviewTranslations;
+                    List<Languages> lang = nameLang.Concat(overLang).Distinct().ToList();
                     this.Translations = lang.Select(l => client.GetEpisodeTranslationAsync(record.Id, l).Result).ToList();
                 }
             });

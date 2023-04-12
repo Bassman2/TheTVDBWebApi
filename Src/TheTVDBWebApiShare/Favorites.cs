@@ -6,21 +6,21 @@
     public class Favorites
     {
         [JsonPropertyName("series")]
-        public List<int> Series { get; set; }
+        public List<long> Series { get; set; }
 
         [JsonPropertyName("movies")]
-        public List<int> Movies { get; set; }
+        public List<long> Movies { get; set; }
 
         [JsonPropertyName("episodes")]
-        public List<int> Episodes { get; set; }
+        public List<long> Episodes { get; set; }
 
         [JsonPropertyName("artwork")]
-        public List<int> Artwork { get; set; }
+        public List<long> Artwork { get; set; }
 
         [JsonPropertyName("people")]
-        public List<int> People { get; set; }
+        public List<long> People { get; set; }
 
         [JsonPropertyName("lists")]
-        public List<int> Lists { get; set; }
+        public List<long> Lists { get; set; }
     }
 }

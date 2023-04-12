@@ -22,6 +22,6 @@
         /// </summary>
         /// <remarks>Can be null.</remarks>
         [JsonPropertyName("parentStudio")]
-        public int? ParentStudio { get; set; }
+        public long? ParentStudio { get; set; }
     }
 }

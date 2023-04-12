@@ -9,7 +9,7 @@
         public long Id { get; set; }
 
         [JsonPropertyName("country")]
-        public string Country { get; set; }
+        public Countries Country { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }

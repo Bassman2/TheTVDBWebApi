@@ -9,7 +9,7 @@
         /// Id of the season.
         /// </summary>
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonPropertyName("seriesId")]
         public long SeriesId { get; set; }
@@ -27,10 +27,10 @@
         public long Number { get; set; }
 
         [JsonPropertyName("nameTranslations")]
-        public List<string> NameTranslations { get; set; }
+        public List<Languages> NameTranslations { get; set; }
 
         [JsonPropertyName("overviewTranslations")]
-        public List<string> OverviewTranslations { get; set; }
+        public List<Languages> OverviewTranslations { get; set; }
 
         /// <summary>
         /// Uri of a season image.

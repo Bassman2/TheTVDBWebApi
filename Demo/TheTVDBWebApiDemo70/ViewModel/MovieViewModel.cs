@@ -15,9 +15,9 @@ namespace TheTVDBWebApiDemo.ViewModel
                     this.MovieBaseRecord = await client.GetMovieAsync(record.Id);
                     this.MovieExtendedRecord = await client.GetMovieExtendedAsync(record.Id, Meta.Translations, false);
 
-                    List<string> nameLang = this.MovieBaseRecord.NameTranslations;
-                    List<string> overLang = this.MovieBaseRecord.OverviewTranslations;
-                    List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
+                    List<Languages> nameLang = this.MovieBaseRecord.NameTranslations;
+                    List<Languages> overLang = this.MovieBaseRecord.OverviewTranslations;
+                    List<Languages> lang = nameLang.Concat(overLang).Distinct().ToList();
                     this.Translations = lang.Select(l => client.GetMovieTranslationAsync(record.Id, l).Result).ToList();
                 }
             });

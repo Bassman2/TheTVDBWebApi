@@ -26,12 +26,12 @@
         }
 
         public static readonly DependencyProperty LanguagesProperty =
-           DependencyProperty.Register("Languages", typeof(List<string>), typeof(TranslationsControl),
+           DependencyProperty.Register("Languages", typeof(List<Languages>), typeof(TranslationsControl),
                new FrameworkPropertyMetadata(null, new PropertyChangedCallback(OnLanguagesChanged)));
 
-        public List<string> Languages
+        public List<Languages> Languages
         {
-            get => (List<string>)GetValue(LanguagesProperty);
+            get => (List<Languages>)GetValue(LanguagesProperty);
             set => SetValue(LanguagesProperty, value);
         }
 

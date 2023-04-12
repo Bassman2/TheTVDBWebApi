@@ -93,7 +93,7 @@ namespace TheTVDBWebApiTest
         public async Task TestMethodGetSeriesArtworkAsync()
         {
             long id = 70327;
-            string language = "eng";
+            Languages language = Languages.English;
             int type = 1;
             ArtworkBaseRecord res;
 
@@ -148,7 +148,7 @@ namespace TheTVDBWebApiTest
         {
             long id = 70327;
             SeasonTypeEnum seasonType = SeasonTypeEnum.Default;
-            string language = "eng";
+            Languages language = Languages.English;
 
             SeriesBaseRecord res;
  
@@ -163,7 +163,7 @@ namespace TheTVDBWebApiTest
         [TestMethod]
         public async Task TestMethodGetSeriesFilterAsync()
         {
-            SeriesFilter filter = new() { Country = "usa", Language="eng" };
+            SeriesFilter filter = new() { Country = Countries.USA, Language = Languages.English };
 
             IAsyncEnumerable<SeriesBaseRecord> res;
             List<SeriesBaseRecord> list;
@@ -182,7 +182,7 @@ namespace TheTVDBWebApiTest
         public async Task TestMethodGetSeriesTranslationsAsync()
         {
             long id = 70327;
-            string lang = "deu";
+            Languages lang = Languages.German;
             Translation res;
 
             using (var client = new TVDBWeb(tokenContainer))
@@ -193,7 +193,7 @@ namespace TheTVDBWebApiTest
             Assert.IsNotNull(res, "res");
             Assert.AreEqual("Buffy", res.Name, "Name");
             Assert.AreEqual("In jeder Generation gibt es eine Auserwählte. Sie alleine wird gegen Vampire, Dämonen und alle anderen Mächte der Dunkelheit bestehen. Sie ist die Jägerin.\r\n\r\nBuffy Summers ist diese Auserwählte, das eine Mädchen auf der ganzen Welt mit der Stärke und dem Können die Vampire zu bekämpfen. Mit der Hilfe ihrer engen Freunde, Willow, Xander, und ihrem Wächter Giles findet sie einen Weg, die Kämpfe, Familie, Freundschaft und engere Beziehungen zu meistern.", res.Overview, "Overview");
-            Assert.AreEqual("deu", res.Language, "Language");
+            Assert.AreEqual(Languages.German, res.Language, "Language");
 
         }
 

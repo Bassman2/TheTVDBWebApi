@@ -6,7 +6,7 @@
     public class ArtworkBaseRecord
     {
         [JsonPropertyName("id")]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         [JsonPropertyName("image")]
         public string Image { get; set; }
@@ -15,7 +15,7 @@
         public string Thumbnail { get; set; }
 
         [JsonPropertyName("language")]
-        public string Language { get; set; }
+        public Languages Language { get; set; }
 
         /// <summary>
         /// 

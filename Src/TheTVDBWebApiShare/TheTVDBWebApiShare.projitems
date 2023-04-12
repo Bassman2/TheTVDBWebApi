@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AwardNomineeBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Biography.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Countries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityUpdate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EpisodeExtendedRecord.cs" />
@@ -37,12 +38,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)FinaleType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Gender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GenreBaseRecord.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GlobalUsings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\Converter\JsonEnumConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\EnumMemberValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InspirationType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Converter\JsonNullableDateOnlyConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Converter\JsonNullableDateTimeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Language.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Languages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Links.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\LoginResponse.cs" />

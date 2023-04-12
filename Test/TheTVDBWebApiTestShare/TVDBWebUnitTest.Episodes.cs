@@ -79,7 +79,7 @@
         public async Task TestMethodGetEpisodeTranslationsAsync()
         {
             long id = 2;
-            string lang = "deu";
+            Languages lang = Languages.German;
             Translation res;
 
             using (var client = new TVDBWeb(tokenContainer))
@@ -90,7 +90,7 @@
             Assert.IsNotNull(res, "res");
             Assert.AreEqual("Das Zentrum des Bösen (1)", res.Name, "Name");
             Assert.AreEqual("Die 16-jährige Buffy zieht mit ihrer Mutter von Los Angeles nach Sunnydale, wo sie endlich ihren High School-Abschluss machen will. Doch Buffy hat zusätzlich noch eine schwere Aufgabe: Sie wurde nämlich von höherer Stelle als Jägerin gegen das Böse ausgewählt. Immer wenn ein Dämon oder ein Vampir auftaucht, tritt Buffy in Aktion, das gierige Monster zu vernichten. Und auch in Sunnydale gibt’s keine Ruhe – der Meister der Vampire bereitet sich auf die Rückkehr zur Erde vor.", res.Overview, "Overview");
-            Assert.AreEqual("deu", res.Language, "Language");
+            Assert.AreEqual(Languages.German, res.Language, "Language");
 
         }
     }

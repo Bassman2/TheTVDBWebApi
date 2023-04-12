@@ -13,9 +13,9 @@
                     this.PeopleBaseRecord = await client.GetPeopleAsync(record.Id);
                     this.PeopleExtendedRecord = await client.GetPeopleExtendedAsync(record.Id, Meta.Translations);
 
-                    List<string> nameLang = this.PeopleBaseRecord.NameTranslations;
-                    List<string> overLang = this.PeopleBaseRecord.OverviewTranslations;
-                    List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
+                    List<Languages> nameLang = this.PeopleBaseRecord.NameTranslations;
+                    List<Languages> overLang = this.PeopleBaseRecord.OverviewTranslations;
+                    List<Languages> lang = nameLang.Concat(overLang).Distinct().ToList();
                     this.Translations = lang.Select(l => client.GetPeopleTranslationAsync(record.Id, l).Result).ToList();
                 }
             });

@@ -15,7 +15,7 @@
         /// Language of the user.
         /// </summary>
         [JsonPropertyName("language")]
-        public string Language { get; set; }
+        public Languages Language { get; set; }
 
         /// <summary>
         /// Name of the user.

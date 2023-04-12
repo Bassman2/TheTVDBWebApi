@@ -9,7 +9,7 @@
         /// Id of the country record.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public Countries Id { get; set; }
 
         /// <summary>
         /// Name of the country  record.

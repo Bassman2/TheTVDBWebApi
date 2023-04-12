@@ -10,7 +10,7 @@
         /// </summary>
         /// <remarks>Can be null if parent company does not exists.</remarks>
         [JsonPropertyName("id")]
-        public int? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// Type name of the company relation ship.

@@ -12,7 +12,7 @@
         public string Overview { get; set; }
 
         [JsonPropertyName("language")]
-        public string Language { get; set; }
+        public Languages Language { get; set; }
 
 
         [JsonPropertyName("aliases")]

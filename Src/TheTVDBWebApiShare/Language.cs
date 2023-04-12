@@ -9,7 +9,7 @@
         /// Id of the language.
         /// </summary>
         [JsonPropertyName("id")]
-        public string Id { get; set; }
+        public Languages Id { get; set; }
 
         /// <summary>
         /// Name of the language.

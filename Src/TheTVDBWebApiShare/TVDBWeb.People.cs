@@ -51,9 +51,9 @@
         /// <param name="language">Lanuage of the translations.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Translation record.</returns>
-        public async Task<Translation> GetPeopleTranslationAsync(long Id, string language, CancellationToken cancellationToken = default)
+        public async Task<Translation> GetPeopleTranslationAsync(long Id, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Translation>($"v4/people/{Id}/translations/{language}", cancellationToken);
+            return await GetDataAsync<Translation>($"v4/people/{Id}/translations/{language.Value()}", cancellationToken);
         }
 
         /// <summary>

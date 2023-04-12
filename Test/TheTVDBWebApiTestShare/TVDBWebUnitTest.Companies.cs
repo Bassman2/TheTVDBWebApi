@@ -25,7 +25,7 @@
             Assert.AreEqual(1, list[0].Id, "Id0");
             Assert.AreEqual("3sat", list[0].Name, "Name0");
             Assert.AreEqual("3sat", list[0].Slug, "Slug0");
-            Assert.AreEqual("deu", list[0].Country, "Country0");
+            Assert.AreEqual(Countries.Germany, list[0].Country, "Country0");
             Assert.AreEqual(1, list[0].CompanyType.Id, "CompanyType.Id0");
             Assert.AreEqual("Network", list[0].CompanyType.Name, "CompanyType.Name0");
         }
@@ -45,7 +45,7 @@
             Assert.AreEqual(id, res.Id, "Id");
             Assert.AreEqual("3sat", res.Name, "Name");
             Assert.AreEqual("3sat", res.Slug, "Slug");
-            Assert.AreEqual("deu", res.Country, "Country");
+            Assert.AreEqual(Countries.Germany, res.Country, "Country");
             Assert.AreEqual(1, res.CompanyType.Id, "CompanyType.Id");
             Assert.AreEqual("Network", res.CompanyType.Name, "CompanyType.Name");
         }

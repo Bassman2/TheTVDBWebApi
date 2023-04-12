@@ -12,9 +12,9 @@
                 {
                     this.CompanyBaseRecord = await client.GetCompanyAsync(record.Id);
 
-                    List<string> nameLang = this.CompanyBaseRecord.NameTranslations;
-                    List<string> overLang = this.CompanyBaseRecord.OverviewTranslations;
-                    List<string> lang = nameLang.Concat(overLang).Distinct().ToList();
+                    List<Languages> nameLang = this.CompanyBaseRecord.NameTranslations;
+                    List<Languages> overLang = this.CompanyBaseRecord.OverviewTranslations;
+                    List<Languages> lang = nameLang.Concat(overLang).Distinct().ToList();
                     //this.Translations = lang.Select(l => client.GetCompanyTranslationAsync(record.Id, l).Result).ToList();
                 }
             });

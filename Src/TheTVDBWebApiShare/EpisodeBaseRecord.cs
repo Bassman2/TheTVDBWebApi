@@ -31,13 +31,13 @@
         public int? Runtime { get; set; }
 
         [JsonPropertyName("nameTranslations")]
-        public List<string> NameTranslations { get; set; }
+        public List<Languages> NameTranslations { get; set; }
 
         [JsonPropertyName("overview")]
         public string Overview { get; set; }
 
         [JsonPropertyName("overviewTranslations")]
-        public List<string> OverviewTranslations { get; set; }
+        public List<Languages> OverviewTranslations { get; set; }
 
         /// <summary>
         /// Uri of a episode image.

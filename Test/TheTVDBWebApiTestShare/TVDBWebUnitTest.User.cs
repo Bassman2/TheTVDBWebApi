@@ -13,7 +13,7 @@
             }
 
             Assert.IsNotNull(userInfo);
-            Assert.AreEqual("deu", userInfo.Language, "Language");
+            Assert.AreEqual(Languages.German, userInfo.Language, "Language");
             Assert.AreEqual(97558, userInfo.Id, "Id");
             Assert.AreEqual("Bassman2", userInfo.Name, "Name");
             Assert.AreEqual("user", userInfo.Type, "Type");
@@ -30,7 +30,7 @@
             }
 
             Assert.IsNotNull(userInfo);
-            Assert.AreEqual("deu", userInfo.Language, "Language");
+            Assert.AreEqual(Languages.German, userInfo.Language, "Language");
             Assert.AreEqual(97558, userInfo.Id, "Id");
             Assert.AreEqual("Bassman2", userInfo.Name, "Name");
             Assert.AreEqual("user", userInfo.Type, "Type");
@@ -52,11 +52,12 @@
         [TestMethod]
         public async Task TestMethodSetUserFavoritesAsync()
         {
-            FavoriteRecord favorite = new FavoriteRecord();
+            Favorites favorites = new Favorites();
+            favorites.Movies = new() { 1 }; 
 
             using (var client = new TVDBWeb(tokenContainer))
             {
-                await client.SetUserFavoritesAsync(favorite);
+                await client.SetUserFavoritesAsync(favorites);
             }
         }
     }

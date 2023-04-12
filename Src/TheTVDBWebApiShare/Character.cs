@@ -16,14 +16,14 @@
         public string Name { get; set; }
 
         [JsonPropertyName("peopleId")]
-        public int PeopleId { get; set; }
+        public long PeopleId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>Can be null.</remarks>
         [JsonPropertyName("seriesId")]
-        public int? SeriesId { get; set; }
+        public long? SeriesId { get; set; }
 
         [JsonPropertyName("series")]
         public RecordInfo Series { get; set; }
@@ -36,7 +36,7 @@
         /// </summary>
         /// <remarks>Can be null.</remarks>
         [JsonPropertyName("movieId")]
-        public int? MovieId { get; set; }
+        public long? MovieId { get; set; }
 
         [JsonPropertyName("episode")]
         public RecordInfo Episode { get; set; }
@@ -46,7 +46,7 @@
         /// </summary>
         /// <remarks>Can be null.</remarks>
         [JsonPropertyName("episodeId")]
-        public int? EpisodeId { get; set; }
+        public long? EpisodeId { get; set; }
 
         [JsonPropertyName("type")]
         public long Type { get; set; }

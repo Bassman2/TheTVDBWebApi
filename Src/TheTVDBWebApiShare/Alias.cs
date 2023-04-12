@@ -9,7 +9,7 @@
         /// A 3-4 character string indicating the language of the alias, as defined in Language.
         /// </summary>
         [JsonPropertyName("language")]
-        public string Language { get; set; }
+        public Languages Language { get; set; }
 
         /// <summary>
         /// A string containing the alias itself.
