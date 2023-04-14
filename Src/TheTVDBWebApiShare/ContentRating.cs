@@ -18,7 +18,7 @@
         public string Description { get; set; }
 
         [JsonPropertyName("contentType")]
-        public string ContentType { get; set; }
+        public ContentType ContentType { get; set; }
 
         [JsonPropertyName("order")]
         public int Order { get; set; }

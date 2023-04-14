@@ -13,5 +13,10 @@
 
         [JsonPropertyName("year")]
         public string Year { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Image}, {Name}, {Year}";
+        }
     }
 }

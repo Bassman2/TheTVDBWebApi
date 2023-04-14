@@ -25,7 +25,7 @@ namespace TheTVDBWebApi
                 new JsonEnumConverter<Languages>(),
                 new JsonEnumConverter<Countries>(),
                 new JsonEnumConverter<FinaleType>(),
-                //new JsonStringEnumConverter(JsonNamingPolicy.CamelCase), 
+                new JsonEnumConverter<ContentType>(),
                 new JsonNullableDateOnlyConverter(), 
                 new JsonNullableDateTimeConverter()
             } 

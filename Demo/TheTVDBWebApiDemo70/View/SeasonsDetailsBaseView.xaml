@@ -31,7 +31,7 @@
         <ctr:TranslationsControl Grid.Row="5" Title="Overview Translations" Languages="{Binding OverviewTranslations}"/>
         <ctr:ImageControl Grid.Row="6" Title="Image" Image="{Binding Image}"/>
         <ctr:TextControl Grid.Row="7" Title="Image Type" Text="{Binding ImageType}"/>
-        <ctr:CompaniesControl Grid.Row="8" DataContext="{Binding ImageType}"/>
+        <ctr:CompaniesControl Grid.Row="8" DataContext="{Binding Companies}"/>
         <ctr:TextControl Grid.Row="9" Title="Last Updated" Text="{Binding LastUpdated}"/>
         <ctr:TextControl Grid.Row="10" Title="Year" Text="{Binding Year}"/>
     </Grid>

@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AwardNomineeBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Biography.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ContentType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Countries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Entity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityUpdate.cs" />

@@ -28,41 +28,25 @@
         [JsonPropertyName("seriesId")]
         public long SeriesId { get; set; }
 
-        [JsonPropertyName("status")]
-        public ArtworkStatus Status { get; set; }
-
-        [JsonPropertyName("tagOptions")]
-        public List<TagOption> TagOptions { get; set; }
-
         [JsonPropertyName("episodeId")]
         public long EpisodeId { get; set; }
-       
 
         [JsonPropertyName("networkId")]
         public long NetworkId { get; set; }
 
         [JsonPropertyName("peopleId")]
         public long PeopleId { get; set; }
-                
+
         [JsonPropertyName("seasonId")]
-        public long SeasonId { get; set; }        
+        public long SeasonId { get; set; }
 
         [JsonPropertyName("seriesPeopleId")]
         public long SeriesPeopleId { get; set; }
 
-       
+        [JsonPropertyName("status")]
+        public ArtworkStatus Status { get; set; }
 
-        
-               
-
-        
-
-        
-
-        
-
-        
-
-        
+        [JsonPropertyName("tagOptions")]
+        public List<TagOption> TagOptions { get; set; }
     }
 }
