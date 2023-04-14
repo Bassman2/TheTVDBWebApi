@@ -32,5 +32,8 @@
 
         [JsonPropertyName("height")]
         public long Height { get; set; }
+
+        [JsonPropertyName("includesText")]
+        public bool IncludesText { get; set; }
     }
 }
