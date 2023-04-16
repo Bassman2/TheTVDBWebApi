@@ -133,7 +133,7 @@
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("JPG", res[0].ImageFormat, "ImageFormat0");
             Assert.AreEqual("Banner", res[0].Name, "Name0");
-            Assert.AreEqual("series", res[0].RecordType, "RecordType0");
+            Assert.AreEqual(RecordType.Series, res[0].RecordType, "RecordType0");
             Assert.AreEqual("banners", res[0].Slug, "Slug0");
             Assert.AreEqual(140, res[0].ThumbHeight, "ThumbHeight0");
             Assert.AreEqual(758, res[0].ThumbWidth, "ThumbWidth0");

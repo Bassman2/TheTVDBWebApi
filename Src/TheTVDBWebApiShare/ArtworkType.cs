@@ -18,7 +18,7 @@
         public string Name { get; set; }
 
         [JsonPropertyName("recordType")]
-        public string RecordType { get; set; }
+        public RecordType RecordType { get; set; }
 
         [JsonPropertyName("slug")]
         public string Slug { get; set; }

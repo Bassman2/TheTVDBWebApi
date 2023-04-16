@@ -41,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)GenreBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Converter\JsonEnumConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\EnumMemberValue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RecordType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inspiration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InspirationType.cs" />

@@ -22,7 +22,7 @@
         /// Type of the status record.
         /// </summary>
         [JsonPropertyName("recordType")]
-        public string RecordType { get; set; }
+        public RecordType RecordType { get; set; }
 
         /// <summary>
         /// Keep updated flag of the status record.
