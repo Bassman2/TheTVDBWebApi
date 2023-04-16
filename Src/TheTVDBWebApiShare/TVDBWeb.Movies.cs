@@ -19,7 +19,7 @@
         /// <returns>List of movie base records.</returns>
         public IAsyncEnumerable<MovieBaseRecord> GetMoviesAsync(CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<MovieBaseRecord>("v4/movies", cancellationToken);
+            return GetYieldAsync<MovieBaseRecord>("v4/movies", cancellationToken);
         }
         
         /// <summary>
@@ -52,7 +52,7 @@
         /// <returns>List of movie base records.</returns>
         public IAsyncEnumerable<MovieBaseRecord> GetMoviesFilterAsync(MoviesFilter filter, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<MovieBaseRecord>($"v4/movies/filter?{filter.Parameter}", cancellationToken);
+            return GetYieldAsync<MovieBaseRecord>($"v4/movies/filter?{filter.Parameter}", cancellationToken);
         }
 
         /// <summary>

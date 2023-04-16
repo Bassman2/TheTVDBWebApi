@@ -47,7 +47,7 @@
                 param.Append($"&action={action.ToString().ToLower()}");
             }
             string par = param.ToString().TrimStart('&');
-            return GetLongListAsync<MovieBaseRecord>($"v4/updates?{par}", cancellationToken);
+            return GetYieldAsync<MovieBaseRecord>($"v4/updates?{par}", cancellationToken);
         }
     }
 }

@@ -19,7 +19,7 @@
         /// <returns>List of company records.</returns>
         public IAsyncEnumerable<Company> GetCompaniesAsync(CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<Company>("v4/companies", cancellationToken);
+            return GetYieldAsync<Company>("v4/companies", cancellationToken);
         }
 
         /// <summary>

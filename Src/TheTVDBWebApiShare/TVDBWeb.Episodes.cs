@@ -19,7 +19,7 @@
         /// <returns>List of episodes base records.</returns>
         public IAsyncEnumerable<EpisodeBaseRecord> GetEpisodesAsync(CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<EpisodeBaseRecord>("v4/episodes", cancellationToken);
+            return GetYieldAsync<EpisodeBaseRecord>("v4/episodes", cancellationToken);
         }
 
         /// <summary>

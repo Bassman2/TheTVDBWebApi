@@ -19,7 +19,7 @@
         /// <returns>List of seasons base records.</returns>
         public IAsyncEnumerable<SeasonBaseRecord> GetSeasonsAsync(CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<SeasonBaseRecord>($"v4/seasons", cancellationToken);
+            return GetYieldAsync<SeasonBaseRecord>($"v4/seasons", cancellationToken);
         }
 
         /// <summary>

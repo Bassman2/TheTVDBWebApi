@@ -19,7 +19,7 @@
         /// <returns>List of people base records with the basic attributes.</returns>
         public IAsyncEnumerable<PeopleBaseRecord> GetPeopleAsync(CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<PeopleBaseRecord>("v4/people", cancellationToken);
+            return GetYieldAsync<PeopleBaseRecord>("v4/people", cancellationToken);
         }
 
         /// <summary>

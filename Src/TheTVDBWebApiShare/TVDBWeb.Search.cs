@@ -10,7 +10,7 @@
         /// <returns>Search result.</returns>
         public IAsyncEnumerable<SearchResult> GetSearchAsync(SearchFilter filter, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<SearchResult>($"v4/search?{filter.Parameter}", cancellationToken);
+            return GetYieldAsync<SearchResult>($"v4/search?{filter.Parameter}", cancellationToken);
         }
 
         /// <summary>

@@ -19,7 +19,7 @@
         /// <returns>List of series base records.</returns>
         public IAsyncEnumerable<SeriesBaseRecord> GetSeriesAsync(CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<SeriesBaseRecord>($"v4/series", cancellationToken);
+            return GetYieldAsync<SeriesBaseRecord>($"v4/series", cancellationToken);
         }
 
         /// <summary>
@@ -114,7 +114,7 @@
         /// <returns>List of series base record.</returns>
         public IAsyncEnumerable<SeriesBaseRecord> GetSeriesFilterAsync(SeriesFilter filter, CancellationToken cancellationToken = default)
         {
-            return GetLongListAsync<SeriesBaseRecord>($"v4/series/filter?{filter.Parameter}", cancellationToken);
+            return GetYieldAsync<SeriesBaseRecord>($"v4/series/filter?{filter.Parameter}", cancellationToken);
         }
 
         /// <summary>
