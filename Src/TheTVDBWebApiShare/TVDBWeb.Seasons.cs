@@ -30,7 +30,7 @@
         /// <returns>Season base record.</returns>
         public async Task<SeasonBaseRecord?> GetSeasonAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeasonBaseRecord>($"v4/seasons/{id}", cancellationToken);
+            return await GetFromJsonAsync<SeasonBaseRecord>($"v4/seasons/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// <returns>Season extended record.</returns>
         public async Task<SeasonExtendedRecord?> GetSeasonExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeasonExtendedRecord>($"v4/seasons/{id}/extended", cancellationToken);
+            return await GetFromJsonAsync<SeasonExtendedRecord>($"v4/seasons/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@
         /// <returns>Season type records.</returns>
         public async Task<List<SeasonType>?> GetSeasonTypesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<SeasonType>>($"v4/seasons/types", cancellationToken);
+            return await GetFromJsonAsync<List<SeasonType>>($"v4/seasons/types", cancellationToken);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@
         /// <returns>Translation record.</returns>
         public async Task<Translation?> GetSeasonTranslationAsync(long id, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Translation>($"v4/seasons/{id}/translations/{language.Value()}", cancellationToken);
+            return await GetFromJsonAsync<Translation>($"v4/seasons/{id}/translations/{language.Value()}", cancellationToken);
         }
     }
 }

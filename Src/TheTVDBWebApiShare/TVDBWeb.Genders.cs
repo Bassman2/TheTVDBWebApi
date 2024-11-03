@@ -9,7 +9,7 @@
         /// <returns>List of gender records.</returns>
         public async Task<List<Gender>?> GetGendersAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<Gender>>("v4/genders", cancellationToken);
+            return await GetFromJsonAsync<List<Gender>>("v4/genders", cancellationToken);
         }
     }
 }

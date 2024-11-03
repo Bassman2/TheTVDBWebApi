@@ -9,7 +9,7 @@
         /// <returns>List of source type records</returns>
         public async Task<List<SourceType>?> GetSourceTypesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<SourceType>>($"v4/sources/types", cancellationToken);
+            return await GetFromJsonAsync<List<SourceType>>($"v4/sources/types", cancellationToken);
         }
     }
 }

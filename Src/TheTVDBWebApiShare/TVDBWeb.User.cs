@@ -9,7 +9,7 @@
         /// <returns>User info.</returns>
         public async Task<UserInfo?> GetUserInfoAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<UserInfo>("v4/user", cancellationToken);
+            return await GetFromJsonAsync<UserInfo>("v4/user", cancellationToken);
         }
 
         /// <summary>
@@ -20,7 +20,7 @@
         /// <returns>User info.</returns>
         public async Task<UserInfo?> GetUserInfoAsync(int id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<UserInfo>($"v4/user/{id}", cancellationToken);
+            return await GetFromJsonAsync<UserInfo>($"v4/user/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -30,7 +30,7 @@
         /// <returns>List of user favorites.</returns>
         public async Task<Favorites?> GetUserFavoritesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Favorites>("v4/user/favorites", cancellationToken);
+            return await GetFromJsonAsync<Favorites>("v4/user/favorites", cancellationToken);
         }
 
 
@@ -42,7 +42,9 @@
         /// <returns>The task object representing the asynchronous operation.</returns>
         public async Task SetUserFavoritesAsync(Favorites favorites, CancellationToken cancellationToken = default)
         {
-            await PostAsync<Favorites, Favorites>("v4/user/favorites", favorites, cancellationToken);
+            //PostAsJson Async
+            //await PostAsync<Favorites, Favorites>("v4/user/favorites", favorites, cancellationToken);
+            await PostAsJsonAsync<Favorites>("v4/user/favorites", favorites, cancellationToken);
         }
     }
 }

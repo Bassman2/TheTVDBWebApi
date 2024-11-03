@@ -9,7 +9,7 @@
         /// <returns>List of award base records.</returns>
         public async Task<List<AwardBaseRecord>?> GetAwardsAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<AwardBaseRecord>>("v4/awards", cancellationToken);
+            return await GetFromJsonAsync<List<AwardBaseRecord>>("v4/awards", cancellationToken);
         }
 
         /// <summary>
@@ -20,7 +20,7 @@
         /// <returns>Single award base record.</returns>
         public async Task<AwardBaseRecord?> GetAwardAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<AwardBaseRecord>($"v4/awards/{id}", cancellationToken);
+            return await GetFromJsonAsync<AwardBaseRecord>($"v4/awards/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@
         /// <returns>Single award extended record.</returns>
         public async Task<AwardExtendedRecord?> GetAwardExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<AwardExtendedRecord>($"v4/awards/{id}/extended", cancellationToken);
+            return await GetFromJsonAsync<AwardExtendedRecord>($"v4/awards/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@
         /// <returns>Single award category base record.</returns>
         public async Task<AwardCategoryBaseRecord?> GetAwardCategoryAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<AwardCategoryBaseRecord>($"v4/awards/categories/{id}", cancellationToken);
+            return await GetFromJsonAsync<AwardCategoryBaseRecord>($"v4/awards/categories/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@
         /// <returns>Single award category extended record.</returns>
         public async Task<AwardCategoryExtendedRecord?> GetAwardCategoryExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<AwardCategoryExtendedRecord>($"v4/awards/categories/{id}/extended", cancellationToken);
+            return await GetFromJsonAsync<AwardCategoryExtendedRecord>($"v4/awards/categories/{id}/extended", cancellationToken);
         }
     }
 }

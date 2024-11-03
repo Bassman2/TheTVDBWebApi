@@ -10,7 +10,7 @@
         /// <returns>Single artwork base record.</returns>
         public async Task<ArtworkBaseRecord?> GetArtworkAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<ArtworkBaseRecord>($"v4/artwork/{id}", cancellationToken);
+            return await GetFromJsonAsync<ArtworkBaseRecord>($"v4/artwork/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -21,7 +21,7 @@
         /// <returns>Single artwork extended record.</returns>
         public async Task<ArtworkExtendedRecord?> GetArtworkExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<ArtworkExtendedRecord>($"v4/artwork/{id}/extended", cancellationToken);
+            return await GetFromJsonAsync<ArtworkExtendedRecord>($"v4/artwork/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -31,7 +31,7 @@
         /// <returns>List of artworkStatus records.</returns>
         public async Task<List<ArtworkStatus>?> GetArtworkStatusesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<ArtworkStatus>>($"v4/artwork/statuses", cancellationToken);
+            return await GetFromJsonAsync<List<ArtworkStatus>>($"v4/artwork/statuses", cancellationToken);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// <returns>List of artworkType records.</returns>
         public async Task<List<ArtworkType>?> GetArtworkTypesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<ArtworkType>>($"v4/artwork/types", cancellationToken);
+            return await GetFromJsonAsync<List<ArtworkType>>($"v4/artwork/types", cancellationToken);
         }
     }
 }

@@ -30,7 +30,7 @@
         /// <returns>Episode base record.</returns>
         public async Task<EpisodeBaseRecord?> GetEpisodeAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<EpisodeBaseRecord>($"v4/episodes/{id}", cancellationToken);
+            return await GetFromJsonAsync<EpisodeBaseRecord>($"v4/episodes/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// <returns>Movie extended record.</returns>
         public async Task<EpisodeExtendedRecord?> GetEpisodeExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<EpisodeExtendedRecord>($"v4/episodes/{id}/extended{BuildParam(meta)}", cancellationToken);
+            return await GetFromJsonAsync<EpisodeExtendedRecord>($"v4/episodes/{id}/extended{BuildParam(meta)}", cancellationToken);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@
         /// <returns>Episode translation record.</returns>
         public async Task<Translation?> GetEpisodeTranslationAsync(long id, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Translation>($"v4/episodes/{id}/translations/{language.Value()}", cancellationToken);
+            return await GetFromJsonAsync<Translation>($"v4/episodes/{id}/translations/{language.Value()}", cancellationToken);
         }
     }
 }

@@ -30,7 +30,7 @@
         /// <returns>Series base record.</returns>
         public async Task<SeriesBaseRecord?> GetSeriesAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeriesBaseRecord>($"v4/series/{id}", cancellationToken);
+            return await GetFromJsonAsync<SeriesBaseRecord>($"v4/series/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@
         /// <returns>Series extended record.</returns>
         public async Task<ArtworkBaseRecord?> GetSeriesArtworkAsync(long id, Languages language, int type, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<ArtworkBaseRecord>($"v4/series/{id}/artworks?lang={language}&type={type}", cancellationToken);
+            return await GetFromJsonAsync<ArtworkBaseRecord>($"v4/series/{id}/artworks?lang={language}&type={type}", cancellationToken);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@
         /// <returns>Series base record.</returns>
         public async Task<SeriesBaseRecord?> GetSeriesNextAiredAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeriesBaseRecord>($"v4/series/{id}/nextAired", cancellationToken);
+            return await GetFromJsonAsync<SeriesBaseRecord>($"v4/series/{id}/nextAired", cancellationToken);
         }
 
         /// <summary>
@@ -66,7 +66,7 @@
         /// <returns>Series extended record.</returns>
         public async Task<SeriesExtendedRecord?> GetSeriesExtendedAsync(long id, MetaSeries? meta = null, bool? shortVersion = null, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeriesExtendedRecord>($"v4/series/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
+            return await GetFromJsonAsync<SeriesExtendedRecord>($"v4/series/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
         }
 
         /// <summary>
@@ -91,7 +91,7 @@
                 param.Append($"&airDate={airDate}");
             }
             string par = param.ToString().TrimStart('&');
-            return await GetDataAsync<SeriesEpisodes>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}?{par}", cancellationToken);
+            return await GetFromJsonAsync<SeriesEpisodes>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}?{par}", cancellationToken);
         }
 
         /// <summary>
@@ -102,7 +102,7 @@
         /// <returns>Episode base record.</returns>
         public async Task<SeriesBaseRecord?> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeriesBaseRecord>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}/{language}", cancellationToken);
+            return await GetFromJsonAsync<SeriesBaseRecord>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}/{language}", cancellationToken);
         }
 
         /// <summary>
@@ -125,7 +125,7 @@
         /// <returns>Series base record.</returns>
         public async Task<SeriesBaseRecord?> GetSeriesSlugAsync(string slug, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<SeriesBaseRecord>($"v4/series/slug/{slug}", cancellationToken);
+            return await GetFromJsonAsync<SeriesBaseRecord>($"v4/series/slug/{slug}", cancellationToken);
         }
 
         /// <summary>
@@ -137,7 +137,7 @@
         /// <returns>Translation record.</returns>
         public async Task<Translation?> GetSeriesTranslationAsync(long id, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Translation>($"v4/series/{id}/translations/{language.Value()}", cancellationToken);
+            return await GetFromJsonAsync<Translation>($"v4/series/{id}/translations/{language.Value()}", cancellationToken);
         }
 
         /// <summary>
@@ -147,7 +147,7 @@
         /// <returns>List of status records</returns>
         public async Task<List<Status>?> GetSeriesStatusesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<Status>>($"v4/series/statuses", cancellationToken);
+            return await GetFromJsonAsync<List<Status>>($"v4/series/statuses", cancellationToken);
         }
     }
 }

@@ -30,7 +30,7 @@
         /// <returns>People base record.</returns>
         public async Task<PeopleBaseRecord?> GetPeopleAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<PeopleBaseRecord>($"v4/people/{id}", cancellationToken);
+            return await GetFromJsonAsync<PeopleBaseRecord>($"v4/people/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// <returns>People extended record.</returns>
         public async Task<PeopleExtendedRecord?> GetPeopleExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<PeopleExtendedRecord>($"v4/people/{id}/extended{BuildParam(meta)}", cancellationToken);
+            return await GetFromJsonAsync<PeopleExtendedRecord>($"v4/people/{id}/extended{BuildParam(meta)}", cancellationToken);
         }
 
         /// <summary>
@@ -53,7 +53,7 @@
         /// <returns>Translation record.</returns>
         public async Task<Translation?> GetPeopleTranslationAsync(long Id, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Translation>($"v4/people/{Id}/translations/{language.Value()}", cancellationToken);
+            return await GetFromJsonAsync<Translation>($"v4/people/{Id}/translations/{language.Value()}", cancellationToken);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@
         /// <returns>List of people type records</returns>
         public async Task<List<PeopleType>?> GetPeopleTypesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<PeopleType>>($"v4/people/types", cancellationToken);
+            return await GetFromJsonAsync<List<PeopleType>>($"v4/people/types", cancellationToken);
         }
     }
 }

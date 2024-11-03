@@ -9,7 +9,7 @@
         /// <returns>List of inspiration types records.</returns>
         public async Task<List<InspirationType>?> GetInspirationTypesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<InspirationType>>("v4/inspiration/types", cancellationToken);
+            return await GetFromJsonAsync<List<InspirationType>>("v4/inspiration/types", cancellationToken);
         }
     }
 }

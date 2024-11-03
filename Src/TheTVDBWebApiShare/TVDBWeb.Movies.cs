@@ -30,7 +30,7 @@
         /// <returns>Movie base record.</returns>
         public async Task<MovieBaseRecord?> GetMovieAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<MovieBaseRecord>($"v4/movies/{id}", cancellationToken);
+            return await GetFromJsonAsync<MovieBaseRecord>($"v4/movies/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// <returns>Movie extended record.</returns>
         public async Task<MovieExtendedRecord?> GetMovieExtendedAsync(long id, Meta? meta = null, bool? shortVersion = null, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<MovieExtendedRecord>($"v4/movies/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
+            return await GetFromJsonAsync<MovieExtendedRecord>($"v4/movies/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@
         /// <returns>Movie base record.</returns>
         public async Task<MovieBaseRecord?> GetMovieSlugAsync(string slug, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<MovieBaseRecord>($"v4/movies/slug/{slug}", cancellationToken);
+            return await GetFromJsonAsync<MovieBaseRecord>($"v4/movies/slug/{slug}", cancellationToken);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@
         /// <returns>Translation record.</returns>
         public async Task<Translation?> GetMovieTranslationAsync(long id, Languages language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Translation>($"v4/movies/{id}/translations/{language.Value()}", cancellationToken);
+            return await GetFromJsonAsync<Translation>($"v4/movies/{id}/translations/{language.Value()}", cancellationToken);
         }
 
         /// <summary>
@@ -85,7 +85,7 @@
         /// <returns>List of status records.</returns>
         public async Task<List<Status>?> GetMovieStatusesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<Status>>($"v4/movies/statuses", cancellationToken);
+            return await GetFromJsonAsync<List<Status>>($"v4/movies/statuses", cancellationToken);
         }
     }
 }

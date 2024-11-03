@@ -42,6 +42,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Internal\Converter\JsonEnumConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Internal\EnumMemberValue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RecordType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Internal\SourceGenerationContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Usings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Inspiration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\InspirationType.cs" />
@@ -119,7 +120,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Model\UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
     <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Model\Internal\" />
   </ItemGroup>
 </Project>

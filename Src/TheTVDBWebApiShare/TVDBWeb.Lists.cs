@@ -30,7 +30,7 @@
         /// <returns>List base record.</returns>
         public async Task<ListBaseRecord?> GetListAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<ListBaseRecord>($"v4/lists/{id}", cancellationToken);
+            return await GetFromJsonAsync<ListBaseRecord>($"v4/lists/{id}", cancellationToken);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@
         /// <returns>List base record.</returns>
         public async Task<ListBaseRecord?> GetListBySlugAsync(string slug, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<ListBaseRecord>($"v4/lists/slug/{slug}", cancellationToken);
+            return await GetFromJsonAsync<ListBaseRecord>($"v4/lists/slug/{slug}", cancellationToken);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@
         /// <returns>List extended record.</returns>
         public async Task<ListExtendedRecord?> GetListExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<ListExtendedRecord>($"v4/lists/{id}/extended", cancellationToken);
+            return await GetFromJsonAsync<ListExtendedRecord>($"v4/lists/{id}/extended", cancellationToken);
         }
 
         /// <summary>
@@ -63,7 +63,7 @@
         /// <returns>List translation record.</returns>
         public async Task<List<Translation>?> GetListTranslationAsync(long id, string language, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<Translation>>($"v4/lists/{id}/translations/{language}", cancellationToken);
+            return await GetFromJsonAsync<List<Translation>>($"v4/lists/{id}/translations/{language}", cancellationToken);
         }
     }
 }

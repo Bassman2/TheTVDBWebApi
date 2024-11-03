@@ -9,7 +9,7 @@
         /// <returns>List of the active entity types.</returns>
         public async Task<List<EntityType>?> GetEntitiesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<EntityType>>("v4/entities", cancellationToken);
+            return await GetFromJsonAsync<List<EntityType>>("v4/entities", cancellationToken);
         }
     }
 }

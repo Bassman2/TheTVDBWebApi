@@ -29,7 +29,7 @@
         /// <returns>List of company type records.</returns>
         public async Task<List<CompanyType>?> GetCompanyTypesAsync(CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<List<CompanyType>>("v4/companies/types", cancellationToken);
+            return await GetFromJsonAsync<List<CompanyType>>("v4/companies/types", cancellationToken);
         }
 
         /// <summary>
@@ -40,7 +40,7 @@
         /// <returns>Single company record.</returns>
         public async Task<Company?> GetCompanyAsync(long id, CancellationToken cancellationToken = default)
         {
-            return await GetDataAsync<Company>($"v4/companies/{id}", cancellationToken);
+            return await GetFromJsonAsync<Company>($"v4/companies/{id}", cancellationToken);
         }
     }
 }
