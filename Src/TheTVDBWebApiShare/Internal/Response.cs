@@ -6,27 +6,27 @@
         //public T Data { get; set; }
 
         [JsonPropertyName("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [JsonPropertyName("message")]
-        public string Message { get; set; }
+        public string? Message { get; set; }
 
         [JsonPropertyName("links")]
-        public Links Links { get; set; }
+        public Links? Links { get; set; }
     }
 
     internal class Response<T> where T : class
     {
         [JsonPropertyName("data")]
-        public T Data { get; set; }
+        public T? Data { get; set; }
 
         [JsonPropertyName("status")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [JsonPropertyName("message")]
-        public string Message { get; set; }
+        public string? Message { get; set; }
         
         [JsonPropertyName("links")]
-        public Links Links { get; set; }
+        public Links? Links { get; set; }
     }
 }

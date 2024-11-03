@@ -28,7 +28,7 @@
         /// <param name="id">Id of the people base record to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>People base record.</returns>
-        public async Task<PeopleBaseRecord> GetPeopleAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<PeopleBaseRecord?> GetPeopleAsync(long id, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<PeopleBaseRecord>($"v4/people/{id}", cancellationToken);
         }
@@ -39,7 +39,7 @@
         /// <param name="id">Id of the movie to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>People extended record.</returns>
-        public async Task<PeopleExtendedRecord> GetPeopleExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
+        public async Task<PeopleExtendedRecord?> GetPeopleExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<PeopleExtendedRecord>($"v4/people/{id}/extended{BuildParam(meta)}", cancellationToken);
         }
@@ -51,7 +51,7 @@
         /// <param name="language">Lanuage of the translations.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Translation record.</returns>
-        public async Task<Translation> GetPeopleTranslationAsync(long Id, Languages language, CancellationToken cancellationToken = default)
+        public async Task<Translation?> GetPeopleTranslationAsync(long Id, Languages language, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<Translation>($"v4/people/{Id}/translations/{language.Value()}", cancellationToken);
         }
@@ -61,7 +61,7 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of people type records</returns>
-        public async Task<List<PeopleType>> GetPeopleTypesAsync(CancellationToken cancellationToken = default)
+        public async Task<List<PeopleType>?> GetPeopleTypesAsync(CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<List<PeopleType>>($"v4/people/types", cancellationToken);
         }

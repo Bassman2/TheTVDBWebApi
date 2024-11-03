@@ -7,7 +7,7 @@
             this.Message = message;
         }
 
-        public TVDBException(HttpStatusCode statusCode, string status, string message)
+        public TVDBException(HttpStatusCode statusCode, string? status, string message)
         {
             this.StatusCode = statusCode;
             this.Status = status;
@@ -23,7 +23,7 @@
 
         public HttpStatusCode StatusCode { get; }
 
-        public string Status { get; }
+        public string? Status { get; }
 
         public override string Message { get; }
     }

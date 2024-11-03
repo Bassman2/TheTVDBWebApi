@@ -10,15 +10,15 @@ namespace TheTVDBWebApi
     /// <remarks>https://thetvdb.com/dashboard/account/apikey</remarks>
     public sealed partial class TVDBWeb : IDisposable
     {
-        private static readonly DateTime UnixTimeStart = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+        private static readonly DateTime UnixTimeStart = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
-        private readonly Uri host = new Uri("https://api4.thetvdb.com");
+        private readonly Uri host = new("https://api4.thetvdb.com");
         private readonly HttpClientHandler handler;
         private const int requestRepeat = 5;
         private const int requestWait = 200;
-        private HttpClient client;
-        private TVDBWebTokenContainer tokenContainer;
-        private readonly JsonSerializerOptions options = new JsonSerializerOptions() 
+        private HttpClient? client;
+        private readonly TVDBWebTokenContainer tokenContainer;
+        private readonly JsonSerializerOptions options = new() 
         {
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, 
             IncludeFields = false, 
@@ -37,7 +37,7 @@ namespace TheTVDBWebApi
         /// <summary>
         /// Constructor.
         /// </summary>
-        public TVDBWeb(TVDBWebTokenContainer tokenContainer = null)
+        public TVDBWeb(TVDBWebTokenContainer? tokenContainer = null)
         {
             // connect
             this.handler = new HttpClientHandler
@@ -63,7 +63,7 @@ namespace TheTVDBWebApi
         /// </summary>
         /// <param name="apikey">ApiKey for login</param>
         /// <param name="pin">Pin for login.</param>
-        public TVDBWeb(string apikey, string pin = null, TVDBWebTokenContainer tokenContainer = null) : this(tokenContainer) 
+        public TVDBWeb(string apikey, string? pin = null, TVDBWebTokenContainer? tokenContainer = null) : this(tokenContainer) 
         {
             LoginAsync(apikey, pin).Wait();
         }
@@ -87,98 +87,98 @@ namespace TheTVDBWebApi
         /// <param name="pin">PIN for login or null</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public async Task LoginAsync(string apikey, string pin = null, CancellationToken cancellationToken = default)
+        public async Task LoginAsync(string apikey, string? pin = null, CancellationToken cancellationToken = default)
         {
             LoginRequest req = new() { ApiKey = apikey, Pin = pin };
-            Response<LoginResponse> res = await PostAsync<LoginResponse, LoginRequest>("v4/login", req, cancellationToken);
-            this.tokenContainer.Token = res.Data.Token;
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Data.Token);
+            Response<LoginResponse>? res = await PostAsync<LoginResponse, LoginRequest>("v4/login", req, cancellationToken);
+            this.tokenContainer.Token = res!.Data!.Token!;
+            client!.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", res.Data.Token);
         }
 
         #region Private
 
-        private async Task<TRes> GetInternJsonAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
+        private async Task<TRes?> GetInternJsonAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string? memberName = "") where TRes : class
         {
             for (int i = 0; i < requestRepeat; i++)
             {
-                using (HttpResponseMessage res = await this.client.GetAsync(requestUri, cancellationToken))
-                {
-                    // OK
-                    if ((int)res.StatusCode >= 200 && (int)res.StatusCode < 300)
-                    {
-                        try
-                        {
-                            return await res.Content.ReadFromJsonAsync<TRes>(options, cancellationToken);
-                        }
-                        catch (JsonException ex)
-                        {
-                            DebugJsonException(ex, res, res.RequestMessage.RequestUri.ToString(), memberName);
-                            throw ex;
-                        }
-                    }
-                    
-                    // continue
-                    if ((int)res.StatusCode >= 500)
-                    {
-                        await Task.Delay(i * requestWait);
-                        continue;
-                    }
+                using HttpResponseMessage res = await this.client!.GetAsync(requestUri, cancellationToken);
 
-                    // error
-                    throw new TVDBException(res);
+                // OK
+                if ((int)res.StatusCode >= 200 && (int)res.StatusCode < 300)
+                {
+                    try
+                    {
+                        return await res.Content.ReadFromJsonAsync<TRes>(options, cancellationToken);
+                    }
+                    catch (JsonException ex)
+                    {
+                        DebugJsonException(ex, res, res.RequestMessage!.RequestUri!.ToString(), memberName);
+                        throw;
+                    }
                 }
+
+                // continue
+                if ((int)res.StatusCode >= 500)
+                {
+                    await Task.Delay(i * requestWait);
+                    continue;
+                }
+
+                // error
+                throw new TVDBException(res);
+
             }
             throw new TVDBException($"GetAsync({requestUri}) {requestRepeat} requests failed!");
         }
 
-        private async Task<Response<TRes>> PostInternJsonAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
+        private async Task<Response<TRes>?> PostInternJsonAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
         {
             for (int i = 0; i < requestRepeat; i++)
             {
-                using (HttpResponseMessage res = await this.client.PostAsJsonAsync(requestUri, value, this.options, cancellationToken))
+                using HttpResponseMessage res = await this.client!.PostAsJsonAsync(requestUri, value, this.options, cancellationToken);
+
+                // OK
+                if ((int)res.StatusCode >= 200 && (int)res.StatusCode < 300)
                 {
-                    // OK
-                    if ((int)res.StatusCode >= 200 && (int)res.StatusCode < 300)
+                    try
                     {
-                        try
-                        {
-                            return await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
-                        }
-                        catch (JsonException ex)
-                        {
-                            DebugJsonException(ex, res, res.RequestMessage.RequestUri.ToString(), memberName);
-                            throw ex;
-                        }
+                        return await res.Content.ReadFromJsonAsync<Response<TRes>>(options, cancellationToken);
                     }
-
-                    // continue
-                    if ((int)res.StatusCode >= 500)
+                    catch (JsonException ex)
                     {
-                        await Task.Delay(i * requestWait);
-                        continue;
+                        DebugJsonException(ex, res, res.RequestMessage?.RequestUri?.ToString(), memberName);
+                        throw;
                     }
-
-                    // error
-                    throw new TVDBException(res);
                 }
+
+                // continue
+                if ((int)res.StatusCode >= 500)
+                {
+                    await Task.Delay(i * requestWait);
+                    continue;
+                }
+
+                // error
+                throw new TVDBException(res);
+
             }
             throw new TVDBException($"PostAsJsonAsync({requestUri}) {requestRepeat} requests failed!");
         }
 
-        private async Task<Response<TRes>> PostAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
+        private async Task<Response<TRes>?> PostAsync<TRes, TReq>(string requestUri, TReq value, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
         {
             return await PostInternJsonAsync<TRes, TReq>(requestUri, value, cancellationToken, memberName);
         }
 
 
-        private async Task<TRes> GetDataAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
+        private async Task<TRes?> GetDataAsync<TRes>(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
         {
-            return (await GetInternJsonAsync<Response<TRes>>(requestUri, cancellationToken, memberName)).Data;
+            return (await GetInternJsonAsync<Response<TRes>>(requestUri, cancellationToken, memberName))?.Data;
         }
 
         private async Task<long> GetNumAsync(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "")
         {
-            return (await GetInternJsonAsync<Response>(requestUri, cancellationToken, memberName)).Links.TotalItems;
+            return (await GetInternJsonAsync<Response>(requestUri, cancellationToken, memberName))?.Links?.TotalItems ?? 0;
         }
 
         private async IAsyncEnumerable<TRes> GetYieldAsync<TRes>(string requestUri, [EnumeratorCancellation] CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
@@ -186,8 +186,8 @@ namespace TheTVDBWebApi
             while (!string.IsNullOrEmpty(requestUri))
             {
                 Debug.WriteLine($"GetYieldAsync {typeof(TRes).Name} {requestUri}");
-                Response<List<TRes>> resp = await GetInternJsonAsync<Response<List<TRes>>>(requestUri, cancellationToken, memberName);
-                foreach (TRes item in resp.Data)
+                Response<List<TRes>>? resp = await GetInternJsonAsync<Response<List<TRes>>>(requestUri, cancellationToken, memberName);
+                foreach (TRes item in resp!.Data!)
                 {
                     if (cancellationToken.IsCancellationRequested)
                     {
@@ -195,7 +195,7 @@ namespace TheTVDBWebApi
                     }
                     yield return item;
                 }
-                requestUri = resp.Links.Next;
+                requestUri = resp.Links!.Next!;
             }
         }
 
@@ -320,11 +320,11 @@ namespace TheTVDBWebApi
         }
         */
 
-        private void DebugJsonException(JsonException ex, HttpResponseMessage res, string url, string memberName)
+        private static void DebugJsonException(JsonException ex, HttpResponseMessage res, string? url, string? memberName)
         {
             string s = res.Content.ReadAsStringAsync().Result;
 
-            int prepos = Math.Max(0, (int)ex.BytePositionInLine - 30);
+            int prepos = Math.Max(0, (int)(ex.BytePositionInLine!) - 30);
             int preLen = (int)ex.BytePositionInLine - prepos;
             string x = s.Substring(prepos, preLen);
 

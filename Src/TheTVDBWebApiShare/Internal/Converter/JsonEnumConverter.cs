@@ -5,7 +5,7 @@
         private struct Item
         {
             public TEnum Value;
-            public string Name;
+            public string? Name;
         }
 
         private readonly IEnumerable<Item> items;
@@ -17,7 +17,7 @@
 
         public override TEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            string name = reader.GetString();
+            string? name = reader.GetString();
             return this.items.FirstOrDefault(i => i.Name == name).Value;
         }
 

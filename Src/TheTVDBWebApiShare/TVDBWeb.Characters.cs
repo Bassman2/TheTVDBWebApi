@@ -8,7 +8,7 @@
         /// <param name="id">Id of the character base record.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Character base record.</returns>
-        public async Task<Character> GetCharacterAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<Character?> GetCharacterAsync(long id, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<Character>($"v4/characters/{id}", cancellationToken);
         }

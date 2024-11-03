@@ -8,7 +8,7 @@
         /// <param name="id">Id of the artwork base record.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Single artwork base record.</returns>
-        public async Task<ArtworkBaseRecord> GetArtworkAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<ArtworkBaseRecord?> GetArtworkAsync(long id, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<ArtworkBaseRecord>($"v4/artwork/{id}", cancellationToken);
         }
@@ -19,7 +19,7 @@
         /// <param name="id">Id of the artwork extended record.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Single artwork extended record.</returns>
-        public async Task<ArtworkExtendedRecord> GetArtworkExtendedAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<ArtworkExtendedRecord?> GetArtworkExtendedAsync(long id, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<ArtworkExtendedRecord>($"v4/artwork/{id}/extended", cancellationToken);
         }
@@ -29,7 +29,7 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of artworkStatus records.</returns>
-        public async Task<List<ArtworkStatus>> GetArtworkStatusesAsync(CancellationToken cancellationToken = default)
+        public async Task<List<ArtworkStatus>?> GetArtworkStatusesAsync(CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<List<ArtworkStatus>>($"v4/artwork/statuses", cancellationToken);
         }
@@ -39,7 +39,7 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of artworkType records.</returns>
-        public async Task<List<ArtworkType>> GetArtworkTypesAsync(CancellationToken cancellationToken = default)
+        public async Task<List<ArtworkType>?> GetArtworkTypesAsync(CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<List<ArtworkType>>($"v4/artwork/types", cancellationToken);
         }

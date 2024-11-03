@@ -3,9 +3,9 @@
     internal class LoginRequest
     {
         [JsonPropertyName("apikey")]
-        public string ApiKey { get; set; }
+        public string? ApiKey { get; set; }
 
         [JsonPropertyName("Pin")]
-        public string Pin { get; set; }
+        public string? Pin { get; set; }
     }
 }

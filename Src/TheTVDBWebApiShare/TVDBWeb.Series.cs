@@ -28,7 +28,7 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Series base record.</returns>
-        public async Task<SeriesBaseRecord> GetSeriesAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<SeriesBaseRecord?> GetSeriesAsync(long id, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<SeriesBaseRecord>($"v4/series/{id}", cancellationToken);
         }
@@ -41,7 +41,7 @@
         /// <param name="type">Type of the artwork.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Series extended record.</returns>
-        public async Task<ArtworkBaseRecord> GetSeriesArtworkAsync(long id, Languages language, int type, CancellationToken cancellationToken = default)
+        public async Task<ArtworkBaseRecord?> GetSeriesArtworkAsync(long id, Languages language, int type, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<ArtworkBaseRecord>($"v4/series/{id}/artworks?lang={language}&type={type}", cancellationToken);
         }
@@ -53,7 +53,7 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Series base record.</returns>
-        public async Task<SeriesBaseRecord> GetSeriesNextAiredAsync(long id, CancellationToken cancellationToken = default)
+        public async Task<SeriesBaseRecord?> GetSeriesNextAiredAsync(long id, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<SeriesBaseRecord>($"v4/series/{id}/nextAired", cancellationToken);
         }
@@ -64,7 +64,7 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Series extended record.</returns>
-        public async Task<SeriesExtendedRecord> GetSeriesExtendedAsync(long id, MetaSeries? meta = null, bool? shortVersion = null, CancellationToken cancellationToken = default)
+        public async Task<SeriesExtendedRecord?> GetSeriesExtendedAsync(long id, MetaSeries? meta = null, bool? shortVersion = null, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<SeriesExtendedRecord>($"v4/series/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
         }
@@ -75,9 +75,9 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode base record.</returns>
-        public async Task<SeriesEpisodes> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, long? season, int? episodeNumber, string airDate, CancellationToken cancellationToken = default)
+        public async Task<SeriesEpisodes?> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, long? season, int? episodeNumber, string airDate, CancellationToken cancellationToken = default)
         {
-            StringBuilder param = new StringBuilder();
+            var param = new StringBuilder();
             if (season.HasValue)
             {
                 param.Append($"&season={season.Value}");
@@ -100,7 +100,7 @@
         /// <param name="id">Id of the series to get.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Episode base record.</returns>
-        public async Task<SeriesBaseRecord> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, Languages language, CancellationToken cancellationToken = default)
+        public async Task<SeriesBaseRecord?> GetSeriesEpisodesAsync(long id, SeasonTypeEnum seasonType, Languages language, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<SeriesBaseRecord>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}/{language}", cancellationToken);
         }
@@ -123,7 +123,7 @@
         /// <param name="slug">Slug to search for.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Series base record.</returns>
-        public async Task<SeriesBaseRecord> GetSeriesSlugAsync(string slug, CancellationToken cancellationToken = default)
+        public async Task<SeriesBaseRecord?> GetSeriesSlugAsync(string slug, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<SeriesBaseRecord>($"v4/series/slug/{slug}", cancellationToken);
         }
@@ -135,7 +135,7 @@
         /// <param name="language">Lanuage of the translations.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Translation record.</returns>
-        public async Task<Translation> GetSeriesTranslationAsync(long id, Languages language, CancellationToken cancellationToken = default)
+        public async Task<Translation?> GetSeriesTranslationAsync(long id, Languages language, CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<Translation>($"v4/series/{id}/translations/{language.Value()}", cancellationToken);
         }
@@ -145,7 +145,7 @@
         /// </summary>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>List of status records</returns>
-        public async Task<List<Status>> GetSeriesStatusesAsync(CancellationToken cancellationToken = default)
+        public async Task<List<Status>?> GetSeriesStatusesAsync(CancellationToken cancellationToken = default)
         {
             return await GetDataAsync<List<Status>>($"v4/series/statuses", cancellationToken);
         }

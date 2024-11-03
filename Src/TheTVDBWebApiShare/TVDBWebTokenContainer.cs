@@ -2,6 +2,6 @@
 {
     public class TVDBWebTokenContainer
     {
-        internal string Token { get; set; }
+        internal string? Token { get; set; }
     }
 }

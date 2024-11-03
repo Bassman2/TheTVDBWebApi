@@ -14,13 +14,13 @@
         {
             StringBuilder param = new();
             param.Append($"&since={ConvertToUnixTime(since)}");           
-            if (type.HasValue)
+            if (type != null)
             {
-                param.Append($"&type={type.ToString().ToLower()}");
+                param.Append($"&type={type?.ToString().ToLower()}");
             }
-            if (action.HasValue)
+            if (action != null)
             {
-                param.Append($"&action={action.ToString().ToLower()}");
+                param.Append($"&action={action?.ToString().ToLower()}");
             }
             string par = param.ToString().TrimStart('&');
             return await GetNumAsync($"v4/updates?{par}", cancellationToken);
@@ -40,11 +40,11 @@
             param.Append($"&since={ConvertToUnixTime(since)}");
             if (type.HasValue)
             {
-                param.Append($"&type={type.ToString().ToLower()}");
+                param.Append($"&type={type.ToString()!.ToLower()}");
             }
             if (action.HasValue)
             {
-                param.Append($"&action={action.ToString().ToLower()}");
+                param.Append($"&action={action.ToString()!.ToLower()}");
             }
             string par = param.ToString().TrimStart('&');
             return GetYieldAsync<MovieBaseRecord>($"v4/updates?{par}", cancellationToken);
