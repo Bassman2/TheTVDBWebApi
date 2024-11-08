@@ -44,7 +44,7 @@
         {
             //PostAsJson Async
             //await PostAsync<Favorites, Favorites>("v4/user/favorites", favorites, cancellationToken);
-            await PostAsJsonAsync<Favorites>("v4/user/favorites", favorites, cancellationToken);
+            await PostAsJsonAsync<Favorites, Favorites>("v4/user/favorites", favorites, cancellationToken);
         }
     }
 }

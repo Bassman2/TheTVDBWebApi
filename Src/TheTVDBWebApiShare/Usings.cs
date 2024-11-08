@@ -3,6 +3,7 @@ global using System.Collections.Generic;
 global using System.ComponentModel;
 global using System.Diagnostics;
 global using System.Globalization;
+global using System.IO;
 global using System.Net;
 global using System.Net.Http.Json;
 global using System.Net.Http.Headers;
