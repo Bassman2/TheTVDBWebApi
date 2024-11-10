@@ -9,6 +9,7 @@
     <Import_RootNamespace>TheTVDBWebApi</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Internal\TVDBWebService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\Alias.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ArtworkBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Model\ArtworkExtendedRecord.cs" />
