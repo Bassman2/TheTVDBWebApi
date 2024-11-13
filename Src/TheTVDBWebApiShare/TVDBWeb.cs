@@ -37,7 +37,7 @@ namespace TheTVDBWebApi
         /// Constructor.
         /// </summary>
 #if NET8_0_OR_GREATER
-        public TVDBWeb(string token) : base(new Uri(host), SourceGenerationContext.Default, new BearerAuthentication(token))
+        public TVDBWeb(string token) : base(new Uri(host), SourceGenerationContext.Default, new BearerAuthenticator(token))
 #else
         public TVDBWeb(string token) : base(new Uri(host), new BearerAuthentication(token))
 #endif
