@@ -8,57 +8,16 @@ namespace TheTVDBWebApi
     /// </summary>
     /// <remarks>https://thetvdb.github.io/v4-api</remarks>
     /// <remarks>https://thetvdb.com/dashboard/account/apikey</remarks>
-    public sealed partial class TVDBWeb : JsonService
+    /// <remarks>
+    /// Constructor.
+    /// </remarks>
+    public sealed partial class TVDBWeb(string token) : JsonService(new Uri(host), SourceGenerationContext.Default, new BearerAuthenticator(token))
     {
-
         private const string host = "https://api4.thetvdb.com";
-        //private readonly HttpClientHandler handler;
-        //private const int requestRepeat = 5;
-        //private const int requestWait = 200;
-        //private HttpClient? client;
-        //private readonly TVDBWebTokenContainer tokenContainer;
-        //private readonly JsonSerializerOptions options = new() 
-        //{
-        //    DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull, 
-        //    IncludeFields = false, 
-        //    Converters = 
-        //    {
-        //        new JsonEnumConverter<Languages>(),
-        //        new JsonEnumConverter<Countries>(),
-        //        new JsonEnumConverter<FinaleType>(),
-        //        new JsonEnumConverter<ContentType>(),
-        //        new JsonEnumConverter<RecordType>(),
-        //        new JsonNullableDateOnlyConverter(), 
-        //        new JsonNullableDateTimeConverter()
-        //    } 
-        //};
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-#if NET8_0_OR_GREATER
-        public TVDBWeb(string token) : base(new Uri(host), SourceGenerationContext.Default, new BearerAuthenticator(token))
-#else
-        public TVDBWeb(string token) : base(new Uri(host), new BearerAuthentication(token))
-#endif
+        protected override void TestAutentication()
         {
-            // connect
-            //this.handler = new HttpClientHandler
-            //{
-            //    CookieContainer = new System.Net.CookieContainer(),
-            //    UseCookies = true
-            //};
-            //this.client = new HttpClient(this.handler)
-            //{
-            //    BaseAddress = this.host,
-            //    //Timeout = new TimeSpan(0, 2, 0)
-            //};
-
-            //this.tokenContainer = tokenContainer ?? new TVDBWebTokenContainer();
-            //if (this.tokenContainer.Token != null)
-            //{
-            //    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.tokenContainer.Token);
-            //}
+            throw new NotImplementedException();
         }
 
         private async Task<long> GetNumAsync(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "")
