@@ -1,8 +1,7 @@
-﻿namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi;
+
+public enum UpdateAction
 {
-    public enum UpdateAction
-    {
-        delete, 
-        update
-    }
+    delete, 
+    update
 }

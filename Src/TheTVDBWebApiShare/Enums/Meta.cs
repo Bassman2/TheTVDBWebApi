@@ -1,7 +1,6 @@
-﻿namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi;
+
+public enum Meta
 {
-    public enum Meta
-    {
-        Translations
-    }
+    Translations
 }

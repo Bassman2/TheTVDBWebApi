@@ -1,8 +1,7 @@
-﻿namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi;
+
+public enum SortType
 {
-    public enum SortType
-    {
-        asc,
-        desc
-    }
+    asc,
+    desc
 }

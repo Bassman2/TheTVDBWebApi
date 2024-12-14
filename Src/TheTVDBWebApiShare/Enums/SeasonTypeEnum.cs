@@ -1,12 +1,11 @@
-﻿namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi;
+
+public enum SeasonTypeEnum
 {
-    public enum SeasonTypeEnum
-    {
-        Default,
-        Official,
-        DVD, 
-        Absolute,
-        Alternate,
-        Regional
-    }
+    Default,
+    Official,
+    DVD, 
+    Absolute,
+    Alternate,
+    Regional
 }

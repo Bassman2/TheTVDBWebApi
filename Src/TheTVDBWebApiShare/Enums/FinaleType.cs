@@ -1,14 +1,13 @@
-﻿namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi;
+
+public enum FinaleType
 {
-    public enum FinaleType
-    {
-        [EnumMember(Value = "season")]
-        Season,
+    [EnumMember(Value = "season")]
+    Season,
 
-        [EnumMember(Value = "midseason")]
-        MidSeason,
+    [EnumMember(Value = "midseason")]
+    MidSeason,
 
-        [EnumMember(Value = "series")]
-        Series
-    }
+    [EnumMember(Value = "series")]
+    Series
 }

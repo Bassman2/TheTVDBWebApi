@@ -1,13 +1,12 @@
-﻿namespace TheTVDBWebApi
-{
-    public enum ContentType
-    {
-        [EnumMember(Value = "episode")]
-        [Description("Episode")]
-        Episode,
+﻿namespace TheTVDBWebApi;
 
-        [EnumMember(Value = "movie")]
-        [Description("Movie")]
-        Movie,
-    }
+public enum ContentType
+{
+    [EnumMember(Value = "episode")]
+    [Description("Episode")]
+    Episode,
+
+    [EnumMember(Value = "movie")]
+    [Description("Movie")]
+    Movie,
 }

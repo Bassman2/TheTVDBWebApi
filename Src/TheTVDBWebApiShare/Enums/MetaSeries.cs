@@ -1,8 +1,7 @@
-﻿namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi;
+
+public enum MetaSeries
 {
-    public enum MetaSeries
-    {
-        Translations,
-        Episodes
-    }
+    Translations,
+    Episodes
 }

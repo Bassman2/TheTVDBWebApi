@@ -18,4 +18,6 @@ global using WebServiceClient;
 
 
 global using TheTVDBWebApi.Internal;
- 
+global using TheTVDBWebApi.Service;
+global using TheTVDBWebApi.Service.Model;
+
