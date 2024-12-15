@@ -1,10 +1,9 @@
 ﻿namespace TheTVDBWebApi.Service.Model;
 
-
 /// <summary>
 /// Artwork type record.
 /// </summary>
-public class ArtworkType
+internal class ArtworkTypeModel
 {
     /// <summary>
     /// Identifier of the artwork type.

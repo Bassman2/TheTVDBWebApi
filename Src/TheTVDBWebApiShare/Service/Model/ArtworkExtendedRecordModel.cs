@@ -4,7 +4,7 @@
 /// <summary>
 /// Extended artwork record.
 /// </summary>
-public class ArtworkExtendedRecord : ArtworkBaseRecord
+internal class ArtworkExtendedRecordModel : ArtworkBaseRecordModel
 {
     [JsonPropertyName("thumbnailWidth")]
     public long ThumbnailWidth { get; set; }
@@ -48,5 +48,5 @@ public class ArtworkExtendedRecord : ArtworkBaseRecord
     public ArtworkStatus? Status { get; set; }
 
     [JsonPropertyName("tagOptions")]
-    public List<TagOption>? TagOptions { get; set; }
+    public IEnumerable<TagOptionModel>? TagOptions { get; set; }
 }

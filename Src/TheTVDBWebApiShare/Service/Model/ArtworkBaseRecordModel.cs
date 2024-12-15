@@ -4,7 +4,7 @@
 /// <summary>
 /// Base artwork record.
 /// </summary>
-public class ArtworkBaseRecord
+internal class ArtworkBaseRecordModel
 {
     [JsonPropertyName("id")]
     public long Id { get; set; }

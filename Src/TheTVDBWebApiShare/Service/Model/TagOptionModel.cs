@@ -4,7 +4,7 @@
 /// <summary>
 /// Tag option record.
 /// </summary>
-public class TagOption
+internal class TagOptionModel
 {
     [JsonPropertyName("id")]
     public long Id { get; set; }       

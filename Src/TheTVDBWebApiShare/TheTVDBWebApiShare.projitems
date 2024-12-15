@@ -66,10 +66,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)SeriesExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SeriesFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\AliasModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkBaseRecord.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkExtendedRecord.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkStatus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkBaseRecordModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkExtendedRecordModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkStatusModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ArtworkTypeModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\AwardBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\AwardCategoryBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\AwardCategoryExtendedRecord.cs" />
@@ -151,7 +151,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\SourceType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\Status.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\StudioBaseRecord.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\TagOption.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\TagOptionModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\Trailer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\Translation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\TranslationExtended.cs" />

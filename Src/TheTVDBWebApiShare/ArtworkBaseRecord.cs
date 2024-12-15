@@ -5,35 +5,39 @@
     /// </summary>
     public class ArtworkBaseRecord
     {
-        [JsonPropertyName("id")]
-        public long Id { get; set; }
+        internal ArtworkBaseRecord(ArtworkBaseRecordModel model)
+        {
+            Id = model.Id;
+            Image = model.Image;
+            Thumbnail = model.Thumbnail;
+            Language = model.Language;
+            Type = model.Type;
+            Score = model.Score;
+            Width = model.Width;
+            Height = model.Height;
+            IncludesText = model.IncludesText;
+        }
 
-        [JsonPropertyName("image")]
-        public string? Image { get; set; }
+        public long Id { get; }
 
-        [JsonPropertyName("thumbnail")]
-        public string? Thumbnail { get; set; }
+        public string? Image { get; }
 
-        [JsonPropertyName("language")]
-        public Languages Language { get; set; }
+        public string? Thumbnail { get; }
+
+        public Languages Language { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>The artwork type corresponds to the ids from the /artwork/types endpoint.</remarks>
-        [JsonPropertyName("type")]
-        public long Type { get; set; }
+        public long Type { get; }
 
-        [JsonPropertyName("score")]
-        public double Score { get; set; }
+        public double Score { get; }
 
-        [JsonPropertyName("width")]
-        public long Width { get; set; }
+        public long Width { get; }
 
-        [JsonPropertyName("height")]
-        public long Height { get; set; }
+        public long Height { get; }
 
-        [JsonPropertyName("includesText")]
-        public bool IncludesText { get; set; }
+        public bool IncludesText { get; }
     }
 }

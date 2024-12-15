@@ -1,23 +1,26 @@
-﻿namespace TheTVDBWebApi
+﻿namespace TheTVDBWebApi;
+
+/// <summary>
+/// Tag option record.
+/// </summary>
+public class TagOption
 {
-    /// <summary>
-    /// Tag option record.
-    /// </summary>
-    public class TagOption
+    internal TagOption(TagOptionModel model)
     {
-        [JsonPropertyName("id")]
-        public long Id { get; set; }       
-
-        [JsonPropertyName("tag")]
-        public long Tag { get; set; }
-
-        [JsonPropertyName("tagName")]
-        public string? TagName { get; set; }
-
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
-
-        [JsonPropertyName("helpText")]
-        public string? HelpText { get; set; }
+        Id = model.Id;
+        Tag = model.Tag;
+        TagName = model.TagName;
+        Name = model.Name;
+        HelpText = model.HelpText;
     }
+
+    public long Id { get; set; }       
+
+    public long Tag { get; set; }
+
+    public string? TagName { get; set; }
+
+    public string? Name { get; set; }
+
+    public string? HelpText { get; set; }
 }

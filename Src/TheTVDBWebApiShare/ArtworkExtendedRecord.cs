@@ -5,48 +5,52 @@
     /// </summary>
     public class ArtworkExtendedRecord : ArtworkBaseRecord
     {
-        [JsonPropertyName("thumbnailWidth")]
-        public long ThumbnailWidth { get; set; }
+        internal ArtworkExtendedRecord(ArtworkExtendedRecordModel model) : base(model) 
+        {
+            ThumbnailWidth = model.ThumbnailWidth;
+            ThumbnailHeight = model.ThumbnailHeight;
+            UpdatedAt = model.UpdatedAt;
+            MovieId = model.MovieId;
+            SeriesId = model.SeriesId;
+            EpisodeId = model.EpisodeId;
+            NetworkId = model.NetworkId;
+            PeopleId = model.PeopleId;
+            SeasonId = model.SeasonId;
+            SeriesPeopleId = model.SeriesPeopleId;
+            Status = model.Status;
+            TagOptions = model.TagOptions.CastModel<TagOption>();
+        }
 
-        [JsonPropertyName("thumbnailHeight")]
-        public long ThumbnailHeight { get; set; }
+        public long ThumbnailWidth { get; }
 
-        [JsonPropertyName("updatedAt")]
-        public long UpdatedAt { get; set; }
+        public long ThumbnailHeight { get; }
+
+        public long UpdatedAt { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>Artwork for a movie only.</remarks>
-        [JsonPropertyName("movieId")]
-        public long MovieId { get; set; }
+        public long MovieId { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <remarks>Artwork for a series only.</remarks>
-        [JsonPropertyName("seriesId")]
-        public long SeriesId { get; set; }
+        public long SeriesId { get; }
 
-        [JsonPropertyName("episodeId")]
-        public long EpisodeId { get; set; }
+        public long EpisodeId { get; }
 
-        [JsonPropertyName("networkId")]
-        public long NetworkId { get; set; }
+        public long NetworkId { get; }
 
-        [JsonPropertyName("peopleId")]
-        public long PeopleId { get; set; }
+        public long PeopleId { get; }
 
-        [JsonPropertyName("seasonId")]
-        public long SeasonId { get; set; }
+        public long SeasonId { get; }
 
-        [JsonPropertyName("seriesPeopleId")]
-        public long SeriesPeopleId { get; set; }
+        public long SeriesPeopleId { get; }
 
-        [JsonPropertyName("status")]
-        public ArtworkStatus? Status { get; set; }
+        public ArtworkStatus? Status { get; }
 
-        [JsonPropertyName("tagOptions")]
-        public List<TagOption>? TagOptions { get; set; }
+        public IEnumerable<TagOption>? TagOptions { get; }
     }
 }

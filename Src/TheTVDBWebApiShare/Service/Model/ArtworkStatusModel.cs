@@ -4,7 +4,7 @@
 /// <summary>
 /// artwork status record
 /// </summary>
-public class ArtworkStatus
+internal class ArtworkStatusModel
 {
     /// <summary>
     /// Identifier of the artwork status.
