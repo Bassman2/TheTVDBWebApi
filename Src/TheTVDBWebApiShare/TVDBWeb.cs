@@ -35,40 +35,7 @@ public sealed partial class TVDBWeb : IDisposable
         }
         GC.SuppressFinalize(this);
     }
-
-    private static string BuildParam(Meta? meta, bool? shortVersion = null)
-    {
-        string parameter = string.Empty;
-        if (meta.HasValue)
-        {
-            parameter += (parameter.Contains('?') ? "&meta=" : "?meta=") + meta.Value.ToString().ToLower();
-        }
-        if (shortVersion.HasValue)
-        {
-            parameter += (parameter.Contains('?') ? "&short=" : "?short=") + (shortVersion.Value ? "true" : "false");
-        }
-        return parameter;
-    }
-
-    private static string BuildParam(MetaSeries? meta, bool? shortVersion = null)
-    {
-        string parameter = string.Empty;
-        if (meta.HasValue)
-        {
-            parameter += (parameter.Contains('?') ? "&meta=" : "?meta=") + meta.Value.ToString().ToLower();
-        }
-        if (shortVersion.HasValue)
-        {
-            parameter += (parameter.Contains('?') ? "&short=" : "?short=") + (shortVersion.Value ? "true" : "false");
-        }
-        return parameter;
-    }
-
-    private static int ConvertToUnixTime(DateTime dateTime)
-    {
-        DateTime UnixTimeStart = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        return (int)(dateTime - UnixTimeStart).TotalSeconds;
-    }
+       
 
     #region Artwork
 
