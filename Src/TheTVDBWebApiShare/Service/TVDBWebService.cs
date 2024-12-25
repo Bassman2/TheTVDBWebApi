@@ -298,7 +298,7 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>Episode base record.</returns>
     public async Task<EpisodeBaseRecord?> GetEpisodeAsync(long id, CancellationToken cancellationToken = default)
     {
-        return await GetFromJsonAsync<EpisodeBaseRecord>($"v4/episodes/{id}", cancellationToken);
+        var res = await GetFromJsonAsync<EpisodeBaseRecord>($"v4/episodes/{id}", cancellationToken);
         return res;
     }
 
@@ -420,7 +420,7 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>List of episodes base records.</returns>
     public IAsyncEnumerable<ListBaseRecord> GetListsAsync(CancellationToken cancellationToken = default)
     {
-        return GetYieldAsync<ListBaseRecord>("v4/lists", cancellationToken);
+        var res = GetYieldAsync<ListBaseRecord>("v4/lists", cancellationToken);
         return res;
     }
 
@@ -494,7 +494,7 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>List of movie base records.</returns>
     public IAsyncEnumerable<MovieBaseRecord> GetMoviesAsync(CancellationToken cancellationToken = default)
     {
-        return GetYieldAsync<MovieBaseRecord>("v4/movies", cancellationToken);
+        var res = GetYieldAsync<MovieBaseRecord>("v4/movies", cancellationToken);
         return res;
     }
 
@@ -768,7 +768,7 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>List of series base records.</returns>
     public IAsyncEnumerable<SeriesBaseRecord> GetSeriesAsync(CancellationToken cancellationToken = default)
     {
-        return GetYieldAsync<SeriesBaseRecord>($"v4/series", cancellationToken);
+        var res = GetYieldAsync<SeriesBaseRecord>($"v4/series", cancellationToken);
         return res;
     }
 

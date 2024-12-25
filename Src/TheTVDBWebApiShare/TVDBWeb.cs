@@ -167,7 +167,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = service.GetAwardExtendedAsync(id, cancellationToken);
+        var res = await service.GetAwardExtendedAsync(id, cancellationToken);
         return res;
     }
 
@@ -410,7 +410,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<Gender>>("v4/genders", cancellationToken);
+        var res = await service.GetGendersAsync(cancellationToken);
         return res;
     }
 
@@ -427,7 +427,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<GenreBaseRecord>>("v4/genres", cancellationToken);
+        var res = await service.GetGenresAsync(cancellationToken);
         return res;
     }
 
@@ -441,7 +441,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<GenreBaseRecord>($"v4/genres/{id}", cancellationToken);
+        var res = await service.GetGenreAsync(id, cancellationToken);
         return res;
     }
 
@@ -458,7 +458,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<InspirationType>>("v4/inspiration/types", cancellationToken);
+        var res = await service.GetInspirationTypesAsync(cancellationToken);
         return res;
     }
 
@@ -475,7 +475,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<Language>>("v4/languages", cancellationToken);
+        var res = await service.GetLanguagesAsync(cancellationToken);
         return res;
     }
 
@@ -492,7 +492,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetNumAsync("v4/lists", cancellationToken);
+        var res = await service.GetListsNumAsync(cancellationToken);
         return res;
     }
 
@@ -505,7 +505,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        return GetYieldAsync<ListBaseRecord>("v4/lists", cancellationToken);
+        var res = service.GetListsAsync(cancellationToken);
         return res;
     }
 
@@ -519,7 +519,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<ListBaseRecord>($"v4/lists/{id}", cancellationToken);
+        var res = await service.GetListAsync(id, cancellationToken);
         return res;
     }
 
@@ -533,7 +533,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<ListBaseRecord>($"v4/lists/slug/{slug}", cancellationToken);
+        var res = await service.GetListBySlugAsync(slug, cancellationToken);
         return res;
     }
 
@@ -547,7 +547,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<ListExtendedRecord>($"v4/lists/{id}/extended", cancellationToken);
+        var res = await service.GetListExtendedAsync(id, cancellationToken);
         return res;
     }
 
@@ -561,7 +561,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<Translation>>($"v4/lists/{id}/translations/{language}", cancellationToken);
+        var res = await service.GetListTranslationAsync(id, language, cancellationToken);
         return res;
     }
 
@@ -578,7 +578,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetNumAsync("v4/movies", cancellationToken);
+        var res = await service.GetMoviesNumAsync(cancellationToken);
         return res;
     }
 
@@ -591,7 +591,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        return GetYieldAsync<MovieBaseRecord>("v4/movies", cancellationToken);
+        var res = service.GetMoviesAsync(cancellationToken);
         return res;
     }
 
@@ -605,7 +605,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<MovieBaseRecord>($"v4/movies/{id}", cancellationToken);
+        var res = await service.GetMovieAsync(id, cancellationToken);
         return res;
     }
 
@@ -619,7 +619,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<MovieExtendedRecord>($"v4/movies/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
+        var res = await service.GetMovieExtendedAsync(id, meta, shortVersion, cancellationToken);
         return res;
     }
 
@@ -633,7 +633,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = GetYieldAsync<MovieBaseRecord>($"v4/movies/filter?{filter.Parameter}", cancellationToken);
+        var res = service.GetMoviesFilterAsync(filter, cancellationToken);
         return res;
     }
 
@@ -647,7 +647,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<MovieBaseRecord>($"v4/movies/slug/{slug}", cancellationToken);
+        var res = await service.GetMovieSlugAsync(slug, cancellationToken);
         return res;
     }
 
@@ -662,7 +662,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<Translation>($"v4/movies/{id}/translations/{language.Value()}", cancellationToken);
+        var res = await service.GetMovieTranslationAsync(id, language, cancellationToken);
         return res;
     }
 
@@ -675,7 +675,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<Status>>($"v4/movies/statuses", cancellationToken);
+        var res = await service.GetMovieStatusesAsync(cancellationToken);
         return res;
     }
 
@@ -692,7 +692,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetNumAsync("v4/people", cancellationToken);
+        var res = await service.GetPeoplesNumAsync(cancellationToken);
         return res;
     }
 
@@ -705,7 +705,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = GetYieldAsync<PeopleBaseRecord>("v4/people", cancellationToken);
+        var res = service.GetPeopleAsync(cancellationToken);
         return res;
     }
 
@@ -719,7 +719,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<PeopleBaseRecord>($"v4/people/{id}", cancellationToken);
+        var res = await service.GetPeopleAsync(id, cancellationToken);
         return res;
     }
 
@@ -733,7 +733,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<PeopleExtendedRecord>($"v4/people/{id}/extended{BuildParam(meta)}", cancellationToken);
+        var res = await service.GetPeopleExtendedAsync(id, meta, cancellationToken);
         return res;
     }
 
@@ -748,7 +748,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<Translation>($"v4/people/{Id}/translations/{language.Value()}", cancellationToken);
+        var res = await service.GetPeopleTranslationAsync(Id, language, cancellationToken);
         return res;
     }
 
@@ -761,7 +761,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<PeopleType>>($"v4/people/types", cancellationToken);
+        var res = await service.GetPeopleTypesAsync(cancellationToken);
         return res;
     }
 
@@ -779,7 +779,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = GetYieldAsync<SearchResult>($"v4/search?{filter.Parameter}", cancellationToken);
+        var res = service.GetSearchAsync(filter, cancellationToken);
         return res;
     }
 
@@ -793,7 +793,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<SearchByRemoteIdResult>>($"v4/search/remoteid/{remoteId}", cancellationToken);
+        var res = await service.GetSearchAsync(remoteId, cancellationToken);
         return res;
     }
 
@@ -810,7 +810,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetNumAsync("v4/seasons", cancellationToken);
+        var res = await service.GetSeasonsNumAsync(cancellationToken);
         return res;
     }
 
@@ -823,7 +823,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = GetYieldAsync<SeasonBaseRecord>($"v4/seasons", cancellationToken);
+        var res = service.GetSeasonsAsync(cancellationToken);
         return res;
     }
 
@@ -837,7 +837,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<SeasonBaseRecord>($"v4/seasons/{id}", cancellationToken);
+        var res = await service.GetSeasonAsync(id, cancellationToken);
         return res;
     }
 
@@ -851,7 +851,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.service.GetFromJsonAsync<SeasonExtendedRecord>($"v4/seasons/{id}/extended", cancellationToken);
+        var res = await service.GetSeasonExtendedAsync(id, cancellationToken);
         return res;
     }
 
@@ -864,7 +864,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.service.GetFromJsonAsync<List<SeasonType>>($"v4/seasons/types", cancellationToken);
+        var res = await service.GetSeasonTypesAsync(cancellationToken);
         return res;
     }
 
@@ -879,7 +879,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.service.GetFromJsonAsync<Translation>($"v4/seasons/{id}/translations/{language.Value()}", cancellationToken);
+        var res = await service.GetSeasonTranslationAsync(id, language, cancellationToken);
         return res;
     }
 
@@ -896,7 +896,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.service.GetNumAsync("v4/series", cancellationToken);
+        var res = await service.GetSeriesNumAsync(cancellationToken);
         return res;
     }
 
@@ -909,7 +909,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        return service.GetYieldAsync<SeriesBaseRecord>($"v4/series", cancellationToken);
+        var res = service.GetSeriesAsync(cancellationToken);
         return res;
     }
 
@@ -923,7 +923,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<SeriesBaseRecord>($"v4/series/{id}", cancellationToken);
+        var res = await service.GetSeriesAsync(id, cancellationToken);
         return res;
     }
 
@@ -939,7 +939,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<ArtworkBaseRecord>($"v4/series/{id}/artworks?lang={language}&type={type}", cancellationToken);
+        var res = await service.GetSeriesArtworkAsync(id, language, type, cancellationToken);
         return res;
     }
 
@@ -954,7 +954,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<SeriesBaseRecord>($"v4/series/{id}/nextAired", cancellationToken);
+        var res = await service.GetSeriesNextAiredAsync(id, cancellationToken);
         return res;
     }
 
@@ -968,7 +968,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<SeriesExtendedRecord>($"v4/series/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
+        var res = await service.GetSeriesExtendedAsync(id, meta, shortVersion, cancellationToken);
         return res;
     }
 
@@ -982,21 +982,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var param = new StringBuilder();
-        if (season.HasValue)
-        {
-            param.Append($"&season={season.Value}");
-        }
-        if (episodeNumber.HasValue)
-        {
-            param.Append($"&episodeNumber={episodeNumber.Value}");
-        }
-        if (!string.IsNullOrEmpty(airDate))
-        {
-            param.Append($"&airDate={airDate}");
-        }
-        string par = param.ToString().TrimStart('&');
-        var res = await service.GetFromJsonAsync<SeriesEpisodes>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}?{par}", cancellationToken);
+        var res = await service.GetSeriesEpisodesAsync(id, seasonType, season, episodeNumber, airDate, cancellationToken);
         return res;
 
     }
@@ -1011,7 +997,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<SeriesBaseRecord>($"v4/series/{id}/episodes/{seasonType.ToString().ToLower()}/{language}", cancellationToken);
+        var res = await service.GetSeriesEpisodesAsync(id, seasonType, language, cancellationToken);
         return res;
     }
 
@@ -1026,7 +1012,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = service.GetYieldAsync<SeriesBaseRecord>($"v4/series/filter?{filter.Parameter}", cancellationToken);
+        var res = service.GetSeriesFilterAsync(filter, cancellationToken);
         return res;
     }
 
@@ -1040,7 +1026,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await GetFromJsonAsync<SeriesBaseRecord>($"v4/series/slug/{slug}", cancellationToken);
+        var res = await service.GetSeriesSlugAsync(slug, cancellationToken);
         return res;
     }
 
@@ -1055,7 +1041,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<Translation>($"v4/series/{id}/translations/{language.Value()}", cancellationToken);
+        var res = await service.GetSeriesTranslationAsync(id, language, cancellationToken);
         return res;
     }
 
@@ -1068,7 +1054,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<Status>>($"v4/series/statuses", cancellationToken);
+        var res = await service.GetSeriesStatusesAsync(cancellationToken);
         return res;
     }
 
@@ -1085,7 +1071,7 @@ public sealed partial class TVDBWeb : IDisposable
     {
         WebServiceException.ThrowIfNullOrNotConnected(service);
 
-        var res = await service.GetFromJsonAsync<List<SourceType>>($"v4/sources/types", cancellationToken);
+        var res = await service.GetSourceTypesAsync(cancellationToken);
         return res;
     }
 
