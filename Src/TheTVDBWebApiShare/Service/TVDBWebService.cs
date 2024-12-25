@@ -4,17 +4,7 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
 {
     #region private
 
-    protected override void TestAutentication()
-    {
-        try
-        {
-            var _ = GetStringAsync("/rest/api/2/serverInfo", default).Result;
-        }
-        catch (Exception ex)
-        {
-            throw new AuthenticationException(ex.Message, ex);
-        }
-    }
+    protected override string? AuthenticationTestUrl => "/rest/api/2/serverInfo";
 
     //protected override async Task ErrorHandlingAsync(HttpResponseMessage response, string memberName, CancellationToken cancellationToken)
     //{
@@ -49,11 +39,11 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
         }
     }
 
-    private static int ConvertToUnixTime(DateTime dateTime)
-    {
-        DateTime UnixTimeStart = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-        return (int)(dateTime - UnixTimeStart).TotalSeconds;
-    }
+    //private static int ConvertToUnixTime(DateTime dateTime)
+    //{
+    //    DateTime UnixTimeStart = new(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+    //    return (int)(dateTime - UnixTimeStart).TotalSeconds;
+    //}
 
     #endregion
 
@@ -98,5 +88,136 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
         var res = await GetFromJsonAsync<IEnumerable<ArtworkTypeModel>>($"v4/artwork/types", cancellationToken);
         return res;
     }
+
+    #endregion
+
+    #region Awards
+
+    /// <summary>
+    /// Returns a list of award base records.
+    /// </summary>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>List of award base records.</returns>
+    public async Task<List<AwardBaseRecord>?> GetAwardsAsync(CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<List<AwardBaseRecord>>("v4/awards", cancellationToken);
+        return res;
+    }
+
+    /// <summary>
+    /// Returns a single award base record.
+    /// </summary>
+    /// <param name="id">Id of the award base record.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>Single award base record.</returns>
+    public async Task<AwardBaseRecord?> GetAwardAsync(long id, CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<AwardBaseRecord>($"v4/awards/{id}", cancellationToken);
+        return res;
+    }
+
+    /// <summary>
+    /// Returns a single award extended record.
+    /// </summary>
+    /// <param name="id">Id of the award extended record.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>Single award extended record.</returns>
+    public async Task<AwardExtendedRecord?> GetAwardExtendedAsync(long id, CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<AwardExtendedRecord>($"v4/awards/{id}/extended", cancellationToken);
+        return res;
+    }
+
+    /// <summary>
+    /// Returns a single award category base record.
+    /// </summary>
+    /// <param name="id">Id of the award category base record.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>Single award category base record.</returns>
+    public async Task<AwardCategoryBaseRecord?> GetAwardCategoryAsync(long id, CancellationToken cancellationToken)
+    {
+
+        var res = await GetFromJsonAsync<AwardCategoryBaseRecord>($"v4/awards/categories/{id}", cancellationToken);
+        return res;
+    }
+
+    /// <summary>
+    /// Returns a single award category extended record.
+    /// </summary>
+    /// <param name="id">Id of the award category extended record.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>Single award category extended record.</returns>
+    public async Task<AwardCategoryExtendedRecord?> GetAwardCategoryExtendedAsync(long id, CancellationToken cancellationToken)
+    {
+
+        var res = await GetFromJsonAsync<AwardCategoryExtendedRecord>($"v4/awards/categories/{id}/extended", cancellationToken);
+        return res;
+    }
+
+    #endregion
+
+    #region Characters
+
+    /// <summary>
+    /// Returns character base record.
+    /// </summary>
+    /// <param name="id">Id of the character base record.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>Character base record.</returns>
+    public async Task<Character?> GetCharacterAsync(long id, CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<Character>($"v4/characters/{id}", cancellationToken);
+        return res;
+    }
+
+    #endregion
+
+    #region Companies
+
+    /// <summary>
+    /// Returns number of companies.
+    /// </summary>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>Number of companies.</returns>
+    public async Task<long> GetCompaniesNumAsync(CancellationToken cancellationToken)
+    {
+        var res = await GetNumAsync("v4/companies", cancellationToken);
+        return res;
+    }
+
+    /// <summary>
+    /// Returns a list of company records.
+    /// </summary>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>List of company records.</returns>
+    public IAsyncEnumerable<Company> GetCompaniesAsync(CancellationToken cancellationToken)
+    {
+        var res = GetYieldAsync<Company>("v4/companies", cancellationToken);
+        return res;
+    }
+
+    /// <summary>
+    /// Returns all company type records.
+    /// </summary>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>List of company type records.</returns>
+    public async Task<List<CompanyType>?> GetCompanyTypesAsync(CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<List<CompanyType>>("v4/companies/types", cancellationToken);
+        return res;
+    }
+
+    /// <summary>
+    /// Returns a company record.
+    /// </summary>
+    /// <param name="id">Id of the character base record.</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>Single company record.</returns>
+    public async Task<Company?> GetCompanyAsync(long id, CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<Company>($"v4/companies/{id}", cancellationToken);
+        return res;
+    }
+
     #endregion
 }
