@@ -220,4 +220,34 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     }
 
     #endregion
+
+    #region Content
+
+    /// <summary>
+    /// Returns list content rating records.
+    /// </summary>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>List of content rating records.</returns>
+    public async Task<List<ContentRating>?> GetContentRatingsAsync(CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<List<ContentRating>>("v4/content/ratings", cancellationToken);
+        return res;
+    }
+
+    #endregion
+
+    #region Countries
+
+    /// <summary>
+    /// Returns list of country records.
+    /// </summary>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+    /// <returns>List of country records.</returns>
+    public async Task<List<Country>?> GetCountriesAsync(CancellationToken cancellationToken)
+    {
+        var res = await GetFromJsonAsync<List<Country>>("v4/countries", cancellationToken);
+        return res;
+    }
+
+    #endregion
 }
