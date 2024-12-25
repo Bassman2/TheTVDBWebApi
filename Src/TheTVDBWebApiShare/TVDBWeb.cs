@@ -1,6 +1,4 @@
-﻿using WebServiceClient;
-
-namespace TheTVDBWebApi;
+﻿namespace TheTVDBWebApi;
 
 /// <summary>
 /// The TVDB Web API class
