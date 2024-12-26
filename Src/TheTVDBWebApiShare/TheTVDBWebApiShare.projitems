@@ -96,7 +96,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\Gender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\GenreBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converter\JsonEnumConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\EnumMemberValue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RecordType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\SourceGenerationContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SourceType.cs" />
@@ -116,14 +115,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\Language.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Languages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\Links.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\LoginRequest.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\LoginResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ListBaseRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ListExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\Meta.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\MetaSeries.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\MovieBaseRecord.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service\Response.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ResponseModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\MovieExtendedRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\MoviesFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Model\ParentCompany.cs" />

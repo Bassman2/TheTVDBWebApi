@@ -1,6 +1,6 @@
 ﻿namespace TheTVDBWebApi.Internal
 {
-    internal class Response
+    internal class ResponseModel
     {
         //[JsonPropertyName("data")]
         //public T Data { get; set; }
@@ -15,7 +15,7 @@
         public Links? Links { get; set; }
     }
 
-    internal class Response<T> where T : class
+    internal class ResponseModel<T> where T : class
     {
         [JsonPropertyName("data")]
         public T? Data { get; set; }

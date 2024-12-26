@@ -1,4 +1,6 @@
-﻿namespace TheTVDBWebApi.Service;
+﻿using System.Globalization;
+
+namespace TheTVDBWebApi.Service;
 
 internal class TVDBWebService(Uri host, string apikey) : JsonService(host, SourceGenerationContext.Default, new BearerAuthenticator(apikey))
 {
@@ -18,7 +20,7 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
 
     private async Task<long> GetNumAsync(string requestUri, CancellationToken cancellationToken, [CallerMemberName] string memberName = "")
     {
-        return (await GetFromJsonAsync<Response>(requestUri, cancellationToken))?.Links?.TotalItems ?? 0;
+        return (await GetFromJsonAsync<ResponseModel>(requestUri, cancellationToken))?.Links?.TotalItems ?? 0;
     }
 
     private async IAsyncEnumerable<TRes> GetYieldAsync<TRes>(string requestUri, [EnumeratorCancellation] CancellationToken cancellationToken, [CallerMemberName] string memberName = "") where TRes : class
@@ -26,7 +28,7 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
         while (!string.IsNullOrEmpty(requestUri))
         {
             Debug.WriteLine($"GetYieldAsync {typeof(TRes).Name} {requestUri}");
-            Response<List<TRes>>? resp = await GetFromJsonAsync<Response<List<TRes>>>(requestUri, cancellationToken, memberName);
+            ResponseModel<List<TRes>>? resp = await GetFromJsonAsync<ResponseModel<List<TRes>>>(requestUri, cancellationToken, memberName);
             foreach (TRes item in resp!.Data!)
             {
                 if (cancellationToken.IsCancellationRequested)
@@ -338,7 +340,8 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>Movie extended record.</returns>
     public async Task<EpisodeExtendedRecord?> GetEpisodeExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
     {
-        var res = await GetFromJsonAsync<EpisodeExtendedRecord>($"v4/episodes/{id}/extended{BuildParam(meta)}", cancellationToken);
+        var req = CombineUrl($"v4/episodes/{id}/extended", ("meta", meta));
+        var res = await GetFromJsonAsync<EpisodeExtendedRecord>(req, cancellationToken);
         return res;
     }
 
@@ -546,7 +549,8 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>Movie extended record.</returns>
     public async Task<MovieExtendedRecord?> GetMovieExtendedAsync(long id, Meta? meta = null, bool? shortVersion = null, CancellationToken cancellationToken = default)
     {
-        var res = await GetFromJsonAsync<MovieExtendedRecord>($"v4/movies/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
+        var req = CombineUrl($"v4/movies/{id}/extended", ("meta", meta), ("short", shortVersion));
+        var res = await GetFromJsonAsync<MovieExtendedRecord>(req, cancellationToken);
         return res;
     }
 
@@ -644,7 +648,8 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>People extended record.</returns>
     public async Task<PeopleExtendedRecord?> GetPeopleExtendedAsync(long id, Meta? meta = null, CancellationToken cancellationToken = default)
     {
-        var res = await GetFromJsonAsync<PeopleExtendedRecord>($"v4/people/{id}/extended{BuildParam(meta)}", cancellationToken);
+        var req = CombineUrl($"v4/people/{id}/extended", ("meta", meta));
+        var res = await GetFromJsonAsync<PeopleExtendedRecord>(req, cancellationToken);
         return res;
     }
 
@@ -847,7 +852,8 @@ internal class TVDBWebService(Uri host, string apikey) : JsonService(host, Sourc
     /// <returns>Series extended record.</returns>
     public async Task<SeriesExtendedRecord?> GetSeriesExtendedAsync(long id, MetaSeries? meta = null, bool? shortVersion = null, CancellationToken cancellationToken = default)
     {
-        var res = await GetFromJsonAsync<SeriesExtendedRecord>($"v4/series/{id}/extended{BuildParam(meta, shortVersion)}", cancellationToken);
+        var req = CombineUrl($"v4/series/{id}/extended", ("meta", meta), ("short", shortVersion));
+        var res = await GetFromJsonAsync<SeriesExtendedRecord>(req, cancellationToken);
         return res;
     }
 
