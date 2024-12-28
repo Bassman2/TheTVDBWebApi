@@ -7,7 +7,7 @@
         {
             List<GenreBaseRecord> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetGenresAsync();
             }
@@ -161,7 +161,7 @@
         {
             GenreBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetGenreAsync(2);
             }

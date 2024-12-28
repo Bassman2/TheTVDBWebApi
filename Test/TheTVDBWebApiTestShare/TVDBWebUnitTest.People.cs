@@ -9,7 +9,7 @@
             IAsyncEnumerable<PeopleBaseRecord> res;
             List<PeopleBaseRecord> list;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 num = await client.GetPeoplesNumAsync();
                 res = client.GetPeopleAsync();
@@ -36,7 +36,7 @@
             long id = 247831;
             PeopleBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetPeopleAsync(id);
             }
@@ -56,7 +56,7 @@
             long id = 247831;
             PeopleExtendedRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetPeopleExtendedAsync(id);
             }
@@ -78,7 +78,7 @@
             Languages lang = Languages.English;
             Translation res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetPeopleTranslationAsync(id, lang);
             }
@@ -95,7 +95,7 @@
         {
             List<PeopleType> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetPeopleTypesAsync();
             }

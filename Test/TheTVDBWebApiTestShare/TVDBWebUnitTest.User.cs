@@ -7,7 +7,7 @@
         {
             UserInfo userInfo;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 userInfo = await client.GetUserInfoAsync();
             }
@@ -24,7 +24,7 @@
         {
             UserInfo userInfo;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 userInfo = await client.GetUserInfoAsync(97558);
             }
@@ -41,7 +41,7 @@
         {
             Favorites res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetUserFavoritesAsync();
             }
@@ -55,7 +55,7 @@
             Favorites favorites = new Favorites();
             favorites.Movies = new() { 1 }; 
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 await client.SetUserFavoritesAsync(favorites);
             }

@@ -10,7 +10,7 @@
             IAsyncEnumerable<MovieBaseRecord> res;
             List<MovieBaseRecord> list;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 num = await client.GetMoviesNumAsync();
                 res = client.GetMoviesAsync();
@@ -39,7 +39,7 @@
             long id = 1;
             MovieBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetMovieAsync(id);
             }
@@ -62,7 +62,7 @@
             long id = 1;
             MovieBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetMovieExtendedAsync(id);
             }
@@ -86,7 +86,7 @@
             Languages lang = Languages.English;
             Translation res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetMovieTranslationAsync(id, lang);
             }
@@ -105,7 +105,7 @@
             string slug = "alita-battle-angel";
             MovieBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetMovieSlugAsync(slug);
             }
@@ -127,7 +127,7 @@
         {
             List<Status> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetMovieStatusesAsync();
             }
@@ -169,7 +169,7 @@
 
             MoviesFilter filter = new MoviesFilter() { Country = Countries.USA, Language = Languages.English };
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = client.GetMoviesFilterAsync(filter);
                 list = await res.Take(5).ToListAsync();

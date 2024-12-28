@@ -11,7 +11,7 @@ namespace TheTVDBWebApiTest
             IAsyncEnumerable<SeriesBaseRecord> res;
             List<SeriesBaseRecord> list;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 num = await client.GetSeriesNumAsync();
                 res = client.GetSeriesAsync();
@@ -37,7 +37,7 @@ namespace TheTVDBWebApiTest
             long id = 70327;
             SeriesBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesAsync(id);
             }
@@ -56,7 +56,7 @@ namespace TheTVDBWebApiTest
             long id = 70327;
             SeriesExtendedRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesExtendedAsync(id);
             }
@@ -76,7 +76,7 @@ namespace TheTVDBWebApiTest
             long id = 70327;
             SeriesBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesSlugAsync(slug);
             }
@@ -97,7 +97,7 @@ namespace TheTVDBWebApiTest
             int type = 1;
             ArtworkBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesArtworkAsync(id, language, type);
             }
@@ -113,7 +113,7 @@ namespace TheTVDBWebApiTest
             long id = 70327;
             SeriesBaseRecord res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesNextAiredAsync(id);
             }
@@ -134,7 +134,7 @@ namespace TheTVDBWebApiTest
 
             SeriesEpisodes res;            
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesEpisodesAsync(id, seasonType, season, episodeNumber, airDate);
             }
@@ -152,7 +152,7 @@ namespace TheTVDBWebApiTest
 
             SeriesBaseRecord res;
  
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesEpisodesAsync(id, seasonType, language);
             }
@@ -168,7 +168,7 @@ namespace TheTVDBWebApiTest
             IAsyncEnumerable<SeriesBaseRecord> res;
             List<SeriesBaseRecord> list;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = client.GetSeriesFilterAsync(filter);
                 list = await res.Take(5).ToListAsync();
@@ -185,7 +185,7 @@ namespace TheTVDBWebApiTest
             Languages lang = Languages.German;
             Translation res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesTranslationAsync(id, lang);
             }
@@ -202,7 +202,7 @@ namespace TheTVDBWebApiTest
         {
             List<Status> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSeriesStatusesAsync();
             }

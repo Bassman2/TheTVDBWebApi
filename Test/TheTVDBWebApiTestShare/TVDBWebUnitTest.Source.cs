@@ -7,7 +7,7 @@
         {
             List<SourceType> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetSourceTypesAsync();
             }

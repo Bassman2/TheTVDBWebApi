@@ -11,7 +11,7 @@
             ArtworkBaseRecord artworkMovie;
             ArtworkBaseRecord artworkSeries;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 artworkMovie = await client.GetArtworkAsync(artworkMovieId);
                 artworkSeries = await client.GetArtworkAsync(artworkSeriesId);
@@ -48,7 +48,7 @@
 
 
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 artworkMovie = await client.GetArtworkExtendedAsync(artworkMovieId);
                 artworkSeries = await client.GetArtworkExtendedAsync(artworkSeriesId);
@@ -97,9 +97,9 @@
         {
             List<ArtworkStatus> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
-                res = await client.GetArtworkStatusesAsync();
+                res = (await client.GetArtworkStatusesAsync()).ToList();
             }
 
             Assert.IsNotNull(res);
@@ -121,9 +121,9 @@
         {
             List<ArtworkType> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
-                res = await client.GetArtworkTypesAsync();
+                res = (await client.GetArtworkTypesAsync()).ToList();
             }
 
             Assert.IsNotNull(res);

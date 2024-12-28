@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheTVDBWebApiTest
+﻿namespace TheTVDBWebApiTest
 {
     public partial class TVDBWebUnitTest
     {
@@ -13,7 +7,7 @@ namespace TheTVDBWebApiTest
         {
             List<Language> res;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 res = await client.GetLanguagesAsync();
             }

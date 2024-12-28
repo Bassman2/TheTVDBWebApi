@@ -15,7 +15,7 @@
             IAsyncEnumerable<MovieBaseRecord> res;
             List<MovieBaseRecord> list;
 
-            using (var client = new TVDBWeb(tokenContainer))
+            using (var client = new TVDBWeb(storeKey))
             {
                 num = await client.GetUpdatesNumAsync(since, type, action);
                 res = client.GetUpdatesAsync(since, type, action);

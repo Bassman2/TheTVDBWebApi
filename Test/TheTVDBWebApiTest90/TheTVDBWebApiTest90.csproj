@@ -1,12 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
+    <AssemblyName>TheTVDBWebApiTest</AssemblyName>
+    <RootNamespace>TheTVDBWebApiTest</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\TheTVDBWebApi60\TheTVDBWebApi60.csproj" />
+    <ProjectReference Include="..\..\Src\TheTVDBWebApi90\TheTVDBWebApi90.csproj" />
   </ItemGroup>
 
   <Import Project="..\TheTVDBWebApiTestShare\TheTVDBWebApiTestShare.projitems" Label="Shared" />
