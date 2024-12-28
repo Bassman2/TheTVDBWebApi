@@ -8,7 +8,7 @@
 
             Task.Run(async () =>
             {
-                using (var client = new TVDBWeb(MainViewModel.TokenContainer))
+                using (var client = new TVDBWeb("tvdb"))
                 {
                     this.EpisodeBaseRecord = await client.GetEpisodeAsync(record.Id);
                     this.EpisodeExtendedRecord = await client.GetEpisodeExtendedAsync(record.Id, Meta.Translations);

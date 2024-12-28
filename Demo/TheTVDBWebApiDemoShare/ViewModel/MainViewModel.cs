@@ -5,20 +5,16 @@ namespace TheTVDBWebApiDemo.ViewModel
 {
     public sealed partial class MainViewModel : AppViewModel, IDisposable
     {
-        public static TVDBWebTokenContainer TokenContainer { get; set; }
 
         private TVDBWeb client;
-        private string apiKey => Environment.GetEnvironmentVariable("API_KEY");
-        private string userKey => null; // Environment.GetEnvironmentVariable("USER_KEY");
 
         public MainViewModel()
         {
-            TokenContainer = new TVDBWebTokenContainer();
-            this.client = new TVDBWeb(TokenContainer);
-            Task.Run(async () =>
-            {
-                await client.LoginAsync(apiKey, userKey);
-            });
+            this.client = new TVDBWeb("tvdb");
+            //Task.Run(async () =>
+            //{
+            //    await client.LoginAsync(apiKey, userKey);
+            //});
         }
 
         public void Dispose()
@@ -35,9 +31,9 @@ namespace TheTVDBWebApiDemo.ViewModel
             Debug.WriteLine("++MainViewModel.OnStartup");
 
             await Task.WhenAll(
-                client.GetArtworkStatusesAsync().ContinueWith(items => this.ArtworkStatuses = items.Result),
-                client.GetArtworkTypesAsync().ContinueWith(items => this.ArtworkTypes = items.Result),
-                client.GetAwardsAsync().ContinueWith(items => this.Awards = items.Result),
+                client.GetArtworkStatusesAsync().ContinueWith(items => this.ArtworkStatuses = items.Result.ToList()),
+                client.GetArtworkTypesAsync().ContinueWith(items => this.ArtworkTypes = items.Result.ToList()),
+                client.GetAwardsAsync().ContinueWith(items => this.Awards = items.Result.ToList()),
                 client.GetCompanyTypesAsync().ContinueWith(items => this.CompanyTypes = items.Result),
                 client.GetContentRatingsAsync().ContinueWith(items => this.ContentRatings = items.Result),
                 client.GetCountriesAsync().ContinueWith(items => this.Countries = items.Result),
