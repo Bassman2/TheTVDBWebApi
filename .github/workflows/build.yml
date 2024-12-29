@@ -1,50 +1,73 @@
 name: Continuous Integration
 
-on: 
+on:
   push:
     branches: [main,]
   pull_request:
     branches: [main]
 
 jobs:
-  build:
-    name: Build
-    runs-on: windows-2022
+  buildWindows:
+    name: Windows Build
+    runs-on: windows-latest
     environment: sign
     env:
-      Solution: TheTVDBWebApi.sln
-      NugetSpc: TheTVDBWebApi.nuspec
-    strategy:
-      max-parallel: 2
-      matrix:
-        build_configuration: [Release, Debug]
-      
+      Solution: main/${{ github.event.repository.name }}.sln
+
     steps:
-    - name: Checkout
+    - name: Checkout Main
       uses: actions/checkout@v4
-
-    - name: Setup NuGet
-      uses: nuget/setup-nuget@v2
-
-#    - name: Add SignKeys
-#      uses: Bassman2/SignKey@v1
-#      with:
-#        file: Bassman.snk
-#        key: ${{ secrets.SIGNKEY }}
+      with:
+        path: main
         
+    - name: Checkout WebServiceClient
+      uses: actions/checkout@v4
+      with:
+        repository: Bassman2/WebServiceClient
+        path: WebServiceClient
+
+    - name: Add SignKeys
+      uses: Bassman2/SignKey@v1
+      with:
+        file: Bassman.snk
+        key: ${{ secrets.SIGNKEY }}
+
     - name: Install SHFB
       uses: Bassman2/setup-SHFB@v1
+      if: ${{ hashFiles( 'main/Doc/*/*.shfbproj' ) != '' }}
 
-    - name: Nuget restore dependencies
-      run: nuget restore $env:Solution
+    - name: Cache packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}
+        restore-keys: ${{ runner.os }}-nuget-
 
     - name: Dotnet restore dependencies
-      run: dotnet restore $env:Solution
+      run: dotnet restore ${{ env.Solution }}
 
-    - name: Dotnet build solution
-      run: dotnet build $env:Solution -c ${{ matrix.build_configuration }} -v minimal    
-        
-#    - name: Nuget pack nuspec
-#      if: matrix.build_configuration == 'Release'
-#      working-directory: .\Nuget\
-#      run: nuget pack $env:NugetSpc -properties Configuration=Release
+    - name: Build Debug
+      run: dotnet build ${{ env.Solution }} -c Debug --no-restore
+
+    - name: Build Release
+      run: dotnet build ${{ env.Solution }} -c Release --no-restore
+
+    - name: Nuget pack nuspec
+      working-directory: main/Nuget
+      run: nuget pack ${{ github.event.repository.name }}.nuspec -properties Configuration=Release
+      if: ${{ hashFiles( 'main/Nuget/*.nuspec' ) != '' }}
+
+    - name: Upload nuget pack artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ github.event.repository.name }}NugetPackage.zip
+        path: main/Nuget/*.nupkg
+      if: ${{ hashFiles( 'main/Nuget/*.nuspec' ) != '' }}
+
+    - name: Upload documentation artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ github.event.repository.name }}Doc.zip
+        path: main/Doc/${{ github.event.repository.name }}Doc/Help/${{ github.event.repository.name }}.chm
+      if: ${{ hashFiles( 'main/Doc/*/*.shfbproj' ) != '' }}
+ 
