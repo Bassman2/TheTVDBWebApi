@@ -9,7 +9,7 @@
             IAsyncEnumerable<EpisodeBaseRecord> res;
             List<EpisodeBaseRecord> list;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 num = await client.GetEpisodesNumAsync();
                 res = client.GetEpisodesAsync();
@@ -35,7 +35,7 @@
             long id = 2;
             EpisodeBaseRecord res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetEpisodeAsync(id);
             }
@@ -58,7 +58,7 @@
             long id = 2;
             EpisodeExtendedRecord res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetEpisodeExtendedAsync(id);
             }
@@ -82,7 +82,7 @@
             Languages lang = Languages.German;
             Translation res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetEpisodeTranslationAsync(id, lang);
             }

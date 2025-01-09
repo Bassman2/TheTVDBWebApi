@@ -9,7 +9,7 @@
             IAsyncEnumerable<SearchResult> res;
             List<SearchResult> list;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = client.GetSearchAsync(filter);
                 list = await res.Take(5).ToListAsync();
@@ -30,7 +30,7 @@
             string remoteId = "5";
             List<SearchByRemoteIdResult> res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetSearchAsync(remoteId);
             }

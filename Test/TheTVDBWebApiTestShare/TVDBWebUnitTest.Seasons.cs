@@ -9,7 +9,7 @@
             IAsyncEnumerable<SeasonBaseRecord> res;
             List<SeasonBaseRecord> list;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 num = await client.GetSeasonsNumAsync();
                 res = client.GetSeasonsAsync();
@@ -35,7 +35,7 @@
             long id = 10;
             SeasonBaseRecord res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetSeasonAsync(id);
             }
@@ -56,7 +56,7 @@
             long id = 10;
             SeasonExtendedRecord res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetSeasonExtendedAsync(id);
             }
@@ -78,7 +78,7 @@
             Languages lang = Languages.English;
             Translation res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetSeasonTranslationAsync(id, lang);
             }
@@ -95,7 +95,7 @@
         {
             List<SeasonType> res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetSeasonTypesAsync();
             }

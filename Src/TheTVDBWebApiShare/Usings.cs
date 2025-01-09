@@ -15,7 +15,7 @@ global using System.Text.Json.Serialization;
 global using System.Threading;
 
 global using WebServiceClient;
-
+global using WebServiceClient.Store;
 
 global using TheTVDBWebApi.Internal;
 global using TheTVDBWebApi.Service;

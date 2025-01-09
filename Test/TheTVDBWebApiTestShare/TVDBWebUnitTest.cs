@@ -5,6 +5,8 @@ namespace TheTVDBWebApiTest
     {
         protected const string storeKey = "tvdb";
 
+        protected const string appName = "UnitTest";
+
         //[ClassInitialize]
         //public static void ClassInitialize(TestContext context)
         //{

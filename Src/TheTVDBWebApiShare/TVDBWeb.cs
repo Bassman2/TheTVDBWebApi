@@ -13,17 +13,13 @@ public sealed partial class TVDBWeb : IDisposable
     //private const string host = "https://api4.thetvdb.com";
     private TVDBWebService? service;
 
-    public TVDBWeb(string storeKey)
-    {
-        var key = WebServiceClient.Store.KeyStore.Key(storeKey)!;
-        string host = key.Host!;
-        string token = key.Token!;
-        service = new(new Uri(host), token);
-    }
+    public TVDBWeb(string storeKey, string appName)
+       : this(new Uri(KeyStore.Key(storeKey)?.Host!), KeyStore.Key(storeKey)!.Token!, appName)
+    { }
 
-    public TVDBWeb(Uri uri, string apiKey)
+    public TVDBWeb(Uri host, string token, string appName)
     {
-        service = new(uri, apiKey);
+        service = new(host, new BearerAuthenticator(token), appName);
     }
 
     public void Dispose()

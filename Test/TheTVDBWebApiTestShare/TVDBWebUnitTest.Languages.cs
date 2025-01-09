@@ -7,7 +7,7 @@
         {
             List<Language> res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetLanguagesAsync();
             }

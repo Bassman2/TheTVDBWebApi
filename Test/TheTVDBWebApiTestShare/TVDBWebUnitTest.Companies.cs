@@ -9,7 +9,7 @@
             IAsyncEnumerable<Company> res;
             List<Company> list;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 num = await client.GetCompaniesNumAsync();
                 res = client.GetCompaniesAsync();
@@ -36,7 +36,7 @@
             long id = 1;
             Company res;
             
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetCompanyAsync(id);
             }
@@ -55,7 +55,7 @@
         {
             List<CompanyType> res;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 res = await client.GetCompanyTypesAsync();
             }

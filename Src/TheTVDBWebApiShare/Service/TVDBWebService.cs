@@ -1,8 +1,7 @@
-﻿using System.Globalization;
+﻿namespace TheTVDBWebApi.Service;
 
-namespace TheTVDBWebApi.Service;
-
-internal class TVDBWebService(Uri host, string apikey) : JsonService(host, SourceGenerationContext.Default, new BearerAuthenticator(apikey))
+internal class TVDBWebService(Uri host, IAuthenticator? authenticator, string appName)
+    : JsonService(host, authenticator, appName, SourceGenerationContext.Default)
 {
     #region private
 

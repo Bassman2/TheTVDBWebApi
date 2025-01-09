@@ -10,7 +10,7 @@
             Character movieCharacter;
             Character seriesCharacter;
 
-            using (var client = new TVDBWeb(storeKey))
+            using (var client = new TVDBWeb(storeKey, appName))
             {
                 movieCharacter = await client.GetCharacterAsync(movieCharacterId);
                 seriesCharacter = await client.GetCharacterAsync(seriesCharacterId);
