@@ -8,7 +8,7 @@
 
             Task.Run(async () =>
             {
-                using (var client = new TVDBWeb("tvdb"))
+                using (var client = new TVDBWeb("tvdb", "TheTVDBWebApiDemo"))
                 {
                     this.SeasonBaseRecord = await client.GetSeasonAsync(record.Id);
                     this.SeasonExtendedRecord = await client.GetSeasonExtendedAsync(record.Id);

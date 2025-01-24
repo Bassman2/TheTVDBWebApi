@@ -8,7 +8,7 @@
 
             Task.Run(async () =>
             {
-                using var client = new TVDBWeb("tvdb");
+                using var client = new TVDBWeb("tvdb", "TheTVDBWebApiDemo");
                 this.CompanyBaseRecord = await client.GetCompanyAsync(record.Id);
 
                 List<Languages> nameLang = this.CompanyBaseRecord.NameTranslations;

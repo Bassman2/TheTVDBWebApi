@@ -10,7 +10,7 @@ namespace TheTVDBWebApiDemo.ViewModel
 
         public MainViewModel()
         {
-            this.client = new TVDBWeb("tvdb");
+            this.client = new TVDBWeb("tvdb", "TheTVDBWebApiDemo");
             //Task.Run(async () =>
             //{
             //    await client.LoginAsync(apiKey, userKey);

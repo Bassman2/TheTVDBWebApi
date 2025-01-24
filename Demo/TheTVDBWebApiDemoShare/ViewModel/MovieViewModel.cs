@@ -10,7 +10,7 @@ namespace TheTVDBWebApiDemo.ViewModel
 
             Task.Run(async () =>
             {
-                using (var client = new TVDBWeb("tvdb"))
+                using (var client = new TVDBWeb("tvdb", "TheTVDBWebApiDemo"))
                 {
                     this.MovieBaseRecord = await client.GetMovieAsync(record.Id);
                     this.MovieExtendedRecord = await client.GetMovieExtendedAsync(record.Id, Meta.Translations, false);
