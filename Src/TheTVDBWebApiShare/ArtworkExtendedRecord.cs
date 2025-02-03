@@ -51,6 +51,6 @@
 
         public ArtworkStatus? Status { get; }
 
-        public IEnumerable<TagOption>? TagOptions { get; }
+        public List<TagOption>? TagOptions { get; }
     }
 }

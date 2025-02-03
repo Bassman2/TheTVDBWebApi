@@ -48,5 +48,5 @@ internal class ArtworkExtendedRecordModel : ArtworkBaseRecordModel
     public ArtworkStatus? Status { get; set; }
 
     [JsonPropertyName("tagOptions")]
-    public IEnumerable<TagOptionModel>? TagOptions { get; set; }
+    public List<TagOptionModel>? TagOptions { get; set; }
 }
