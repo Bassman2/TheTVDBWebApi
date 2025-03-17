@@ -9,6 +9,7 @@
     <IsTestProject>true</IsTestProject>
     <AssemblyName>TheTVDBWebApiTest</AssemblyName>
     <RootNamespace>TheTVDBWebApiTest</RootNamespace>
+    <Version>0.0.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

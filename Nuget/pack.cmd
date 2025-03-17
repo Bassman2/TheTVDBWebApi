@@ -1,0 +1,1 @@
+nuget pack TheTVDBWebApi.nuspec -properties Configuration=Release
