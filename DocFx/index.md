@@ -2,14 +2,14 @@
 _layout: landing
 ---
 
-## JenkinsWebApi 
+## TheTVDBWebApi 
 
-JenkinsWebApi is a .NET API for the Jenkins web service.	
+TheTVDBWebApi is a .NET API for the TheTVDB web service.	
 		
 ### Getting Started
 
 
-To get started, add the JenkinsWebApi package to your project.
+To get started, add the TheTVDBWebApi package to your project.
 
 
 
