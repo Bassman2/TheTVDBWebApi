@@ -4,7 +4,7 @@
     {
       "src": [
         {
-          "src": "../Src/JenkinsWebApi90",
+          "src": "../Src/TheTVDBWebApi90",
           "files": [ "**/*.csproj" ]
         }
       ],
@@ -30,8 +30,8 @@
     "globalMetadata": {
 	  "_appLogoPath": "images/bassman.svg",
 	  "_appFaviconPath": "images/bassman.ico",
-      "_appName": "JenkinsWebApi",
-      "_appTitle": "JenkinsWebApi",
+      "_appName": "TheTVDBWebApi",
+      "_appTitle": "TheTVDBWebApi",
 	  "_appFooter": "Copyright 2025 © by Ralf Beckers",
       "_enableSearch": true,
       "pdf": false
