@@ -1,21 +1,19 @@
 <Solution>
   <Folder Name="/Demo/">
+    <Project Path="Demo/TheTVDBWebApiDemo100/TheTVDBWebApiDemo100.csproj" />
     <Project Path="Demo/TheTVDBWebApiDemo80/TheTVDBWebApiDemo80.csproj" />
     <Project Path="Demo/TheTVDBWebApiDemo90/TheTVDBWebApiDemo90.csproj" />
     <Project Path="Demo/TheTVDBWebApiDemoShare/TheTVDBWebApiDemoShare.shproj" />
   </Folder>
-  <Folder Name="/Doc/">
-    <Project Path="Doc/TheTVDBWebApiDoc/TheTVDBWebApiDoc.shfbproj" Type="7cf6df6d-3b04-46f8-a40b-537d21bca0b4" Id="34fcebdc-e926-4ca2-b1f2-489816987629">
-      <Build Solution="Debug|*" Project="false" />
-    </Project>
-  </Folder>
   <Folder Name="/Src/">
     <Project Path="../WebServiceClient/Src/WebServiceClientShare/WebServiceClientShare.shproj" />
+    <Project Path="Src/TheTVDBWebApi100/TheTVDBWebApi100.csproj" />
     <Project Path="Src/TheTVDBWebApi80/TheTVDBWebApi80.csproj" />
     <Project Path="Src/TheTVDBWebApi90/TheTVDBWebApi90.csproj" />
     <Project Path="Src/TheTVDBWebApiShare/TheTVDBWebApiShare.shproj" />
   </Folder>
   <Folder Name="/Test/">
+    <Project Path="Test/TheTVDBWebApiTest100/TheTVDBWebApiTest100.csproj" />
     <Project Path="Test/TheTVDBWebApiTest80/TheTVDBWebApiTest80.csproj" />
     <Project Path="Test/TheTVDBWebApiTest90/TheTVDBWebApiTest90.csproj" />
     <Project Path="Test/TheTVDBWebApiTestShare/TheTVDBWebApiTestShare.shproj" />

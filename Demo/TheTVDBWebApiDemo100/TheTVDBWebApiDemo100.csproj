@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net9.0-windows7.0</TargetFramework>
+    <TargetFramework>net10.0-windows7.0</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
     <AssemblyName>TheTVDBWebApiDemo</AssemblyName>
@@ -21,12 +21,12 @@
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
-    <PackageReference Include="System.Linq.Async" Version="7.0.0" />
-    <PackageReference Include="System.Linq.Async.Queryable" Version="7.0.0" />
+    <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+    <PackageReference Include="System.Linq.Async.Queryable" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\TheTVDBWebApi90\TheTVDBWebApi90.csproj" />
+    <ProjectReference Include="..\..\Src\TheTVDBWebApi100\TheTVDBWebApi100.csproj" />
   </ItemGroup>
 
   <Import Project="..\TheTVDBWebApiDemoShare\TheTVDBWebApiDemoShare.projitems" Label="Shared" />

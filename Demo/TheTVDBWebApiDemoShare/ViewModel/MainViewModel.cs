@@ -50,13 +50,23 @@ namespace TheTVDBWebApiDemo.ViewModel
                 client.GetUserInfoAsync().ContinueWith(item => this.UserInfo = item.Result),
                 client.GetUserFavoritesAsync().ContinueWith(items => this.UserFavorites = items.Result),
 
-                client.GetCompaniesAsync().ForEachAsync(item => this.Companies.Add(item)),
+                //client.GetCompaniesAsync().ForEachAsync(item => this.Companies.Add(item)),
+                //client.GetEpisodesAsync().ForEachAsync(item => this.Episodes.Add(item)),
+                //client.GetListsAsync().ForEachAsync(item => this.Lists.Add(item)),
+                //client.GetMoviesAsync().ForEachAsync(item => this.Movies.Add(item)),
+                //client.GetPeopleAsync().ForEachAsync(item => this.People.Add(item)),
+                //client.GetSeasonsAsync().ForEachAsync(item => this.Seasons.Add(item)),
+                //client.GetSeriesAsync().ForEachAsync(item => this.Series.Add(item)),
+
+
+                client.GetCompaniesAsync().ForEachAsync(this.Companies.Add),
                 client.GetEpisodesAsync().ForEachAsync(item => this.Episodes.Add(item)),
                 client.GetListsAsync().ForEachAsync(item => this.Lists.Add(item)),
                 client.GetMoviesAsync().ForEachAsync(item => this.Movies.Add(item)),
                 client.GetPeopleAsync().ForEachAsync(item => this.People.Add(item)),
                 client.GetSeasonsAsync().ForEachAsync(item => this.Seasons.Add(item)),
-                client.GetSeriesAsync().ForEachAsync(item => this.Series.Add(item)));
+                client.GetSeriesAsync().ForEachAsync(item => this.Series.Add(item))
+                );
 
             Debug.WriteLine("--MainViewModel.OnStartup");
         }        

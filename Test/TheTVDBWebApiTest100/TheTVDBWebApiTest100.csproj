@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
 
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\TheTVDBWebApi90\TheTVDBWebApi90.csproj" />
+    <ProjectReference Include="..\..\Src\TheTVDBWebApi100\TheTVDBWebApi100.csproj" />
   </ItemGroup>
 
   <Import Project="..\TheTVDBWebApiTestShare\TheTVDBWebApiTestShare.projitems" Label="Shared" />
