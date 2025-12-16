@@ -5,6 +5,18 @@ internal class TVDBWebService(Uri host, IAuthenticator? authenticator, string ap
 {
     #region private
 
+    /// <summary>
+    /// Configures the provided <see cref="HttpClient"/> instance with specific default headers required for API requests.
+    /// This includes setting the User-Agent, Accept, and API version headers.
+    /// </summary>
+    /// <param name="client">The <see cref="HttpClient"/> to configure for GitHub API usage.</param>
+    /// <param name="appName">The name of the application, used as the User-Agent header value.</param>
+    protected override void InitializeClient(HttpClient client, string appName)
+    {
+        client.DefaultRequestHeaders.Add("User-Agent", appName);
+        client.DefaultRequestHeaders.Add("Accept", "application/json");
+    }
+
     protected override string? AuthenticationTestUrl => "/rest/api/2/serverInfo";
 
     //protected override async Task ErrorHandlingAsync(HttpResponseMessage response, string memberName, CancellationToken cancellationToken)
