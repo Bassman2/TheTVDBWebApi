@@ -13,7 +13,7 @@
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(570, res.Count, "Count");
+            Assert.HasCount(570, res, "Count");
 
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("ATP", res[0].Name, "Name0");

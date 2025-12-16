@@ -13,7 +13,7 @@
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(5, res.Count, "Count");
+            Assert.HasCount(5, res, "Count");
 
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("Historical Event", res[0].Name, "Name0");

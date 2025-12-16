@@ -13,7 +13,7 @@
             }
 
             Assert.IsNotNull(res, "res");
-            Assert.AreEqual(3, res.Count, "Count");
+            Assert.HasCount(3, res, "Count");
 
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("Male", res[0].Name, "Name0");

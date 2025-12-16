@@ -17,14 +17,14 @@
 
             }
 
-            Assert.IsTrue(num > 5558654, "num");
+            Assert.IsGreaterThan(5558654, num, "num");
 
             Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.HasCount(5, list, "Count");
 
             Assert.AreEqual(2, list[0].Id, "Id0");
             Assert.AreEqual(70327, list[0].SeriesId, "SeriesId0");
-            Assert.AreEqual(null, list[0].Name, "Name0");
+            Assert.IsNull(list[0].Name, "Name0");
             Assert.AreEqual(new DateOnly(1997, 03, 10), list[0].Aired, "Aired0");
             Assert.AreEqual(new DateTime(2023, 01, 07, 22, 22,27), list[0].LastUpdated, "LastUpdated0");
         }

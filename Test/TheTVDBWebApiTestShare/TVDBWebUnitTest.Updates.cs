@@ -23,10 +23,10 @@
 
             }
 
-            Assert.IsTrue(num > 100, "num");
+            Assert.IsGreaterThan(100, num, "num");
 
             Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.HasCount(5, list, "Count");
 
             //Assert.AreEqual(1, list[0].Id, "Id0");
             //Assert.AreEqual("Alita: Battle Angel", list[0].Name, "Name0");

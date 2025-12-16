@@ -17,7 +17,7 @@
             }
 
             Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.HasCount(5, list, "Count");
 
             Assert.AreEqual("Alita: Battle Angel", list[0].Name, "Name0");
             Assert.AreEqual("alita-battle-angel", list[0].Slug, "Slug0");
@@ -36,7 +36,7 @@
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(4, res.Count, "Count");
+            Assert.HasCount(4, res, "Count");
 
             Assert.IsNotNull(res[0], "res0");
  

@@ -16,10 +16,10 @@
                 list = await res.Take(5).ToListAsync();
             }
 
-            Assert.IsTrue(num > 331835, "num");
+            Assert.IsGreaterThan(331835, num, "num");
 
             Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.HasCount(5, list, "Count");
 
             Assert.AreEqual(247831, list[0].Id, "Id0");
             Assert.AreEqual("Michelle Fairley", list[0].Name, "Name0");
@@ -85,9 +85,9 @@
 
             Assert.IsNotNull(res, "res");
             Assert.AreEqual("Michelle Fairley", res.Name, "Name");
-            Assert.AreEqual(null, res.Overview, "Overview");
+            Assert.IsNull(res.Overview, "Overview");
             Assert.AreEqual(Languages.English, res.Language, "Language");
-            Assert.AreEqual(false, res.IsPrimary, "IsPrimary");
+            Assert.IsFalse(res.IsPrimary, "IsPrimary");
         }
 
         [TestMethod]
@@ -101,7 +101,7 @@
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(11, res.Count, "Count");
+            Assert.HasCount(11, res, "Count");
 
             Assert.AreEqual(3, res[0].Id, "Id0");
             Assert.AreEqual("Actor", res[0].Name, "Name0");

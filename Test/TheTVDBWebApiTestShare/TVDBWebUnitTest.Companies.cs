@@ -20,7 +20,7 @@
             Assert.AreEqual(47306, num, "num");
                         
             Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.HasCount(5, list, "Count");
 
             Assert.AreEqual(1, list[0].Id, "Id0");
             Assert.AreEqual("3sat", list[0].Name, "Name0");
@@ -61,7 +61,7 @@
             }
 
             Assert.IsNotNull(res, "res");
-            Assert.AreEqual(5, res.Count, "Count");
+            Assert.HasCount(5, res, "Count");
 
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("Network", res[0].Name, "Name0");

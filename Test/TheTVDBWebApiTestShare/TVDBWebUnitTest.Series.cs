@@ -19,10 +19,10 @@ namespace TheTVDBWebApiTest
 
             }
 
-            Assert.IsTrue(num > 139977, "num");
+            Assert.IsGreaterThan(139977, num, "num");
 
             Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.HasCount(5, list, "Count");
 
             Assert.AreEqual(70327, list[0].Id, "Id0");
             Assert.AreEqual("Buffy the Vampire Slayer", list[0].Name, "Name0");
@@ -175,7 +175,7 @@ namespace TheTVDBWebApiTest
             }
 
             Assert.IsNotNull(list, "list");
-            Assert.AreEqual(5, list.Count, "Count");
+            Assert.HasCount(5, list, "Count");
         }
 
         [TestMethod]
@@ -208,20 +208,20 @@ namespace TheTVDBWebApiTest
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(3, res.Count, "Count");
+            Assert.HasCount(3, res, "Count");
 
             Assert.AreEqual(1, res[0].Id, "Id0");
-            Assert.AreEqual(false, res[0].KeepUpdated, "KeepUpdated0");
+            Assert.IsFalse(res[0].KeepUpdated, "KeepUpdated0");
             Assert.AreEqual("Continuing", res[0].Name, "Name0");
             Assert.AreEqual(RecordType.Series, res[0].RecordType, "RecordType0");
 
             Assert.AreEqual(2, res[1].Id, "Id1");
-            Assert.AreEqual(false, res[1].KeepUpdated, "KeepUpdated1");
+            Assert.IsFalse(res[1].KeepUpdated, "KeepUpdated1");
             Assert.AreEqual("Ended", res[1].Name, "Name1");
             Assert.AreEqual(RecordType.Series, res[1].RecordType, "RecordType1");
 
             Assert.AreEqual(3, res[2].Id, "Id2");
-            Assert.AreEqual(false, res[2].KeepUpdated, "KeepUpdated2");
+            Assert.IsFalse(res[2].KeepUpdated, "KeepUpdated2");
             Assert.AreEqual("Upcoming", res[2].Name, "Name2");
             Assert.AreEqual(RecordType.Series, res[2].RecordType, "RecordType2");
         }

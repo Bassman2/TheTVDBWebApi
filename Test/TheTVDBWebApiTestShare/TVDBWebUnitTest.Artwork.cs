@@ -71,7 +71,7 @@
             Assert.AreEqual(1629795571, artworkMovie.UpdatedAt, "Movie UpdatedAt");
             Assert.AreEqual(1, artworkMovie.MovieId, "Movie MovieId");
             Assert.AreEqual(0, artworkMovie.Status.Id, "Movie Status Id");
-            Assert.AreEqual(null, artworkMovie.Status.Name, "Movie Height");
+            Assert.IsNull(artworkMovie.Status.Name, "Movie Height");
 
             // series
             Assert.IsNotNull(artworkSeries);
@@ -89,7 +89,7 @@
             Assert.AreEqual(1205892081, artworkSeries.UpdatedAt, "Movie UpdatedAt");
             Assert.AreEqual(70327, artworkSeries.SeriesId, "Series SeriesId");
             Assert.AreEqual(0, artworkSeries.Status.Id, "Movie Status Id");
-            Assert.AreEqual(null, artworkSeries.Status.Name, "Movie Height");
+            Assert.IsNull(artworkSeries.Status.Name, "Movie Height");
         }
 
         [TestMethod]
@@ -103,7 +103,7 @@
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(5, res.Count);
+            Assert.HasCount(5, res);
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("Low Quality", res[0].Name, "Name0");
             Assert.AreEqual(2, res[1].Id, "Id1");
@@ -127,7 +127,7 @@
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(24, res.Count);
+            Assert.HasCount(24, res);
 
             Assert.AreEqual(140, res[0].Height, "Height0");
             Assert.AreEqual(1, res[0].Id, "Id0");

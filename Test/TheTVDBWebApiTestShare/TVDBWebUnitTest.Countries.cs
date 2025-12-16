@@ -15,7 +15,7 @@ namespace TheTVDBWebApiTest
             }
 
             Assert.IsNotNull(res);
-            Assert.AreEqual(251, res.Count, "Count");
+            Assert.HasCount(251, res, "Count");
 
             Assert.AreEqual(Countries.Aruba, res[0].Id, "Id0");
             Assert.AreEqual("Aruba", res[0].Name, "Name0");

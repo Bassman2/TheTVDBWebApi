@@ -15,7 +15,7 @@ namespace TheTVDBWebApiTest
             }
 
             Assert.IsNotNull(res, "res");
-            Assert.AreEqual(19, res.Count, "Count");
+            Assert.HasCount(19, res, "Count");
 
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("Academy Awards", res[0].Name, "Name0");
@@ -105,13 +105,13 @@ namespace TheTVDBWebApiTest
             Assert.AreEqual("Academy Awards", res.Name, "Name");
 
             Assert.IsNotNull(res.Categories, "Categories");
-            Assert.AreEqual(33, res.Categories.Count, "CategoriesCount");
+            Assert.HasCount(33, res.Categories, "CategoriesCount");
 
             Assert.AreEqual(1, res.Categories[0].Id, "Id0");
             Assert.AreEqual("Best Picture", res.Categories[0].Name, "Name0");
-            Assert.AreEqual(false, res.Categories[0].AllowCoNominees, "AllowCoNominees0");
-            Assert.AreEqual(false, res.Categories[0].ForSeries, "ForSeries0");
-            Assert.AreEqual(true, res.Categories[0].ForMovies, "ForMovies0");
+            Assert.IsFalse(res.Categories[0].AllowCoNominees, "AllowCoNominees0");
+            Assert.IsFalse(res.Categories[0].ForSeries, "ForSeries0");
+            Assert.IsTrue(res.Categories[0].ForMovies, "ForMovies0");
             Assert.AreEqual(1, res.Categories[0].Award.Id, "AwardId0");
             Assert.AreEqual("Academy Awards", res.Categories[0].Award.Name, "AwardName0");
 
@@ -132,9 +132,9 @@ namespace TheTVDBWebApiTest
             Assert.IsNotNull(res, "res");
             Assert.AreEqual(1, res.Id, "Id");
             Assert.AreEqual("Best Picture", res.Name, "Name");
-            Assert.AreEqual(false, res.AllowCoNominees, "AllowCoNominees");
-            Assert.AreEqual(false, res.ForSeries, "ForSeries");
-            Assert.AreEqual(true, res.ForMovies, "ForMovies");
+            Assert.IsFalse(res.AllowCoNominees, "AllowCoNominees");
+            Assert.IsFalse(res.ForSeries, "ForSeries");
+            Assert.IsTrue(res.ForMovies, "ForMovies");
             Assert.AreEqual(1, res.Award.Id, "AwardId");
             Assert.AreEqual("Academy Awards", res.Award.Name, "AwardName");
         }
@@ -152,9 +152,9 @@ namespace TheTVDBWebApiTest
             Assert.IsNotNull(res, "res");
             Assert.AreEqual(1, res.Id, "Id");
             Assert.AreEqual("Best Picture", res.Name, "Name");
-            Assert.AreEqual(false, res.AllowCoNominees, "AllowCoNominees");
-            Assert.AreEqual(false, res.ForSeries, "ForSeries");
-            Assert.AreEqual(true, res.ForMovies, "ForMovies");
+            Assert.IsFalse(res.AllowCoNominees, "AllowCoNominees");
+            Assert.IsFalse(res.ForSeries, "ForSeries");
+            Assert.IsTrue(res.ForMovies, "ForMovies");
             Assert.AreEqual(1, res.Award.Id, "AwardId");
             Assert.AreEqual("Academy Awards", res.Award.Name, "AwardName");
         }

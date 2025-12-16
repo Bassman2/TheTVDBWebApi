@@ -13,7 +13,7 @@
             }
 
             Assert.IsNotNull(res, "res");
-            Assert.AreEqual(35, res.Count, "Count");
+            Assert.HasCount(35, res, "Count");
 
             Assert.AreEqual(1, res[0].Id, "Id0");
             Assert.AreEqual("Soap", res[0].Name, "Name0");

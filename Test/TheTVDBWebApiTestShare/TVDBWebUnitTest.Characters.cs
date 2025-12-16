@@ -31,9 +31,9 @@
             Assert.IsNull(movieCharacter.Series, "MovieCharacter Series");
 
             Assert.AreEqual(3, movieCharacter.Type, "MovieCharacter Type");
-            Assert.AreEqual(null, movieCharacter.Image, "MovieCharacter Image");
+            Assert.IsNull(movieCharacter.Image, "MovieCharacter Image");
             Assert.AreEqual(0, movieCharacter.Sort, "MovieCharacter Sort");
-            Assert.AreEqual(true, movieCharacter.IsFeatured, "MovieCharacter IsFeatured");
+            Assert.IsTrue(movieCharacter.IsFeatured, "MovieCharacter IsFeatured");
             Assert.AreEqual("https://thetvdb.com/people/247852-rose-leslie", movieCharacter.Url, "MovieCharacter Url");
             Assert.AreEqual("Actor", movieCharacter.PeopleType, "MovieCharacter PeopleType");
             Assert.AreEqual("Rose Leslie", movieCharacter.PersonName, "MovieCharacter PersonName");
@@ -56,7 +56,7 @@
             Assert.AreEqual(3, seriesCharacter.Type, "SeriesCharacter Type");
             Assert.AreEqual("https://artworks.thetvdb.com/banners/actors/62e51d7749e94.jpg", seriesCharacter.Image, "SeriesCharacter Image");
             Assert.AreEqual(1, seriesCharacter.Sort, "SeriesCharacter Sort");
-            Assert.AreEqual(true, seriesCharacter.IsFeatured, "SeriesCharacter IsFeatured");
+            Assert.IsTrue(seriesCharacter.IsFeatured, "SeriesCharacter IsFeatured");
             Assert.AreEqual("https://thetvdb.com/people/252097-sarah-michelle-gellar", seriesCharacter.Url, "SeriesCharacter Url");
             Assert.AreEqual("Actor", seriesCharacter.PeopleType, "SeriesCharacter PeopleType");
             Assert.AreEqual("Sarah Michelle Gellar", seriesCharacter.PersonName, "SeriesCharacter PersonName");
